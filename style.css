@@ -198,6 +198,30 @@ ul.custom-list li::before {
     font-size: 1.2rem;
 }
 
+.testimonials {
+    overflow: hidden; /* Oculta los comentarios que están fuera del contenedor */
+    position: relative; /* Permite posicionar los comentarios dentro del contenedor */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    height: 200px; /* Establece un alto mínimo para el contenedor */
+    padding: 1rem; /* Agrega un poco de relleno para mejorar la apariencia */
+}
+
+.testimonial {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    transition: left 0.5s ease-in-out;
+    background-color: #f9f9f900; /* Agrega un fondo para mejorar la legibilidad */
+    color: #ffffff; /* Asegúrate de que el texto sea visible */
+    padding: 1rem; /* Agrega un poco de relleno para mejorar la apariencia */
+}
+
+
+.testimonial.active {
+    left: 0; /* Muestra el comentario activo */
+}
+
 /* Sección "Inscripción" */
 .registration-section {
     text-align: center;

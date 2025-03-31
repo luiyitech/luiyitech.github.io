@@ -1,0 +1,273 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9; /* Fondo claro */
+}
+
+p, li {
+    font-size: 1.2rem;
+}
+
+/* Paleta de colores basada en la Policía de Entre Ríos */
+:root {
+    --primary-color: #003366; /* Azul oscuro institucional */
+    --secondary-color: #00509e; /* Azul intermedio */
+    --accent-color: #ffd700; /* Dorado */
+    --background-color: #f4f4f9; /* Fondo claro */
+    --text-color-light: #ffffff; /* Blanco */
+}
+
+/* Header */
+.header {
+    background-image: url('/img/huella\ digital.png'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6); /* Ajusta el opacado (opcional) */
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header h1 {
+    font-size: 2.4rem; /* Aumenta el tamaño de la fuente */
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Agrega sombra de texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+.header p {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Botón CTA */
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+}
+
+/* Estilos generales para secciones */
+section {
+    padding: 4rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.narrow {
+    max-width: 800px; /* Ancho máximo para el contenido central */
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Sección "Sobre el Congreso y Objetivos" en dos columnas */
+.about-section .two-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 2rem;
+}
+
+.about-section .two-columns h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Estilo de listas personalizadas */
+ul.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.custom-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    text-align: justify;
+}
+
+ul.custom-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #72cb10;
+    font-weight: bold;
+}
+
+/* Separación antes de la lista */
+.about-section .two-columns div:first-child p {
+    margin-bottom: 1.5rem; /* Agrega margen inferior */
+}
+
+/* Sección "Tópicos Principales" */
+
+.topics-section .container.narrow h2 {
+    color: #0971d8; /* Cambia el color del h2 en esta sección */
+}
+
+.topics-section {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 100%); /* Degradado radial negro */}
+
+.topics-section .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.topic-item {
+    background-color: var(--text-color-light);
+    color: #000000;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-item h3{
+    color:#00509e;
+}
+
+.topic-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.topic-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.topic-item p {
+    text-align: center;
+}
+
+/* Sección "Aprobación Social" */
+.social-proof-section {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.social-proof-section blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.social-proof-section p {
+    font-size: 1.2rem;
+}
+
+/* Sección "Inscripción" */
+.registration-section {
+    text-align: center;
+}
+
+.registration-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.registration-section .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer .social-icons {
+    margin-bottom: 1rem;
+}
+
+.footer .social-icons a {
+    color: var(--text-color-light);
+    font-size: 2.5rem !important;
+    margin: 0 1.5rem !important;
+    transition: transform 0.2s ease, color 0.2s ease !important;
+    display: inline-block !important; 
+
+}
+
+.footer .social-icons a:hover {
+    color: var(--accent-color) !important;
+    transform: scale(1.3) !important;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+
+    .topics-section .grid {
+        grid-template-columns: 1fr; /* Apilar en pantallas pequeñas */
+    }
+
+    .topic-item {
+        padding: 1.5rem;
+    }
+
+    .about-section .two-columns {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        gap: 1rem; /* Reducir el espacio entre columnas */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .about-section .two-columns {
+        padding: 1.5rem 1rem; /* Reducir el relleno en pantallas muy pequeñas */
+    }
+
+}

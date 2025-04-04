@@ -20,7 +20,7 @@ p, li {
 :root {
     --primary-color: #003366; /* Azul oscuro institucional */
     --secondary-color: #00509e; /* Azul intermedio */
-    --accent-color: #ffd700; /* Dorado */
+    --accent-color: #A827DF    ; /* Purpura */
     --background-color: #f4f4f9; /* Fondo claro */
     --text-color-light: #ffffff; /* Blanco */
 }
@@ -80,7 +80,7 @@ p, li {
     margin-top: 2rem;
     padding: 1rem 2rem;
     background-color: var(--accent-color);
-    color: var(--primary-color);
+    color: #F0EDF9    ;
     text-transform: uppercase;
     font-weight: bold;
     border-radius: 5px;

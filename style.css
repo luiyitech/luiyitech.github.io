@@ -42,10 +42,24 @@ p, li {
 }
 
 .header h1 {
-    font-size: 2.4rem;
+    font-size: 2rem; /* Aumenta el tamaño de la fuente */
+    font-family: 'Georgia', serif; /* Cambia la fuente */
+    font-weight: bold; /* Hace el texto más grueso */
     margin-bottom: 0.5rem;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Añade una sombra sutil */
+    letter-spacing: 1px; /* Añade espacio entre letras */
+    line-height: 1.2; /* Ajusta el espaciado entre líneas */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+.header h1::after {
+    content: "Avances y Desafíos en Ciencias Forenses"; /* Añade un subtítulo */
+    display: block;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-transform: none; /* Evita que el subtítulo esté en mayúsculas */
+    margin-top: 0.5rem;
+    letter-spacing: normal; /* Restablece el espaciado entre letras */
 }
 
 .header p {
@@ -206,11 +220,11 @@ ul.custom-list li::before {
 }
 
 .testimonials {
-    overflow: hidden; 
-    position: relative; 
-    width: 100%; 
-    height: 200px; 
-    padding: 1rem; 
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 200px; /* Cambiado a min-height */
+    padding: 1rem;
 }
 
 .testimonial {
@@ -219,14 +233,21 @@ ul.custom-list li::before {
     left: 100%;
     width: 100%;
     transition: left 0.5s ease-in-out;
-    background-color: #f9f9f900; 
-    color: #ffffff; 
-    padding: 1rem; 
+    background-color: #f9f9f900;
+    color: #ffffff;
+    padding: 1rem;
+    white-space: normal; /* Permite que el texto se ajuste al ancho del contenedor */
+    
 }
 
+.testimonial p {
+    margin-top: 5px;
+    max-width: 100%;
+    word-wrap: break-word;
+}
 
 .testimonial.active {
-    left: 0; 
+    left: 0;
 }
 
 /* Sección "Inscripción" */
@@ -273,8 +294,13 @@ ul.custom-list li::before {
 
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
+    .header {
+        padding: 2rem 1rem; /* Reduce el padding */
+        /* background-color: #f8f8f8; Eliminar si no se quiere cambiar el fondo */
+    }
+
     .header h1 {
-        font-size: 2.5rem;
+        font-size: 5vw; /* Escala el tamaño del h1 */
     }
 
     .header p {
@@ -294,11 +320,47 @@ ul.custom-list li::before {
         gap: 1rem; /* Reducir el espacio entre columnas */
     }
 
+    .header .logo {
+        max-width: 80%; /* Escala el logo */
+        height: auto;
+    }
+}
+
+@media (max-width: 590px) {
+    .testimonials {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        padding: 10px; /* Reduce el padding si es necesario */
+    }
+
+    .testimonial p {
+        font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+        margin-bottom: 10px; /* Ajusta márgenes para evitar cortes */
+    }
 }
 
 @media (max-width: 480px) {
+    .header {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .header .logo {
+        margin-bottom: 1rem; /* Agrega espacio debajo del logo */
+    }
+
     .about-section .two-columns {
         padding: 1.5rem 1rem; /* Reducir el relleno en pantallas muy pequeñas */
     }
 
-}
+    .testimonials {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        padding: 10px; /* Reduce el padding si es necesario */
+    }
+
+    .testimonial p {
+        font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+        margin-bottom: 10px; /* Ajusta márgenes para evitar cortes */
+    }
+
+    }
+    

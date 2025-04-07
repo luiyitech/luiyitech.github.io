@@ -345,6 +345,13 @@ blockquote p {
     }
 }
 
+@media (max-width: 590px) {
+    blockquote p {
+        font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+        margin-bottom: 10px; /* Ajusta márgenes para evitar cortes */
+    }
+}
+
 @media (max-width: 480px) {
     .header {
         flex-direction: column; /* Apila los elementos verticalmente */
@@ -370,4 +377,5 @@ blockquote p {
     }
 
     }
+
     

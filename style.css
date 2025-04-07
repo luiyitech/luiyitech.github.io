@@ -69,7 +69,7 @@ p, li {
 }
 
 .header .logo {
-    max-height: 350px; /* Reduce la altura máxima del logo */
+    max-height: 400px; /* Reduce la altura máxima del logo */
     /* o */
     max-width: 300x; /* Reduce el ancho máximo del logo */
 }

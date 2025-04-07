@@ -223,7 +223,7 @@ ul.custom-list li::before {
     overflow: hidden;
     position: relative;
     width: 100%;
-    min-height: 200px; /* Cambiado a min-height */
+    min-height: 200px; 
     padding: 1rem;
 }
 
@@ -236,8 +236,15 @@ ul.custom-list li::before {
     background-color: #f9f9f900;
     color: #ffffff;
     padding: 1rem;
-    white-space: normal; /* Permite que el texto se ajuste al ancho del contenedor */
-    
+    white-space: normal; 
+} 
+
+blockquote p {
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+    margin: 0; /* Elimina márgenes innecesarios */
+    word-wrap: break-word; /* Permite dividir palabras largas */
+    white-space: normal; /* Asegura que el texto se ajuste al ancho disponible */
+    overflow: visible; /* Evita recortes */
 }
 
 .testimonial p {
@@ -357,7 +364,7 @@ ul.custom-list li::before {
         padding: 10px; /* Reduce el padding si es necesario */
     }
 
-    .testimonial p {
+    blockquote p {
         font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
         margin-bottom: 10px; /* Ajusta márgenes para evitar cortes */
     }

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Testimonios
     const testimonials = document.querySelectorAll('.testimonial');
     let currentIndex = 0;
 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showTestimonial(currentIndex);
     setInterval(nextTestimonial, 7000); // Cambia el comentario cada 7 segundos
 
-    // Cuenta regresiva para la inscripción (¡ajusta la fecha límite!)
+    // Cuenta regresiva para la inscripción
     const countdownTarget = new Date('2025-10-15T08:00:00-03:00').getTime(); // Fecha y hora del congreso (hora de Argentina - Formato ISO 8601)
     const daysElement = document.getElementById('days');
     const hoursElement = document.getElementById('hours');
@@ -41,9 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.querySelector('.countdown-timer').innerHTML = `
-            Faltan <span>${days}</span> días <span>${hours.toString().padStart(2, '0')}</span> horas <span>${minutes.toString().padStart(2, '0')}</span> minutos <span>${seconds.toString().padStart(2, '0')}</span> seg
-        `;
+        daysElement.textContent = days.toString().padStart(2, '0');
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+        secondsElement.textContent = seconds.toString().padStart(2, '0');
     }
 
     updateCountdown(); // Ejecutar al cargar la página

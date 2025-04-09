@@ -394,97 +394,74 @@ blockquote p {
     margin-top: 2rem;
     text-align: center;
 }
-
-/* ------------------------------
-    SECCIÓN: INSCRIPCIÓN
------------------------------- */
-.registration-section {
-    text-align: center;
-    background-color: var(--primary-color);
-    padding: 4rem 1rem;
+/* Animación de CUPOS LIMITADOS */
+.alerta-cupos {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--background-color);
+    text-transform: uppercase;
+    animation: movimientoCupos 0.5s infinite ease-in-out;
+    margin-bottom: -1rem; /* Esto reduce el espacio con el botón */
+    margin-top: 1.5rem;
 }
 
-.registration-section .container.narrow h2 {
-    color: var(--text-color-light);
+/* Animación sutil de movimiento */
+@keyframes movimientoCupos {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
 }
 
-.registration-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: var(--text-color-light);
-}
-
-.registration-section .cta-button {
-    display: inline-block;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-/* ------------------------------
-    SECCIÓN: INSCRIPCIÓN
------------------------------- */
-.registration-section {
-    text-align: center;
-    background-color: var(--primary-color);
-    padding: 4rem 1rem;
-}
-
-.registration-section .container.narrow h2 {
-    color: var(--text-color-light);
-}
-
-.registration-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: var(--text-color-light);
-}
-
-.registration-section .cta-button {
-    display: inline-block;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-/* Estilos para el contador de cuenta regresiva (rectángulo rojo inicial) */
+/* Estilos para el contador de cuenta regresiva (estilo circular integrado) */
 .countdown-container {
     margin-bottom: 2rem;
     text-align: center;
-    padding: 0.5rem;
-    background-color: #d3220f; /* Rojo llamativo */
-    color: var(--text-color-light);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.countdown-message {
-    font-size: 1.5rem;
-    margin-bottom: 0.1rem;
-    font-weight: bold;
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
-.countdown-timer {
+.countdown-grid div {
+    display: grid;
+    place-items: center;
+}
+
+.countdown-grid p {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: #fff;
     font-size: 2rem;
     font-weight: bold;
+    display: grid;
+    place-items: center;
+    border: 2px solid #fff;
+    margin-bottom: 0.5rem;
 }
 
-.countdown-timer span {
-    background-color: rgba(17, 8, 8, 0.596); /* Fondo ligeramente transparente para los números */
-    padding: 0.2rem 0.4rem;
-    border-radius: 5px;
-    margin: 0 0.1rem;
+.countdown-grid span {
+    font-size: 1.2rem;
+    color: var(--text-color-light);
 }
 
-:root {
-    --primary-color: #003366;
-    --secondary-color: #00509e;
-    --accent-color: #A827DF;
-    --background-color: #f4f4f9;
-
-    /* Versiones RGB de tus colores (si las habías añadido, puedes dejarlas o quitarlas, no se usan en este estilo) */
-    --primary-color-rgb: 0, 51, 102;
-    --accent-color-rgb: 168, 39, 223;
-    --text-color-light: #ffffff;
+/* Mensaje final (opcional si querés mostrar al terminar) */
+.countdown-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color-light);
+    margin-top: 2rem;
+    display: block;
 }
+
 /* ------------------------------
    FOOTER
 ------------------------------ */

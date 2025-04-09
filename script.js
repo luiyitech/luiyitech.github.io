@@ -15,5 +15,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     showTestimonial(currentIndex);
-    setInterval(nextTestimonial, 7000); // Cambia el comentario cada 4 segundos
+    setInterval(nextTestimonial, 7000); // Cambia el comentario cada 7 segundos
+
+    // Cuenta regresiva para la inscripción (¡ajusta la fecha límite!)
+    const countdownTarget = new Date('2025-10-15T08:00:00-03:00').getTime(); // Fecha y hora del congreso (hora de Argentina - Formato ISO 8601)
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+    const countdownContainer = document.getElementById('countdown');
+    const registrationSection = document.getElementById('inscripcion'); // Para ocultar la cuenta regresiva al finalizar
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = countdownTarget - now;
+
+        if (difference < 0) {
+            clearInterval(countdownInterval);
+            countdownContainer.innerHTML = '<p class="countdown-message">¡El congreso ha comenzado!</p>';
+            return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.querySelector('.countdown-timer').innerHTML = `
+            Faltan <span>${days}</span> días <span>${hours.toString().padStart(2, '0')}</span> horas <span>${minutes.toString().padStart(2, '0')}</span> minutos <span>${seconds.toString().padStart(2, '0')}</span> seg
+        `;
+    }
+
+    updateCountdown(); // Ejecutar al cargar la página
+    const countdownInterval = setInterval(updateCountdown, 1000);
 });

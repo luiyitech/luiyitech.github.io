@@ -371,7 +371,7 @@ blockquote p {
 }
 
 /* ------------------------------
-   SECCIÓN: INSCRIPCIÓN
+    SECCIÓN: INSCRIPCIÓN
 ------------------------------ */
 .registration-section {
     text-align: center;
@@ -395,6 +395,96 @@ blockquote p {
     text-align: center;
 }
 
+/* ------------------------------
+    SECCIÓN: INSCRIPCIÓN
+------------------------------ */
+.registration-section {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 4rem 1rem;
+}
+
+.registration-section .container.narrow h2 {
+    color: var(--text-color-light);
+}
+
+.registration-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color-light);
+}
+
+.registration-section .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* ------------------------------
+    SECCIÓN: INSCRIPCIÓN
+------------------------------ */
+.registration-section {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 4rem 1rem;
+}
+
+.registration-section .container.narrow h2 {
+    color: var(--text-color-light);
+}
+
+.registration-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color-light);
+}
+
+.registration-section .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Estilos para el contador de cuenta regresiva (rectángulo rojo inicial) */
+.countdown-container {
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #d3220f; /* Rojo llamativo */
+    color: var(--text-color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-message {
+    font-size: 1.5rem;
+    margin-bottom: 0.1rem;
+    font-weight: bold;
+}
+
+.countdown-timer {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.countdown-timer span {
+    background-color: rgba(17, 8, 8, 0.596); /* Fondo ligeramente transparente para los números */
+    padding: 0.2rem 0.4rem;
+    border-radius: 5px;
+    margin: 0 0.1rem;
+}
+
+:root {
+    --primary-color: #003366;
+    --secondary-color: #00509e;
+    --accent-color: #A827DF;
+    --background-color: #f4f4f9;
+
+    /* Versiones RGB de tus colores (si las habías añadido, puedes dejarlas o quitarlas, no se usan en este estilo) */
+    --primary-color-rgb: 0, 51, 102;
+    --accent-color-rgb: 168, 39, 223;
+    --text-color-light: #ffffff;
+}
 /* ------------------------------
    FOOTER
 ------------------------------ */
@@ -423,7 +513,7 @@ blockquote p {
 }
 
 /* ------------------------------
-   MEDIA QUERIES (Responsividad)
+    MEDIA QUERIES (Responsividad)
 ------------------------------ */
 @media (max-width: 768px) {
     .header {
@@ -463,6 +553,21 @@ blockquote p {
     .container.narrow h2::after{
         display: none;
     }
+
+    /* Ajustes para el contador en pantallas medianas */
+    .countdown-message {
+        font-size: 1rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.5rem;
+        gap: 0.3rem;
+    }
+
+    .countdown-timer span {
+        min-width: 30px;
+        padding: 0.3rem;
+    }
 }
 
 @media (max-width: 590px) {
@@ -483,6 +588,21 @@ blockquote p {
 
     .social-proof-section h2::after {
         display: none;
+    }
+
+    /* Ajustes para el contador en pantallas pequeñas */
+    .countdown-message {
+        font-size: 0.9rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.2rem;
+        gap: 0.2rem;
+    }
+
+    .countdown-timer span {
+        min-width: 25px;
+        padding: 0.2rem;
     }
 }
 
@@ -517,6 +637,21 @@ blockquote p {
     .social-proof-section h2::after {
         display: none;
     }
+
+    /* Ajustes adicionales para el contador en pantallas muy pequeñas */
+    .countdown-message {
+        font-size: 0.8rem;
+    }
+
+    .countdown-timer {
+        font-size: 1rem;
+        gap: 0.1rem;
+    }
+
+    .countdown-timer span {
+        min-width: 20px;
+        padding: 0.1rem;
+    }
 }
 
 @media (max-width: 375px) {
@@ -531,5 +666,14 @@ blockquote p {
 
     .highlighted-title-topics::after {
         display: none;
+    }
+
+    /* Ajustes finales para el contador en pantallas aún más pequeñas */
+    .countdown-message {
+        font-size: 0.7rem;
+    }
+
+    .countdown-timer {
+        font-size: 0.9rem;
     }
 }

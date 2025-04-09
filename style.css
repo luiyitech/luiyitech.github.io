@@ -581,6 +581,22 @@ blockquote p {
         min-width: 25px;
         padding: 0.2rem;
     }
+
+    .countdown-grid {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+      }
+    
+      .countdown-grid p {
+        height: 70px;
+        width: 70px;
+        font-size: 1.4rem;
+      }
+    
+      .countdown-grid span {
+        font-size: 0.9rem;
+      }
 }
 
 @media (max-width: 480px) {
@@ -629,6 +645,22 @@ blockquote p {
         min-width: 20px;
         padding: 0.1rem;
     }
+
+    .countdown-grid {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+      }
+    
+      .countdown-grid p {
+        height: 70px;
+        width: 70px;
+        font-size: 1.4rem;
+      }
+    
+      .countdown-grid span {
+        font-size: 0.9rem;
+      }
 }
 
 @media (max-width: 375px) {
@@ -653,4 +685,20 @@ blockquote p {
     .countdown-timer {
         font-size: 0.9rem;
     }
+
+    .countdown-grid {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+      }
+    
+      .countdown-grid p {
+        height: 70px;
+        width: 70px;
+        font-size: 1.4rem;
+      }
+    
+      .countdown-grid span {
+        font-size: 0.9rem;
+      }
 }

@@ -368,7 +368,7 @@ ul.custom-list li::before {
   }
   
 /* ------------------------------
-   SECCIÓN: APROBACIÓN SOCIAL
+   SECCIÓN: COMENTARIOS DESTACADOS
 ------------------------------ */
 .social-proof-section {
     background-color: var(--background-color);
@@ -397,15 +397,31 @@ ul.custom-list li::before {
     border-radius: 5px;
 }
 
+/* Cita principal */
 .social-proof-section blockquote {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-style: italic;
     margin-bottom: 1rem;
-}
-
-.social-proof-section p {
-    font-size: 1.2rem;
-}
+    line-height: 1.5;
+    color: rgb(34, 33, 33);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  /* Firma del testimonio */
+  .social-proof-section .testimonial p {
+    font-size: 1rem;
+    color: rgb(34, 33, 33);
+    margin: 0;
+    font-weight: 500;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal;
+  }
 
 /* Testimonios animados */
 .testimonials {
@@ -665,14 +681,22 @@ blockquote p {
         justify-content: center;
       }
     
-      .countdown-grid p {
+    .countdown-grid p {
         height: 70px;
         width: 70px;
         font-size: 1.4rem;
       }
     
-      .countdown-grid span {
+    .countdown-grid span {
         font-size: 0.9rem;
+      }
+
+      social-proof-section blockquote {
+        font-size: 1.2rem;
+      }
+    
+      .social-proof-section .testimonial p {
+        font-size: 0.95rem;
       }
 }
 
@@ -738,6 +762,14 @@ blockquote p {
       .countdown-grid span {
         font-size: 0.9rem;
       }
+
+      social-proof-section blockquote {
+        font-size: 1.2rem;
+      }
+    
+      .social-proof-section .testimonial p {
+        font-size: 0.95rem;
+      }
 }
 
 @media (max-width: 375px) {
@@ -778,4 +810,21 @@ blockquote p {
       .countdown-grid span {
         font-size: 0.9rem;
       }
+
+  .social-proof-section blockquote p {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+    word-wrap: break-word;
+    white-space: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  .social-proof-section .testimonial p {
+    font-size: 0.85rem;
+    line-height: 1.1;
+    padding: 0 0.5rem;
+    word-wrap: break-word;
+    white-space: normal;
+  }
 }

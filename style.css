@@ -63,18 +63,14 @@ h2 {
    HEADER
 ------------------------------ */
 .header {
-    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    background-color: #1a237e;
+    background-color: var(--primary-color); /* o podés poner un color fijo como #1a237e */
     color: var(--text-color-light);
     text-align: center;
     padding: 3rem 1rem;
     position: relative;
     overflow: hidden;
-}
+  }
+  
 
 .header h1 {
     font-size: 2rem;

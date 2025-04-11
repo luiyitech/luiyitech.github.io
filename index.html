@@ -6,15 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IIº Congreso Internacional de Ciencias Forenses</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
 
 <body>
   <!-- Encabezado -->
   <header class="header">
-    <div class="container">
+    <div class="container" data-aos="fade-right">
       <img src="img/03 LOGO letras blancas para fondo de color.png" alt="Logo del Congreso" class="logo" />
       <h1>"Cuando la ciencia revela, la justicia prevalece"</h1>
       <a href="#inscripcion" class="cta-button">Inscríbete Ahora</a>
@@ -25,7 +23,7 @@
   <section id="sobre-congreso" class="about-section">
     <div class="container narrow">
       <h2 class="highlighted-title-topics">El Congreso que Marca Huella</h2>
-      <div class="two-columns">
+      <div class="two-columns" data-aos="fade-right">
         <div>
           <h3>¿Por Qué Este Congreso Es Imperdible?</h3>
           <p>
@@ -33,15 +31,15 @@
             que reúne a expertos nacionales e internacionales para compartir
             avances en investigación criminal y ciencias forenses.
           </p>
-          <ul class="custom-list">
+          <ul class="custom-list" data-aos="fade-right">
             <li>Fecha: 15, 16 y 17 de octubre de 2025</li>
             <li>Lugar: Centro Provincial de Convenciones, Paraná, Entre Ríos</li>
             <li>Horario: 08:00 - 20:00</li>
           </ul>
         </div>
         <div>
-          <h3>Metas que Transforman la Práctica Forense</h3>
-          <ul class="custom-list">
+          <h3 data-aos="fade-left">Metas que Transforman la Práctica Forense</h3>
+          <ul class="custom-list" data-aos="fade-left">
             <li>Compartir conocimientos teóricos y prácticos sobre ciencias forenses.</li>
             <li>Demostrar técnicas avanzadas para reconstruir investigaciones criminales.</li>
             <li>Debatir sobre desafíos actuales como narcotráfico y cyberdelitos.</li>
@@ -54,7 +52,7 @@
   
   <!-- Áreas Clave del Congreso -->
 <section class="topics-section">
-  <div class="container narrow">
+  <div class="container narrow" data-aos="flip-up">
     <h2 class="highlighted-title-topics">Áreas Clave del Congreso</h2>
     <p class="topics-intro">Estas son las disciplinas fundamentales que se abordarán durante el evento.</p>
 
@@ -132,14 +130,11 @@
       </div>
     </div>
   </div>
-</section>
-
-
-  
+</section>  
 
   <!-- Aprobación Social -->
 <section id="aprobacion-social" class="social-proof-section">
-  <div class="container narrow">
+  <div class="container narrow" data-aos="fade-right">
     <h2>Comentarios Destacados:</h2>
     <div class="testimonials">
 
@@ -187,10 +182,9 @@
   </div>
 </section>
 
-
- <!-- Inscripción -->
+<!-- Inscripción -->
 <section id="inscripcion" class="registration-section">
-  <div class="container narrow">
+  <div class="container narrow" data-aos="fade-left">
     <h2>Inscripción</h2>
     
     
@@ -238,6 +232,12 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- AOS JS (animacion de pagina)-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 
 </html>

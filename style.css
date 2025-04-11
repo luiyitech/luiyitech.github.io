@@ -202,6 +202,7 @@ ul.custom-list li::before {
 ------------------------------ */
 .topics-section {
     background: var(--primary-color);
+    overflow-x: clip;
   }
   
   .topics-section .container.narrow {
@@ -212,7 +213,6 @@ ul.custom-list li::before {
     color: var(--background-color);
   }
   
-  /* Título subrayado tipo pincel (blanco) */
   .highlighted-title-topics {
     position: relative;
     display: inline-block;
@@ -240,7 +240,6 @@ ul.custom-list li::before {
     border-radius: 5px;
   }
   
-  /* Intro de los tópicos */
   .topics-intro {
     text-align: center;
     font-size: 1.1rem;
@@ -251,10 +250,15 @@ ul.custom-list li::before {
     margin-right: auto;
   }
   
-/* ------------------------------
-   FLIP CARDS - ÁREAS CLAVE CON FONDO (100% FUNCIONAL)
------------------------------- */
-.flip-grid {
+  /* ------------------------------
+     FLIP CARDS
+  ------------------------------ */
+  .flip-grid-wrapper {
+    overflow-x: clip;
+    width: 100%;
+  }
+  
+  .flip-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
@@ -264,6 +268,8 @@ ul.custom-list li::before {
   .flip-card {
     perspective: 1000px;
     width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
   }
   
   .flip-inner {
@@ -272,6 +278,9 @@ ul.custom-list li::before {
     height: 240px;
     transform-style: preserve-3d;
     transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
+    will-change: transform;
+    contain: layout style;
   }
   
   .flip-card:hover .flip-inner {
@@ -292,16 +301,16 @@ ul.custom-list li::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
   }
   
-  /* Frente con imagen y degradado */
+  /* Frente */
   .flip-front {
+    transform: rotateY(0deg);
     background-size: cover;
     background-position: center;
-    overflow: hidden;
     color: #fff;
     z-index: 1;
+    overflow: hidden;
   }
   
   .flip-front::before {
@@ -316,30 +325,27 @@ ul.custom-list li::before {
   .flip-front p {
     position: relative;
     z-index: 1;
-    color: #fff;
+    text-align: center;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
   }
   
   /* Dorso */
   .flip-back {
-    font-family: 'Georgia', serif;
     transform: rotateY(180deg);
     background: radial-gradient(circle, #ffffff 60%, #bebcbc 100%);
-    color: #111; /* Texto negro */
+    color: #111;
+    font-family: 'Georgia', serif;
     font-size: 1.05rem;
     text-align: center;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); /* Mantenemos la sombra fuerte */
-    padding: 1.5rem;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     line-height: 1.4;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    z-index: 2;
   }
   
-  
-  /* Imágenes de fondo por tarjeta */
+  /* ------------------------------
+     FONDOS DE LAS TARJETAS POR ÁREA
+  ------------------------------ */
   .area-accidentologia .flip-front {
     background-image: url('img/accidentologia.webp');
   }
@@ -362,6 +368,14 @@ ul.custom-list li::before {
   
   .area-criminologia .flip-front {
     background-image: url('img/criminologia.png');
+  }
+  
+  .area-psicologia .flip-front {
+    background-image: url('img/psicologia.jpg');
+  }
+  
+  .area-documentologia .flip-front {
+    background-image: url('img/documentologia.jpg');
   }
   
 /* ------------------------------

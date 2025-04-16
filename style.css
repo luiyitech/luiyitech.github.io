@@ -719,6 +719,7 @@ blockquote p {
         width: 95%; /* Ocupa más ancho en pantallas pequeñas */
         margin-left: auto;
         margin-right: auto;
+        border-radius: 10px;
     }
 }
 
@@ -857,10 +858,10 @@ blockquote p {
         width: 100%; /* Ocupa todo el ancho en móviles */
         margin-left: 0;
         margin-right: 0;
-        border-radius: 0; /* Opcional: quitar el redondeo en móviles */
+        border-radius: 10; /* Opcional: quitar el redondeo en móviles */
 
-        .video-container::after {
-            border-radius: 0; /* Opcional: quitar el redondeo de la sombra en móviles */
+      .video-container::after {
+        border-radius: 10; /* Opcional: quitar el redondeo de la sombra en móviles */
         }
     }
 }

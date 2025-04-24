@@ -51,3 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCountdown(); // Ejecutar al cargar la página
     const countdownInterval = setInterval(updateCountdown, 1000);
 });
+
+// Función para mostrar el modal de inscripción
+document.querySelector('a[href="#inscripcion"]').addEventListener('click', function (e) {
+    e.preventDefault(); // Previene el salto instantáneo
+    document.querySelector('#inscripcion').scrollIntoView({
+      behavior: 'smooth' // Hace el scroll animado
+    });
+  });
+

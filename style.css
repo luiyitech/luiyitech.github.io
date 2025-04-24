@@ -72,6 +72,25 @@ h2 {
     overflow: hidden;
   }
   
+/* 🎯 Degradado ovalado oscuro horizontal para resaltar el video */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 60%; /* ⬇ Baja el gradiente hacia donde está el video */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180%;
+    height: 90%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        transparent 60%
+    );
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50% / 30%;
+}
 
 .header h1 {
     font-size: 2rem;
@@ -113,15 +132,15 @@ h2 {
 
 .video-container {
     position: relative;
-    max-width: 1280px; /* Ancho máximo para pantallas grandes (ajusta según necesites) */
+    z-index: 1;
+    max-width: 1280px;
     height: 0;
-    padding-bottom: 56.25%; /* Mantiene la proporción de aspecto 16:9 */
-    margin: 20px auto; /* Centra el contenedor horizontalmente */
-    overflow: hidden; /* Asegura que el iframe no se desborde */
-    border-radius: 20px;
-    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6); /* Sombra horizontal y desenfoque */
-    transition: transform 0.3s ease; /* Transición suave al hacer hover */
-    background-color: var(--background-color); /* Fondo claro para el contenedor */ 
+    padding-bottom: 56.25%;
+    margin: 20px auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+    background-color: var(--background-color);
 }
 
 .video-container iframe {
@@ -661,6 +680,12 @@ blockquote p {
 /* ------------------------------
     MEDIA QUERIES (Responsividad)
 ------------------------------ */
+@media (max-width: 1366px) {
+    .video-container {
+        max-width: 960px; /* Ajustalo a un tamaño más chico para pantallas medianas */
+    }
+}
+
 @media (max-width: 768px) {
     .header {
         padding: 2rem 1rem;
@@ -719,7 +744,6 @@ blockquote p {
         width: 95%; /* Ocupa más ancho en pantallas pequeñas */
         margin-left: auto;
         margin-right: auto;
-        border-radius: 10px;
     }
 }
 
@@ -858,7 +882,6 @@ blockquote p {
         width: 100%; /* Ocupa todo el ancho en móviles */
         margin-left: 0;
         margin-right: 0;
-        border-radius: 10; /* Opcional: quitar el redondeo en móviles */
 
       .video-container::after {
         border-radius: 10; /* Opcional: quitar el redondeo de la sombra en móviles */

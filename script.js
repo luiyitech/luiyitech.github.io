@@ -1,62 +1,76 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Testimonios
-    const testimonials = document.querySelectorAll('.testimonial');
-    let currentIndex = 0;
+// Contador regresivo
+function updateCountdown() {
+    const targetDate = new Date('2025-10-15T08:00:00-03:00').getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
 
-    function showTestimonial(index) {
-        testimonials.forEach((testimonial, i) => {
-            testimonial.classList.remove('active');
-        });
-        testimonials[index].classList.add('active');
-    }
-
-    function nextTestimonial() {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        showTestimonial(currentIndex);
-    }
-
-    showTestimonial(currentIndex);
-    setInterval(nextTestimonial, 7000); // Cambia el comentario cada 7 segundos
-
-    // Cuenta regresiva para la inscripción
-    const countdownTarget = new Date('2025-10-15T08:00:00-03:00').getTime(); // Fecha y hora del congreso (hora de Argentina - Formato ISO 8601)
-    const daysElement = document.getElementById('days');
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-    const countdownContainer = document.getElementById('countdown');
-    const registrationSection = document.getElementById('inscripcion'); // Para ocultar la cuenta regresiva al finalizar
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const difference = countdownTarget - now;
-
-        if (difference < 0) {
-            clearInterval(countdownInterval);
-            countdownContainer.innerHTML = '<p class="countdown-message">¡El congreso ha comenzado!</p>';
-            return;
-        }
-
+    if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        daysElement.textContent = days.toString().padStart(2, '0');
-        hoursElement.textContent = hours.toString().padStart(2, '0');
-        minutesElement.textContent = minutes.toString().padStart(2, '0');
-        secondsElement.textContent = seconds.toString().padStart(2, '0');
+        document.getElementById('days').textContent = days.toString().padStart(3, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        document.getElementById('days').textContent = '000';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
     }
+}
 
-    updateCountdown(); // Ejecutar al cargar la página
-    const countdownInterval = setInterval(updateCountdown, 1000);
+// Actualizar contador cada segundo
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Smooth scroll para navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
-// Función para mostrar el modal de inscripción
-document.querySelector('a[href="#inscripcion"]').addEventListener('click', function (e) {
-    e.preventDefault(); // Previene el salto instantáneo
-    document.querySelector('#inscripcion').scrollIntoView({
-      behavior: 'smooth' // Hace el scroll animado
-    });
-  });
+// Animación de aparición en scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Aplicar animación a elementos
+document.querySelectorAll('.card-hover, .flip-card, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// LOGO y Navbar shrink
+document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});

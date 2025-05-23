@@ -14,7 +14,44 @@ body {
     background-color: var(--background-color);
     color: var(--text-color-dark);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 🔹 Evita barras de desplazamiento lateral */
 }
+
+/* 🔹 Aplicamos este ancho a todas las secciones */
+.container {
+    width: min(1200px, 90vw); /* 🔹 Unifica el ancho de todas las secciones */
+    margin: auto; /* 🔹 Centra todo en la pantalla */
+    padding: 0 20px; /* 🔹 Agrega espacio sin afectar el ancho total */
+}
+
+/* 🔹 Aplica esto en cada sección */
+.hero-bg,
+.flags-slider-section,
+#sobre,
+#programa,
+#inscripcion,
+#ponentes,
+.testimonial-section,
+.info-section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-bg > div,
+.flags-slider-section > div,
+#sobre > div,
+#programa > div,
+#inscripcion > div,
+#ponentes > div,
+.testimonial-section > div,
+.info-section > div {
+    width: min(1200px, 90vw); /* 🔹 Mantiene todo alineado */
+    margin: auto;
+}
+
 
 /* TIPOGRAFÍAS Y FORMATOS */
 .font-heading {
@@ -48,6 +85,139 @@ body {
     height: 40px;
 }
 
+/* SLIDER BANDERAS INFINITO*/
+.flags-slider-section {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+}
+
+.slider {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
+}
+
+.list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.item {
+    width: calc(var(--width) * 1.2); /* 🔹 Aumenta ligeramente el tamaño */
+    height: calc(var(--height) * 1.1);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 22s linear infinite; /* 🔹 Velocidad más lenta */
+    transition: filter 0.5s;
+    animation-delay: calc((22s / var(--quantity)) * (var(--position) - 1) - 22s)!important;
+}
+
+/* 🔹 Ajuste para reducir espacio entre imágenes */
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0.95);
+    opacity: 0.9;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    margin: -2px; /* 🔹 Reduce aún más el espacio entre banderas */}
+
+@keyframes autoRun {
+    from { left: 100%; }
+    to { left: calc(var(--width) * -1); }
+}
+
+.slider:hover .item {
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+
+.slider .item:hover {
+    filter: grayscale(0);
+}
+
+
+/* ========================================================= */
+/* ESTILOS DE LA BARRA DE NAVEGACIÓN (HEADER/NAVBAR) */
+/* ========================================================= */
+#navbar {
+    position: fixed; /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
+    top: 0;
+    width: 100%;
+    z-index: 50; /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
+    /* ... Tus otros estilos de navbar (bg-primary, shadow-lg, etc.) ... */
+}
+
+/* ========================================================= */
+/* ESTILOS GENERALES DE LA SECCIÓN HERO */
+/* ========================================================= */
+.hero-bg {
+    width: 100vw; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('img/fingerprint-1920-x-1080-background-h7xrrtwjhcw2ugn7.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: 1;
+}
+.hero-bg > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* 🔹 Ajuste para evitar desbordamiento en la sección de banderas */
+.flags-carousel-section {
+    width: 100vw; 
+    overflow: hidden;
+}
+.flags-carousel-row {
+    display: flex;
+    gap: 20px;
+    width: 100%; /* 🔹 Ajusta el ancho para evitar cortes */
+    animation: flags-scroll 40s linear infinite;
+}
+
+.flag-row-img {
+    height: 80px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: brightness(0.95);
+    opacity: 0.8;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Animación continua sin reinicio brusco */
+@keyframes flags-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+  
 /* COLORES APLICADOS A CLASES GENERALES */
 .bg-primary { background-color: var(--primary-color); }
 .bg-secondary { background-color: var(--secondary-color); }
@@ -57,7 +227,7 @@ body {
 .text-accent { color: var(--accent-color); }
 .border-accent { border-color: var(--accent-color); }
 
-/* HERO SECTION CON IMAGEN DE FONDO Y PARALLAX */
+/* HERO SECTION CON IMAGEN DE FONDO */
 .hero-bg {
     position: relative;
     min-height: 100vh;
@@ -253,6 +423,13 @@ body {
     box-shadow: 0 10px 25px rgba(168, 39, 223, 0.3);
 }
 
+/* Corregir color de texto e ícono en el botón secundario al hacer hover */
+a.border-2:hover,
+a.border-2:hover i {
+    color: var(--primary-color) !important;
+}
+
+
 /* ----------------------------- */
 /* ADAPTACIÓN PARA CELULARES     */
 /* ----------------------------- */
@@ -288,3 +465,4 @@ body {
     .floating-element .text-8xl { font-size: 3.2rem; }
     .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
 }
+

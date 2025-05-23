@@ -1,4 +1,7 @@
-// Contador regresivo
+
+// ===============================
+// CONTADOR REGRESIVO
+// ===============================
 function updateCountdown() {
     const targetDate = new Date('2025-10-15T08:00:00-03:00').getTime();
     const now = new Date().getTime();
@@ -26,7 +29,9 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Smooth scroll para navegación
+// ===============================
+// SMOOTH SCROLL PARA NAVEGACIÓN
+// ===============================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -40,13 +45,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animación de aparición en scroll
+// ===============================
+// ANIMACIÓN DE APARICIÓN EN SCROLL
+// ===============================
 const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -55,22 +62,30 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Aplicar animación a elementos
 document.querySelectorAll('.card-hover, .flip-card, .testimonial-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     observer.observe(el);
 });
 
-// LOGO y Navbar shrink
+// ===============================
+// LOGO Y NAVBAR SHRINK PROPORCIONAL
+// ===============================
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         const navbar = document.getElementById('navbar');
+        const navContainer = document.getElementById('nav-container');
+        const logo = document.getElementById('logo');
+
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            navContainer.classList.add('scrolled');
+            logo.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+            navContainer.classList.remove('scrolled');
+            logo.classList.remove('scrolled');
         }
     });
 });

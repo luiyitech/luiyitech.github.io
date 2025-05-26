@@ -162,13 +162,15 @@ body {
     width: 100vw; 
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra verticalmente por defecto */
     justify-content: center;
     background-image: url('img/fingerprint-1920-x-1080-background-h7xrrtwjhcw2ugn7.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    position: relative; /* Necesario para el ::before */
+    background-attachment: fixed; /* Parallax solo con CSS */
 }
 
 .hero-bg::before {
@@ -177,6 +179,7 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.70);
     z-index: 1;
+    pointer-events: none; /* Permite clickar a través de la capa */
 }
 .hero-bg > * {
     position: relative;
@@ -216,8 +219,6 @@ body {
     }
 }
 
-
-  
 /* COLORES APLICADOS A CLASES GENERALES */
 .bg-primary { background-color: var(--primary-color); }
 .bg-secondary { background-color: var(--secondary-color); }
@@ -226,32 +227,6 @@ body {
 .text-secondary { color: var(--secondary-color); }
 .text-accent { color: var(--accent-color); }
 .border-accent { border-color: var(--accent-color); }
-
-/* HERO SECTION CON IMAGEN DE FONDO */
-.hero-bg {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background-image: url('img/fingerprint-1920-x-1080-background-h7xrrtwjhcw2ugn7.jpg'); /* Cambia por tu imagen */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Parallax solo con CSS */
-}
-.hero-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.70); /* Sombra negra intensa */
-    z-index: 1;
-    pointer-events: none;
-}
-.hero-bg > * {
-    position: relative;
-    z-index: 2;
-}
-
 
 /* GRADIENTE HERO (si lo necesitas en otras secciones) */
 .hero-gradient {
@@ -273,7 +248,7 @@ body {
 }
 @keyframes pulse-accent {
     0%, 100% { background-color: var(--accent-color); }
-    50% { background-color: #3541f0; }
+    50% { background-color: #3541f0; } /* Ajusta este color si lo deseas, o usa una variable */
 }
 
 /* ANIMACIÓN DE FLOTACIÓN */
@@ -398,6 +373,81 @@ body {
     border-left: 4px solid var(--accent-color);
 }
 
+/* ========================================================= */
+/* ESTILOS DEL CONTADOR REGRESIVO (NUEVO) */
+/* ========================================================= */
+
+/* Contenedor principal para control de ancho máximo y centrado (opcional) */
+.countdown-wrapper {
+    max-width: 900px; /* Ancho máximo para el contador */
+    margin: 3rem auto; /* Centra el contador y añade margen inferior (similar a mb-12) */
+    padding: 0 1rem; /* Pequeño padding lateral para que no se pegue a los bordes en móviles */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
+}
+
+/* Estilos para el contenedor principal del contador (el recuadro blanco) */
+.countdown-container {
+    display: inline-block; /* Permite que el contenedor se ajuste a su contenido */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    padding: clamp(1rem, 5vw, 2rem); /* Padding responsivo: min 1rem, preferido 5% del ancho del viewport, max 2rem */
+    border-radius: 1rem; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    color: var(--text-color-light); /* Asumiendo que el texto del contador debe ser claro en este fondo */
+    text-align: center; /* Centra el contenido si el contenedor es más ancho */
+    width: 100%; /* Ocupa el 100% del ancho de su padre (.countdown-wrapper) */
+    min-width: 280px; /* Ancho mínimo para evitar que se comprima demasiado en pantallas muy pequeñas */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+}
+
+/* Estilos para el título "Tiempo restante..." */
+.countdown-title {
+    font-family: 'Montserrat', sans-serif; /* Usar font-heading */
+    font-size: clamp(1.2rem, 2.5vw + 0.5rem, 2.5rem); /* Tamaño de fuente responsivo: min, preferido (vw), max */
+    font-weight: 600; /* Seminegrita */
+    margin-bottom: clamp(0.75rem, 2vw, 1rem); /* Margen inferior responsivo */
+    color: var(--text-color-light); /* Título también claro */
+}
+
+/* Estilos para la rejilla de los elementos del contador (Días, Horas, etc.) */
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* SIEMPRE 4 columnas, cada una con igual fracción de espacio */
+    gap: clamp(0.5rem, 2vw, 1rem); /* Espacio responsivo entre columnas: min, preferido (vw), max */
+    text-align: center; /* Centra el texto dentro de cada celda */
+}
+
+/* Estilos para cada caja individual (Días, Horas, Minutos, Segundos) */
+.countdown-item {
+    background-color: var(--accent-color); /* Usar la variable de color de acento */
+    padding: clamp(0.5rem, 3.5vw, 1.5rem); /* REDUCIDO LIGERAMENTE EL MINIMO Y AUMENTADO VW */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-dark); /* Color de texto oscuro por defecto para las etiquetas */
+    min-width: 0; 
+    min-height: 0; 
+}
+
+/* Estilos para los números del contador (000, 00) */
+.countdown-number {
+    font-size: clamp(1.4rem, 7.5vw, 4rem); /* MIN MÁS BAJO Y VW MÁS AGRESIVO */
+    font-weight: bold; /* Negrita */
+    line-height: 1.1; /* Ajusta la altura de línea para compactar */
+    color: var(--text-color-light); /* ¡NÚMEROS BLANCOS! */
+}
+
+/* Estilos para las etiquetas (Días, Horas, etc.) */
+.countdown-label {
+    font-size: clamp(0.6rem, 2vw + 0.2rem, 1rem); /* MIN MÁS BAJO */
+    line-height: 1.1; /* Ajusta la altura de línea */
+    opacity: 0.8; /* Ligeramente transparente para diferenciarse del número */
+}
+
+/* FIN DE ESTILOS DEL CONTADOR REGRESIVO */
+/* ========================================================= */
+
 /* BOTÓN DE LLAMADO A LA ACCIÓN (CTA) */
 .cta-button {
     background: linear-gradient(135deg, var(--accent-color), #3557f0);
@@ -429,45 +479,7 @@ a.border-2:hover i {
     color: var(--primary-color) !important;
 }
 
-
-/* ----------------------------- */
-/* ADAPTACIÓN PARA CELULARES     */
-/* ----------------------------- */
-@media (max-width: 480px) {
-    #navbar, #nav-container { height: 56px; }
-    #logo { height: 36px; }
-    #navbar.scrolled, #navbar.scrolled #nav-container { height: 44px; }
-    #navbar.scrolled #logo { height: 28px; }
-
-    .hero-bg {
-        align-items: flex-start;
-        padding-top: 72px;
-        min-height: 100vh;
-    }
-    .hero-bg .text-4xl { font-size: 1.5rem; }
-    .hero-bg .md\:text-6xl, 
-    .hero-bg .lg\:text-7xl { font-size: 2rem; }
-    .hero-bg .max-w-7xl, 
-    .hero-bg .max-w-3xl { max-width: 95vw; }
-    .hero-bg .px-4, 
-    .hero-bg .sm\:px-6, 
-    .hero-bg .lg\:px-8 { padding-left: 8px !important; padding-right: 8px !important; }
-    .hero-bg .mb-8 { margin-bottom: 1rem; }
-    .hero-bg .gap-4 { gap: 0.5rem; }
-
-    .grid, .md\:grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-4 { grid-template-columns: 1fr !important; }
-    .flip-card { height: 220px; }
-    .flip-card-front, .flip-card-back { padding: 1rem; }
-
-    .cta-button, .border-2 { padding: 0.75rem 1.2rem !important; font-size: 1rem !important; }
-
-    .floating-element .text-6xl { font-size: 2.5rem; }
-    .floating-element .text-8xl { font-size: 3.2rem; }
-    .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
-}
-
-
-
+/*POPUP DE INSCRIPCIÓN*/
 .popup {
     position: fixed;
     bottom: 20px;
@@ -523,3 +535,53 @@ a.border-2:hover i {
     color: #dfdc27; /* Un amarillo brillante para que resalte bien */
 }
 
+
+/* ----------------------------- */
+/* ADAPTACIÓN PARA CELULARES     */
+/* ----------------------------- */
+
+@media (max-width: 480px) {
+    #navbar, #nav-container { height: 56px; }
+    #logo { height: 36px; }
+    #navbar.scrolled, #navbar.scrolled #nav-container { height: 44px; }
+    #navbar.scrolled #logo { height: 28px; }
+
+    .hero-bg {
+        /* Eliminamos align-items: center para que no haya tanto espacio arriba */
+        align-items: flex-start; /* Alinea el contenido del hero arriba */
+        padding-top: calc(56px + 1.5rem); /* Ajusta padding-top: Altura de navbar móvil + un poco de margen (ej. 1.5rem) */
+        min-height: 100vh;
+        /* IMPORTANTE: Reducimos el justify-content en móviles si es un problema */
+        /* justify-content: flex-start; */ /* Opcional: si quieres que el contenido se pegue a la izquierda */
+    }
+
+    .hero-bg .text-4xl { font-size: 1.5rem; }
+    .hero-bg .md\:text-6xl, 
+    .hero-bg .lg\:text-7xl { font-size: 2rem; }
+    .hero-bg .max-w-7xl, 
+    .hero-bg .max-w-3xl { max-width: 95vw; }
+    .hero-bg .px-4, 
+    .hero-bg .sm\:px-6, 
+    .hero-bg .lg\:px-8 { padding-left: 8px !important; padding-right: 8px !important; }
+    .hero-bg .mb-8 { margin-bottom: 1rem; }
+    .hero-bg .gap-4 { gap: 0.5rem; }
+
+    /*
+     * IMPORTANTE: Esta regla de tu CSS original puede causar conflictos con el contador.
+     * Si no quieres que el contador se apile NUNCA, como pediste,
+     * asegúrate de que el contenedor de tu contador (el elemento con la clase `countdown-grid`)
+     * NO tenga también las clases `grid`, `md:grid-cols-2`, etc. de Tailwind.
+     * Si las tiene, esta regla (que forza a 1 columna) podría anular la regla de 4 columnas
+     * de `countdown-grid`.
+     */
+    /* .grid, .md\:grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-4 { grid-template-columns: 1fr !important; } */
+    
+    .flip-card { height: 220px; }
+    .flip-card-front, .flip-card-back { padding: 1rem; }
+
+    .cta-button, .border-2 { padding: 0.75rem 1.2rem !important; font-size: 1rem !important; }
+
+    .floating-element .text-6xl { font-size: 2.5rem; }
+    .floating-element .text-8xl { font-size: 3.2rem; }
+    .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
+}

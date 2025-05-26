@@ -34,7 +34,8 @@ body {
 #inscripcion,
 #ponentes,
 .testimonial-section,
-.info-section {
+.info-section,
+#quienes-somos { /* Añadimos la nueva sección #quienes-somos aquí */
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -47,11 +48,11 @@ body {
 #inscripcion > div,
 #ponentes > div,
 .testimonial-section > div,
-.info-section > div {
+.info-section > div,
+#quienes-somos > div { /* Añadimos la nueva sección #quienes-somos aquí */
     width: min(1200px, 90vw); /* 🔹 Mantiene todo alineado */
     margin: auto;
 }
-
 
 /* TIPOGRAFÍAS Y FORMATOS */
 .font-heading {
@@ -62,6 +63,12 @@ body {
 #navbar {
     height: 80px;
     transition: height 0.3s ease;
+    position: fixed; /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
+    top: 0;
+    width: 100%;
+    z-index: 50; /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
+    background-color: var(--primary-color); /* Fondo del navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para el navbar */
 }
 
 #nav-container {
@@ -95,7 +102,7 @@ body {
 
 .slider {
     width: 100%;
-    height: var(--height);
+    height: var(--height); /* Asume que --height se define en HTML o JS */
     overflow: hidden;
     mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
 }
@@ -103,7 +110,7 @@ body {
 .list {
     display: flex;
     width: 100%;
-    min-width: calc(var(--width) * var(--quantity));
+    min-width: calc(var(--width) * var(--quantity)); /* Asume --width y --quantity se definen */
     position: relative;
 }
 
@@ -114,7 +121,7 @@ body {
     left: 100%;
     animation: autoRun 22s linear infinite; /* 🔹 Velocidad más lenta */
     transition: filter 0.5s;
-    animation-delay: calc((22s / var(--quantity)) * (var(--position) - 1) - 22s)!important;
+    /* animation-delay: calc((22s / var(--quantity)) * (var(--position) - 1) - 22s)!important; */ /* Habilitar si usas --position */
 }
 
 /* 🔹 Ajuste para reducir espacio entre imágenes */
@@ -127,22 +134,22 @@ body {
     opacity: 0.9;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    margin: -2px; /* 🔹 Reduce aún más el espacio entre banderas */}
+    margin: -2px; /* 🔹 Reduce aún más el espacio entre banderas */
+}
 
 @keyframes autoRun {
     from { left: 100%; }
-    to { left: calc(var(--width) * -1); }
+    to { left: calc(var(--width) * -1); } /* Asume --width se define */
 }
 
 .slider:hover .item {
-    animation-play-state: paused!important;
+    animation-play-state: paused !important;
     filter: grayscale(1);
 }
 
 .slider .item:hover {
     filter: grayscale(0);
 }
-
 
 /* ========================================================= */
 /* ESTILOS DE LA BARRA DE NAVEGACIÓN (HEADER/NAVBAR) */
@@ -152,43 +159,42 @@ body {
     top: 0;
     width: 100%;
     z-index: 50; /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
-    /* ... Tus otros estilos de navbar (bg-primary, shadow-lg, etc.) ... */
+    background-color: var(--primary-color); /* Fondo del navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para el navbar */
 }
 
 /* ========================================================= */
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    width: 100vw; 
-    min-height: 100vh;
-    display: flex;
-    align-items: center; /* Centra verticalmente por defecto */
-    justify-content: center;
-    background-image: url('img/fingerprint-1920-x-1080-background-h7xrrtwjhcw2ugn7.jpg'); 
+    background-image: url('img/fingerprint-1920-x-1080-background-h7xrrtwjhcw2ugn7.jpg'); /* Cambia por tu imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
-    position: relative; /* Necesario para el ::before */
     background-attachment: fixed; /* Parallax solo con CSS */
+    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.70);
+    background: rgba(0, 0, 0, 0.70); /* Capa oscura sobre la imagen */
     z-index: 1;
     pointer-events: none; /* Permite clickar a través de la capa */
 }
-.hero-bg > * {
+
+.hero-bg > div {
     position: relative;
     z-index: 2;
+    padding-top: 80px; /* Para que el contenido no quede debajo del navbar fijo */
 }
 
 /* 🔹 Ajuste para evitar desbordamiento en la sección de banderas */
 .flags-carousel-section {
-    width: 100vw; 
+    width: 100vw;
     overflow: hidden;
 }
 .flags-carousel-row {
@@ -324,18 +330,28 @@ body {
 }
 .flip-card:nth-child(2) .flip-card-front {
     background-image: url('img/toxicologia.jpg');
+    background-size: cover; /* Asegurarse de que cubra */
+    background-position: center;
 }
 .flip-card:nth-child(3) .flip-card-front {
     background-image: url('img/identificacion.jpg');
+    background-size: cover;
+    background-position: center;
 }
 .flip-card:nth-child(4) .flip-card-front {
     background-image: url('img/informatica.webp');
+    background-size: cover;
+    background-position: center;
 }
 .flip-card:nth-child(5) .flip-card-front {
     background-image: url('img/accidentologia.webp');
+    background-size: cover;
+    background-position: center;
 }
 .flip-card:nth-child(6) .flip-card-front {
     background-image: url('img/criminologia.png');
+    background-size: cover;
+    background-position: center;
 }
 .flip-card-back {
     background: linear-gradient(135deg, var(--accent-color), #3548f0);
@@ -426,8 +442,8 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--text-color-dark); /* Color de texto oscuro por defecto para las etiquetas */
-    min-width: 0; 
-    min-height: 0; 
+    min-width: 0;
+    min-height: 0;
 }
 
 /* Estilos para los números del contador (000, 00) */
@@ -516,7 +532,7 @@ a.border-2:hover i {
     display: flex;
     flex-direction: column;
     font-size: 18px;
-    
+
     /* Línea de separación */
     border-left: 1px solid rgba(255, 255, 255, 0.664); /* Línea blanca sutil */
     padding-left: 15px; /* Espacio después de la línea para el texto */
@@ -556,12 +572,12 @@ a.border-2:hover i {
     }
 
     .hero-bg .text-4xl { font-size: 1.5rem; }
-    .hero-bg .md\:text-6xl, 
+    .hero-bg .md\:text-6xl,
     .hero-bg .lg\:text-7xl { font-size: 2rem; }
-    .hero-bg .max-w-7xl, 
+    .hero-bg .max-w-7xl,
     .hero-bg .max-w-3xl { max-width: 95vw; }
-    .hero-bg .px-4, 
-    .hero-bg .sm\:px-6, 
+    .hero-bg .px-4,
+    .hero-bg .sm\:px-6,
     .hero-bg .lg\:px-8 { padding-left: 8px !important; padding-right: 8px !important; }
     .hero-bg .mb-8 { margin-bottom: 1rem; }
     .hero-bg .gap-4 { gap: 0.5rem; }
@@ -575,7 +591,7 @@ a.border-2:hover i {
      * de `countdown-grid`.
      */
     /* .grid, .md\:grid-cols-2, .lg\:grid-cols-3, .lg\:grid-cols-4 { grid-template-columns: 1fr !important; } */
-    
+
     .flip-card { height: 220px; }
     .flip-card-front, .flip-card-back { padding: 1rem; }
 
@@ -584,4 +600,59 @@ a.border-2:hover i {
     .floating-element .text-6xl { font-size: 2.5rem; }
     .floating-element .text-8xl { font-size: 3.2rem; }
     .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
+}
+
+/* ======================================= */
+/* ESTILOS ESPECÍFICOS DE SECCIONES */
+/* ======================================= */
+
+/* Quienes Somos Section */
+#quienes-somos .lg\:w-1\/2 p { /* Selecciona los párrafos dentro de la columna de texto */
+    text-align: justify; /* Justifica el texto de los párrafos */
+}
+
+/* Estilo para la imagen con bordes abstractos */
+.abstract-border-image {
+    position: relative; /* Necesario para posicionar los pseudo-elementos */
+    max-width: 375px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 12px; /* Bordes ligeramente redondeados de la imagen */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para la imagen */
+    transition: transform 0.3s ease-in-out;
+    display: block; /* Asegura que la imagen sea un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.abstract-border-image:hover {
+    transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
+}
+
+/* Pseudo-elementos para el efecto de borde abstracto */
+.abstract-border-image::before,
+.abstract-border-image::after {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ajusta la posición de los bordes */
+    left: -8px;
+    width: calc(100% + 16px); /* Hace que los bordes sean más grandes que la imagen */
+    height: calc(100% + 16px);
+    background: linear-gradient(45deg, var(--accent-color), transparent 30%, var(--secondary-color) 70%, transparent, var(--accent-color));
+    background-size: 300% 300%; /* Permite la animación del gradiente */
+    border-radius: inherit; /* Hereda los bordes redondeados de la imagen */
+    z-index: -1; /* Detrás de la imagen */
+    animation: border-glow 5s linear infinite;
+    opacity: 0.8; /* Opacidad para el efecto */
+}
+
+.abstract-border-image::after {
+    filter: blur(10px); /* Desenfoque para el brillo */
+    opacity: 0.6; /* Menos opacidad para el brillo */
+    animation-delay: 1.5s; /* Retraso para el brillo */
+}
+
+/* Animación para el efecto de brillo del borde */
+@keyframes border-glow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
 }

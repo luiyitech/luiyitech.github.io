@@ -472,11 +472,11 @@ a.border-2:hover i {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: var(--accent-color); /* Un verde oscuro para buen contraste */
+    background-color: #255399; /* Un verde oscuro para buen contraste */
     color: white;
     padding: 15px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     gap: 15px; /* Espacio entre la imagen y el texto */
@@ -503,7 +503,7 @@ a.border-2:hover i {
 .popup-text {
     display: flex;
     flex-direction: column;
-    font-size: 16px;
+    font-size: 18px;
     
     /* Línea de separación */
     border-left: 1px solid rgba(255, 255, 255, 0.664); /* Línea blanca sutil */
@@ -520,6 +520,6 @@ a.border-2:hover i {
 /* Estilo para resaltar el texto "Se acaba de registrar" */
 .highlight-register {
     font-weight: bold; /* Hace el texto más grueso */
-    color: rgb(0, 0, 0); /* Un amarillo brillante para que resalte bien */
+    color: #dfdc27; /* Un amarillo brillante para que resalte bien */
 }
 

@@ -157,7 +157,7 @@ function mostrarPopup() {
     popup.classList.add("popup");
 
     const img = document.createElement("img");
-    img.src = "https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3383.jpg?semt=ais_hybrid&w=740";
+    img.src = "https://img.freepik.com/vetores-premium/mapa-da-cidade-com-planta-de-localizacao-com-pino-para-cartografia-de-rota-gps-backround-ponteiros-de-navegacao-vermelhos_152104-165.jpg";
     img.alt = persona.nombre;
 
     const textContainer = document.createElement("div");

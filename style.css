@@ -466,3 +466,60 @@ a.border-2:hover i {
     .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
 }
 
+
+
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--accent-color); /* Un verde oscuro para buen contraste */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+    z-index: 9999;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.popup img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Asegura que la imagen no se encoja */
+}
+
+.popup-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    
+    /* Línea de separación */
+    border-left: 1px solid rgba(255, 255, 255, 0.664); /* Línea blanca sutil */
+    padding-left: 15px; /* Espacio después de la línea para el texto */
+    margin-left: 5px; /* Pequeño margen para ajustar la posición de la línea */
+}
+
+/* Para asegurar que los párrafos no tengan márgenes extra y se vean ordenados */
+.popup-text p {
+    margin: 0; /* Elimina los márgenes predeterminados de los párrafos */
+    line-height: 1.2; /* Ajusta la altura de línea para un texto más compacto */
+}
+
+/* Estilo para resaltar el texto "Se acaba de registrar" */
+.highlight-register {
+    font-weight: bold; /* Hace el texto más grueso */
+    color: rgb(0, 0, 0); /* Un amarillo brillante para que resalte bien */
+}
+

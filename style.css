@@ -490,8 +490,7 @@ body {
     opacity: 0.8; /* Ligeramente transparente para diferenciarse del número */
 }
 
-/* FIN DE ESTILOS DEL CONTADOR REGRESIVO */
-/* ========================================================= */
+
 
 /* BOTÓN DE LLAMADO A LA ACCIÓN (CTA) */
 .cta-button {
@@ -634,7 +633,7 @@ a.border-2:hover i {
 /* Estilo para la imagen con bordes abstractos */
 .abstract-border-image {
     position: relative; /* Necesario para posicionar los pseudo-elementos */
-    max-width: 375px; /* Ajusta el tamaño máximo de la imagen */
+    max-width: 350px; /* Ajusta el tamaño máximo de la imagen */
     height: auto; /* Mantiene la proporción */
     border-radius: 12px; /* Bordes ligeramente redondeados de la imagen */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para la imagen */

@@ -164,6 +164,7 @@ body {
     position: relative; /* Necesario para que el SVG se posicione correctamente */
     overflow: hidden; /* Oculta cualquier parte del SVG que se salga del contenedor */
     z-index: 1; /* Asegura que el contenido de la sección esté por encima del SVG */
+
 }
 
 /* Estilo para el SVG incrustado */

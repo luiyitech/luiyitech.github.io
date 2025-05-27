@@ -14,6 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +24,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div id="nav-container" class="flex justify-between items-center h-24">
                 <div class="flex items-center">
-                    <img id="logo" src="img/logo menu.png" alt="Logo Congreso"
-                        class="h-20 transition-all duration-300">
+                    <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-20 transition-all duration-300">
                     <h1 class="text-white font-heading font-bold text-lg ml-3">Congreso Ciencias Forenses</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
@@ -37,26 +37,27 @@
                 </div>
             </div>
         </div>
-    </nav>   
+    </nav>
 
-    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">    
+    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <div class="mb-2 md:mb-8"> <div class="inline-block bg-accent px-6 py-2 rounded-full text-sm font-semibold mb-2 pulse-accent">
+            <div class="mb-2 md:mb-8">
+                <div class="inline-block bg-accent px-6 py-2 rounded-full text-sm font-semibold mb-2 pulse-accent" data-aos="fade-down" data-aos-delay="200">
                     15-17 de Octubre 2025 • Paraná, Entre Ríos
                 </div>
-                <h1 class="font-heading font-bold text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">
+                <h1 class="font-heading font-bold text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight" data-aos="zoom-in" data-aos-delay="400">
                     II Congreso<br>
                     <span class="highlight-underline text-accent">Internacional</span><br>
                     de Ciencias Forenses
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="600">
                     "Cuando la ciencia revela, la justicia prevalece"<br>
                     <span class="text-lg opacity-90">Innovación, Investigación y Aplicación Práctica en el Corazón de
                         Entre Ríos</span>
                 </p>
             </div>
     
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="800">
                 <a href="#inscripcion"
                     class="cta-button text-white px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center">
                     <i class="fas fa-calendar-check mr-2"></i>
@@ -71,8 +72,8 @@
         </div>
     </section>
 
-     <!-- Sección Carrusel Horizontal de Banderas -->
-     <section class="flags-slider-section">
+    <!-- Sección Carrusel Horizontal de Banderas -->
+    <section class="flags-slider-section">
         <div class="slider" style="
             --width: 100px;
             --height: 80px;
@@ -92,24 +93,23 @@
                 <div class="item" style="--position: 10"><img src="img/flags/Austria.png" alt="Australia"></div>
             </div>
         </div>
-    </section> 
+    </section>
 
 
-    <!-- Propuesta de Valor -->
     <section id="sobre" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6">
+                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6" data-aos="fade-up">
                     ¿Por Qué Este Congreso Es <span class="text-accent">Imperdible?</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                     Un evento único que reúne a expertos nacionales e internacionales para compartir avances en
                     investigación criminal y ciencias forenses.
                 </p>
             </div>
-
+    
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
+                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
                     <div
                         class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-microscope text-2xl"></i>
@@ -118,8 +118,8 @@
                     <p class="text-gray-600">Acceso a las últimas investigaciones y avances tecnológicos en ciencias
                         forenses</p>
                 </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
+    
+                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="400">
                     <div
                         class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-users text-2xl"></i>
@@ -128,8 +128,8 @@
                     <p class="text-gray-600">Oportunidades de networking con expertos internacionales y profesionales
                         del sector</p>
                 </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
+    
+                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="500">
                     <div
                         class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-hands-helping text-2xl"></i>
@@ -137,8 +137,8 @@
                     <h3 class="font-heading font-semibold text-xl mb-3 text-primary">Talleres Prácticos</h3>
                     <p class="text-gray-600">Talleres prácticos y demostraciones de técnicas forenses avanzadas</p>
                 </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl">
+    
+                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="600">
                     <div
                         class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-certificate text-2xl"></i>
@@ -150,37 +150,49 @@
         </div>
     </section>
 
-    <!-- Quienes somos -->
     <section id="quienes-somos" class="py-16 md:py-24 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:flex lg:items-center lg:space-x-12">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 flex justify-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 flex justify-center" data-aos="fade-right">
                     <div class="image-frame">
-                        <img src="img/Policia Cientifia PER.jpg" alt="Fachada de la Dirección General de Policía Científica de Entre Ríos" class="rounded-lg shadow-lg object-cover w-full h-80 md:h-96 abstract-border-image">
+                        <img src="img/Policia Cientifia PER.jpg"
+                            alt="Fachada de la Dirección General de Policía Científica de Entre Ríos"
+                            class="rounded-lg shadow-lg object-cover w-full h-80 md:h-96 abstract-border-image">
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-6">
+                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-6" data-aos="fade-left">
                         Quiénes Somos: <span class="text-accent">Trayectoria y Excelencia Forense</span>
                     </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        La <b>Direccion General de Policía Científica de Entre Ríos</b> es un pilar fundamental en la administración de justicia de la provincia. Con una rica historia de dedicación y un compromiso inquebrantable con la verdad, nuestra institución se ha consolidado como un referente en el ámbito de las ciencias forenses en la región.
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6" data-aos="fade-left" data-aos-delay="200">
+                        La <b>Direccion General de Policía Científica de Entre Ríos</b> es un pilar fundamental en la
+                        administración de justicia de la provincia. Con una rica historia de dedicación y un compromiso
+                        inquebrantable con la verdad, nuestra institución se ha consolidado como un referente en el
+                        ámbito de las ciencias forenses en la región.
                     </p>
-                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                        Desde nuestros inicios, hemos evolucionado constantemente, incorporando tecnología de vanguardia y formando a profesionales altamente capacitados en diversas disciplinas forenses. Nuestra labor abarca desde la recolección de pruebas en la escena del crimen hasta el análisis exhaustivo en laboratorio, brindando dictámenes periciales que son cruciales para el esclarecimiento de hechos complejos.
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6" data-aos="fade-left" data-aos-delay="400">
+                        Desde nuestros inicios, hemos evolucionado constantemente, incorporando tecnología de vanguardia
+                        y formando a profesionales altamente capacitados en diversas disciplinas forenses. Nuestra labor
+                        abarca desde la recolección de pruebas en la escena del crimen hasta el análisis exhaustivo en
+                        laboratorio, brindando dictámenes periciales que son cruciales para el esclarecimiento de hechos
+                        complejos.
                     </p>
-                    <p class="text-gray-700 text-lg leading-relaxed">
-                        La experiencia acumulada a lo largo de los años, sumada a un enfoque en la investigación y la innovación, nos permite garantizar un servicio de peritaje científico de máxima calidad y fiabilidad. Este congreso es un reflejo de nuestro compromiso con la difusión del conocimiento y el fortalecimiento de la comunidad forense a nivel internacional.
+                    <p class="text-gray-700 text-lg leading-relaxed" data-aos="fade-left" data-aos-delay="600">
+                        La experiencia acumulada a lo largo de los años, sumada a un enfoque en la investigación y la
+                        innovación, nos permite garantizar un servicio de peritaje científico de máxima calidad y
+                        fiabilidad. Este congreso es un reflejo de nuestro compromiso con la difusión del conocimiento y
+                        el fortalecimiento de la comunidad forense a nivel internacional.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Inscripción -->
     <section id="inscripcion" class="py-20 bg-primary text-white animated-blue-bg">
 
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
             <defs>
                 <linearGradient id="bg">
                     <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.08)"></stop>
@@ -192,13 +204,19 @@
             </defs>
             <g>
                 <use xlink:href='#wave' opacity=".3">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity=".6">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
+                        calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity=".9">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
+                        calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
             </g>
         </svg>
@@ -211,9 +229,10 @@
                         15, 16 y 17 de Octubre 2025  
                     </p>
                     <p class="text-sm opacity-80">Horario: 08:00 - 20:00</p>
-                    <a href="https://calendar.app.google/M1xFH8qZmWuMehW36" target="_blank" class="text-accent underline">Ver en Google Calendar</a>
+                    <a href="https://calendar.app.google/M1xFH8qZmWuMehW36" target="_blank"
+                        class="text-accent underline">Ver en Google Calendar</a>
                 </div>
-                
+
                 <div class="card-hover bg-white bg-opacity-10 p-8 rounded-xl">
                     <i class="fas fa-map-marker-alt text-4xl text-accent mb-4"></i>
                     <h3 class="font-heading font-semibold text-2xl mb-3">Ubicación</h3>
@@ -221,10 +240,11 @@
                         Centro Provincial de Convenciones  
                     </p>
                     <p class="text-sm opacity-80">Paraná, Entre Ríos, Argentina</p>
-                    <a href="https://maps.google.com/?q=Centro+Provincial+de+Convenciones,+Paraná,+Entre+Ríos,+Argentina" target="_blank" class="text-accent underline">Ver en Google Maps</a>
+                    <a href="https://maps.google.com/?q=Centro+Provincial+de+Convenciones,+Paraná,+Entre+Ríos,+Argentina"
+                        target="_blank" class="text-accent underline">Ver en Google Maps</a>
                 </div>
-                
-    
+
+
                 <div class="card-hover bg-white bg-opacity-10 p-8 rounded-xl">
                     <i class="fas fa-users text-4xl text-accent mb-4"></i>
                     <h3 class="font-heading font-semibold text-2xl mb-3">Participantes</h3>
@@ -411,17 +431,16 @@
         </div>
     </section>
 
-    <!-- Testimonios -->
     <section class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6">
+                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6" data-aos="fade-up">
                     Lo Que Dicen Nuestros <span class="text-accent">Participantes</span>
                 </h2>
             </div>
-
+    
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -434,8 +453,8 @@
                     <p class="text-gray-700 italic">"Una experiencia clave para nuestra institución. El nivel de los
                         contenidos y la calidad de los disertantes superó nuestras expectativas."</p>
                 </div>
-
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+    
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -448,8 +467,8 @@
                     <p class="text-gray-700 italic">"Excelente organización y calidad de disertantes. Cada charla fue
                         distinta e interesante, aprendí muchísimo."</p>
                 </div>
-
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+    
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -462,8 +481,8 @@
                     <p class="text-gray-700 italic">"Actualizado, claro y con fuerte impacto profesional. Regreso con
                         herramientas concretas para mi labor diaria."</p>
                 </div>
-
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+    
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -476,8 +495,8 @@
                     <p class="text-gray-700 italic">"Un punto de encuentro clave para nuestra disciplina. Muy
                         enriquecedor desde lo académico y humano."</p>
                 </div>
-
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+    
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -490,8 +509,8 @@
                     <p class="text-gray-700 italic">"Salgo con herramientas concretas para mi labor diaria. La calidad
                         del evento fue excepcional."</p>
                 </div>
-
-                <div class="testimonial-card p-6 rounded-xl shadow-lg">
+    
+                <div class="testimonial-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="600">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
                             <i class="fas fa-quote-left text-white"></i>
@@ -504,6 +523,38 @@
                     <p class="text-gray-700 italic">"Regreso con ideas innovadoras para mi trabajo. Un evento que
                         realmente marca la diferencia en la formación profesional."</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificado de Participación -->
+    <section id="certificado" class="py-20 bg-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading font-bold text-4xl md:text-5xl mb-12" data-aos="fade-up">
+                Certificado de <span class="text-accent">Participación y Validez</span>
+            </h2>
+    
+            <div class="text-justify mb-12" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-xl leading-relaxed mb-6">
+                    Al finalizar el 2do Congreso Internacional de Ciencias Forenses, cada participante recibirá un **Certificado Oficial** que valida su asistencia y el enriquecimiento de sus conocimientos en el ámbito forense.
+                </p>
+                <p class="text-lg leading-relaxed mb-6">
+                    Este certificado es emitido por las instituciones organizadoras y **avalado por la Dirección General de Policía Científica**, garantizando su **reconocimiento y validez** a nivel nacional e internacional. Constituye un valioso respaldo para tu currículum profesional y tu desarrollo académico.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Es una prueba tangible de tu compromiso con la actualización y la excelencia en un campo tan crucial como las Ciencias Forenses.
+                </p>
+                <ul class="text-lg leading-relaxed list-disc list-inside mt-6">
+                    <li class="mb-2"><strong>Reconocimiento Institucional:</strong> Avalado por entidades de prestigio en el ámbito forense.</li>
+                    <li class="mb-2"><strong>Valor Curricular:</strong> Impulsa tu perfil profesional y académico.</li>
+                    <li class="mb-2"><strong>Actualización Profesional:</strong> Demuestra tu compromiso con la vanguardia del conocimiento.</li>
+                </ul>
+            </div>
+    
+            <div class="mb-6" data-aos="zoom-in" data-aos-delay="400">
+                <img src="img/certificado policia cientifica.jpg" alt="Certificado del Congreso de Ciencias Forenses"
+                     class="rounded-lg shadow-2xl mx-auto transform hover:scale-105 transition-transform duration-300 ease-in-out"
+                     style="max-width: 800px; width: 100%;">
             </div>
         </div>
     </section>
@@ -550,23 +601,32 @@
     <!-- SECCION INSCRIPCION -->
     <section id="inscripcion" class="py-20 bg-primary text-white animated-blue-bg">
 
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
             <defs>
                 <linearGradient id="bg">
-                    <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.2)"></stop> <stop offset="50%" style="stop-color:rgba(26, 82, 114, 0.8)"></stop> <stop offset="100%" style="stop-color:rgba(127, 134, 226, 0.4)"></stop> </linearGradient>
+                    <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.2)"></stop>
+                    <stop offset="50%" style="stop-color:rgba(26, 82, 114, 0.8)"></stop>
+                    <stop offset="100%" style="stop-color:rgba(127, 134, 226, 0.4)"></stop>
+                </linearGradient>
                 <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
     s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
             </defs>
             <g>
                 <use xlink:href='#wave' opacity=".3">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity=".6">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
+                        calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity=".9">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
+                        calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
             </g>
         </svg>
@@ -574,7 +634,7 @@
             <h2 class="font-heading font-bold text-4xl md:text-5xl mb-6">
                 ¡Asegura Tu <span class="text-accent">Lugar Ahora!</span>
             </h2>
-    
+
             <div class="countdown-wrapper">
                 <div class="countdown-container">
                     <h3 class="countdown-title">Tiempo restante para el congreso:</h3>
@@ -598,7 +658,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="mb-8">
                 <div
                     class="inline-block bg-red-500 text-white px-6 py-2 rounded-full font-bold text-lg pulse-accent mb-6">
@@ -609,7 +669,7 @@
                     transformará tu práctica profesional.
                 </p>
             </div>
-    
+
             <div class="space-y-4">
                 <a href="https://docs.google.com/forms/d/12B5E--bvmaPLjvqOT-e3CnhuvtVjzR5LD9J5PGl8QBU/edit"
                     class="cta-button inline-flex items-center text-white px-10 py-4 rounded-lg font-bold text-xl">
@@ -671,6 +731,19 @@
         </div>
     </footer>
     <script src="script.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="script.js" defer></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false,
+            offset: 120,
+            delay: 0,
+        });
+    </script>
 
 </body>
 

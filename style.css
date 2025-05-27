@@ -636,7 +636,7 @@ a.border-2:hover i {
     max-width: 350px; /* Ajusta el tamaño máximo de la imagen */
     height: auto; /* Mantiene la proporción */
     border-radius: 12px; /* Bordes ligeramente redondeados de la imagen */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para la imagen */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Sombra suave para la imagen */
     transition: transform 0.3s ease-in-out;
     display: block; /* Asegura que la imagen sea un bloque */
     margin: 0 auto; /* Centra la imagen horizontalmente */

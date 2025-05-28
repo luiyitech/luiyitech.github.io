@@ -616,6 +616,26 @@ a.border-2:hover i {
     100% { background-position: 100% 50%; }
 }
 
+/* ========================================================= */
+/* ANIMACION PARA EL CERTIFICADO */
+/* ========================================================= */
+
+/* Animación de zoom constante para el certificado */
+@keyframes pulse-zoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02); /* Se agranda un 2% */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-certificate {
+    animation: pulse-zoom 2s ease-in-out infinite; /* Duración de 3s, repetición infinita */
+}
 
 /* ----------------------------- */
 /* ADAPTACIÓN PARA CELULARES     */

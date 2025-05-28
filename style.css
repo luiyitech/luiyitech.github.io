@@ -601,7 +601,6 @@ a.border-2:hover i {
 .flex-grow {
     flex-grow: 1;
     padding: 7px; /* Ajuste para evitar expansión excesiva */
-    background: linear-gradient(10deg, #ffffff, #bdbbdf, #eafbff); /* Gradiente de azules claros */
 }
 
 

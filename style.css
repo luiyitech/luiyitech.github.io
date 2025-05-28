@@ -601,6 +601,7 @@ a.border-2:hover i {
 .flex-grow {
     flex-grow: 1;
     padding: 7px; /* Ajuste para evitar expansión excesiva */
+    background: linear-gradient(10deg, #ffffff, #bdbbdf, #eafbff); /* Gradiente de azules claros */
 }
 
 
@@ -634,7 +635,7 @@ a.border-2:hover i {
 }
 
 .animate-certificate {
-    animation: pulse-zoom 2s ease-in-out infinite; /* Duración de 3s, repetición infinita */
+    animation: pulse-zoom s ease-in-out infinite; /* Duración de 3s, repetición infinita */
 }
 
 /* ----------------------------- */

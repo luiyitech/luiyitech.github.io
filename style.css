@@ -634,7 +634,7 @@ a.border-2:hover i {
 }
 
 .animate-certificate {
-    animation: pulse-zoom s ease-in-out infinite; /* Duración de 3s, repetición infinita */
+    animation: pulse-zoom 2s ease-in-out infinite; /* Duración de 3s, repetición infinita */
 }
 
 /* ----------------------------- */

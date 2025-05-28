@@ -596,6 +596,14 @@ a.border-2:hover i {
     opacity: 0.3;
     z-index: 0;
 }
+
+/* Estilo para el contenedor de tarjetas */
+.flex-grow {
+    flex-grow: 1;
+    padding: 7px; /* Ajuste para evitar expansión excesiva */
+}
+
+
 /* Estilo para el fondo animado de tarjetas */
 .animated-card-bg {
     background: linear-gradient(45deg, #ffffff, #ffffff, #e0f2f7); /* Gradiente de azules claros */

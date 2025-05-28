@@ -140,7 +140,17 @@ const personas = [
     { nombre: "Carolina Andrea Pérez", ciudad: "San Rafael", provincia: "Mendoza" },
     { nombre: "Diego Gabriel Sosa", ciudad: "San Francisco", provincia: "Córdoba" },
     { nombre: "Valeria Alejandra Ruiz", ciudad: "Villa Constitución", provincia: "Santa Fe" },
-    { nombre: "Maximiliano Agustín Castro", ciudad: "Zapala", provincia: "Neuquén" }
+    { nombre: "Maximiliano Agustín Castro", ciudad: "Zapala", provincia: "Neuquén" },
+    { nombre: "Brenda Molina", ciudad: "Oberá", provincia: "Misiones" },
+    { nombre: "Santiago Ruiz", ciudad: "Goya", provincia: "Corrientes" },
+    { nombre: "Laura Beltrán", ciudad: "Cafayate", provincia: "Salta" },
+    { nombre: "Esteban Torres", ciudad: "Villa La Angostura", provincia: "Neuquén" },
+    { nombre: "Paula Vargas", ciudad: "Caleta Olivia", provincia: "Santa Cruz" },
+    { nombre: "Diego Fernández", ciudad: "Chilecito", provincia: "La Rioja" },
+    { nombre: "Gabriela Castro", ciudad: "Tinogasta", provincia: "Catamarca" },
+    { nombre: "Javier Sánchez", ciudad: "La Quiaca", provincia: "Jujuy" },
+    { nombre: "Ana Clara Godoy", ciudad: "Río Grande", provincia: "Tierra del Fuego" },
+    { nombre: "Marcelo Damián Vera", ciudad: "Merlo", provincia: "San Luis" }
 ];
 
 // Función para obtener una persona aleatoria

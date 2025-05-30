@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -99,6 +100,70 @@
                 <div class="item" style="--position: 10"><img src="img/flags/chile.png" alt="Chile"></div>
             </div>
         </div>
+    </section>
+
+    <section class="py-20 bg-primary text-white animated-blue-bg">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+            height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+            <defs>
+                <linearGradient id="bg">
+                    <stop offset="0%" style="stop-color:rgba(100, 149, 237, 0.3)"></stop>
+                    <stop offset="50%" style="stop-color:rgba(30, 144, 255, 0.7)"></stop>
+                    <stop offset="100%" style="stop-color:rgba(0, 0, 128, 0.5)"></stop>
+                </linearGradient>
+                <path id="wave" fill="url(#bg)"
+                    d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+                    s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+            </defs>
+            <g>
+                <use xlink:href="#wave" opacity="0.2" transform="translate(0,0)">
+                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="12s"
+                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
+                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+                <use xlink:href="#wave" opacity="0.5" transform="translate(0,0)">
+                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="9s"
+                        calcMode="spline" values="-270 230; 243 220; -270 230" keyTimes="0; .6; 1"
+                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+                <use xlink:href="#wave" opacity="0.8" transform="translate(0,0)">
+                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="7s"
+                        calcMode="spline" values="0 230; -140 200; 0 230" keyTimes="0; .4; 1"
+                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+            </g>
+        </svg>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="mb-12" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-4xl md:text-5xl mb-6" data-aos="fade-up">
+                    ¡Asegura Tu <span class="text-accent">Lugar Ahora!</span>
+                </h2>
+    
+                <div class="countdown-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="countdown-container">
+                        <h3 class="countdown-title">Tiempo restante para el congreso:</h3>
+                        <div class="countdown-grid">
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="days">000</div>
+                                <div class="countdown-label">Días</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="hours">00</div>
+                                <div class="countdown-label">Horas</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="minutes">00</div>
+                                <div class="countdown-label">Minutos</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="seconds">00</div>
+                                <div class="countdown-label">Segundos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
     </section>
 
     <section id="sobre" class="py-20 bg-white">
@@ -241,7 +306,7 @@
                     <i class="fas fa-calendar-alt text-4xl text-accent mb-4"></i>
                     <h3 class="font-heading font-semibold text-2xl mb-3">Fechas</h3>
                     <p class="text-lg">
-                        15, 16 y 17 de Octubre 2025  
+                        15, 16 y 17 de Octubre 2025 
                     </p>
                     <p class="text-sm opacity-80">Horario: 08:00 - 20:00</p>
                     <a href="https://calendar.app.google/M1xFH8qZmWuMehW36" target="_blank"
@@ -252,7 +317,7 @@
                     <i class="fas fa-map-marker-alt text-4xl text-accent mb-4"></i>
                     <h3 class="font-heading font-semibold text-2xl mb-3">Ubicación</h3>
                     <p class="text-lg">
-                        Centro Provincial de Convenciones  
+                        Centro Provincial de Convenciones
                     </p>
                     <p class="text-sm opacity-80">Paraná, Entre Ríos, Argentina</p>
                     <a href="https://maps.google.com/?q=Centro+Provincial+de+Convenciones,+Paraná,+Entre+Ríos,+Argentina"
@@ -573,14 +638,7 @@
                     Al finalizar el 2do Congreso Internacional de Ciencias Forenses en Paraná, cada participante
                     recibirá un <b>Certificado Oficial</b> que valida su asistencia y el enriquecimiento de sus
                     conocimientos.
-                </p>
-                <p class="text-lg leading-relaxed mb-6">
-                    Este certificado cuenta con un amplio respaldo institucional: es declarado de <b>Interés Educativo
-                        por el Consejo General de Educación de Entre Ríos</b>, y de <b>Interés Público, Científico y
-                        Cultural por la Honorable Legislatura de la Provincia de Entre Ríos</b>. Además, es <b>avalado
-                        por la Dirección General de Policía Científica</b>. Constituye un valioso respaldo para tu
-                    currículum profesional y un testimonio de tu compromiso con la excelencia en Ciencias Forenses.
-                </p>
+                </p>                
             </div>
 
             <div class="mb-6" data-aos="zoom-in" data-aos-delay="200">
@@ -589,217 +647,124 @@
                     style="max-width: 800px; width: 100%;">
             </div>
         </div>
-    </section>
+    </section>  
 
-    <!-- Inscription -->
+
     <section id="inscripcion" class="py-20 bg-primary text-white animated-blue-bg">
-
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
-            height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
-            <defs>
-                <linearGradient id="bg">
-                    <stop offset="0%" style="stop-color:rgba(100, 149, 237, 0.3)"></stop>
-                    <stop offset="50%" style="stop-color:rgba(30, 144, 255, 0.7)"></stop>
-                    <stop offset="100%" style="stop-color:rgba(0, 0, 128, 0.5)"></stop>
-                </linearGradient>
-                <path id="wave" fill="url(#bg)"
-                    d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
-                s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
-            </defs>
-            <g>
-                <use xlink:href="#wave" opacity="0.2" transform="translate(0,0)">
-                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="12s"
-                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-                <use xlink:href="#wave" opacity="0.5" transform="translate(0,0)">
-                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="9s"
-                        calcMode="spline" values="-270 230; 243 220; -270 230" keyTimes="0; .6; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-                <use xlink:href="#wave" opacity="0.8" transform="translate(0,0)">
-                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="7s"
-                        calcMode="spline" values="0 230; -140 200; 0 230" keyTimes="0; .4; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-            </g>
-        </svg>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="mb-12" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up" data-aos-delay="400">
+            <div
+                class="bg-blue-800 bg-opacity-40 p-8 rounded-lg shadow-xl text-center mx-auto max-w-5xl relative overflow-hidden">
+    
+                <svg class="absolute top-0 left-0 w-full h-full z-0 opacity-30">
+                    <defs>
+                        <linearGradient id="bg-card">
+                            <stop offset="0%" style="stop-color:rgba(100, 149, 237, 0.6)"></stop>
+                            <stop offset="50%" style="stop-color:rgba(30, 144, 255, 0.8)"></stop>
+                            <stop offset="100%" style="stop-color:rgba(0, 0, 128, 0.7)"></stop>
+                        </linearGradient>
+                        <path id="wave-card" fill="url(#bg-card)"
+                            d="M-800,150c0,0,600-100,1000,0s700,90,1000,0s500-80,850,20s850,80,1300-20v400H-800V150z" />
+                    </defs>
+                    <g>
+                        <use xlink:href="#wave-card" opacity="0.7">
+                            <animateTransform attributeName="transform" attributeType="auto" type="translate"
+                                dur="5s" values="0 60; 100 30; -100 60; 0 60" keyTimes="0; 0.3; 0.7; 1"
+                                keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0"
+                                repeatCount="indefinite" />
+                        </use>
+                        <use xlink:href="#wave-card" opacity="0.5">
+                            <animateTransform attributeName="transform" attributeType="auto" type="translate"
+                                dur="4s" values="50 70; -70 40; 70 20; 50 70" keyTimes="0; 0.4; 0.8; 1"
+                                keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0"
+                                repeatCount="indefinite" />
+                        </use>
+                        <use xlink:href="#wave-card" opacity="0.3">
+                            <animateTransform attributeName="transform" attributeType="auto" type="translate"
+                                dur="3.5s" values="-80 50; 80 30; -80 70; -80 50" keyTimes="0; 0.5; 1"
+                                keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                        </use>
+                    </g>
+                </svg>
+    
                 <h3 class="font-heading font-bold text-3xl md:text-4xl mb-6">
                     <span class="text-white">Opciones de </span><span class="text-accent">Inscripción y Cuotas</span>
                 </h3>
-                <!-- Contenedor con el fondo azul y animación SVG -->
-                <div
-                    class="bg-blue-800 bg-opacity-40 p-8 rounded-lg shadow-xl text-center mx-auto max-w-5xl relative overflow-hidden">
-
-                    <!-- SVG animado solo dentro de este cuadro -->
-                    <svg class="absolute top-0 left-0 w-full h-full z-0 opacity-30">
-                        <defs>
-                            <linearGradient id="bg-card">
-                                <stop offset="0%" style="stop-color:rgba(100, 149, 237, 0.6)"></stop>
-                                <stop offset="50%" style="stop-color:rgba(30, 144, 255, 0.8)"></stop>
-                                <stop offset="100%" style="stop-color:rgba(0, 0, 128, 0.7)"></stop>
-                            </linearGradient>
-                            <path id="wave-card" fill="url(#bg-card)"
-                                d="M-800,150c0,0,600-100,1000,0s700,90,1000,0s500-80,850,20s850,80,1300-20v400H-800V150z" />
-                        </defs>
-                        <g>
-                            <use xlink:href="#wave-card" opacity="0.7">
-                                <animateTransform attributeName="transform" attributeType="auto" type="translate"
-                                    dur="5s" values="0 60; 100 30; -100 60; 0 60" keyTimes="0; 0.3; 0.7; 1"
-                                    keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0"
-                                    repeatCount="indefinite" />
-                            </use>
-                            <use xlink:href="#wave-card" opacity="0.5">
-                                <animateTransform attributeName="transform" attributeType="auto" type="translate"
-                                    dur="4s" values="50 70; -70 40; 70 20; 50 70" keyTimes="0; 0.4; 0.8; 1"
-                                    keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0"
-                                    repeatCount="indefinite" />
-                            </use>
-                            <use xlink:href="#wave-card" opacity="0.3">
-                                <animateTransform attributeName="transform" attributeType="auto" type="translate"
-                                    dur="3.5s" values="-80 50; 80 30; -80 70; -80 50" keyTimes="0; 0.5; 1"
-                                    keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                            </use>
-                        </g>
-                    </svg>
-
-
-
-
-                    <div class="grid md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto relative z-10">
-                        <!-- Funcionario Policía ER -->
-                        <div
-                            class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                            <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Funcionario <span
-                                    class="text-accent">Policía ER</span></h4>
-                            <div class="text-4xl font-bold mb-4">$25.000</div>
-                            <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
-                            <ul class="list-none text-left mb-6">
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $8.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $8.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $9.000
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Alumno UADER / Otros -->
-                        <div
-                            class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                            <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Alumno <span
-                                    class="text-accent">UADER / Otros</span></h4>
-                            <div class="text-4xl font-bold mb-4">$30.000</div>
-                            <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
-                            <ul class="list-none text-left mb-6">
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $10.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $10.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $10.000
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Público en General -->
-                        <div
-                            class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                            <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Público en <span
-                                    class="text-accent">General</span></h4>
-                            <div class="text-4xl font-bold mb-4">$40.000</div>
-                            <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
-                            <ul class="list-none text-left mb-6">
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $13.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $13.000
-                                </li>
-                                <li class="flex items-center gap-2 text-gray-700">
-                                    <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $14.000
-                                </li>
-                            </ul>
-                        </div>
+                <div class="grid md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto relative z-10">
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Funcionario <span
+                                class="text-accent">Policía ER</span></h4>
+                        <div class="text-4xl font-bold mb-4">$25.000</div>
+                        <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
+                        <ul class="list-none text-left mb-6">
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $8.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $8.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $9.000
+                            </li>
+                        </ul>
                     </div>
-
-
-
-
-                    <p class="text-base mt-8 text-white text-opacity-80 relative z-10">
-                        *El monto total de inscripción cubre la asistencia a todas las actividades del congreso.
-                    </p>
-                </div>
-
-
-            </div>
-
-            <h2 class="font-heading font-bold text-4xl md:text-5xl mb-6" data-aos="fade-up">
-                ¡Asegura Tu <span class="text-accent">Lugar Ahora!</span>
-            </h2>
-
-            <div class="countdown-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <div class="countdown-container">
-                    <h3 class="countdown-title">Tiempo restante para el congreso:</h3>
-                    <div class="countdown-grid">
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="days">000</div>
-                            <div class="countdown-label">Días</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="hours">00</div>
-                            <div class="countdown-label">Horas</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="minutes">00</div>
-                            <div class="countdown-label">Minutos</div>
-                        </div>
-                        <div class="countdown-item">
-                            <div class="countdown-number" id="seconds">00</div>
-                            <div class="countdown-label">Segundos</div>
-                        </div>
+    
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Alumno <span
+                                class="text-accent">UADER / Otros</span></h4>
+                        <div class="text-4xl font-bold mb-4">$30.000</div>
+                        <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
+                        <ul class="list-none text-left mb-6">
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $10.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $10.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $10.000
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div
+                        class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Público en <span
+                                class="text-accent">General</span></h4>
+                        <div class="text-4xl font-bold mb-4">$40.000</div>
+                        <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
+                        <ul class="list-none text-left mb-6">
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 1 (Junio): $13.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 2 (Julio): $13.000
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-700">
+                                <i class="fas fa-check-circle text-accent"></i> Cuota 3 (Agosto): $14.000
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <p class="text-base mt-8 text-white text-opacity-80 relative z-10">
+                    *El monto total de inscripción cubre la asistencia a todas las actividades del congreso.
+                </p>
+    
             </div>
-
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="400">
-                <div
-                    class="inline-block bg-red-500 text-white px-6 py-2 rounded-full font-bold text-lg pulse-accent mb-6">
-                    ¡CUPOS LIMITADOS!
-                </div>
-                <p class="text-xl mb-8 max-w-2xl mx-auto">
+            <div class="mb-8 mt-8" data-aos="fade-up" data-aos-delay="400"> <p class="text-xl mb-8 max-w-2xl mx-auto">
                     No pierdas la oportunidad de participar en este evento único. El conocimiento que adquieras aquí
                     transformará tu práctica profesional.
                 </p>
             </div>
-
+    
             <div class="space-y-4" data-aos="fade-up" data-aos-delay="600">
-                <a id=#inscripcion
+                <a id="inscripcion-link"
                     href="https://docs.google.com/forms/d/12B5E--bvmaPLjvqOT-e3CnhuvtVjzR5LD9J5PGl8QBU/edit"
                     target="_blank" rel="noopener noreferrer"
                     class="cta-button inline-flex items-center text-white px-10 py-4 rounded-lg font-bold text-xl">
                     Inscripción
                 </a>
-                <div class="text-center">
-                    <p class="text-sm opacity-80 mb-2">
-                        <i class="fas fa-envelope mr-2"></i>
-                        Para consultas: congresocienciasforensesparana@gmail.com
-                    </p>
-                    <p class="text-sm opacity-80">
-                        <a href="https://wa.me/5493434549494" target="_blank" rel="noopener noreferrer"
-                            class="hover:text-accent transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>
-                            WhatsApp: +54 9 343 454-9494
-                        </a>
-                    </p>
-                </div>
             </div>
         </div>
     </section>
@@ -812,7 +777,7 @@
                     <p class="text-gray-300 mb-4">Ciencias Forenses - Paraná, Entre Ríos</p>
                     <p class="text-gray-400 text-sm">"Cuando la ciencia revela, la justicia prevalece"</p>
                 </div>
-
+    
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Contacto</h4>
                     <p class="text-gray-300 mb-2">
@@ -820,10 +785,10 @@
                         congresocienciasforensesparana@gmail.com
                     </p>
                     <p class="text-sm opacity-80">
-                        <a href="https://wa.me/5493434549494" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/5493435011168" target="_blank" rel="noopener noreferrer"
                             class="hover:text-accent transition duration-300">
                             <i class="fab fa-whatsapp mr-2"></i>
-                            WhatsApp: +54 9 343 454-9494
+                            WhatsApp: +54 9 343 5011168
                         </a>
                     </p>
                     <p class="text-gray-300 mb-2">
@@ -831,10 +796,10 @@
                         Cordoba 351, Paraná, Entre Ríos, Argentina
                     </p>
                 </div>
-
+    
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Síguenos</h4>
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 mb-4 justify-center md:justify-start">
                         <a href="https://www.facebook.com/people/Direcci%C3%B3n-General-de-Polic%C3%ADa-Cient%C3%ADfica/100091792284133"
                             class="text-gray-300 hover:text-accent transition duration-300">
                             <i class="fab fa-facebook-f text-2xl"></i>
@@ -844,9 +809,15 @@
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
                     </div>
+                    <div class="text-center md:text-left">
+                        <a href="http://www.policiadeentrerios.gob.ar/" target="_blank" rel="noopener noreferrer">
+                            <img src="img/baner 247 seguridad.png" alt="Ministerio de Seguridad y Justicia - Policía de Entre Ríos Nueva Generación"
+                                 class="mx-auto md:mx-0 w-full h-auto max-w-[200px] mt-2">
+                        </a>
+                    </div>
                 </div>
             </div>
-
+    
             <div class="border-t border-gray-700 pt-8 text-center">
                 <p class="text-gray-400">
                     © 2025 2do Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.
@@ -870,6 +841,12 @@
         });
     </script>
 
+<a href="https://wa.me/5493435011168" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="whatsapp-text">Contáctanos</span>
+</a>
+
+  
 </body>
 
 </html>

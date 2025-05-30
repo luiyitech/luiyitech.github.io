@@ -21,25 +21,11 @@ body {
 
 /* 🔹 Aplicamos este ancho a todas las secciones */
 .container {
-    width: min(1200px, 90vw); /* 🔹 Unifica el ancho de todas las secciones */
-    margin: auto; /* 🔹 Centra todo en la pantalla */
-    padding: 0 20px; /* 🔹 Agrega espacio sin afectar el ancho total */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-/* 🔹 Aplica esto en cada sección */
-.hero-bg,
-.flags-slider-section,
-#sobre,
-#programa,
-#inscripcion,
-#ponentes,
-.testimonial-section,
-.info-section,
-#quienes-somos { /* Añadimos la nueva sección #quienes-somos aquí */
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
+
 
 .hero-bg > div,
 .flags-slider-section > div,
@@ -98,7 +84,7 @@ body {
     width: 100vw;
     overflow: hidden; /* Asegura que el contenido que se sale de este contenedor se oculte */
     position: relative;
-    background-color: white;
+    background-color:var(--primary-color);
 }
 
 .slider {
@@ -198,30 +184,50 @@ body {
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    background-image: url('img/huella\ digital.png'); /* Cambia por tu imagen */
+    background-image: url('img/huella digital.png'); /* Corrige la sintaxis del espacio */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Parallax solo con CSS */
-    min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+    background-attachment: fixed; /* Efecto Parallax */
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
     position: relative;
     overflow: hidden;
+    padding-top: calc(80px + 2rem); /* Altura del navbar + margen superior */
+    padding-bottom: 2rem; /* Espacio inferior para el contenido */
+    
+    /* 🔹 Asegura centrado perfecto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Ajusta alineación del contenido */
 }
 
+/* Ajuste para evitar solapamiento con el menú fijo */
+.hero-bg > div {
+    padding-top: calc(80px + 2rem); /* Ajuste dinámico */
+}
+
+
+/* 🔹 Capa oscura para mejorar legibilidad */
 .hero-bg::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.70); /* Capa oscura sobre la imagen */
+    background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo */
     z-index: 1;
-    pointer-events: none; /* Permite clickar a través de la capa */
+    pointer-events: none;
 }
 
-.hero-bg > div {
-    position: relative;
-    z-index: 2;
-    padding-top: 80px; /* Para que el contenido no quede debajo del navbar fijo */
+/* ========================================================= */
+/* PARA QUE OCUPE TODO EL ANCHO DE LA PÁGINA */
+/* ========================================================= */
+
+.hero-bg, footer, .py-20, #certificado, .fechas-y-ubicaciones, .countdown-wrapper {
+    display: block; /* Evita flex si no es necesario */
+    width: 100vw;
 }
+
 
 /* 🔹 Ajuste para evitar desbordamiento en la sección de banderas */
 .flags-carousel-section {
@@ -641,6 +647,76 @@ a.border-2:hover i {
 .animate-certificate {
     animation: pulse-zoom 2s ease-in-out infinite; /* Duración de 3s, repetición infinita */
 }
+
+/* Estilos para el botón flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* Verde WhatsApp */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-decoration: none;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out;
+    padding: 0;
+    animation: pulse 2s infinite; /* 🔹 Aplica la animación de latido */
+}
+
+/* Animación de latido */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Mantener el icono siempre visible */
+.whatsapp-float i {
+    font-size: 32px;
+    color: white !important;
+    opacity: 1;
+    transition: transform 0.4s ease-in-out, margin-right 0.4s ease-in-out;
+}
+
+/* Ocultar completamente el texto */
+.whatsapp-float .whatsapp-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    display: none; /* 🔹 No se muestra hasta que el botón se expanda */
+}
+
+/* Expandir el botón y mostrar el texto solo cuando esté completamente ancho */
+.whatsapp-float:hover {
+    width: 200px;
+    border-radius: 30px;
+    justify-content: flex-start;
+    padding-left: 15px;
+    animation: none; /* 🔹 Detiene la animación cuando el botón se expande */
+}
+
+/* Mostrar el texto solo cuando el botón YA está expandido */
+.whatsapp-float:hover .whatsapp-text {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
 
 /* ----------------------------- */
 /* ADAPTACIÓN PARA CELULARES     */

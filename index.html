@@ -220,57 +220,6 @@
         </div>
     </section>
 
-    <!-- <section id="sobre" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6" data-aos="fade-up">
-                    ¿Por Qué Este Congreso Es <span class="text-accent">Imperdible?</span>
-                </h2>
-                
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-microscope text-2xl"></i>
-                    </div>
-                    <h3 class="font-heading font-semibold text-xl mb-3 text-primary">Investigación Avanzada</h3>
-                    <p class="text-gray-600">Acceso a las últimas investigaciones y avances tecnológicos en ciencias
-                        forenses</p>
-                </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="400">
-                    <div
-                        class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-2xl"></i>
-                    </div>
-                    <h3 class="font-heading font-semibold text-xl mb-3 text-primary">Networking Internacional</h3>
-                    <p class="text-gray-600">Oportunidades de networking con expertos internacionales y profesionales
-                        del sector</p>
-                </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="500">
-                    <div
-                        class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-hands-helping text-2xl"></i>
-                    </div>
-                    <h3 class="font-heading font-semibold text-xl mb-3 text-primary">Talleres Prácticos</h3>
-                    <p class="text-gray-600">Talleres prácticos y demostraciones de técnicas forenses avanzadas</p>
-                </div>
-
-                <div class="text-center card-hover bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="600">
-                    <div
-                        class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-2xl"></i>
-                    </div>
-                    <h3 class="font-heading font-semibold text-xl mb-3 text-primary">Certificación</h3>
-                    <p class="text-gray-600">Créditos de educación continua y certificación profesional</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Quienes Somos -->
     <section id="quienes-somos" class="py-16 md:py-24 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -938,30 +887,41 @@
                                             <p><strong>11:00</strong> - Cierre Formal</p>
                                         </li>
                                     </ul>
-                                </div>
-    
-                                <div class="text-left pl-6 pt-4 border-t border-gray-700">
-                                    <p class="font-bold text-lg mb-2">Otras Actividades del Congreso</p>
-                                    <ul class="list-none space-y-2">
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg">
+                            <h4 class="font-semibold text-xl mb-4 flex items-center justify-between cursor-pointer"
+                                onclick="toggleAccordion('actividadesExtra')">
+                                <span>Actividades Recreativas y Culturales</span>
+                                <i class="fas fa-chevron-down transition-transform duration-300" id="actividadesExtra-arrow"></i>
+                            </h4>
+                            <div id="actividadesExtra-content" class="accordion-content hidden space-y-3">
+                                <div class="text-left pl-6">
+                                    <ul class="list-none space-y-2">                                        
+                                        <!-- NUEVAS ACTIVIDADES -->
                                         <li class="flex items-start">
-                                            <i class="fas fa-wrench text-accent mr-3 mt-1"></i>
-                                            <p><strong>Talleres:</strong> Días miércoles y jueves desde las 13:00 a 14:00
-                                            </p>
+                                            <i class="fas fa-chalkboard-teacher text-accent mr-3 mt-1"></i>
+                                            <p><strong>Talleres:</strong> miércoles y jueves de 13:00 a 14:50 hs.</p>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-star text-accent mr-3 mt-1"></i>
-                                            <p><strong>Eventos Especiales:</strong> Actuación de Banda de Música en el
-                                                Acto de Apertura</p>
+                                            <i class="fas fa-bus text-accent mr-3 mt-1"></i>
+                                            <p><strong>Bus Turístico:</strong> recorridos por la ciudad de Paraná.</p>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-award text-accent mr-3 mt-1"></i>
-                                            <p><strong>Entrega de Certificados.</strong></p>
+                                            <i class="fas fa-music text-accent mr-3 mt-1"></i>
+                                            <p><strong>Cultura:</strong> recital de la Banda de Música de la Policía de Entre Ríos a las 20:00 hs.</p>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-hamburger text-accent mr-3 mt-1"></i>
+                                            <p><strong>Food Trucks:</strong> patio gastronómico con amplia variedad de comidas.</p>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
+                    </div>                              
                 </div>
     
                 <h3 class="font-heading font-bold text-3xl md:text-4xl mb-6">

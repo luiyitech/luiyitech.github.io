@@ -219,6 +219,9 @@ body {
     pointer-events: none;
 }
 
+
+
+
 /* ========================================================= */
 /* PARA QUE OCUPE TODO EL ANCHO DE LA PÁGINA */
 /* ========================================================= */
@@ -435,10 +438,11 @@ body {
 
 /* Contenedor principal para control de ancho máximo y centrado (opcional) */
 .countdown-wrapper {
-    max-width: 900px; /* Ancho máximo para el contador */
+    max-width: 768px; /* CAMBIO: Ajustado a 768px para coincidir con max-w-3xl */
     margin: 3rem auto; /* Centra el contador y añade margen inferior (similar a mb-12) */
     padding: 0 1rem; /* Pequeño padding lateral para que no se pegue a los bordes en móviles */
     box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
+    text-align: center; /* Asegura que el contenido, incluso si es inline-block, se centre si es necesario */
 }
 
 /* Estilos para el contenedor principal del contador (el recuadro blanco) */
@@ -628,6 +632,164 @@ a.border-2:hover i {
 }
 
 /* ========================================================= */
+/* ESTILO PARA SLIDER DE PONENTES */
+/* ========================================================= */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+    flex: 0 0 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    .slider-item {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider-item {
+        flex: 0 0 25%;
+    }
+}
+
+/* Asegurar que las tarjetas tengan el mismo tamaño que la de Dra. Soledad Méndez */
+.card-hover {
+    width: 100%;
+    max-width: 300px; /* Basado en lg:grid-cols-4 en max-w-7xl */
+    min-height: 260px; /* Altura fija para consistencia */
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Compatibilidad con line-clamp para limitar el texto a 2 líneas */
+.card-hover p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limitar a 2 líneas en Webkit */
+    line-clamp: 2; /* Estándar (soporte limitado actualmente) */
+    box-orient: vertical; /* Prefijo alternativo, aunque menos usado */
+    max-height: calc(1.25em * 2); /* Aproximadamente 2 líneas basadas en text-sm (0.875rem) */
+}
+
+/* Estilos adicionales para el hover */
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color); /* Ajusta al color 'accent' */
+}
+
+button#prev-slide, button#next-slide {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button#prev-slide:hover, button#next-slide:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el modal */
+#modal {
+    display: none;
+}
+
+#modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Cambiar el color de las estrellas a amarillo */
+.card-hover .text-accent .fas.fa-star {
+    color: #f7d307; /* Amarillo dorado para las estrellas */
+}
+
+#close-modal:hover {
+    transform: scale(1.2);
+}
+
+/* Estilos para el modal */
+#modal {
+    display: none;
+}
+
+#modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#close-modal:hover {
+    transform: scale(1.2);
+}
+
+/* Estilos para el cronograma dentro de #formulario-inscripcion */
+#formulario-inscripcion .accordion-content {
+    transition: all 0.3s ease-in-out;
+}
+
+#formulario-inscripcion .accordion-content p {
+    color: #ffffff;
+}
+
+#formulario-inscripcion i {
+    color: #ffffff;
+}
+
+#formulario-inscripcion h4:hover {
+    color: #f59e0b; /* Accent al hover */
+}
+
+#formulario-inscripcion .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#formulario-inscripcion .accordion-content.active {
+    display: block;
+}
+/* ========================================================= */
 /* ANIMACION PARA EL CERTIFICADO */
 /* ========================================================= */
 
@@ -812,4 +974,12 @@ a.border-2:hover i {
     0% { background-position: 0% 0%; }
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
+}
+
+svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
 }

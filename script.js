@@ -225,3 +225,212 @@ function mostrarPopup() {
 
 // Inicio de la cadena de pop-ups
 setTimeout(mostrarPopup, 2000);
+
+
+// ===============================
+// DOOSIER PONENTES SLIDER
+// ===============================
+function initPonentesSlider() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slider-item');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const modal = document.getElementById('modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalName = document.getElementById('modal-name');
+    const modalSpecialty = document.getElementById('modal-specialty');
+    const modalBio = document.getElementById('modal-bio');
+    const modalExperience = document.getElementById('modal-experience');
+    const modalFocus = document.getElementById('modal-focus');
+    
+    let currentIndex = 0;
+    const slidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
+    const totalSlides = slides.length;
+    const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
+    
+    // Datos de ejemplo para los modals (reemplaza con datos reales)
+    const profesionales = [
+        { 
+            id: 'modal-1', 
+            name: 'Dr. Juan Pérez', 
+            specialty: 'Especialista en Criminalística y Ciencias Forenses', 
+            bio: 'El Dr. Pérez ha dedicado más de 20 años a la investigación criminalística, liderando equipos en casos de alto perfil.', 
+            experience: 'Experiencia: 20+ años', 
+            focus: 'Áreas de enfoque: Análisis de evidencia, formación de peritos' 
+        },
+        { 
+            id: 'modal-2', 
+            name: 'Mtra. Laura Gómez', 
+            specialty: 'Perita en Identificación Humana y ADN Forense', 
+            bio: 'Reconocida por su trabajo en genética forense, ha contribuido a resolver casos mediante análisis de ADN.', 
+            experience: 'Experiencia: 15 años', 
+            focus: 'Áreas de enfoque: Identificación humana, investigación genética' 
+        },
+        { 
+            id: 'modal-3', 
+            name: 'Lic. Ricardo Fernández', 
+            specialty: 'Analista en Informática Forense y Seguridad Digital', 
+            bio: 'Especialista en recuperación de datos digitales y ciberseguridad, con experiencia en casos internacionales.', 
+            experience: 'Experiencia: 12 años', 
+            focus: 'Áreas de enfoque: Ciberseguridad, análisis de dispositivos' 
+        },
+        { 
+            id: 'modal-4', 
+            name: 'Dra. Soledad Méndez', 
+            specialty: 'Médica Forense con especialización en patología criminal', 
+            bio: 'La Dra. Méndez ha trabajado en autopsias de casos complejos, colaborando con organismos internacionales.', 
+            experience: 'Experiencia: 18 años', 
+            focus: 'Áreas de enfoque: Patología criminal, medicina forense' 
+        },
+        { 
+            id: 'modal-5', 
+            name: 'Dr. Carlos López', 
+            specialty: 'Especialista en Balística Forense', 
+            bio: 'Experto en análisis de trayectorias y huellas balísticas, con participación en investigaciones de alto impacto.', 
+            experience: 'Experiencia: 10 años', 
+            focus: 'Áreas de enfoque: Balística, reconstrucción de escenas' 
+        },
+        { 
+            id: 'modal-6', 
+            name: 'Nombre Profesional', 
+            specialty: 'Especialidad Forense', 
+            bio: 'Biografía detallada del profesional.', 
+            experience: 'Experiencia: X años', 
+            focus: 'Áreas de enfoque: Detalles específicos' 
+        },
+        // Agrega los otros 11 profesionales aquí con sus datos reales
+    ];
+    
+    // Crear puntos de navegación
+    for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateSlider();
+            resetAutoSlide();
+        });
+        dotsContainer.appendChild(dot);
+    }
+    
+    // Actualizar posición del slider
+    function updateSlider() {
+        const slideWidth = slides[0].offsetWidth;
+        const offset = -(currentIndex * slideWidth * slidesPerView);
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+        
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+    }
+    
+    // Navegación con botones
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+            resetAutoSlide();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+            resetAutoSlide();
+        }
+    });
+    
+    // Cambio automático
+    let autoSlide = setInterval(() => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateSlider();
+    }, 5000);
+    
+    function resetAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(() => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        }, 5000);
+    }
+    
+    // Abrir modal al hacer clic en una tarjeta
+    slides.forEach(slide => {
+        slide.querySelector('.card-hover').addEventListener('click', () => {
+            const modalId = slide.querySelector('.card-hover').getAttribute('data-modal-id');
+            const profesional = profesionales.find(p => p.id === modalId);
+            if (profesional) {
+                modalName.textContent = profesional.name;
+                modalSpecialty.textContent = profesional.specialty;
+                modalBio.textContent = profesional.bio;
+                modalExperience.textContent = profesional.experience;
+                modalFocus.textContent = profesional.focus;
+                modal.classList.add('active');
+            }
+        });
+    });
+    
+    // Cerrar modal
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+    
+    // Cerrar modal al hacer clic fuera
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+    
+    // Actualizar slider al cambiar tamaño de ventana
+    window.addEventListener('resize', () => {
+        const newSlidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
+        if (newSlidesPerView !== slidesPerView) {
+            updateSlider();
+        }
+    });
+    
+    updateSlider();
+}
+
+// Integrar con AOS y otras funciones
+window.onload = () => {
+    initPonentesSlider();
+    // Agrega aquí otras funciones como startCountdown() si las tienes
+    AOS.init({
+        duration: 1000,
+        once: true,
+        mirror: false,
+        offset: 120,
+        delay: 0,
+    });
+};
+
+
+function toggleAccordion(dayId) {
+    const content = document.getElementById(`${dayId}-content`);
+    const arrow = document.getElementById(`${dayId}-arrow`);
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        content.classList.add('active');
+        arrow.classList.add('rotate-180');
+    } else {
+        content.classList.add('hidden');
+        content.classList.remove('active');
+        arrow.classList.remove('rotate-180');
+    }
+}

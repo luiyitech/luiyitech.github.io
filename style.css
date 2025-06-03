@@ -631,140 +631,6 @@ a.border-2:hover i {
     100% { background-position: 100% 50%; }
 }
 
-/* ========================================================= */
-/* ESTILO PARA SLIDER DE PONENTES */
-/* ========================================================= */
-.slider-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slider-item {
-    flex: 0 0 100%;
-    padding: 0 8px;
-    box-sizing: border-box;
-}
-
-@media (min-width: 640px) {
-    .slider-item {
-        flex: 0 0 50%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .slider-item {
-        flex: 0 0 25%;
-    }
-}
-
-/* Asegurar que las tarjetas tengan el mismo tamaño que la de Dra. Soledad Méndez */
-.card-hover {
-    width: 100%;
-    max-width: 300px; /* Basado en lg:grid-cols-4 en max-w-7xl */
-    min-height: 260px; /* Altura fija para consistencia */
-    margin: 0 auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Compatibilidad con line-clamp para limitar el texto a 2 líneas */
-.card-hover p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* Limitar a 2 líneas en Webkit */
-    line-clamp: 2; /* Estándar (soporte limitado actualmente) */
-    box-orient: vertical; /* Prefijo alternativo, aunque menos usado */
-    max-height: calc(1.25em * 2); /* Aproximadamente 2 líneas basadas en text-sm (0.875rem) */
-}
-
-/* Estilos adicionales para el hover */
-.card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.dot.active {
-    background-color: var(--primary-color); /* Ajusta al color 'accent' */
-}
-
-button#prev-slide, button#next-slide {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button#prev-slide:hover, button#next-slide:hover {
-    transform: scale(1.1);
-}
-
-/* Estilos para el modal */
-#modal {
-    display: none;
-}
-
-#modal.active {
-    display: flex;
-}
-
-.modal-content {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-/* Cambiar el color de las estrellas a amarillo */
-.card-hover .text-accent .fas.fa-star {
-    color: #f7d307; /* Amarillo dorado para las estrellas */
-}
-
-#close-modal:hover {
-    transform: scale(1.2);
-}
-
-/* Estilos para el modal */
-#modal {
-    display: none;
-}
-
-#modal.active {
-    display: flex;
-}
-
-.modal-content {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-#close-modal:hover {
-    transform: scale(1.2);
-}
-
 /* Estilos para el cronograma dentro de #formulario-inscripcion */
 #formulario-inscripcion .accordion-content {
     transition: all 0.3s ease-in-out;
@@ -987,7 +853,7 @@ svg {
 /* ======================================= */
 /* PONENTES */
 /* ======================================= */
-.card-hover {
+.card-hover-ponentes {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra la imagen, título y texto horizontalmente */
@@ -1003,50 +869,119 @@ svg {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
-/* Estilos para la imagen del profesional en la tarjeta */
-.ponente-image {
-    width: 150px; /* Equivalente a w-24 (24 * 4px = 96px) para mantener el tamaño del contenedor original */
-    height: 150px; /* Equivalente a h-24 */
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
-    border-radius: 50%; /* Hace la imagen circular, como el contenedor original */
-    margin: 0 auto 1rem; /* Centra la imagen (mx-auto) y agrega margen inferior (mb-4 = 1rem) */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
-    transition: transform 0.3s ease; /* Animación suave para el efecto de hover */
+/* ========================================================= */
+/* ESTILO PARA SLIDER DE PONENTES */
+/* ========================================================= */
+.slider-container {
+    position: relative;
+    overflow: hidden;
 }
 
-/* Efecto de hover para la imagen, alineado con el hover:scale-105 de la tarjeta */
-.card-hover:hover .ponente-image {
-    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón, consistente con la tarjeta */
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Ajuste para la tarjeta, asegurando que el contenido esté centrado */
-.card-hover {
+.slider-item {
+    flex: 0 0 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    .slider-item {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider-item {
+        flex: 0 0 25%;
+    }
+}
+
+.card-hover-ponentes {
+    width: 100%;
+    max-width: 300px;
+    min-height: 260px;
+    margin: 0 auto;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra la imagen, título y texto horizontalmente */
-    padding: 1.5rem; /* Mantiene el p-6 original (6 * 0.25rem = 1.5rem) */
-    max-width: 300px; /* Consistente con el diseño existente */
-    min-height: 260px; /* Consistente con el diseño existente */
-    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Compatibilidad con line-clamp */
+.card-hover-ponentes p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: calc(1.25em * 2);
+}
+
+/* Estilos adicionales para el hover */
+.card-hover-ponentes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+button#prev-slide, button#next-slide {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button#prev-slide:hover, button#next-slide:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para la imagen del ponente */
+.ponente-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover para la imagen */
+.card-hover-ponentes:hover .ponente-image {
+    transform: scale(1.05);
 }
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 640px) {
     .ponente-image {
-        width: 80px; /* Tamaño reducido para móviles */
+        width: 80px;
         height: 80px;
     }
-    .card-hover {
-        padding: 1rem; /* Menos padding en móviles para ahorrar espacio */
+    .card-hover-ponentes {
+        padding: 1rem;
     }
 }
 
-/* Asegurar que el texto de la tarjeta no se desborde */
-.card-hover p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* Limita a 2 líneas, como en el HTML original */
-    line-clamp: 2; /* Estándar */
-    max-height: calc(1.25em * 2); /* Aproximadamente 2 líneas */
-}

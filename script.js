@@ -368,34 +368,6 @@ function initPonentesSlider() {
         }, 5000);
     }
     
-    // Abrir modal al hacer clic en una tarjeta
-    slides.forEach(slide => {
-        slide.querySelector('.card-hover').addEventListener('click', () => {
-            const modalId = slide.querySelector('.card-hover').getAttribute('data-modal-id');
-            const profesional = profesionales.find(p => p.id === modalId);
-            if (profesional) {
-                modalName.textContent = profesional.name;
-                modalSpecialty.textContent = profesional.specialty;
-                modalBio.textContent = profesional.bio;
-                modalExperience.textContent = profesional.experience;
-                modalFocus.textContent = profesional.focus;
-                modal.classList.add('active');
-            }
-        });
-    });
-    
-    // Cerrar modal
-    closeModalBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
-    
-    // Cerrar modal al hacer clic fuera
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-    
     // Actualizar slider al cambiar tamaño de ventana
     window.addEventListener('resize', () => {
         const newSlidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;

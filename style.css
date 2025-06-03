@@ -983,3 +983,70 @@ svg {
     width: 100%;
     height: auto;
 }
+
+/* ======================================= */
+/* PONENTES */
+/* ======================================= */
+.card-hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen, título y texto horizontalmente */
+    justify-content: space-between; /* Distribuye el contenido uniformemente */
+    width: 100%;
+    max-width: 340px; /* Ancho aumentado para más espacio */
+    height: 390px; /* Altura aumentada para acomodar más texto */
+    padding: 1.85rem; /* Aumenta el padding para más espacio interno (p-7 aprox) */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    background-color: var(--background-color, #f4f4f9); /* Fondo consistente */
+    border-radius: 0.75rem; /* rounded-xl */
+    border-left: 4px solid var(--accent-color); /* border-l-4 border-accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Estilos para la imagen del profesional en la tarjeta */
+.ponente-image {
+    width: 150px; /* Equivalente a w-24 (24 * 4px = 96px) para mantener el tamaño del contenedor original */
+    height: 150px; /* Equivalente a h-24 */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+    border-radius: 50%; /* Hace la imagen circular, como el contenedor original */
+    margin: 0 auto 1rem; /* Centra la imagen (mx-auto) y agrega margen inferior (mb-4 = 1rem) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    transition: transform 0.3s ease; /* Animación suave para el efecto de hover */
+}
+
+/* Efecto de hover para la imagen, alineado con el hover:scale-105 de la tarjeta */
+.card-hover:hover .ponente-image {
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón, consistente con la tarjeta */
+}
+
+/* Ajuste para la tarjeta, asegurando que el contenido esté centrado */
+.card-hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen, título y texto horizontalmente */
+    padding: 1.5rem; /* Mantiene el p-6 original (6 * 0.25rem = 1.5rem) */
+    max-width: 300px; /* Consistente con el diseño existente */
+    min-height: 260px; /* Consistente con el diseño existente */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 640px) {
+    .ponente-image {
+        width: 80px; /* Tamaño reducido para móviles */
+        height: 80px;
+    }
+    .card-hover {
+        padding: 1rem; /* Menos padding en móviles para ahorrar espacio */
+    }
+}
+
+/* Asegurar que el texto de la tarjeta no se desborde */
+.card-hover p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas, como en el HTML original */
+    line-clamp: 2; /* Estándar */
+    max-height: calc(1.25em * 2); /* Aproximadamente 2 líneas */
+}

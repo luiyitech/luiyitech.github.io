@@ -977,8 +977,8 @@ button#prev-slide:hover, button#next-slide:hover {
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 640px) {
     .ponente-image {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
     .card-hover-ponentes {
         padding: 1rem;

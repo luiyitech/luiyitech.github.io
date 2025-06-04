@@ -861,7 +861,6 @@ svg {
     width: 100%;
     max-width: 340px; /* Ancho aumentado para más espacio */
     height: 390px; /* Altura aumentada para acomodar más texto */
-    padding: 1.85rem; /* Aumenta el padding para más espacio interno (p-7 aprox) */
     box-sizing: border-box; /* Incluye padding en el tamaño total */
     background-color: var(--background-color, #f4f4f9); /* Fondo consistente */
     border-radius: 0.75rem; /* rounded-xl */

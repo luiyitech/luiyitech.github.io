@@ -888,9 +888,16 @@ svg {
     box-sizing: border-box;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 640px), (max-width: 390px) {
     .slider-item {
-        flex: 0 0 50%;
+        flex: 0 0 50%;    
+    }
+    .ponente-image {
+        width: 120px;
+        height: 120px;
+    }
+    .card-hover-ponentes {
+        padding: 1rem;
     }
 }
 
@@ -973,17 +980,5 @@ button#prev-slide:hover, button#next-slide:hover {
 .card-hover-ponentes:hover .ponente-image {
     transform: scale(1.05);
 }
-
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 640px), (max-width: 390px) {
-    .ponente-image {
-        width: 120px;
-        height: 120px;
-    }
-    .card-hover-ponentes {
-        padding: 1rem;
-    }
-}
-
 
 

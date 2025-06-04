@@ -975,13 +975,15 @@ button#prev-slide:hover, button#next-slide:hover {
 }
 
 /* Responsividad para pantallas pequeñas */
-@media (max-width: 640px) {
+@media (max-width: 640px), (max-width: 390px) {
     .ponente-image {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     .card-hover-ponentes {
         padding: 1rem;
     }
 }
+
+
 

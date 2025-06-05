@@ -406,3 +406,6 @@ function toggleAccordion(dayId) {
         arrow.classList.remove('rotate-180');
     }
 }
+
+//CARRUSEL DE FOTOS CONGRESO PASADO//
+

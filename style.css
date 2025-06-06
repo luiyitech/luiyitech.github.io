@@ -1,11 +1,17 @@
 /* PALETA DE COLORES */
 :root {
-    --primary-color: #003366; /* Azul oscuro principal */
-    --secondary-color: #00509e; /* Azul secundario */
-    --accent-color: #27c4df; /* Celeste acentuado */
-    --background-color: #f4f4f9; /* Color de fondo general */
-    --text-color-light: #ffffff; /* Color del texto claro */
-    --text-color-dark: #333333; /* Color del texto oscuro */
+    --primary-color: #003366;
+    /* Azul oscuro principal */
+    --secondary-color: #00509e;
+    /* Azul secundario */
+    --accent-color: #27c4df;
+    /* Celeste acentuado */
+    --background-color: #f4f4f9;
+    /* Color de fondo general */
+    --text-color-light: #ffffff;
+    /* Color del texto claro */
+    --text-color-dark: #333333;
+    /* Color del texto oscuro */
 }
 
 /* CONFIGURACIÓN GLOBAL */
@@ -16,7 +22,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* 🔹 Evita barras de desplazamiento lateral */
+    overflow-x: hidden;
+    /* 🔹 Evita barras de desplazamiento lateral */
 }
 
 /* 🔹 Aplicamos este ancho a todas las secciones */
@@ -26,23 +33,26 @@ body {
 }
 
 /*MENU HOOVER AMARILLO TITULOS CRONOGRAMA*/
-.accordion-content + .bg-white.bg-opacity-10 h4.cursor-pointer:hover,
+.accordion-content+.bg-white.bg-opacity-10 h4.cursor-pointer:hover,
 .bg-white.bg-opacity-10 h4.cursor-pointer:hover {
-  color: rgb(255, 209, 2);
-  transition: color 0.3s ease; /* Para una transición suave del color */
+    color: rgb(255, 209, 2);
+    transition: color 0.3s ease;
+    /* Para una transición suave del color */
 }
 
 
-.hero-bg > div,
-.flags-slider-section > div,
-#sobre > div,
-#programa > div,
-#inscripcion > div,
-#ponentes > div,
-.testimonial-section > div,
-.info-section > div,
-#quienes-somos > div { /* Añadimos la nueva sección #quienes-somos aquí */
-    width: min(1200px, 90vw); /* 🔹 Mantiene todo alineado */
+.hero-bg>div,
+.flags-slider-section>div,
+#sobre>div,
+#programa>div,
+#inscripcion>div,
+#ponentes>div,
+.testimonial-section>div,
+.info-section>div,
+#quienes-somos>div {
+    /* Añadimos la nueva sección #quienes-somos aquí */
+    width: min(1200px, 90vw);
+    /* 🔹 Mantiene todo alineado */
     margin: auto;
 }
 
@@ -55,12 +65,16 @@ body {
 #navbar {
     height: 80px;
     transition: height 0.3s ease;
-    position: fixed; /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
+    position: fixed;
+    /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
     top: 0;
     width: 100%;
-    z-index: 50; /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
-    background-color: var(--primary-color); /* Fondo del navbar */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para el navbar */
+    z-index: 50;
+    /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
+    background-color: var(--primary-color);
+    /* Fondo del navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra para el navbar */
 }
 
 #nav-container {
@@ -78,9 +92,11 @@ body {
 #navbar.scrolled {
     height: 60px;
 }
+
 #navbar.scrolled #nav-container {
     height: 60px;
 }
+
 #navbar.scrolled #logo {
     height: 40px;
 }
@@ -88,32 +104,42 @@ body {
 /* SLIDER BANDERAS INFINITO*/
 .flags-slider-section {
     width: 100vw;
-    overflow: hidden; /* Asegura que el contenido que se sale de este contenedor se oculte */
+    overflow: hidden;
+    /* Asegura que el contenido que se sale de este contenedor se oculte */
     position: relative;
-    background-color:var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 .slider {
     width: 100%;
-    height: var(--height); 
-    overflow: hidden; 
+    height: var(--height);
+    overflow: hidden;
     mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
 }
 
 .list {
-    display: flex; /* Utiliza flexbox para que los items se coloquen en fila */
+    display: flex;
+    /* Utiliza flexbox para que los items se coloquen en fila */
     /* El ancho de la lista debe ser lo suficientemente grande para contener todos los items */
-    width: 100%; /* No usamos 100% fijo aquí ya que los items tienen position: absolute */
-    min-width: calc(var(--width) * var(--quantity)); /* Asegura que la lista tenga un ancho mínimo basado en las variables */
-    position: relative; /* Contenedor para los items con position: absolute */
+    width: 100%;
+    /* No usamos 100% fijo aquí ya que los items tienen position: absolute */
+    min-width: calc(var(--width) * var(--quantity));
+    /* Asegura que la lista tenga un ancho mínimo basado en las variables */
+    position: relative;
+    /* Contenedor para los items con position: absolute */
 }
 
 .item {
-    width: calc(var(--width) * 1.2); /* 🔹 Aumenta ligeramente el tamaño para el ancho de la bandera */
-    height: calc(var(--height) * 1.1); /* Ajusta la altura de la bandera */
-    position: absolute; /* Permite posicionar las banderas de forma independiente del flujo normal */
-    left: 100%; /* Inicialmente, todas las banderas están fuera de la vista a la derecha */
-    animation: autoRun 22s linear infinite; /* 🔹 Velocidad más lenta y animación infinita */
+    width: calc(var(--width) * 1.2);
+    /* 🔹 Aumenta ligeramente el tamaño para el ancho de la bandera */
+    height: calc(var(--height) * 1.1);
+    /* Ajusta la altura de la bandera */
+    position: absolute;
+    /* Permite posicionar las banderas de forma independiente del flujo normal */
+    left: 100%;
+    /* Inicialmente, todas las banderas están fuera de la vista a la derecha */
+    animation: autoRun 22s linear infinite;
+    /* 🔹 Velocidad más lenta y animación infinita */
     transition: filter 0.5s;
     /* ¡FUNDAMENTAL! Descomenta y ajusta el delay para que cada bandera aparezca en un momento diferente */
     animation-delay: calc((22s / var(--quantity)) * (var(--position) - 1) - 22s) !important;
@@ -123,8 +149,10 @@ body {
 .item img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortarla */
-    flex-shrink: 0; /* Evita que la imagen se encoja */
+    object-fit: contain;
+    /* Ajusta la imagen dentro de su contenedor sin recortarla */
+    flex-shrink: 0;
+    /* Evita que la imagen se encoja */
     filter: brightness(0.95);
     opacity: 0.9;
     border-radius: 6px;
@@ -134,18 +162,29 @@ body {
 }
 
 @keyframes autoRun {
-    from { left: 100%; } /* Empieza la animación con la bandera fuera de la vista a la derecha */
+    from {
+        left: 100%;
+    }
+
+    /* Empieza la animación con la bandera fuera de la vista a la derecha */
     /* La animación termina cuando la bandera se mueve a la izquierda por su propio ancho */
-    to { left: calc(var(--width) * 1.2 * -1); } /* Ajusta el 'to' para que coincida con el ancho real de un item */
+    to {
+        left: calc(var(--width) * 1.2 * -1);
+    }
+
+    /* Ajusta el 'to' para que coincida con el ancho real de un item */
 }
 
 .slider:hover .item {
-    animation-play-state: paused !important; /* Pausa la animación al pasar el mouse */
-    filter: grayscale(1); /* Pone las banderas en escala de grises al pausar */
+    animation-play-state: paused !important;
+    /* Pausa la animación al pasar el mouse */
+    filter: grayscale(1);
+    /* Pone las banderas en escala de grises al pausar */
 }
 
 .slider .item:hover {
-    filter: grayscale(0); /* Restaura el color de la bandera individual al pasar el mouse sobre ella */
+    filter: grayscale(0);
+    /* Restaura el color de la bandera individual al pasar el mouse sobre ella */
 }
 
 /* ========================================================= */
@@ -154,9 +193,12 @@ body {
 
 /* Estilo base para las secciones que tendrán el fondo animado SVG */
 .animated-blue-bg {
-    position: relative; /* Necesario para que el SVG se posicione correctamente */
-    overflow: hidden; /* Oculta cualquier parte del SVG que se salga del contenedor */
-    z-index: 1; /* Asegura que el contenido de la sección esté por encima del SVG */
+    position: relative;
+    /* Necesario para que el SVG se posicione correctamente */
+    overflow: hidden;
+    /* Oculta cualquier parte del SVG que se salga del contenedor */
+    z-index: 1;
+    /* Asegura que el contenido de la sección esté por encima del SVG */
 
 }
 
@@ -167,8 +209,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Envía el SVG detrás del contenido de la sección */
-    display: block; /* Asegura que el SVG ocupe el espacio completo */
+    z-index: -1;
+    /* Envía el SVG detrás del contenido de la sección */
+    display: block;
+    /* Asegura que el SVG ocupe el espacio completo */
     /* El background-color y background-image que tenías para 'svg' no son necesarios aquí,
        ya que el SVG tiene su propio gradiente y las ondas se animan dentro de él. */
 }
@@ -177,12 +221,16 @@ body {
 /* ESTILOS DE LA BARRA DE NAVEGACIÓ (HEADER/NAVBAR) */
 /* ========================================================= */
 #navbar {
-    position: fixed; /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
+    position: fixed;
+    /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
     top: 0;
     width: 100%;
-    z-index: 50; /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
-    background-color: var(--primary-color); /* Fondo del navbar */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para el navbar */
+    z-index: 50;
+    /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
+    background-color: var(--primary-color);
+    /* Fondo del navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra para el navbar */
 }
 
 
@@ -190,28 +238,37 @@ body {
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    background-image: url('img/huella digital.png'); /* Corrige la sintaxis del espacio */
+    background-image: url('img/huella digital.png');
+    /* Corrige la sintaxis del espacio */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Efecto Parallax */
-    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-attachment: fixed;
+    /* Efecto Parallax */
+    min-height: 100vh;
+    /* Ocupa toda la altura de la ventana */
     position: relative;
     overflow: hidden;
-    padding-top: calc(80px + 2rem); /* Altura del navbar + margen superior */
-    padding-bottom: 2rem; /* Espacio inferior para el contenido */
-    
+    padding-top: calc(80px + 2rem);
+    /* Altura del navbar + margen superior */
+    padding-bottom: 2rem;
+    /* Espacio inferior para el contenido */
+
     /* 🔹 Asegura centrado perfecto */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    text-align: center; /* Ajusta alineación del contenido */
+    justify-content: center;
+    /* Centra verticalmente */
+    align-items: center;
+    /* Centra horizontalmente */
+    text-align: center;
+    /* Ajusta alineación del contenido */
 }
 
 /* Ajuste para evitar solapamiento con el menú fijo */
-.hero-bg > div {
-    padding-top: calc(80px + 2rem); /* Ajuste dinámico */
+.hero-bg>div {
+    padding-top: calc(80px + 2rem);
+    /* Ajuste dinámico */
 }
 
 
@@ -220,7 +277,8 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo */
+    background: rgba(0, 0, 0, 0.7);
+    /* Oscurece el fondo */
     z-index: 1;
     pointer-events: none;
 }
@@ -232,8 +290,14 @@ body {
 /* PARA QUE OCUPE TODO EL ANCHO DE LA PÁGINA */
 /* ========================================================= */
 
-.hero-bg, footer, .py-20, #certificado, .fechas-y-ubicaciones, .countdown-wrapper {
-    display: block; /* Evita flex si no es necesario */
+.hero-bg,
+footer,
+.py-20,
+#certificado,
+.fechas-y-ubicaciones,
+.countdown-wrapper {
+    display: block;
+    /* Evita flex si no es necesario */
     width: 100vw;
 }
 
@@ -243,10 +307,12 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+
 .flags-carousel-row {
     display: flex;
     gap: 20px;
-    width: 100%; /* 🔹 Ajusta el ancho para evitar cortes */
+    width: 100%;
+    /* 🔹 Ajusta el ancho para evitar cortes */
     animation: flags-scroll 40s linear infinite;
 }
 
@@ -266,19 +332,40 @@ body {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-100%);
     }
 }
 
 /* COLORES APLICADOS A CLASES GENERALES */
-.bg-primary { background-color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
-.bg-accent { background-color: var(--accent-color); }
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.text-accent { color: var(--accent-color); }
-.border-accent { border-color: var(--accent-color); }
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color);
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.border-accent {
+    border-color: var(--accent-color);
+}
 
 /* GRADIENTE HERO (si lo necesitas en otras secciones) */
 .hero-gradient {
@@ -289,33 +376,53 @@ body {
 .card-hover {
     transition: all 0.3s ease;
 }
+
 .card-hover:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* ANIMACIÓN DE PULSACIÓN */
 .pulse-accent {
     animation: pulse-accent 2s infinite;
 }
+
 @keyframes pulse-accent {
-    0%, 100% { background-color: var(--accent-color); }
-    50% { background-color: #3541f0; } /* Ajusta este color si lo deseas, o usa una variable */
+
+    0%,
+    100% {
+        background-color: var(--accent-color);
+    }
+
+    50% {
+        background-color: #3541f0;
+    }
+
+    /* Ajusta este color si lo deseas, o usa una variable */
 }
 
 /* ANIMACIÓN DE FLOTACIÓN */
 .floating-element {
     animation: float 3s ease-in-out infinite;
 }
+
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* SUBRAYADO DESTACADO */
 .highlight-underline {
     position: relative;
 }
+
 .highlight-underline::after {
     content: '';
     position: absolute;
@@ -332,6 +439,7 @@ body {
     perspective: 1000px;
     height: 300px;
 }
+
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -340,10 +448,13 @@ body {
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
+
 .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
-.flip-card-front, .flip-card-back {
+
+.flip-card-front,
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -356,6 +467,7 @@ body {
     flex-direction: column;
     padding: 2rem;
 }
+
 .flip-card-front::before {
     content: "";
     position: absolute;
@@ -363,37 +475,45 @@ body {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
+
 .flip-card-front h3,
 .flip-card-front p {
     position: relative;
     color: #F8F8F8;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
+
 .flip-card:nth-child(1) .flip-card-front {
     background-image: url('img/balistica.jpg');
     background-size: cover;
     background-position: center;
 }
+
 .flip-card:nth-child(2) .flip-card-front {
     background-image: url('img/toxicologia.jpg');
-    background-size: cover; /* Asegurarse de que cubra */
+    background-size: cover;
+    /* Asegurarse de que cubra */
     background-position: center;
 }
+
 .flip-card:nth-child(3) .flip-card-front {
     background-image: url('img/identificacion.jpg');
     background-size: cover;
     background-position: center;
 }
+
 .flip-card:nth-child(4) .flip-card-front {
     background-image: url('img/informatica.webp');
     background-size: cover;
     background-position: center;
 }
+
 .flip-card:nth-child(5) .flip-card-front {
     background-image: url('img/accidentologia.webp');
     background-size: cover;
     background-position: center;
 }
+
 .flip-card:nth-child(6) .flip-card-front {
     background-image: url('img/criminologia.png');
     background-size: cover;
@@ -405,17 +525,19 @@ body {
     color: var(--text-color-light);
     transform: rotateY(180deg);
 }
+
 .flip-card-front i {
     color: white !important;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.20);
-    position: relative; 
-    z-index: 2;      
+    position: relative;
+    z-index: 2;
 }
 
 /* LÍNEA DE TIEMPO */
 .timeline {
     position: relative;
 }
+
 .timeline::before {
     content: '';
     position: absolute;
@@ -426,6 +548,7 @@ body {
     background: var(--accent-color);
     transform: translateX(-50%);
 }
+
 @media (max-width: 768px) {
     .timeline::before {
         left: 20px;
@@ -444,71 +567,105 @@ body {
 
 /* Contenedor principal para control de ancho máximo y centrado (opcional) */
 .countdown-wrapper {
-    max-width: 768px; /* CAMBIO: Ajustado a 768px para coincidir con max-w-3xl */
-    margin: 3rem auto; /* Centra el contador y añade margen inferior (similar a mb-12) */
-    padding: 0 1rem; /* Pequeño padding lateral para que no se pegue a los bordes en móviles */
-    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho */
-    text-align: center; /* Asegura que el contenido, incluso si es inline-block, se centre si es necesario */
+    max-width: 768px;
+    /* CAMBIO: Ajustado a 768px para coincidir con max-w-3xl */
+    margin: 3rem auto;
+    /* Centra el contador y añade margen inferior (similar a mb-12) */
+    padding: 0 1rem;
+    /* Pequeño padding lateral para que no se pegue a los bordes en móviles */
+    box-sizing: border-box;
+    /* Asegura que el padding se incluya en el ancho */
+    text-align: center;
+    /* Asegura que el contenido, incluso si es inline-block, se centre si es necesario */
 }
 
 /* Estilos para el contenedor principal del contador (el recuadro blanco) */
 .countdown-container {
-    display: inline-block; /* Permite que el contenedor se ajuste a su contenido */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
-    padding: clamp(1rem, 5vw, 2rem); /* Padding responsivo: min 1rem, preferido 5% del ancho del viewport, max 2rem */
-    border-radius: 1rem; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    color: var(--text-color-light); /* Asumiendo que el texto del contador debe ser claro en este fondo */
-    text-align: center; /* Centra el contenido si el contenedor es más ancho */
-    width: 100%; /* Ocupa el 100% del ancho de su padre (.countdown-wrapper) */
-    min-width: 280px; /* Ancho mínimo para evitar que se comprima demasiado en pantallas muy pequeñas */
-    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+    display: inline-block;
+    /* Permite que el contenedor se ajuste a su contenido */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo semi-transparente */
+    padding: clamp(1rem, 5vw, 2rem);
+    /* Padding responsivo: min 1rem, preferido 5% del ancho del viewport, max 2rem */
+    border-radius: 1rem;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+    color: var(--text-color-light);
+    /* Asumiendo que el texto del contador debe ser claro en este fondo */
+    text-align: center;
+    /* Centra el contenido si el contenedor es más ancho */
+    width: 100%;
+    /* Ocupa el 100% del ancho de su padre (.countdown-wrapper) */
+    min-width: 280px;
+    /* Ancho mínimo para evitar que se comprima demasiado en pantallas muy pequeñas */
+    box-sizing: border-box;
+    /* Incluye padding y borde en el ancho/alto */
 }
 
 /* Estilos para el título "Tiempo restante..." */
 .countdown-title {
-    font-family: 'Montserrat', sans-serif; /* Usar font-heading */
-    font-size: clamp(1.2rem, 2.5vw + 0.5rem, 2.5rem); /* Tamaño de fuente responsivo: min, preferido (vw), max */
-    font-weight: 600; /* Seminegrita */
-    margin-bottom: clamp(0.75rem, 2vw, 1rem); /* Margen inferior responsivo */
-    color: var(--text-color-light); /* Título también claro */
+    font-family: 'Montserrat', sans-serif;
+    /* Usar font-heading */
+    font-size: clamp(1.2rem, 2.5vw + 0.5rem, 2.5rem);
+    /* Tamaño de fuente responsivo: min, preferido (vw), max */
+    font-weight: 600;
+    /* Seminegrita */
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    /* Margen inferior responsivo */
+    color: var(--text-color-light);
+    /* Título también claro */
 }
 
 /* Estilos para la rejilla de los elementos del contador (Días, Horas, etc.) */
 .countdown-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* SIEMPRE 4 columnas, cada una con igual fracción de espacio */
-    gap: clamp(0.5rem, 2vw, 1rem); /* Espacio responsivo entre columnas: min, preferido (vw), max */
-    text-align: center; /* Centra el texto dentro de cada celda */
+    grid-template-columns: repeat(4, 1fr);
+    /* SIEMPRE 4 columnas, cada una con igual fracción de espacio */
+    gap: clamp(0.5rem, 2vw, 1rem);
+    /* Espacio responsivo entre columnas: min, preferido (vw), max */
+    text-align: center;
+    /* Centra el texto dentro de cada celda */
 }
 
 /* Estilos para cada caja individual (Días, Horas, Minutos, Segundos) */
 .countdown-item {
-    background-color: var(--accent-color); /* Usar la variable de color de acento */
-    padding: clamp(0.5rem, 3.5vw, 1.5rem); /* REDUCIDO LIGERAMENTE EL MINIMO Y AUMENTADO VW */
-    border-radius: 0.5rem; /* Bordes redondeados */
+    background-color: var(--accent-color);
+    /* Usar la variable de color de acento */
+    padding: clamp(0.5rem, 3.5vw, 1.5rem);
+    /* REDUCIDO LIGERAMENTE EL MINIMO Y AUMENTADO VW */
+    border-radius: 0.5rem;
+    /* Bordes redondeados */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text-color-dark); /* Color de texto oscuro por defecto para las etiquetas */
+    color: var(--text-color-dark);
+    /* Color de texto oscuro por defecto para las etiquetas */
     min-width: 0;
     min-height: 0;
 }
 
 /* Estilos para los números del contador (000, 00) */
 .countdown-number {
-    font-size: clamp(1.4rem, 7.5vw, 4rem); /* MIN MÁS BAJO Y VW MÁS AGRESIVO */
-    font-weight: bold; /* Negrita */
-    line-height: 1.1; /* Ajusta la altura de línea para compactar */
-    color: var(--text-color-light); /* ¡NÚMEROS BLANCOS! */
+    font-size: clamp(1.4rem, 7.5vw, 4rem);
+    /* MIN MÁS BAJO Y VW MÁS AGRESIVO */
+    font-weight: bold;
+    /* Negrita */
+    line-height: 1.1;
+    /* Ajusta la altura de línea para compactar */
+    color: var(--text-color-light);
+    /* ¡NÚMEROS BLANCOS! */
 }
 
 /* Estilos para las etiquetas (Días, Horas, etc.) */
 .countdown-label {
-    font-size: clamp(0.6rem, 2vw + 0.2rem, 1rem); /* MIN MÁS BAJO */
-    line-height: 1.1; /* Ajusta la altura de línea */
-    opacity: 0.8; /* Ligeramente transparente para diferenciarse del número */
+    font-size: clamp(0.6rem, 2vw + 0.2rem, 1rem);
+    /* MIN MÁS BAJO */
+    line-height: 1.1;
+    /* Ajusta la altura de línea */
+    opacity: 0.8;
+    /* Ligeramente transparente para diferenciarse del número */
 }
 
 
@@ -520,6 +677,7 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 .cta-button::before {
     content: '';
     position: absolute;
@@ -527,12 +685,14 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s;
 }
+
 .cta-button:hover::before {
     left: 100%;
 }
+
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(168, 39, 223, 0.3);
@@ -549,14 +709,16 @@ a.border-2:hover i {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: #255399; /* Un verde oscuro para buen contraste */
+    background-color: #255399;
+    /* Un verde oscuro para buen contraste */
     color: white;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre la imagen y el texto */
+    gap: 15px;
+    /* Espacio entre la imagen y el texto */
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -574,7 +736,8 @@ a.border-2:hover i {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    flex-shrink: 0; /* Asegura que la imagen no se encoja */
+    flex-shrink: 0;
+    /* Asegura que la imagen no se encoja */
 }
 
 .popup-text {
@@ -583,21 +746,28 @@ a.border-2:hover i {
     font-size: 18px;
 
     /* Línea de separación */
-    border-left: 1px solid rgba(255, 255, 255, 0.664); /* Línea blanca sutil */
-    padding-left: 15px; /* Espacio después de la línea para el texto */
-    margin-left: 5px; /* Pequeño margen para ajustar la posición de la línea */
+    border-left: 1px solid rgba(255, 255, 255, 0.664);
+    /* Línea blanca sutil */
+    padding-left: 15px;
+    /* Espacio después de la línea para el texto */
+    margin-left: 5px;
+    /* Pequeño margen para ajustar la posición de la línea */
 }
 
 /* Para asegurar que los párrafos no tengan márgenes extra y se vean ordenados */
 .popup-text p {
-    margin: 0; /* Elimina los márgenes predeterminados de los párrafos */
-    line-height: 1.2; /* Ajusta la altura de línea para un texto más compacto */
+    margin: 0;
+    /* Elimina los márgenes predeterminados de los párrafos */
+    line-height: 1.2;
+    /* Ajusta la altura de línea para un texto más compacto */
 }
 
 /* Estilo para resaltar el texto "Se acaba de registrar" */
 .highlight-register {
-    font-weight: bold; /* Hace el texto más grueso */
-    color: #dfdc27; /* Un amarillo brillante para que resalte bien */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+    color: #dfdc27;
+    /* Un amarillo brillante para que resalte bien */
 }
 
 /* ========================================================= */
@@ -621,20 +791,29 @@ a.border-2:hover i {
 /* Estilo para el contenedor de tarjetas */
 .flex-grow {
     flex-grow: 1;
-    padding: 7px; /* Ajuste para evitar expansión excesiva */
+    padding: 7px;
+    /* Ajuste para evitar expansión excesiva */
 }
 
 
 /* Estilo para el fondo animado de tarjetas */
 .animated-card-bg {
-    background: linear-gradient(45deg, #ffffff, #ffffff, #e0f2f7); /* Gradiente de azules claros */
-    background-size: 200% 200%; /* Para que el gradiente sea más grande que el elemento y pueda moverse */
-    animation: moveGradient 5s ease infinite alternate; /* Animación de movimiento del fondo */
+    background: linear-gradient(45deg, #ffffff, #ffffff, #e0f2f7);
+    /* Gradiente de azules claros */
+    background-size: 200% 200%;
+    /* Para que el gradiente sea más grande que el elemento y pueda moverse */
+    animation: moveGradient 5s ease infinite alternate;
+    /* Animación de movimiento del fondo */
 }
 
 @keyframes moveGradient {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 /* Estilos para el cronograma dentro de #formulario-inscripcion */
@@ -651,7 +830,8 @@ a.border-2:hover i {
 }
 
 #formulario-inscripcion h4:hover {
-    color: #f59e0b; /* Accent al hover */
+    color: #f59e0b;
+    /* Accent al hover */
 }
 
 #formulario-inscripcion .fa-chevron-down {
@@ -661,6 +841,7 @@ a.border-2:hover i {
 #formulario-inscripcion .accordion-content.active {
     display: block;
 }
+
 /* ========================================================= */
 /* ANIMACION PARA EL CERTIFICADO */
 /* ========================================================= */
@@ -670,16 +851,20 @@ a.border-2:hover i {
     0% {
         transform: scale(1);
     }
+
     50% {
-        transform: scale(1.02); /* Se agranda un 2% */
+        transform: scale(1.02);
+        /* Se agranda un 2% */
     }
+
     100% {
         transform: scale(1);
     }
 }
 
 .animate-certificate {
-    animation: pulse-zoom 2s ease-in-out infinite; /* Duración de 3s, repetición infinita */
+    animation: pulse-zoom 2s ease-in-out infinite;
+    /* Duración de 3s, repetición infinita */
 }
 
 /* Estilos para el botón flotante de WhatsApp */
@@ -687,7 +872,8 @@ a.border-2:hover i {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #25d366; /* Verde WhatsApp */
+    background-color: #25d366;
+    /* Verde WhatsApp */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -699,7 +885,8 @@ a.border-2:hover i {
     text-decoration: none;
     transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out;
     padding: 0;
-    animation: pulse 2s infinite; /* 🔹 Aplica la animación de latido */
+    animation: pulse 2s infinite;
+    /* 🔹 Aplica la animación de latido */
 }
 
 /* Animación de latido */
@@ -708,10 +895,12 @@ a.border-2:hover i {
         transform: scale(1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
     70% {
         transform: scale(1.05);
         box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.7);
     }
+
     100% {
         transform: scale(1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -732,7 +921,8 @@ a.border-2:hover i {
     font-weight: bold;
     color: white;
     white-space: nowrap;
-    display: none; /* 🔹 No se muestra hasta que el botón se expanda */
+    display: none;
+    /* 🔹 No se muestra hasta que el botón se expanda */
 }
 
 /* Expandir el botón y mostrar el texto solo cuando esté completamente ancho */
@@ -741,7 +931,8 @@ a.border-2:hover i {
     border-radius: 30px;
     justify-content: flex-start;
     padding-left: 15px;
-    animation: none; /* 🔹 Detiene la animación cuando el botón se expande */
+    animation: none;
+    /* 🔹 Detiene la animación cuando el botón se expande */
 }
 
 /* Mostrar el texto solo cuando el botón YA está expandido */
@@ -757,65 +948,133 @@ a.border-2:hover i {
 /* ----------------------------- */
 
 @media (max-width: 480px) {
-    #navbar, #nav-container { height: 56px; }
-    #logo { height: 36px; }
-    #navbar.scrolled, #navbar.scrolled #nav-container { height: 44px; }
-    #navbar.scrolled #logo { height: 28px; }
+
+    #navbar,
+    #nav-container {
+        height: 56px;
+    }
+
+    #logo {
+        height: 36px;
+    }
+
+    #navbar.scrolled,
+    #navbar.scrolled #nav-container {
+        height: 44px;
+    }
+
+    #navbar.scrolled #logo {
+        height: 28px;
+    }
 
     .hero-bg {
         /* Eliminamos align-items: center para que no haya tanto espacio arriba */
-        align-items: flex-start; /* Alinea el contenido del hero arriba */
-        padding-top: calc(56px + 1.5rem); /* Ajusta padding-top: Altura de navbar móvil + un poco de margen (ej. 1.5rem) */
+        align-items: flex-start;
+        /* Alinea el contenido del hero arriba */
+        padding-top: calc(56px + 1.5rem);
+        /* Ajusta padding-top: Altura de navbar móvil + un poco de margen (ej. 1.5rem) */
         min-height: 100vh;
         /* IMPORTANTE: Reducimos el justify-content en móviles si es un problema */
-        /* justify-content: flex-start; */ /* Opcional: si quieres que el contenido se pegue a la izquierda */
+        /* justify-content: flex-start; */
+        /* Opcional: si quieres que el contenido se pegue a la izquierda */
     }
 
-    .hero-bg .text-4xl { font-size: 1.5rem; }
+    .hero-bg .text-4xl {
+        font-size: 1.5rem;
+    }
+
     .hero-bg .md\:text-6xl,
-    .hero-bg .lg\:text-7xl { font-size: 2rem; }
+    .hero-bg .lg\:text-7xl {
+        font-size: 2rem;
+    }
+
     .hero-bg .max-w-7xl,
-    .hero-bg .max-w-3xl { max-width: 95vw; }
+    .hero-bg .max-w-3xl {
+        max-width: 95vw;
+    }
+
     .hero-bg .px-4,
     .hero-bg .sm\:px-6,
-    .hero-bg .lg\:px-8 { padding-left: 8px !important; padding-right: 8px !important; }
-    .hero-bg .mb-8 { margin-bottom: 1rem; }
-    .hero-bg .gap-4 { gap: 0.5rem; }
+    .hero-bg .lg\:px-8 {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .hero-bg .mb-8 {
+        margin-bottom: 1rem;
+    }
+
+    .hero-bg .gap-4 {
+        gap: 0.5rem;
+    }
 
     /* Ajustes para el slider de banderas */
-    .flip-card { height: 220px; }
-    .flip-card-front, .flip-card-back { padding: 1rem; }
+    .flip-card {
+        height: 220px;
+    }
 
-    .cta-button, .border-2 { padding: 0.75rem 1.2rem !important; font-size: 1rem !important; }
+    .flip-card-front,
+    .flip-card-back {
+        padding: 1rem;
+    }
 
-    .floating-element .text-6xl { font-size: 2.5rem; }
-    .floating-element .text-8xl { font-size: 3.2rem; }
-    .floating-element { top: 10px !important; right: 10px !important; bottom: 10px !important; left: 10px !important; }
+    .cta-button,
+    .border-2 {
+        padding: 0.75rem 1.2rem !important;
+        font-size: 1rem !important;
+    }
+
+    .floating-element .text-6xl {
+        font-size: 2.5rem;
+    }
+
+    .floating-element .text-8xl {
+        font-size: 3.2rem;
+    }
+
+    .floating-element {
+        top: 10px !important;
+        right: 10px !important;
+        bottom: 10px !important;
+        left: 10px !important;
+    }
 }
+
+
 
 /* ======================================= */
 /* ESTILOS ESPECÍFICOS DE SECCIONES */
 /* ======================================= */
 
 /* Quienes Somos Section */
-#quienes-somos .lg\:w-1\/2 p { /* Selecciona los párrafos dentro de la columna de texto */
-    text-align: justify; /* Justifica el texto de los párrafos */
+#quienes-somos .lg\:w-1\/2 p {
+    /* Selecciona los párrafos dentro de la columna de texto */
+    text-align: justify;
+    /* Justifica el texto de los párrafos */
 }
 
 /* Estilo para la imagen con bordes abstractos */
 .abstract-border-image {
-    position: relative; /* Necesario para posicionar los pseudo-elementos */
-    max-width: 350px; /* Ajusta el tamaño máximo de la imagen */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 12px; /* Bordes ligeramente redondeados de la imagen */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Sombra suave para la imagen */
+    position: relative;
+    /* Necesario para posicionar los pseudo-elementos */
+    max-width: 350px;
+    /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    /* Mantiene la proporción */
+    border-radius: 12px;
+    /* Bordes ligeramente redondeados de la imagen */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+    /* Sombra suave para la imagen */
     transition: transform 0.3s ease-in-out;
-    display: block; /* Asegura que la imagen sea un bloque */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+    display: block;
+    /* Asegura que la imagen sea un bloque */
+    margin: 0 auto;
+    /* Centra la imagen horizontalmente */
 }
 
 .abstract-border-image:hover {
-    transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
+    transform: scale(1.03);
+    /* Ligeramente más grande al pasar el ratón */
 }
 
 /* Pseudo-elementos para el efecto de borde abstracto */
@@ -823,29 +1082,46 @@ a.border-2:hover i {
 .abstract-border-image::after {
     content: '';
     position: absolute;
-    top: -8px; /* Ajusta la posición de los bordes */
+    top: -8px;
+    /* Ajusta la posición de los bordes */
     left: -8px;
-    width: calc(100% + 16px); /* Hace que los bordes sean más grandes que la imagen */
+    width: calc(100% + 16px);
+    /* Hace que los bordes sean más grandes que la imagen */
     height: calc(100% + 16px);
     background: linear-gradient(45deg, var(--accent-color), transparent 30%, var(--secondary-color) 70%, transparent, var(--accent-color));
-    background-size: 300% 300%; /* Permite la animación del gradiente */
-    border-radius: inherit; /* Hereda los bordes redondeados de la imagen */
-    z-index: -1; /* Detrás de la imagen */
+    background-size: 300% 300%;
+    /* Permite la animación del gradiente */
+    border-radius: inherit;
+    /* Hereda los bordes redondeados de la imagen */
+    z-index: -1;
+    /* Detrás de la imagen */
     animation: border-glow 5s linear infinite;
-    opacity: 0.8; /* Opacidad para el efecto */
+    opacity: 0.8;
+    /* Opacidad para el efecto */
 }
 
 .abstract-border-image::after {
-    filter: blur(10px); /* Desenfoque para el brillo */
-    opacity: 0.6; /* Menos opacidad para el brillo */
-    animation-delay: 1.5s; /* Retraso para el brillo */
+    filter: blur(10px);
+    /* Desenfoque para el brillo */
+    opacity: 0.6;
+    /* Menos opacidad para el brillo */
+    animation-delay: 1.5s;
+    /* Retraso para el brillo */
 }
 
 /* Animación para el efecto de brillo del borde */
 @keyframes border-glow {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 svg {
@@ -862,16 +1138,25 @@ svg {
 .card-hover-ponentes {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra la imagen, título y texto horizontalmente */
-    justify-content: space-between; /* Distribuye el contenido uniformemente */
+    align-items: center;
+    /* Centra la imagen, título y texto horizontalmente */
+    justify-content: space-between;
+    /* Distribuye el contenido uniformemente */
     width: 100%;
-    max-width: 340px; /* Ancho aumentado para más espacio */
-    height: 390px; /* Altura aumentada para acomodar más texto */
-    box-sizing: border-box; /* Incluye padding en el tamaño total */
-    background-color: var(--background-color, #f4f4f9); /* Fondo consistente */
-    border-radius: 0.75rem; /* rounded-xl */
-    border-left: 4px solid var(--accent-color); /* border-l-4 border-accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    max-width: 340px;
+    /* Ancho aumentado para más espacio */
+    height: 390px;
+    /* Altura aumentada para acomodar más texto */
+    box-sizing: border-box;
+    /* Incluye padding en el tamaño total */
+    background-color: var(--background-color, #f4f4f9);
+    /* Fondo consistente */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    border-left: 4px solid var(--accent-color);
+    /* border-l-4 border-accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transiciones suaves */
 }
 
 /* ========================================================= */
@@ -895,8 +1180,8 @@ svg {
 
 @media (min-width: 640px) {
     .slider-item {
-        flex: 0 0 50%;    
-    }    
+        flex: 0 0 50%;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -955,11 +1240,13 @@ svg {
     background-color: var(--primary-color);
 }
 
-button#prev-slide, button#next-slide {
+button#prev-slide,
+button#next-slide {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button#prev-slide:hover, button#next-slide:hover {
+button#prev-slide:hover,
+button#next-slide:hover {
     transform: scale(1.1);
 }
 
@@ -980,18 +1267,343 @@ button#prev-slide:hover, button#next-slide:hover {
 }
 
 /* Responsividad para pantallas pequeñas */
-@media (max-width: 640px), (max-width: 390px) {
+@media (max-width: 640px),
+(max-width: 390px) {
     .ponente-image {
         width: 120px;
         height: 120px;
     }
+
     .card-hover-ponentes {
         padding: 1rem;
     }
 }
 
+/* ========================================================= */
+/* SECCIÓN DE COMENTARIOS FIJOS */
+/* ========================================================= */
 
-/*CARRUSEL DE FOTOS CONGRESO PASADO*/
 
+/* ========================================================= */
+/* GALERÍA DEL CONGRESO - CARRUSEL MODERNO */
+/* ========================================================= */
 
+.gallery-carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); */
+    /* background: var(--background-color); */
+}
 
+.gallery-carousel {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+}
+
+.gallery-item {
+    flex: 0 0 33.333%;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.gallery-image:hover {
+    /* transform: scale(1.05) translateY(-5px); */
+    filter: brightness(1) contrast(1.2);
+    /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); */
+    z-index: 2;
+    position: relative;
+}
+
+/* Controles de navegación */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 51, 102, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-nav:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+}
+
+.gallery-prev {
+    left: 15px;
+}
+
+.gallery-next {
+    right: 15px;
+}
+
+/* Indicadores */
+.gallery-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 10px;
+}
+
+.gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 51, 102, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.gallery-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.3);
+}
+
+.gallery-dot:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Modal de visualización */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.gallery-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    margin: auto;
+    animation: zoomIn 0.3s ease;
+}
+
+.gallery-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+#gallery-modal-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-modal-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.modal-nav-btn {
+    background: rgba(0, 51, 102, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    backdrop-filter: blur(10px);
+}
+
+.modal-nav-btn:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.gallery-modal-counter {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .gallery-carousel {
+        height: 250px;
+    }
+
+    .gallery-item {
+        flex: 0 0 100%;
+    }
+
+    .gallery-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .gallery-prev {
+        left: 10px;
+    }
+
+    .gallery-next {
+        right: 10px;
+    }
+
+    .gallery-modal-content {
+        max-width: 95vw;
+        max-height: 85vh;
+    }
+
+    .gallery-modal-close {
+        top: -35px;
+        right: -5px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-carousel {
+        height: 200px;
+    }
+
+    .gallery-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Efectos especiales de transición */
+.gallery-item.entering {
+    animation: slideInRight 0.8s ease;
+}
+
+.gallery-item.leaving {
+    animation: slideOutLeft 0.8s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%) scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-100%) scale(0.8);
+        opacity: 0;
+    }
+}

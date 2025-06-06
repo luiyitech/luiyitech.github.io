@@ -185,11 +185,11 @@ function mostrarPopup() {
     // Segunda línea de texto (mensaje de registro)
     const line2 = document.createElement("p");
     line2.classList.add("popup-line2");
-    
+
     const highlightSpan = document.createElement("span");
     highlightSpan.classList.add("highlight-register");
     highlightSpan.textContent = "Se acaba de registrar";
-    
+
     line2.appendChild(document.createTextNode("✨ "));
     line2.appendChild(highlightSpan);
     line2.appendChild(document.createTextNode(" ✨"));
@@ -210,7 +210,7 @@ function mostrarPopup() {
     setTimeout(() => {
         popup.classList.remove("show");
         popup.style.visibility = "hidden";
-        
+
         setTimeout(() => {
             document.body.removeChild(popup);
 
@@ -219,7 +219,7 @@ function mostrarPopup() {
             setTimeout(mostrarPopup, nextDelay);
 
         }, 500);
-        
+
     }, 8000);
 }
 
@@ -243,65 +243,13 @@ function initPonentesSlider() {
     const modalBio = document.getElementById('modal-bio');
     const modalExperience = document.getElementById('modal-experience');
     const modalFocus = document.getElementById('modal-focus');
-    
+
     let currentIndex = 0;
     const slidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
     const totalSlides = slides.length;
     const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
-    
-    // Datos de ejemplo para los modals (reemplaza con datos reales)
-    const profesionales = [
-        { 
-            id: 'modal-1', 
-            name: 'Dr. Juan Pérez', 
-            specialty: 'Especialista en Criminalística y Ciencias Forenses', 
-            bio: 'El Dr. Pérez ha dedicado más de 20 años a la investigación criminalística, liderando equipos en casos de alto perfil.', 
-            experience: 'Experiencia: 20+ años', 
-            focus: 'Áreas de enfoque: Análisis de evidencia, formación de peritos' 
-        },
-        { 
-            id: 'modal-2', 
-            name: 'Mtra. Laura Gómez', 
-            specialty: 'Perita en Identificación Humana y ADN Forense', 
-            bio: 'Reconocida por su trabajo en genética forense, ha contribuido a resolver casos mediante análisis de ADN.', 
-            experience: 'Experiencia: 15 años', 
-            focus: 'Áreas de enfoque: Identificación humana, investigación genética' 
-        },
-        { 
-            id: 'modal-3', 
-            name: 'Lic. Ricardo Fernández', 
-            specialty: 'Analista en Informática Forense y Seguridad Digital', 
-            bio: 'Especialista en recuperación de datos digitales y ciberseguridad, con experiencia en casos internacionales.', 
-            experience: 'Experiencia: 12 años', 
-            focus: 'Áreas de enfoque: Ciberseguridad, análisis de dispositivos' 
-        },
-        { 
-            id: 'modal-4', 
-            name: 'Dra. Soledad Méndez', 
-            specialty: 'Médica Forense con especialización en patología criminal', 
-            bio: 'La Dra. Méndez ha trabajado en autopsias de casos complejos, colaborando con organismos internacionales.', 
-            experience: 'Experiencia: 18 años', 
-            focus: 'Áreas de enfoque: Patología criminal, medicina forense' 
-        },
-        { 
-            id: 'modal-5', 
-            name: 'Dr. Carlos López', 
-            specialty: 'Especialista en Balística Forense', 
-            bio: 'Experto en análisis de trayectorias y huellas balísticas, con participación en investigaciones de alto impacto.', 
-            experience: 'Experiencia: 10 años', 
-            focus: 'Áreas de enfoque: Balística, reconstrucción de escenas' 
-        },
-        { 
-            id: 'modal-6', 
-            name: 'Nombre Profesional', 
-            specialty: 'Especialidad Forense', 
-            bio: 'Biografía detallada del profesional.', 
-            experience: 'Experiencia: X años', 
-            focus: 'Áreas de enfoque: Detalles específicos' 
-        },
-        // Agrega los otros 11 profesionales aquí con sus datos reales
-    ];
-    
+
+
     // Crear puntos de navegación
     for (let i = 0; i <= maxIndex; i++) {
         const dot = document.createElement('div');
@@ -314,21 +262,21 @@ function initPonentesSlider() {
         });
         dotsContainer.appendChild(dot);
     }
-    
+
     // Actualizar posición del slider
     function updateSlider() {
         const slideWidth = slides[0].offsetWidth;
         const offset = -(currentIndex * slideWidth * slidesPerView);
         sliderTrack.style.transform = `translateX(${offset}px)`;
-        
+
         document.querySelectorAll('.dot').forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
-        
+
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === maxIndex;
     }
-    
+
     // Navegación con botones
     prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
@@ -337,7 +285,7 @@ function initPonentesSlider() {
             resetAutoSlide();
         }
     });
-    
+
     nextBtn.addEventListener('click', () => {
         if (currentIndex < maxIndex) {
             currentIndex++;
@@ -345,7 +293,7 @@ function initPonentesSlider() {
             resetAutoSlide();
         }
     });
-    
+
     // Cambio automático
     let autoSlide = setInterval(() => {
         if (currentIndex < maxIndex) {
@@ -355,7 +303,7 @@ function initPonentesSlider() {
         }
         updateSlider();
     }, 5000);
-    
+
     function resetAutoSlide() {
         clearInterval(autoSlide);
         autoSlide = setInterval(() => {
@@ -367,7 +315,7 @@ function initPonentesSlider() {
             updateSlider();
         }, 5000);
     }
-    
+
     // Actualizar slider al cambiar tamaño de ventana
     window.addEventListener('resize', () => {
         const newSlidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
@@ -375,7 +323,7 @@ function initPonentesSlider() {
             updateSlider();
         }
     });
-    
+
     updateSlider();
 }
 
@@ -392,20 +340,303 @@ window.onload = () => {
     });
 };
 
+// ===============================
+// GALERÍA DEL CONGRESO - CARRUSEL
+// ===============================
+class GalleryCarousel {
+    constructor() {
+        this.currentIndex = 0;
+        this.totalImages = 20;
+        this.autoPlayInterval = null;
+        this.autoPlayDelay = 4000;
+        this.isModalOpen = false;
+        this.modalCurrentIndex = 0;
 
-function toggleAccordion(dayId) {
-    const content = document.getElementById(`${dayId}-content`);
-    const arrow = document.getElementById(`${dayId}-arrow`);
-    if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        content.classList.add('active');
-        arrow.classList.add('rotate-180');
-    } else {
-        content.classList.add('hidden');
-        content.classList.remove('active');
-        arrow.classList.remove('rotate-180');
+        this.init();
+    }
+
+    init() {
+        this.createGalleryItems();
+        this.createDots();
+        this.bindEvents();
+        this.startAutoPlay();
+        this.updateView();
+    }
+
+    createGalleryItems() {
+        const track = document.getElementById('gallery-track');
+        if (!track) return;
+
+        for (let i = 1; i <= this.totalImages; i++) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const img = document.createElement('img');
+            img.src = `img/galeria/${i}.jpg`;
+            img.alt = `Foto del congreso ${i}`;
+            img.className = 'gallery-image';
+            img.dataset.index = i - 1;
+
+            // Efecto de carga progresiva
+            img.style.opacity = '0';
+            img.onload = () => {
+                setTimeout(() => {
+                    img.style.transition = 'opacity 0.5s ease';
+                    img.style.opacity = '1';
+                }, i * 100);
+            };
+
+            item.appendChild(img);
+            track.appendChild(item);
+        }
+    }
+
+    createDots() {
+        const dotsContainer = document.getElementById('gallery-dots');
+        if (!dotsContainer) return;
+
+        const totalDots = Math.ceil(this.totalImages / 3);
+
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'gallery-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.dataset.index = i;
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    bindEvents() {
+        // Navegación con botones
+        const prevBtn = document.getElementById('gallery-prev');
+        const nextBtn = document.getElementById('gallery-next');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => this.prevSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
+
+        // Navegación con dots
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('gallery-dot')) {
+                const index = parseInt(e.target.dataset.index);
+                this.goToSlide(index);
+            }
+        });
+
+        // Abrir modal al hacer clic en imagen
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('gallery-image')) {
+                const index = parseInt(e.target.dataset.index);
+                this.openModal(index);
+            }
+        });
+
+        // Modal events
+        this.bindModalEvents();
+
+        // Pausar autoplay al hover
+        const carousel = document.querySelector('.gallery-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => this.pauseAutoPlay());
+            carousel.addEventListener('mouseleave', () => this.startAutoPlay());
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (this.isModalOpen) {
+                switch (e.key) {
+                    case 'Escape':
+                        this.closeModal();
+                        break;
+                    case 'ArrowLeft':
+                        this.modalPrev();
+                        break;
+                    case 'ArrowRight':
+                        this.modalNext();
+                        break;
+                }
+            } else {
+                switch (e.key) {
+                    case 'ArrowLeft':
+                        this.prevSlide();
+                        break;
+                    case 'ArrowRight':
+                        this.nextSlide();
+                        break;
+                }
+            }
+        });
+    }
+
+    bindModalEvents() {
+        const modal = document.getElementById('gallery-modal');
+        const closeBtn = document.getElementById('gallery-modal-close');
+        const modalPrevBtn = document.getElementById('modal-prev');
+        const modalNextBtn = document.getElementById('modal-next');
+
+        if (closeBtn) closeBtn.addEventListener('click', () => this.closeModal());
+        if (modalPrevBtn) modalPrevBtn.addEventListener('click', () => this.modalPrev());
+        if (modalNextBtn) modalNextBtn.addEventListener('click', () => this.modalNext());
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.closeModal();
+                }
+            });
+        }
+    }
+
+    nextSlide() {
+        const maxIndex = Math.ceil(this.totalImages / 3) - 1;
+        this.currentIndex = (this.currentIndex + 1) > maxIndex ? 0 : this.currentIndex + 1;
+        this.updateView();
+        this.resetAutoPlay();
+    }
+
+    prevSlide() {
+        const maxIndex = Math.ceil(this.totalImages / 3) - 1;
+        this.currentIndex = (this.currentIndex - 1) < 0 ? maxIndex : this.currentIndex - 1;
+        this.updateView();
+        this.resetAutoPlay();
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateView();
+        this.resetAutoPlay();
+    }
+
+    updateView() {
+        const track = document.getElementById('gallery-track');
+        const dots = document.querySelectorAll('.gallery-dot');
+
+        if (track) {
+            const offset = -this.currentIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Actualizar dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    startAutoPlay() {
+        if (this.autoPlayInterval) return;
+
+        this.autoPlayInterval = setInterval(() => {
+            if (!this.isModalOpen) {
+                this.nextSlide();
+            }
+        }, this.autoPlayDelay);
+    }
+
+    pauseAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+
+    resetAutoPlay() {
+        this.pauseAutoPlay();
+        this.startAutoPlay();
+    }
+
+    openModal(imageIndex) {
+        this.isModalOpen = true;
+        this.modalCurrentIndex = imageIndex;
+        this.pauseAutoPlay();
+
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('gallery-modal-img');
+        const counter = document.getElementById('gallery-modal-counter');
+
+        if (modal && modalImg) {
+            modalImg.src = `img/galeria/${imageIndex + 1}.jpg`;
+            modalImg.alt = `Foto del congreso ${imageIndex + 1}`;
+
+            if (counter) {
+                counter.textContent = `${imageIndex + 1} / ${this.totalImages}`;
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Efecto de entrada suave
+            setTimeout(() => {
+                modalImg.style.transform = 'scale(1)';
+                modalImg.style.opacity = '1';
+            }, 50);
+        }
+    }
+
+    closeModal() {
+        this.isModalOpen = false;
+        const modal = document.getElementById('gallery-modal');
+
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            this.startAutoPlay();
+        }
+    }
+
+    modalNext() {
+        this.modalCurrentIndex = (this.modalCurrentIndex + 1) % this.totalImages;
+        this.updateModalImage();
+    }
+
+    modalPrev() {
+        this.modalCurrentIndex = (this.modalCurrentIndex - 1 + this.totalImages) % this.totalImages;
+        this.updateModalImage();
+    }
+
+    updateModalImage() {
+        const modalImg = document.getElementById('gallery-modal-img');
+        const counter = document.getElementById('gallery-modal-counter');
+
+        if (modalImg) {
+            // Efecto de transición
+            modalImg.style.opacity = '0.5';
+            modalImg.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                modalImg.src = `img/galeria/${this.modalCurrentIndex + 1}.jpg`;
+                modalImg.alt = `Foto del congreso ${this.modalCurrentIndex + 1}`;
+
+                if (counter) {
+                    counter.textContent = `${this.modalCurrentIndex + 1} / ${this.totalImages}`;
+                }
+
+                // Restaurar efecto
+                setTimeout(() => {
+                    modalImg.style.opacity = '1';
+                    modalImg.style.transform = 'scale(1)';
+                }, 100);
+            }, 150);
+        }
     }
 }
 
-//CARRUSEL DE FOTOS CONGRESO PASADO//
+// Inicializar la galería cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    // Esperar a que AOS esté disponible si lo usas
+    if (typeof AOS !== 'undefined') {
+        setTimeout(() => {
+            new GalleryCarousel();
+        }, 500);
+    } else {
+        new GalleryCarousel();
+    }
+});
 
+// También asegurar que se inicialice si la página ya está cargada
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        new GalleryCarousel();
+    });
+} else {
+    new GalleryCarousel();
+}

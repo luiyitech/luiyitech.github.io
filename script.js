@@ -340,6 +340,28 @@ window.onload = () => {
     });
 };
 
+
+// ===============================
+// ACORDEON LISTA PROGRAMA
+// ===============================
+
+function toggleAccordion(id) {
+    // Selecciona el contenido y la flecha
+    const content = document.getElementById(id + '-content');
+    const arrow = document.getElementById(id + '-arrow');
+    // Alterna la visibilidad
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+    } else {
+        content.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+    }
+}
+
+
+
+
 // ===============================
 // GALERÍA DEL CONGRESO - CARRUSEL
 // ===============================

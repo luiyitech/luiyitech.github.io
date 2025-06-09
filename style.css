@@ -1138,25 +1138,52 @@ svg {
 .card-hover-ponentes {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* Centra la imagen, título y texto horizontalmente */
-    justify-content: space-between;
-    /* Distribuye el contenido uniformemente */
+    align-items: center; /* Centra la imagen, título y texto horizontalmente */
+    justify-content: space-between; /* Distribuye el contenido uniformemente */
     width: 100%;
-    max-width: 340px;
-    /* Ancho aumentado para más espacio */
-    height: 390px;
-    /* Altura aumentada para acomodar más texto */
-    box-sizing: border-box;
-    /* Incluye padding en el tamaño total */
-    background-color: var(--background-color, #f4f4f9);
-    /* Fondo consistente */
-    border-radius: 0.75rem;
-    /* rounded-xl */
-    border-left: 4px solid var(--accent-color);
-    /* border-l-4 border-accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Transiciones suaves */
+    max-width: 340px; /* Mantengo este tamaño mayor */
+    min-height: 260px; /* Para que no se achique demasiado */
+    height: 390px; /* Altura fija para acomodar más texto */
+    margin: 0 auto;
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    padding: 1.5rem;
+    background-color: var(--background-color, #f4f4f9); /* Fondo consistente */
+    border-radius: 0.75rem; /* rounded-xl */
+    border-left: 4px solid var(--accent-color); /* border-l-4 border-accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Compatibilidad con line-clamp */
+.card-hover-ponentes p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    max-height: calc(1.25em * 2);
+}
+
+/* Estilos adicionales para el hover: zoom sin sombra */
+.card-hover-ponentes:hover {
+    transform: translateY(-5px);
+    /* Sombra eliminada para evitar efecto no deseado */
+    /* box-shadow: none; */
+}
+
+/* Estilos para la imagen del ponente */
+.ponente-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de hover para la imagen: zoom sin sombra */
+.card-hover-ponentes:hover .ponente-image {
+    transform: scale(1.05);
 }
 
 /* ========================================================= */
@@ -1190,36 +1217,7 @@ svg {
     }
 }
 
-.card-hover-ponentes {
-    width: 100%;
-    max-width: 300px;
-    min-height: 260px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Compatibilidad con line-clamp */
-.card-hover-ponentes p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    max-height: calc(1.25em * 2);
-}
-
-/* Estilos adicionales para el hover */
-.card-hover-ponentes:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
+/* Puntos de navegación */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -1240,6 +1238,7 @@ svg {
     background-color: var(--primary-color);
 }
 
+/* Botones prev/next */
 button#prev-slide,
 button#next-slide {
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -1248,35 +1247,6 @@ button#next-slide {
 button#prev-slide:hover,
 button#next-slide:hover {
     transform: scale(1.1);
-}
-
-/* Estilos para la imagen del ponente */
-.ponente-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-/* Efecto de hover para la imagen */
-.card-hover-ponentes:hover .ponente-image {
-    transform: scale(1.05);
-}
-
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 640px),
-(max-width: 390px) {
-    .ponente-image {
-        width: 120px;
-        height: 120px;
-    }
-
-    .card-hover-ponentes {
-        padding: 1rem;
-    }
 }
 
 /* ========================================================= */
@@ -1328,9 +1298,9 @@ button#next-slide:hover {
 }
 
 .gallery-image:hover {
-    /* transform: scale(1.05) translateY(-5px); */
+    transform: scale(1.05) translateY(-5px);
     filter: brightness(1) contrast(1.2);
-    /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     z-index: 2;
     position: relative;
 }
@@ -1452,6 +1422,7 @@ button#next-slide:hover {
     max-height: 100%;
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .gallery-modal-nav {
@@ -1607,3 +1578,6 @@ button#next-slide:hover {
         opacity: 0;
     }
 }
+/* ========================================================= */
+/* SECCIÓN DE TESTIMONIOS */
+/* ========================================================= */

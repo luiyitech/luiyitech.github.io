@@ -232,105 +232,133 @@ setTimeout(mostrarPopup, 2000);
 // ===============================
 function initPonentesSlider() {
     const sliderTrack = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slider-item');
+    let slides = Array.from(document.querySelectorAll('.slider-item'));
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
     const dotsContainer = document.querySelector('.slider-dots');
-    const modal = document.getElementById('modal');
-    const closeModalBtn = document.getElementById('close-modal');
-    const modalName = document.getElementById('modal-name');
-    const modalSpecialty = document.getElementById('modal-specialty');
-    const modalBio = document.getElementById('modal-bio');
-    const modalExperience = document.getElementById('modal-experience');
-    const modalFocus = document.getElementById('modal-focus');
 
     let currentIndex = 0;
     const slidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
+    const advanceStep = 3; 
     const totalSlides = slides.length;
-    const maxIndex = Math.ceil(totalSlides / slidesPerView) - 1;
 
+    // Clonar últimos N slides y agregarlos al principio
+    for (let i = totalSlides - slidesPerView; i < totalSlides; i++) {
+        const clone = slides[i].cloneNode(true);
+        clone.classList.add('clone');
+        sliderTrack.insertBefore(clone, sliderTrack.firstChild);
+    }
 
-    // Crear puntos de navegación
-    for (let i = 0; i <= maxIndex; i++) {
+    // Clonar primeros N slides y agregarlos al final
+    for (let i = 0; i < slidesPerView; i++) {
+        const clone = slides[i].cloneNode(true);
+        clone.classList.add('clone');
+        sliderTrack.appendChild(clone);
+    }
+
+    const allSlides = Array.from(document.querySelectorAll('.slider-item'));
+    const totalSlidesWithClones = allSlides.length;
+
+    currentIndex = slidesPerView;
+    const slideWidth = allSlides[0].offsetWidth;
+
+    let autoSlide;
+
+    function startAutoSlide() {
+        autoSlide = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlide);
+    }
+
+    function updateSlider(animate = true) {
+        if (animate) {
+            sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+        } else {
+            sliderTrack.style.transition = 'none';
+        }
+        const offset = -currentIndex * slideWidth;
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+
+        const realIndex = (currentIndex - slidesPerView + totalSlides) % totalSlides;
+        document.querySelectorAll('.dot').forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === realIndex);
+        });
+
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+    }
+
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         if (i === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
-            currentIndex = i;
+            currentIndex = i + slidesPerView;
             updateSlider();
             resetAutoSlide();
         });
         dotsContainer.appendChild(dot);
     }
 
-    // Actualizar posición del slider
-    function updateSlider() {
-        const slideWidth = slides[0].offsetWidth;
-        const offset = -(currentIndex * slideWidth * slidesPerView);
-        sliderTrack.style.transform = `translateX(${offset}px)`;
+    function nextSlide() {
+        currentIndex += advanceStep;
+        updateSlider();
 
-        document.querySelectorAll('.dot').forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === maxIndex;
+        if (currentIndex >= totalSlides + slidesPerView) {
+            setTimeout(() => {
+                sliderTrack.style.transition = 'none';
+                currentIndex = slidesPerView + (currentIndex - (totalSlides + slidesPerView));
+                updateSlider(false);
+            }, 500);
+        }
     }
 
-    // Navegación con botones
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-            resetAutoSlide();
+    function prevSlide() {
+        currentIndex -= advanceStep;
+        updateSlider();
+
+        if (currentIndex < slidesPerView) {
+            setTimeout(() => {
+                sliderTrack.style.transition = 'none';
+                currentIndex = totalSlides + currentIndex;
+                updateSlider(false);
+            }, 500);
         }
+    }
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateSlider();
-            resetAutoSlide();
-        }
+        nextSlide();
+        resetAutoSlide();
     });
-
-    // Cambio automático
-    let autoSlide = setInterval(() => {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
-        updateSlider();
-    }, 5000);
 
     function resetAutoSlide() {
-        clearInterval(autoSlide);
-        autoSlide = setInterval(() => {
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
-            }
-            updateSlider();
-        }, 5000);
+        stopAutoSlide();
+        startAutoSlide();
     }
 
-    // Actualizar slider al cambiar tamaño de ventana
-    window.addEventListener('resize', () => {
-        const newSlidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
-        if (newSlidesPerView !== slidesPerView) {
-            updateSlider();
-        }
+    // SOLO pausa al poner puntero encima de cualquier slide
+    allSlides.forEach(slide => {
+        slide.addEventListener('mouseenter', () => stopAutoSlide());
+        slide.addEventListener('mouseleave', () => startAutoSlide());
     });
 
-    updateSlider();
+    updateSlider(false);
+    startAutoSlide();
 }
 
-// Integrar con AOS y otras funciones
 window.onload = () => {
     initPonentesSlider();
-    // Agrega aquí otras funciones como startCountdown() si las tienes
+
     AOS.init({
         duration: 1000,
         once: true,
@@ -339,7 +367,6 @@ window.onload = () => {
         delay: 0,
     });
 };
-
 
 // ===============================
 // ACORDEON LISTA PROGRAMA

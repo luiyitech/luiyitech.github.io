@@ -1,17 +1,11 @@
 /* PALETA DE COLORES */
 :root {
     --primary-color: #003366;
-    /* Azul oscuro principal */
     --secondary-color: #00509e;
-    /* Azul secundario */
     --accent-color: #27c4df;
-    /* Celeste acentuado */
     --background-color: #f4f4f9;
-    /* Color de fondo general */
     --text-color-light: #ffffff;
-    /* Color del texto claro */
     --text-color-dark: #333333;
-    /* Color del texto oscuro */
 }
 
 /* CONFIGURACIÓN GLOBAL */
@@ -23,7 +17,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* 🔹 Evita barras de desplazamiento lateral */
 }
 
 /* 🔹 Aplicamos este ancho a todas las secciones */
@@ -37,7 +30,6 @@ body {
 .bg-white.bg-opacity-10 h4.cursor-pointer:hover {
     color: rgb(255, 209, 2);
     transition: color 0.3s ease;
-    /* Para una transición suave del color */
 }
 
 
@@ -50,9 +42,7 @@ body {
 .testimonial-section>div,
 .info-section>div,
 #quienes-somos>div {
-    /* Añadimos la nueva sección #quienes-somos aquí */
     width: min(1200px, 90vw);
-    /* 🔹 Mantiene todo alineado */
     margin: auto;
 }
 
@@ -66,15 +56,11 @@ body {
     height: 80px;
     transition: height 0.3s ease;
     position: fixed;
-    /* ¡FUNDAMENTAL! La mantiene fija en la parte superior */
     top: 0;
     width: 100%;
     z-index: 50;
-    /* ¡FUNDAMENTAL! Asegura que esté por encima de TODO lo demás */
     background-color: var(--primary-color);
-    /* Fondo del navbar */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    /* Sombra para el navbar */
 }
 
 #nav-container {
@@ -1250,11 +1236,6 @@ button#next-slide:hover {
 }
 
 /* ========================================================= */
-/* SECCIÓN DE COMENTARIOS FIJOS */
-/* ========================================================= */
-
-
-/* ========================================================= */
 /* GALERÍA DEL CONGRESO - CARRUSEL MODERNO */
 /* ========================================================= */
 
@@ -1581,3 +1562,77 @@ button#next-slide:hover {
 /* ========================================================= */
 /* SECCIÓN DE TESTIMONIOS */
 /* ========================================================= */
+.testimonios-section {
+    background-color: #F9FAFB;  /* Mismo fondo que la sección de galería */
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .testimonios-intro {
+    font-size: 20px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.5;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-card {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 400px; /* Altura fija para que todas las cartas tengan el mismo tamaño */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .testimonial-text {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-details {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-name {
+    display: block;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .testimonial-location {
+    display: block;
+    font-size: 20px;
+    color: #555;
+    margin-top: 4px;
+  }
+  
+  .testimonial-rating i {
+    color: #f1c40f;
+    font-size: 22px;
+    margin: 0 1px;
+  }
+  

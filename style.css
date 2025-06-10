@@ -224,7 +224,7 @@ body {
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    background-image: url('img/huella digital.png');
+    background-image: url('img/huella\ digital.jpg');
     /* Corrige la sintaxis del espacio */
     background-size: cover;
     background-position: center;
@@ -279,7 +279,7 @@ body {
 .hero-bg,
 footer,
 .py-20,
-#certificado,
+#certificado, #testimonios,
 .fechas-y-ubicaciones,
 .countdown-wrapper {
     display: block;
@@ -495,13 +495,13 @@ footer,
 }
 
 .flip-card:nth-child(5) .flip-card-front {
-    background-image: url('img/accidentologia.webp');
+    background-image: url('img/accidentologia.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .flip-card:nth-child(6) .flip-card-front {
-    background-image: url('img/criminologia.png');
+    background-image: url('img/criminologia.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -541,11 +541,6 @@ footer,
     }
 }
 
-/* TESTIMONIOS */
-.testimonial-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-left: 4px solid var(--accent-color);
-}
 
 /* ========================================================= */
 /* ESTILOS DEL CONTADOR REGRESIVO (NUEVO) */
@@ -1279,7 +1274,7 @@ button#next-slide:hover {
 }
 
 .gallery-image:hover {
-    transform: scale(1.05) translateY(-5px);
+    /* transform: scale(1.05) translateY(-5px); */
     filter: brightness(1) contrast(1.2);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     z-index: 2;
@@ -1560,12 +1555,13 @@ button#next-slide:hover {
     }
 }
 /* ========================================================= */
-/* SECCIÓN DE TESTIMONIOS */
+/* SECCIÓN DE TESTIMONIOS RESPONSIVA */
 /* ========================================================= */
 .testimonios-section {
-    background-color: #F9FAFB;  /* Mismo fondo que la sección de galería */
+    background-color: #F9FAFB;
     padding: 60px 20px;
     text-align: center;
+    box-sizing: border-box;
   }
   
   .testimonios-intro {
@@ -1585,54 +1581,62 @@ button#next-slide:hover {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
   }
   
+  /* TARJETAS TESTIMONIO */
   .testimonial-card {
     background: #fff;
     padding: 25px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 400px; /* Altura fija para que todas las cartas tengan el mismo tamaño */
+    height: 270px;  /*Altura fija para que todas las cartas tengan el mismo tamaño */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
   }
-  
   .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   }
   
   .testimonial-text {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.5;
     color: #444;
     margin-bottom: 15px;
   }
   
-  .testimonial-details {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .testimonial-name {
-    display: block;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  .testimonial-location {
-    display: block;
-    font-size: 20px;
-    color: #555;
-    margin-top: 4px;
-  }
-  
+  .testimonial-details,
+  .testimonial-name,
+  .testimonial-location,
   .testimonial-rating i {
-    color: #f1c40f;
-    font-size: 22px;
-    margin: 0 1px;
+    font-size: 0.975rem;
+  }
+  .testimonial-name { font-weight: bold; color: #222; }
+  .testimonial-location { color: #555; margin-top: 4px; }
+  .testimonial-rating i { color: #f1c40f; margin: 0 2px; }
+  
+  /* MODELOS RESPONSIVOS GRID: 3 → 2 → 1 columnas basados en ancho */
+  @media (max-width: 992px) {
+    .testimonios-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .testimonios-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .testimonios-intro {
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+    .testimonial-card {
+      padding: 1rem;
+    }
   }
   

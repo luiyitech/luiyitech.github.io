@@ -62,27 +62,20 @@ body {
     background-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
-
 #nav-container {
     height: 80px;
     transition: height 0.3s ease;
 }
-
-
 #logo {
     height: 90px;
     transition: height 0.3s ease;
 }
-
-/* Cuando se hace scroll */
 #navbar.scrolled {
     height: 60px;
 }
-
 #navbar.scrolled #nav-container {
     height: 60px;
 }
-
 #navbar.scrolled #logo {
     height: 40px;
 }
@@ -224,31 +217,22 @@ body {
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    background-image: url('img/huella\ digital.jpg');
-    /* Corrige la sintaxis del espacio */
+    background-color: #000;
+    background-image: url('img/huella-digital.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* Efecto Parallax */
     min-height: 100vh;
-    /* Ocupa toda la altura de la ventana */
     position: relative;
     overflow: hidden;
     padding-top: calc(80px + 2rem);
-    /* Altura del navbar + margen superior */
     padding-bottom: 2rem;
-    /* Espacio inferior para el contenido */
-
-    /* 🔹 Asegura centrado perfecto */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centra verticalmente */
     align-items: center;
-    /* Centra horizontalmente */
     text-align: center;
-    /* Ajusta alineación del contenido */
 }
 
 /* Ajuste para evitar solapamiento con el menú fijo */

@@ -356,17 +356,25 @@ function initPonentesSlider() {
     startAutoSlide();
 }
 
-window.onload = () => {
-    initPonentesSlider();
-
-    AOS.init({
-        duration: 1000,
-        once: true,
-        mirror: false,
-        offset: 120,
-        delay: 0,
-    });
-};
+// Unificar inicialización en DOMContentLoaded
+// (AOS, GalleryCarousel y Ponentes)
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false,
+            offset: 120,
+            delay: 0,
+        });
+    }
+    if (document.getElementById('gallery-track')) {
+        new GalleryCarousel();
+    }
+    if (document.querySelector('.slider-track')) {
+        initPonentesSlider();
+    }
+});
 
 // ===============================
 // ACORDEON LISTA PROGRAMA
@@ -385,6 +393,7 @@ function toggleAccordion(id) {
         arrow.classList.remove('rotate-180');
     }
 }
+
 
 
 
@@ -669,23 +678,17 @@ class GalleryCarousel {
     }
 }
 
-// Inicializar la galería cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    // Esperar a que AOS esté disponible si lo usas
+document.addEventListener('DOMContentLoaded', function () {
     if (typeof AOS !== 'undefined') {
-        setTimeout(() => {
-            new GalleryCarousel();
-        }, 500);
-    } else {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            mirror: false,
+            offset: 120,
+            delay: 0,
+        });
+    }
+    if (document.getElementById('gallery-track')) {
         new GalleryCarousel();
     }
 });
-
-// También asegurar que se inicialice si la página ya está cargada
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new GalleryCarousel();
-    });
-} else {
-    new GalleryCarousel();
-}

@@ -7,16 +7,49 @@
     <title>II Congreso Internacional de Ciencias Forenses - Paraná, Entre Ríos</title>
     <meta name="description"
         content="2do Congreso Internacional de Ciencias Forenses en Paraná, Entre Ríos. 15-17 de octubre de 2025. Innovación, investigación y aplicación práctica en el corazón de Entre Ríos.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="img/logo menu.png" as="image" importance="high">
+    <link rel="preload" href="img/huella-digital.jpg" as="image" importance="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style">
+
+    <!-- Critical CSS Inline (navbar/hero) -->
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #00509e;
+            --accent-color: #27c4df;
+            --background-color: #f4f4f9;
+            --text-color-light: #ffffff;
+            --text-color-dark: #333333;
+        }
+        body { font-family: 'Ubuntu', sans-serif; background-color: var(--background-color); color: var(--text-color-dark); line-height: 1.6; margin: 0; padding: 0; overflow-x: hidden; }
+        #navbar { height: 80px; transition: height 0.3s ease; position: fixed; top: 0; width: 100%; z-index: 50; background-color: var(--primary-color); box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        #logo { height: 90px; transition: height 0.3s ease; }
+        .hero-bg { background-image: url('img/huella-digital.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
+        .hero-bg::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.7); z-index: 1; }
+        .hero-bg > div { position: relative; z-index: 2; }
+        .loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease; }
+        .spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.3); border-left: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading.hide { opacity: 0; pointer-events: none; }
+    </style>
+
+    <!-- Non-critical CSS loaded async -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
 
     <!-- Header/Navigation -->
     <nav id="navbar" class="bg-primary shadow-lg fixed w-full z-50 top-0 transition-all duration-300">
@@ -69,7 +102,7 @@
                     <i class="fas fa-calendar-check mr-2"></i>
                     Inscríbete Ahora
                 </a>
-                <a href="#sobre"
+                <a href="#formulario-inscripcion"
                     class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition duration-300 inline-flex items-center">
                     <i class="fas fa-info-circle mr-2"></i>
                     Más Información
@@ -1705,6 +1738,37 @@ s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-36
         </svg>
     </section>
 
+    <!-- Avales y Patrocinadores -->
+    <section id="avales-patrocinadores" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-8" data-aos="fade-up">
+                Avalan el Congreso
+            </h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
+                <img src="img/avales/Colegio de Salta.jpg" alt="Colegio de Salta" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/CriMis.jpeg" alt="CriMis" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Impronta forense_signo marcario_Mesa de trabajo 1.png" alt="Impronta Forense" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/IS Combate Mbororé.png" alt="IS Combate Mbororé" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/IUV_Logo-Horizontal.png" alt="IUV Logo Horizontal" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Logo .jpg" alt="Logo" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Logo1.bmp" alt="Logo1" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Logo3.png" alt="Logo3" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Logos-IA-y-30-anos.jpg" alt="Logos IA y 30 años" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/poder judicial.png" alt="Poder Judicial" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Refi.jpeg" alt="Refi" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Seneca.jpg" alt="Seneca" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+            </div>
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-8" data-aos="fade-up">
+                Patrocinadores
+            </h2>
+            <div class="flex flex-wrap justify-center items-center gap-8">
+                <img src="img/patrocinadores/Erga Omnes.jpeg" alt="Erga Omnes" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/image.png" alt="Patrocinador" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/Impronta Forense.jpeg" alt="Impronta Forense" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -1771,6 +1835,16 @@ s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-36
         <i class="fa-brands fa-whatsapp"></i>
         <span class="whatsapp-text">Contáctanos</span>
     </a>
+<!-- Loading spinner hide logic -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            loading.classList.add('hide');
+            setTimeout(() => { loading.style.display = 'none'; }, 500);
+        }, 1000);
+    });
+</script>
 </body>
 
 </html>

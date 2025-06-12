@@ -217,12 +217,7 @@ body {
 /* ESTILOS GENERALES DE LA SECCIÓN HERO */
 /* ========================================================= */
 .hero-bg {
-    background-color: #000;
-    background-image: url('img/huella-digital.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: var(--primary-color);
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -239,18 +234,6 @@ body {
 .hero-bg>div {
     padding-top: calc(80px + 2rem);
     /* Ajuste dinámico */
-}
-
-
-/* 🔹 Capa oscura para mejorar legibilidad */
-.hero-bg::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    /* Oscurece el fondo */
-    z-index: 1;
-    pointer-events: none;
 }
 
 
@@ -908,6 +891,24 @@ a.border-2:hover i {
 
 
 
+.logo-congreso {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .logo-congreso {
+        max-width: 80vw;
+        margin-bottom: 1rem;
+    }
+}
+
 /* ----------------------------- */
 /* ADAPTACIÓN PARA CELULARES     */
 /* ----------------------------- */
@@ -1022,8 +1023,8 @@ a.border-2:hover i {
 .abstract-border-image {
     position: relative;
     /* Necesario para posicionar los pseudo-elementos */
-    max-width: 350px;
-    /* Ajusta el tamaño máximo de la imagen */
+    max-width: 480px;
+    width: 100%;
     height: auto;
     /* Mantiene la proporción */
     border-radius: 12px;
@@ -1035,6 +1036,24 @@ a.border-2:hover i {
     /* Asegura que la imagen sea un bloque */
     margin: 0 auto;
     /* Centra la imagen horizontalmente */
+}
+
+@media (min-width: 1024px) {
+    #quienes-somos .lg\:flex {
+        align-items: stretch !important;
+    }
+    #quienes-somos .image-frame {
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+    }
+    #quienes-somos .abstract-border-image {
+        height: 100%;
+        width: 100%;
+        max-width: none;
+        object-fit: cover;
+        min-height: 400px;
+    }
 }
 
 .abstract-border-image:hover {
@@ -1623,5 +1642,23 @@ button#next-slide:hover {
       padding: 1rem;
     }
   }
-  
 
+
+/* ========================================================= */
+/* SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) */
+/* ========================================================= */
+.fixed-banner {
+    position: fixed;
+    top: 17px; /* Altura del navbar */
+    left: 0;
+    width: 100%;
+    z-index: 49; /* Debajo del navbar */
+    display: flex;
+    justify-content: center;
+    background: transparent; /* O color de fondo si lo deseas */
+    padding-top: 8px;
+  }
+  #banner.fixed-style {
+    margin: 0 auto;
+  }
+  

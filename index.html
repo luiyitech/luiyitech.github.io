@@ -10,7 +10,9 @@
     <!-- Preload Critical Resources -->
     <link rel="preload" href="img/logo menu.png" as="image" importance="high">
     <link rel="preload" href="img/huella-digital.jpg" as="image" importance="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        as="style">
 
     <!-- Critical CSS Inline (navbar/hero) -->
     <style>
@@ -22,25 +24,113 @@
             --text-color-light: #ffffff;
             --text-color-dark: #333333;
         }
-        body { font-family: 'Ubuntu', sans-serif; background-color: var(--background-color); color: var(--text-color-dark); line-height: 1.6; margin: 0; padding: 0; overflow-x: hidden; }
-        #navbar { height: 80px; transition: height 0.3s ease; position: fixed; top: 0; width: 100%; z-index: 50; background-color: var(--primary-color); box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        #logo { height: 90px; transition: height 0.3s ease; }
-        .hero-bg { background-image: url('img/huella-digital.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
-        .hero-bg::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.7); z-index: 1; }
-        .hero-bg > div { position: relative; z-index: 2; }
-        .loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease; }
-        .spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.3); border-left: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading.hide { opacity: 0; pointer-events: none; }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        #navbar {
+            height: 80px;
+            transition: height 0.3s ease;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #logo {
+            height: 90px;
+            transition: height 0.3s ease;
+        }
+
+        .hero-bg {
+            background-image: url('img/huella-digital.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .hero-bg>div {
+            position: relative;
+            z-index: 2;
+        }
+
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-left: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 
     <!-- Non-critical CSS loaded async -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    </noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    </noscript>
     <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -57,7 +147,7 @@
             <div id="nav-container" class="flex justify-between items-center h-24">
                 <div class="flex items-center">
                     <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-20 transition-all duration-300">
-                    <h1 class="text-white font-heading font-bold text-lg ml-3">Congreso Ciencias Forenses</h1>
+                    <h1 class="text-white font-heading font-bold text-lg ml-3">II Congreso Ciencias Forenses</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#quienes-somos" class="text-white hover:text-gray-300 transition duration-300">Quienes
@@ -79,14 +169,15 @@
             <div class="mb-2 md:mb-8">
                 <div class="inline-block bg-accent px-6 py-2 rounded-full text-sm font-semibold mb-2 pulse-accent"
                     data-aos="fade-down" data-aos-delay="200">
-                    15-17 de Octubre 2025 • Paraná, Entre Ríos
+                    15, 16 y 17 de Octubre 2025 • Paraná, Entre Ríos
                 </div>
-                <h1 class="font-heading font-bold text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight"
+                <img src="img/logo-congreso.png" alt="Logo Congreso" class="logo-congreso">
+                <!-- <h1 class="font-heading font-bold text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight"
                     data-aos="zoom-in" data-aos-delay="400">
                     II Congreso<br>
                     <span class="text-accent">Internacional</span><br>
                     de Ciencias Forenses
-                </h1>
+                </h1> -->
                 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up"
                     data-aos-delay="600">
                     "Cuando la ciencia revela, la justicia prevalece"<br>
@@ -108,6 +199,11 @@
                     Más Información
                 </a>
             </div>
+            <div id="banner-container" class="mt-8">
+                <img id="banner" src="img/baner 247 seguridad.png" alt="Banner 247 Seguridad"
+                  class="mx-auto max-w-xs md:max-w-md lg-max-w-lg sticky-banner">
+              </div>
+              
         </div>
     </section>
 
@@ -253,36 +349,51 @@
     <!-- Quienes Somos -->
     <section id="quienes-somos" class="py-16 md:py-24 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6 text-center" data-aos="fade-left">
+                Quiénes Somos: <span class="text-accent">Trayectoria y Excelencia Forense</span>
+            </h1>
             <div class="lg:flex lg:items-center lg:space-x-12">
                 <div class="lg:w-1/2 mb-10 lg:mb-0 flex justify-center" data-aos="fade-right">
                     <div class="image-frame">
                         <img src="img/Policia Cientifia PER.jpg"
                             alt="Fachada de la Dirección General de Policía Científica de Entre Ríos"
-                            class="rounded-lg shadow-lg object-cover w-full h-80 md:h-96 abstract-border-image">
+                            class="rounded-lg shadow-lg object-cover w-full h-96 md:h-[480px] abstract-border-image">
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-6" data-aos="fade-left">
-                        Quiénes Somos: <span class="text-accent">Trayectoria y Excelencia Forense</span>
-                    </h2>
                     <p class="text-gray-700 text-lg leading-relaxed mb-6" data-aos="fade-left" data-aos-delay="200">
-                        La <b>Direccion General de Policía Científica de Entre Ríos</b> es un pilar fundamental en la
-                        administración de justicia de la provincia. Con una rica historia de dedicación y un compromiso
-                        inquebrantable con la verdad, nuestra institución se ha consolidado como un referente en el
-                        ámbito de las ciencias forenses en la región.
+                        La Policía de Entre Ríos es una institución civil armada, dependiente del Ministerio de
+                        Seguridad y Justicia de la Provincia. Actualmente, la institución se encuentra bajo la dirección
+                        del Crio. General Licenciado González Claudio Omar como Jefe y el Crio. General Licenciado
+                        Claucich Marcelo Ceferino como Subjefe. A lo largo de los años, la Policía ha experimentado una
+                        notable evolución estructural, adaptándose a los nuevos desafíos del contexto social y de
+                        seguridad. Hoy en día, cuenta con tres centros de capacitación, diversas direcciones y jefaturas
+                        departamentales orientadas a mejorar la eficiencia en la prevención y resolución de delitos.
                     </p>
                     <p class="text-gray-700 text-lg leading-relaxed mb-6" data-aos="fade-left" data-aos-delay="200">
-                        Desde nuestros inicios, hemos evolucionado constantemente, incorporando tecnología de vanguardia
-                        y formando a profesionales altamente capacitados en diversas disciplinas forenses. Nuestra labor
-                        abarca desde la recolección de pruebas en la escena del crimen hasta el análisis exhaustivo en
-                        laboratorio, brindando dictámenes periciales que son cruciales para el esclarecimiento de hechos
-                        complejos.
+                        <b>Dirección General de Policía Científica de Entre Ríos</b><br>
+                        Dentro de esta estructura organizativa, la Dirección General de Policía Científica juega un
+                        papel fundamental en la administración de justicia de la provincia. Desde sus inicios, ha
+                        mantenido un compromiso inquebrantable con la verdad y la transparencia, consolidándose como un
+                        referente en el ámbito de las ciencias forenses en la región. Su historia se caracteriza por una
+                        constante evolución en la incorporación de tecnologías de vanguardia y en la formación de
+                        profesionales altamente capacitados en diversas disciplinas forenses.
                     </p>
                     <p class="text-gray-700 text-lg leading-relaxed" data-aos="fade-left" data-aos-delay="200">
-                        La experiencia acumulada a lo largo de los años, sumada a un enfoque en la investigación y la
-                        innovación, nos permite garantizar un servicio de peritaje científico de máxima calidad y
-                        fiabilidad. Este congreso es un reflejo de nuestro compromiso con la difusión del conocimiento y
-                        el fortalecimiento de la comunidad forense a nivel internacional.
+                        <b>Compromiso con la Ciencia Forense y la Justicia</b><br>
+                        La labor de la Policía Científica abarca un amplio espectro que incluye desde la recolección de
+                        pruebas en la escena del crimen hasta el análisis exhaustivo en los laboratorios especializados.
+                        Los dictámenes periciales que emite esta institución son clave para el esclarecimiento de hechos
+                        complejos, brindando un soporte esencial para que la justicia tome decisiones fundamentadas en
+                        evidencia científica rigurosa.<br><br>
+                        <b>Innovación y Calidad en el Peritaje</b><br>
+                        Gracias a la experiencia acumulada a lo largo de los años, junto con un enfoque constante en la
+                        investigación y la innovación, la Dirección General de Policía Científica garantiza un servicio
+                        de peritaje científico de máxima calidad y fiabilidad. Este congreso, como muestra de nuestro
+                        compromiso, es un reflejo de nuestra dedicación a la difusión del conocimiento y al
+                        fortalecimiento de la comunidad forense a nivel internacional. A través de esta iniciativa,
+                        buscamos promover la colaboración y el intercambio de experiencias, lo que enriquece nuestra
+                        labor y contribuye al desarrollo continuo de la ciencia forense.
                     </p>
                 </div>
             </div>
@@ -670,8 +781,8 @@
                 </div>
             </div>
         </div>
-    </section>    
-      
+    </section>
+
 
     <!-- Ponentes Destacados -->
     <section id="ponentes" class="py-20 bg-white">
@@ -712,7 +823,7 @@
                                 data-modal-id="modal-2">
                                 <img src="img/Ponentes/diego damian guitierrez.jpg"
                                     alt="Of. Subinspector Diego Damian Gutierrez" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Of. Sub. Ins. Diego
                                     Gutierrez</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Lic. Criminalística</p>
@@ -731,10 +842,11 @@
                                 data-modal-id="modal-3">
                                 <img src="img/Ponentes/Juliana Herrera.jpg" alt="Bioquímica Juliana Herrera"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Bioquímica Juliana
                                     Herrera</h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Especialista en Toxicología</p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Div.
+                                    Quim. Forense & Toxicología</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -750,12 +862,12 @@
                                 data-modal-id="modal-4">
                                 <img src="img/Ponentes/Mariela Alejandra Arismendi.jpg"
                                     alt="Bioquimica Lic. Mariela Alejandra Arismendi" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Bioq. Lic. Arismendi
                                     Mariela
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Diplomatura Superior en Toxicología
-                                    Forense</p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Div.
+                                    Quim. Forense & Toxicología</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -771,8 +883,9 @@
                                 data-modal-id="modal-5">
                                 <img src="img/Ponentes/Sixto Troya Santana.jpg"
                                     alt="Ingeniero Técnico Industrial Sixto Troya Santana" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>España</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Ing. Téc. Industrial Sixto Troya Santana</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>España</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Ing. Téc. Industrial
+                                    Sixto Troya Santana</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Técnico especialista en automoción
                                 </p>
                                 <!-- <div class="text-accent">
@@ -790,7 +903,7 @@
                                 data-modal-id="modal-6">
                                 <img src="img/Ponentes/Marta Beatriz Maldonado.jpg"
                                     alt="Dra. Odontóloga Marta Beatriz Maldonado" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Dra. Marta Beatriz
                                     Maldonado
                                 </h3>
@@ -811,8 +924,9 @@
                                 data-modal-id="modal-7">
                                 <img src="img/Ponentes/Marcelo Hernan Alonso Concha.jpg"
                                     alt="Bioquímico Marcelo Alonso Concha" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Chile</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Bioq. Marcelo H. Alonso Concha</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Chile</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Bioq. Marcelo H. Alonso
+                                    Concha</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Perito en Genetica Forense</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
@@ -830,8 +944,9 @@
                                 <img src="img/Ponentes/AGRIELA DE MELLO.jpg"
                                     alt="Lic. en Seguridad Pública Agriela de Mello Cristian Daniel"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Uruguay</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. en Seg. Púb. Agriela de Mello</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Uruguay</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. en Seg. Púb.
+                                    Agriela de Mello</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Máster en Balística Forense</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
@@ -849,8 +964,9 @@
                                 <img src="img/Ponentes/Romero Ruben Marcelo.jpg"
                                     alt="Técnico superior en Seguridad Publica Romero Ruben Marcelo"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>La Plata - Argentina</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Téc. Sup. Seg. Pública M. Romero</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>La Plata - Argentina</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Téc. Sup. Seg. Pública
+                                    M. Romero</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Especialista en Informática Forense
                                 </p>
                                 <!-- <div class="text-accent">
@@ -869,7 +985,7 @@
                                 <img src="img/Ponentes/Pablo geretto.jpg"
                                     alt="Técnico superior en Seguridad Publica Romero Ruben Marcelo"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Ing. LIc. Pablo M.
                                     Geretto</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Experto en reconstrucción
@@ -889,8 +1005,9 @@
                                 data-modal-id="modal-11">
                                 <img src="img/Ponentes/Jorge Luis Mora.jpg"
                                     alt="Calígrafo Público Nacional Jorge Luis Mora" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Neuquén - Argentina</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Cal. Púb. Nac. Jorge Luis Mora</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Neuquén - Argentina</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Cal. Púb. Nac. Jorge
+                                    Luis Mora</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Especialización en Grafología
                                     Científica y Grafopatología</p>
                                 <!-- <div class="text-accent">
@@ -908,10 +1025,10 @@
                                 data-modal-id="modal-12">
                                 <img src="img/Ponentes/Benavidez Noelia.jpg" alt="Lic. Benavidez Noelia"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. Benavidez Noelia
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Prof. Universitaria</p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Division Rastros</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -927,7 +1044,7 @@
                                 data-modal-id="modal-13">
                                 <img src="img/Ponentes/Hermann Steffan.jpg" alt="Prof. DI Dr.techn. Hermann Steffan"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Austria</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Austria</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Prof. DI Dr.techn.
                                     Hermann Steffan</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Ingeniero a cargo de EVU EUROPA</p>
@@ -946,8 +1063,9 @@
                                 data-modal-id="modal-14">
                                 <img src="img/Ponentes/rosillo mario rolando.jpg"
                                     alt="Médico Veterinario Rosillo Mario Rolando" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Misiones - Argentina</b></p>
-                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Méd. Vet. Rosillo Mario Rolando</h3>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Misiones - Argentina</b></p>
+                                <h3 class="font-heading font-semibold text-xl text-primary mb-2">Méd. Vet. Rosillo Mario
+                                    Rolando</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Perito Odorologia Forense</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
@@ -964,7 +1082,7 @@
                                 data-modal-id="modal-15">
                                 <img src="img/Ponentes/Marcelo Fernandez.jpg"
                                     alt="Lic. en Criminalistica Marcelo Fernandez" class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Cordoba - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Cordoba - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. en Criminalistica
                                     Marcelo Fernandez</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Esp. en Docencia Universitaria</p>
@@ -983,7 +1101,7 @@
                                 data-modal-id="modal-15">
                                 <img src="img/Ponentes/Garcia Ruiz.jpg" alt="Dr. Andres Efrain Garcia Ruiz"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Ecuador</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Ecuador</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Dr. Andres Efrain
                                     Garcia Ruiz</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Mg. en Criminología</p>
@@ -1002,7 +1120,7 @@
                                 data-modal-id="modal-15">
                                 <img src="img/Ponentes/Irene Maidana.jpg" alt="Dra. Nora Irene Maidana"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>CABA - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Dra. Nora Irene Maidana
                                 </h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">Lic. y Dra. Ciencias Biológicas</p>
@@ -1023,7 +1141,7 @@
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. Rufiner Pamela
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Técn. Papiloscopía</p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Division Rastros</p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -1043,7 +1161,8 @@
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. Crio. Insp. Berón
                                     Carlos Ivan
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Jefe Div. Scopometría
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Jefe Div.
+                                    Scopometría
                                 </p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
@@ -1060,11 +1179,12 @@
                                 data-modal-id="modal-15">
                                 <img src="img/Ponentes/azcue lazaro.jpg" alt="Lic. Crio. Ppal. Azcue Lázaro"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. Crio. Ppal. Azcue
                                     Lázaro
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">2º Jefe Div. Scopometría
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>2º Jefe Div.
+                                    Scopometría
                                 </p>
                                 <!-- <div class="text-accent">
                                     <i class="fas fa-star"></i>
@@ -1081,11 +1201,12 @@
                                 data-modal-id="modal-15">
                                 <img src="img/Ponentes/grinovero alberto.jpg" alt="LLic. Crio. Insp. Grinovero Alberto"
                                     class="ponente-image">
-                                    <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2"><b>Entre Ríos - Argentina</b></p>
                                 <h3 class="font-heading font-semibold text-xl text-primary mb-2">Lic. Crio. Insp.
                                     Grinovero Alberto
                                 </h3>
-                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Jefe Div. Accidentología Vial
+                                <p class="text-gray-600 text-sm mb-3 line-clamp-2">Policia de Entre Rios<br>Jefe Div.
+                                    Accidentología Vial
 
                                 </p>
                                 <!-- <div class="text-accent">
@@ -1119,126 +1240,130 @@
     <!-- COMENTARIOS DEL ANTERIOR CONGRESO -->
     <section id="testimonios" class="testimonios-section">
         <div class="testimonios-container">
-          <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6">
-            ¿Qué se dice del <span class="text-accent">Primer Congreso?</span>
-          </h2>    
-          
-          <div class="testimonios-grid" data-aos="fade-ight" data-aos-delay="300">
-            <!-- Testimonial 1 (Profesional) -->
-            <div class="testimonial-card" data-aos="fade-ight" data-aos-delay="300">
-              <p class="testimonial-text">
-                <p>
-                    Nuestra institución agradece el esfuerzo que hizo posible este congreso, pilar clave para el desarrollo policial.
-                  </p>
-              </p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Dir. Policia Cientifica Ricardo Galliussi<br></span> 
-                <span class="testimonial-location">Entre Rios - Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
+            <h2 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6">
+                ¿Qué se dice del <span class="text-accent">Primer Congreso?</span>
+            </h2>
+
+            <div class="testimonios-grid" data-aos="fade-ight" data-aos-delay="300">
+                <!-- Testimonial 1 (Profesional) -->
+                <div class="testimonial-card" data-aos="fade-ight" data-aos-delay="300">
+                    <p class="testimonial-text">
+                    <p>
+                        Nuestra institución agradece el esfuerzo que hizo posible este congreso, pilar clave para el
+                        desarrollo policial.
+                    </p>
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Dir. Policia Cientifica Ricardo Galliussi<br></span>
+                        <span class="testimonial-location">Entre Rios - Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 (Profesional) -->
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        <br>Tuve el honor de escuchar de los mejores profesionales en esta experiencia y puedo darme el
+                        gusto de decir que es el comienzo de otra hermosa etapa en mi vida.
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Ailin<br></span>
+                        <span class="testimonial-location">Criminalistica - Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 (Profesional) -->
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        <br>Desde RUNCO SA, queremos destacar el impecable y dedicado trabajo de toda la organización,
+                        que ha logrado un evento de altísimo nivel.
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Runco SA<br></span>
+                        <span class="testimonial-location">Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 (Profesional) -->
+                <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        <br>Quiero extender mis más sinceras felicitaciones a todo el equipo de la Dirección de
+                        Criminalística por la impecable organización de este importante congreso.
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Gisela Scattini Dure<br></span>
+                        <span class="testimonial-location">Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 (Asistente) -->
+                <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        <br>Felicitaciones a la Dirección de Criminalística por el evento! Gracias por habernos dado un
+                        espacio y ser parte y a todos quienes pasaron por nuestro puesto 🙌🏻
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Ayelen Alasino<br></span>
+                        <span class="testimonial-location">Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 (Asistente) -->
+                <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        <br>Quiero felicitarlos por la excelencia de este evento en todo su tenor. Gracias por la pasión
+                        y el compromiso en su trabajo. Saludos cordiales y quedo a la espera del próximo encuentro!
+                    </p>
+                    <div class="testimonial-details">
+                        <span class="testimonial-name">Cynthia Grau<br></span>
+                        <span class="testimonial-location">Argentina</span>
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
             </div>
-            
-            <!-- Testimonial 2 (Profesional) -->
-            <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
-              <p class="testimonial-text">
-                <br>Tuve el honor de escuchar de los mejores profesionales en esta experiencia y puedo darme el gusto de decir que es el comienzo de otra hermosa etapa en mi vida.</p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Ailin<br></span>
-                <span class="testimonial-location">CRIMINALISTICA - Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            
-            <!-- Testimonial 3 (Profesional) -->
-            <div class="testimonial-card" data-aos="fade-right" data-aos-delay="300">
-              <p class="testimonial-text">
-                <br>Desde RUNCO SA, queremos destacar el impecable y dedicado trabajo de toda la organización, que ha logrado un evento de altísimo nivel.
-              </p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Runco SA<br></span>
-                <span class="testimonial-location">Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            
-            <!-- Testimonial 4 (Profesional) -->
-            <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
-              <p class="testimonial-text">
-                <br>Quiero extender mis más sinceras felicitaciones a todo el equipo de la Dirección de Criminalística por la impecable organización de este importante congreso.
-              </p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Gisela Scattini Dure<br></span>
-                <span class="testimonial-location">Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            
-            <!-- Testimonial 5 (Asistente) -->
-            <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
-              <p class="testimonial-text">
-                <br>Felicitaciones a la Dirección de Criminalística por el evento! Gracias por habernos dado un espacio y ser parte y a todos quienes pasaron por nuestro puesto 🙌🏻
-              </p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Ayelen Alasino<br></span>
-                <span class="testimonial-location">Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            
-            <!-- Testimonial 6 (Asistente) -->
-            <div class="testimonial-card" data-aos="fade-left" data-aos-delay="300">
-              <p class="testimonial-text">
-                <br>Quiero felicitarlos por la excelencia de este evento en todo su tenor. Gracias por la pasión y el compromiso en su trabajo. Saludos cordiales y quedo a la espera del próximo encuentro!
-              </p>
-              <div class="testimonial-details">
-                <span class="testimonial-name">Cynthia Grau<br></span>
-                <span class="testimonial-location">Argentina</span>
-              </div>
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            
-          </div>
         </div>
-      </section>
-      
-      
-      
+    </section>
 
     <!-- GALERIA DEL CONGRESO ANTERIOR -->
     <section id="galeria" class="py-20 bg-gray-50">
@@ -1305,7 +1430,7 @@
     <section id="certificado" class="py-20 bg-secondary text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="font-heading font-bold text-4xl md:text-5xl mb-12" data-aos="fade-up">
-                Certificado de <span class="text-accent">Participación y Validez</span>
+                Certificado de <span class="text-accent">Participación</span>
             </h2>
 
             <div class="text-justify mb-12" data-aos="fade-up" data-aos-delay="200">
@@ -1324,7 +1449,48 @@
         </div>
     </section>
 
+    <section id="avales-patrocinadores" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-8" data-aos="fade-up">
+                Avalan el Congreso
+            </h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
+                <img src="img/avales/Colegio de Salta.jpg" alt="Colegio de Salta"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/CriMis.jpeg" alt="CriMis" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/Impronta forense_signo marcario_Mesa de trabajo 1.png" alt="Impronta Forense"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/IS Combate Mbororé.png" alt="IS Combate Mbororé"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/IUV_Logo-Horizontal.png" alt="IUV Logo Horizontal"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Logo .jpg" alt="Logo" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/Logo1.bmp" alt="Logo1" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/Logo3.png" alt="Logo3" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/Logos-IA-y-30-anos.jpg" alt="Logos IA y 30 años"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/poder judicial.png" alt="Poder Judicial"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/Refi.jpeg" alt="Refi" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/Seneca.jpg" alt="Seneca" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/ISJV.jpg" alt="UNER" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
+                <img src="img/avales/colegio profesionales jujuy.jpg" alt="UNER"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/avales/copcacer.jpg" alt="UNER" class="h-24 w-auto object-contain grayscale transition"
+                    data-aos="zoom-in">
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa de Actividades -->
     <section id="programa" class="py-20 bg-primary text-white animated-blue-bg relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up"
             data-aos-delay="400">
@@ -1415,13 +1581,15 @@
                                                     la pericia accidentológica"</p>
                                             </div>
                                         </li>
+
                                         <li class="flex items-start">
                                             <i class="fas fa-microphone text-accent mr-3 mt-1"></i>
                                             <div>
-                                                <p><strong>19:00 a 19:50</strong> - Perito Romero Marcelo (La Plata)</p>
-                                                <p class="text-sm text-gray-300 ml-6">"Justicia Algorítmica: La
-                                                    inteligencia artificial en la escena del hecho"</p>
+                                                <p><strong>19:00 a 19:50</strong> - Dr. Rosillo Mario (Misiones)</p>
+                                                <p class="text-sm text-gray-300 ml-6">"La Odorología Forense en la
+                                                    Investigación Criminal, Casuística"</p>
                                             </div>
+                                        </li>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-door-closed text-accent mr-3 mt-1"></i>
@@ -1527,9 +1695,9 @@
                                         <li class="flex items-start">
                                             <i class="fas fa-microphone text-accent mr-3 mt-1"></i>
                                             <div>
-                                                <p><strong>19:00 a 19:50</strong> - Dr. Rosillo Mario (Misiones)</p>
-                                                <p class="text-sm text-gray-300 ml-6">"La Odorología Forense en la
-                                                    Investigación Criminal, Casuística"</p>
+                                                <p><strong>19:00 a 19:50</strong> - Perito Romero Marcelo (La Plata)</p>
+                                                <p class="text-sm text-gray-300 ml-6">"Justicia Algorítmica: La
+                                                    inteligencia artificial en la escena del hecho"</p>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
@@ -1627,8 +1795,8 @@
                 <div class="grid md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto relative z-10">
                     <div
                         class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Funcionario <span
-                                class="text-accent">Policía ER</span></h4>
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Funcionarios <span
+                                class="text-accent">Policíales de Entre Rios</span></h4>
                         <div class="text-4xl font-bold mb-4">$25.000</div>
                         <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
                         <ul class="list-none text-left mb-6">
@@ -1646,8 +1814,8 @@
 
                     <div
                         class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Alumno <span
-                                class="text-accent">UADER / Otros</span></h4>
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Alumnos/Prof. <span
+                                class="text-accent">Uader y otras Universidades</span></h4>
                         <div class="text-4xl font-bold mb-4">$30.000</div>
                         <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
                         <ul class="list-none text-left mb-6">
@@ -1665,7 +1833,7 @@
 
                     <div
                         class="bg-white p-8 rounded-lg shadow-md text-primary hover:shadow-xl transition-shadow duration-300 flex-grow">
-                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary">Público en <span
+                        <h4 class="font-heading font-bold text-2xl mb-4 text-primary"><br>Público en <span
                                 class="text-accent">General</span></h4>
                         <div class="text-4xl font-bold mb-4">$40.000</div>
                         <p class="text-sm text-gray-600 mb-6">Total a Pagar</p>
@@ -1738,33 +1906,23 @@ s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-36
         </svg>
     </section>
 
-    <!-- Avales y Patrocinadores -->
+    <!-- Patrocinadores -->
     <section id="avales-patrocinadores" class="py-16 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-8" data-aos="fade-up">
-                Avalan el Congreso
-            </h2>
-            <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
-                <img src="img/avales/Colegio de Salta.jpg" alt="Colegio de Salta" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/CriMis.jpeg" alt="CriMis" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Impronta forense_signo marcario_Mesa de trabajo 1.png" alt="Impronta Forense" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/IS Combate Mbororé.png" alt="IS Combate Mbororé" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/IUV_Logo-Horizontal.png" alt="IUV Logo Horizontal" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Logo .jpg" alt="Logo" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Logo1.bmp" alt="Logo1" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Logo3.png" alt="Logo3" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Logos-IA-y-30-anos.jpg" alt="Logos IA y 30 años" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/poder judicial.png" alt="Poder Judicial" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Refi.jpeg" alt="Refi" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/avales/Seneca.jpg" alt="Seneca" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-            </div>
             <h2 class="font-heading font-bold text-3xl md:text-4xl text-primary mb-8" data-aos="fade-up">
                 Patrocinadores
             </h2>
             <div class="flex flex-wrap justify-center items-center gap-8">
-                <img src="img/patrocinadores/Erga Omnes.jpeg" alt="Erga Omnes" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/patrocinadores/image.png" alt="Patrocinador" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
-                <img src="img/patrocinadores/Impronta Forense.jpeg" alt="Impronta Forense" class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/Erga Omnes.jpeg" alt="Erga Omnes"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/image.png" alt="Patrocinador"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/Impronta Forense.jpeg" alt="Impronta Forense"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/activ.jpg" alt="Logo Forense"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
+                <img src="img/patrocinadores/tunel subfluvial.png" alt="Erga Omnes"
+                    class="h-24 w-auto object-contain grayscale transition" data-aos="zoom-in">
             </div>
         </div>
     </section>
@@ -1830,21 +1988,21 @@ s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-36
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js" defer></script>
 
-    
-  <a href="https://wa.me/5493435011168" class="whatsapp-float" target="_blank">
+
+    <a href="https://wa.me/5493435011168" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="whatsapp-text">Contáctanos</span>
     </a>
-<!-- Loading spinner hide logic -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            const loading = document.getElementById('loading');
-            loading.classList.add('hide');
-            setTimeout(() => { loading.style.display = 'none'; }, 500);
-        }, 1000);
-    });
-</script>
+    <!-- Loading spinner hide logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                loading.classList.add('hide');
+                setTimeout(() => { loading.style.display = 'none'; }, 500);
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>

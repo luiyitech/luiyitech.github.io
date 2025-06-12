@@ -248,7 +248,7 @@ footer,
 .py-20,
 #certificado, #testimonios,
 .fechas-y-ubicaciones,
-.countdown-wrapper {
+.countdown-wrapper, #avales-patrocinadores, #patrocinadores {
     display: block;
     /* Evita flex si no es necesario */
     width: 100vw;

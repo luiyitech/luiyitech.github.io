@@ -1661,4 +1661,127 @@ button#next-slide:hover {
   #banner.fixed-style {
     margin: 0 auto;
   }
+
+
+/* ========================================================= */
+/* SLIDER DE AVALES Y PATROCINADORES */
+/* ========================================================= */
+
+.sponsor-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem; /* Padding más amplio */
+    background: none;
+    border-radius: 1rem;
+    box-shadow: none;
+}
+
+.sponsor-slider {
+    position: relative;
+    width: 100%;
+    height: 140px; /* Más espacio para imágenes grandes */
+    overflow: hidden;
+}
+
+.sponsor-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 100%;
+    gap: 4rem; /* Más separación entre elementos */
+    white-space: nowrap;
+    transition: none;
+}
+
+.sponsor-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-width: auto;
+    padding: 1rem; /* Espacio adicional para cada imagen */
+}
+
+.sponsor-logo {
+    max-height: 130px; /* Antes era 150px, ahora aún más grande */
+    max-width: 250px; /* Expansión en ancho */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(0.3) opacity(0.85);
+}
+
+/* Hover con efecto más destacado */
+.sponsor-logo:hover {
+    transform: scale(1.3);
+    filter: grayscale(0) opacity(1);
+}
+
+/* Animación infinita */
+@keyframes slideInfinite {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Pausar animación en hover */
+.sponsor-slider:hover .sponsor-track {
+    animation-play-state: paused;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .sponsor-slider-container {
+        padding: 2.5rem 1rem;
+    }
+    
+    .sponsor-slider {
+        height: 120px;
+    }
+    
+    .sponsor-logo {
+        max-height: 140px;
+        max-width: 220px;
+    }
+    
+    .sponsor-track {
+        gap: 3rem;
+        animation-duration: 22s;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsor-slider {
+        height: 100px;
+    }
+    
+    .sponsor-logo {
+        max-height: 110px;
+        max-width: 200px;
+    }
+    
+    .sponsor-track {
+        gap: 2rem;
+        animation-duration: 20s;
+    }
+}
+
+@keyframes borderGlow {
+    0% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(1.01);
+    }
+}
+
   

@@ -741,3 +741,78 @@ document.addEventListener('DOMContentLoaded', function () {
       handleScroll();
     });
   });
+
+
+  // ===============================
+// SLIDER DE AVALES Y PATROCINADORES
+// ===============================
+class SponsorSlider {
+    constructor(trackId) {
+        this.track = document.getElementById(trackId);
+        this.originalItems = [];
+        this.scrollAmount = 0;
+        this.speed = 0.9; // Ajusta la velocidad más lenta
+        this.isInitialized = false;
+        
+        if (this.track) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.originalItems = Array.from(this.track.children);
+        this.createInfiniteLoop();
+        this.bindEvents();
+        this.isInitialized = true;
+        this.startInfiniteScroll();
+    }
+    
+    createInfiniteLoop() {
+        const itemsToClone = this.originalItems.length;
+
+        // Clonar elementos y agregarlos al final
+        for (let i = 0; i < itemsToClone; i++) {
+            const clone = this.originalItems[i].cloneNode(true);
+            clone.classList.add('cloned');
+            this.track.appendChild(clone);
+        }
+    }
+    
+    startInfiniteScroll() {
+        const firstItemWidth = this.originalItems[0].offsetWidth + 30;
+        const totalWidth = firstItemWidth * this.originalItems.length;
+
+        const moveTrack = () => {
+            this.scrollAmount -= this.speed;
+            this.track.style.transform = `translateX(${this.scrollAmount}px)`;
+
+            if (Math.abs(this.scrollAmount) >= totalWidth) {
+                this.scrollAmount = 0;
+            }
+
+            requestAnimationFrame(moveTrack);
+        };
+
+        moveTrack();
+    }
+
+    bindEvents() {
+        const slider = this.track.closest('.sponsor-slider');
+
+        if (slider) {
+            slider.addEventListener('mouseenter', () => {
+                this.speed = 0; // Detener movimiento en hover
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                this.speed = 0.3; // Restaurar velocidad al salir del hover
+            });
+        }
+    }
+}
+
+// Inicializar los sliders de patrocinadores y avales
+document.addEventListener('DOMContentLoaded', function() {
+    new SponsorSlider('patrocinadores-track');
+    new SponsorSlider('avales-track');
+});

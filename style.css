@@ -1712,6 +1712,20 @@ button#next-slide:hover {
     pointer-events: auto;
 }
 
+@keyframes banner-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 0px #fff) brightness(1);
+    }
+    50% {
+      filter: drop-shadow(0 0 18px #fff) brightness(1.3);
+    }
+  }
+  
+  #banner.glow-effect {
+    animation: banner-glow 2s infinite;
+  }
+  
+
 
   
 

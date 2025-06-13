@@ -1020,103 +1020,60 @@ a.border-2:hover i {
 /* ESTILOS ESPECÍFICOS DE SECCIONES */
 /* ======================================= */
 
-/* Quienes Somos Section */
-#quienes-somos .lg\:w-1\/2 p {
-    /* Selecciona los párrafos dentro de la columna de texto */
+/* Texto justificado en ambas secciones */
+#quienes-somos .lg\:w-1\/2 p,
+#jefatura .lg\:w-1\/2 p {
     text-align: justify;
-    /* Justifica el texto de los párrafos */
 }
 
-/* Estilo para la imagen con bordes abstractos */
+/* Asegura que ambas secciones tengan la misma altura y alineación */
+#quienes-somos .flex,
+#jefatura .flex {
+    align-items: stretch; /* Mantiene altura uniforme */
+}
+
+/* Ajuste para la imagen */
+#jefatura .image-frame,
+#quienes-somos .image-frame {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Imagen a la izquierda en "Quienes Somos" */
+#quienes-somos .image-frame {
+    justify-content: flex-start;
+}
+
+/* Imagen a la derecha en "Jefatura" */
+#jefatura .image-frame {
+    justify-content: flex-end;
+}
+
+/* Estilo de imágenes con bordes abstractos */
 .abstract-border-image {
-    position: relative;
-    /* Necesario para posicionar los pseudo-elementos */
-    max-width: 480px;
-    width: 100%;
+    width: auto;
+    max-width: 400px;
     height: auto;
-    /* Mantiene la proporción */
+    object-fit: cover;
     border-radius: 12px;
-    /* Bordes ligeramente redondeados de la imagen */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
-    /* Sombra suave para la imagen */
     transition: transform 0.3s ease-in-out;
-    display: block;
-    /* Asegura que la imagen sea un bloque */
-    margin: 0 auto;
-    /* Centra la imagen horizontalmente */
 }
 
-@media (min-width: 1024px) {
-    #quienes-somos .lg\:flex {
-        align-items: stretch !important;
-    }
-
-    #quienes-somos .image-frame {
-        height: 100%;
-        display: flex;
-        align-items: stretch;
-    }
-
-    #quienes-somos .abstract-border-image {
-        height: 100%;
-        width: 100%;
-        max-width: none;
-        object-fit: cover;
-        min-height: 400px;
-    }
-}
-
+/* Hover */
 .abstract-border-image:hover {
     transform: scale(1.03);
-    /* Ligeramente más grande al pasar el ratón */
 }
 
-/* Pseudo-elementos para el efecto de borde abstracto */
-.abstract-border-image::before,
-.abstract-border-image::after {
-    content: '';
-    position: absolute;
-    top: -8px;
-    /* Ajusta la posición de los bordes */
-    left: -8px;
-    width: calc(100% + 16px);
-    /* Hace que los bordes sean más grandes que la imagen */
-    height: calc(100% + 16px);
-    background: linear-gradient(45deg, var(--accent-color), transparent 30%, var(--secondary-color) 70%, transparent, var(--accent-color));
-    background-size: 300% 300%;
-    /* Permite la animación del gradiente */
-    border-radius: inherit;
-    /* Hereda los bordes redondeados de la imagen */
-    z-index: -1;
-    /* Detrás de la imagen */
-    animation: border-glow 5s linear infinite;
-    opacity: 0.8;
-    /* Opacidad para el efecto */
+
+
+
+/* Hover */
+.abstract-border-image:hover {
+    transform: scale(1.03);
 }
 
-.abstract-border-image::after {
-    filter: blur(10px);
-    /* Desenfoque para el brillo */
-    opacity: 0.6;
-    /* Menos opacidad para el brillo */
-    animation-delay: 1.5s;
-    /* Retraso para el brillo */
-}
-
-/* Animación para el efecto de brillo del borde */
-@keyframes border-glow {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    50% {
-        background-position: 100% 100%;
-    }
-
-    100% {
-        background-position: 0% 0%;
-    }
-}
 
 svg {
     position: absolute;

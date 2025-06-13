@@ -702,51 +702,51 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// ===============================
-// BANNER 24/7
-// ===============================
+// // ===============================
+// // BANNER 24/7
+// // ===============================
 
-document.addEventListener('DOMContentLoaded', function () {
-    const banner = document.getElementById('banner');
-    const bannerContainer = document.getElementById('banner-container');
-    const navbar = document.getElementById('navbar');
-    const logo = document.getElementById('logo-247'); // Asegúrate de que el logo tenga este ID
+// document.addEventListener('DOMContentLoaded', function () {
+//     const banner = document.getElementById('banner');
+//     const bannerContainer = document.getElementById('banner-container');
+//     const navbar = document.getElementById('navbar');
+//     const logo = document.getElementById('logo-247'); // Asegúrate de que el logo tenga este ID
 
-    // Guarda la posición original del banner
-    const bannerRect = bannerContainer.getBoundingClientRect();
-    let bannerTop = bannerRect.top + window.pageYOffset;
+//     // Guarda la posición original del banner
+//     const bannerRect = bannerContainer.getBoundingClientRect();
+//     let bannerTop = bannerRect.top + window.pageYOffset;
 
-    function handleScroll() {
-        const navbarHeight = navbar.offsetHeight;
+//     function handleScroll() {
+//         const navbarHeight = navbar.offsetHeight;
 
-        if (window.pageYOffset > bannerTop - navbarHeight) {
-            if (!banner.classList.contains('fixed-style')) {
-                banner.classList.add('fixed-style');
-                bannerContainer.classList.add('fixed-banner');
-                bannerContainer.style.height = banner.offsetHeight + 'px';
+//         if (window.pageYOffset > bannerTop - navbarHeight) {
+//             if (!banner.classList.contains('fixed-style')) {
+//                 banner.classList.add('fixed-style');
+//                 bannerContainer.classList.add('fixed-banner');
+//                 bannerContainer.style.height = banner.offsetHeight + 'px';
 
-                // Mover el logo a la derecha cuando el banner se fija
-                logo.classList.add('move-right');
-            }
-        } else {
-            if (banner.classList.contains('fixed-style')) {
-                banner.classList.remove('fixed-style');
-                bannerContainer.classList.remove('fixed-banner');
-                bannerContainer.style.height = '';
+//                 // Mover el logo a la derecha cuando el banner se fija
+//                 logo.classList.add('move-right');
+//             }
+//         } else {
+//             if (banner.classList.contains('fixed-style')) {
+//                 banner.classList.remove('fixed-style');
+//                 bannerContainer.classList.remove('fixed-banner');
+//                 bannerContainer.style.height = '';
 
-                // Devolver el logo a su posición original
-                logo.classList.remove('move-right');
-            }
-        }
-    }
+//                 // Devolver el logo a su posición original
+//                 logo.classList.remove('move-right');
+//             }
+//         }
+//     }
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', function () {
-        const newRect = bannerContainer.getBoundingClientRect();
-        bannerTop = newRect.top + window.pageYOffset;
-        handleScroll();
-    });
-});
+//     window.addEventListener('scroll', handleScroll);
+//     window.addEventListener('resize', function () {
+//         const newRect = bannerContainer.getBoundingClientRect();
+//         bannerTop = newRect.top + window.pageYOffset;
+//         handleScroll();
+//     });
+// });
 
 
 

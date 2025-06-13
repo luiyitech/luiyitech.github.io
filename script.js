@@ -247,7 +247,7 @@ function initPonentesSlider() {
 
     let currentIndex = 0;
     const slidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
-    const advanceStep = 3; 
+    const advanceStep = 3;
     const totalSlides = slides.length;
 
     // Clonar últimos N slides y agregarlos al principio
@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // BANNER 24/7
 // ===============================
 
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const banner = document.getElementById('banner');
     const bannerContainer = document.getElementById('banner-container');
     const navbar = document.getElementById('navbar');
@@ -715,35 +715,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const bannerTop = bannerRect.top + window.pageYOffset;
 
     function handleScroll() {
-      // Altura del navbar (ajusta si cambia)
-      const navbarHeight = navbar.offsetHeight;
-      // Cuando el scroll pasa la posición original del banner menos la altura del navbar
-      if (window.pageYOffset > bannerTop - navbarHeight) {
-        if (!banner.classList.contains('fixed-style')) {
-          banner.classList.add('fixed-style');
-          bannerContainer.classList.add('fixed-banner');
-          bannerContainer.style.height = banner.offsetHeight + 'px'; // Reserva el espacio
+        // Altura del navbar (ajusta si cambia)
+        const navbarHeight = navbar.offsetHeight;
+        // Cuando el scroll pasa la posición original del banner menos la altura del navbar
+        if (window.pageYOffset > bannerTop - navbarHeight) {
+            if (!banner.classList.contains('fixed-style')) {
+                banner.classList.add('fixed-style');
+                bannerContainer.classList.add('fixed-banner');
+                bannerContainer.style.height = banner.offsetHeight + 'px'; // Reserva el espacio
+            }
+        } else {
+            if (banner.classList.contains('fixed-style')) {
+                banner.classList.remove('fixed-style');
+                bannerContainer.classList.remove('fixed-banner');
+                bannerContainer.style.height = '';
+            }
         }
-      } else {
-        if (banner.classList.contains('fixed-style')) {
-          banner.classList.remove('fixed-style');
-          bannerContainer.classList.remove('fixed-banner');
-          bannerContainer.style.height = '';
-        }
-      }
     }
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', function () {
-      // Recalcula la posición por si cambia el tamaño de la ventana
-      const newRect = bannerContainer.getBoundingClientRect();
-      bannerTop = newRect.top + window.pageYOffset;
-      handleScroll();
+        // Recalcula la posición por si cambia el tamaño de la ventana
+        const newRect = bannerContainer.getBoundingClientRect();
+        bannerTop = newRect.top + window.pageYOffset;
+        handleScroll();
     });
-  });
+});
 
 
-  // ===============================
+// ===============================
 // SLIDER DE AVALES Y PATROCINADORES
 // ===============================
 document.addEventListener("DOMContentLoaded", function () {

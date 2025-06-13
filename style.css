@@ -62,20 +62,25 @@ body {
     background-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+
 #nav-container {
     height: 80px;
     transition: height 0.3s ease;
 }
+
 #logo {
     height: 90px;
     transition: height 0.3s ease;
 }
+
 #navbar.scrolled {
     height: 60px;
 }
+
 #navbar.scrolled #nav-container {
     height: 60px;
 }
+
 #navbar.scrolled #logo {
     height: 40px;
 }
@@ -246,9 +251,12 @@ body {
 .hero-bg,
 footer,
 .py-20,
-#certificado, #testimonios,
+#certificado,
+#testimonios,
 .fechas-y-ubicaciones,
-.countdown-wrapper, #avales-patrocinadores, #patrocinadores {
+.countdown-wrapper,
+#avales-patrocinadores,
+#patrocinadores {
     display: block;
     /* Evita flex si no es necesario */
     width: 100vw;
@@ -1042,11 +1050,13 @@ a.border-2:hover i {
     #quienes-somos .lg\:flex {
         align-items: stretch !important;
     }
+
     #quienes-somos .image-frame {
         height: 100%;
         display: flex;
         align-items: stretch;
     }
+
     #quienes-somos .abstract-border-image {
         height: 100%;
         width: 100%;
@@ -1122,19 +1132,29 @@ svg {
 .card-hover-ponentes {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra la imagen, título y texto horizontalmente */
-    justify-content: space-between; /* Distribuye el contenido uniformemente */
+    align-items: center;
+    /* Centra la imagen, título y texto horizontalmente */
+    justify-content: space-between;
+    /* Distribuye el contenido uniformemente */
     width: 100%;
-    max-width: 340px; /* Mantengo este tamaño mayor */
-    min-height: 260px; /* Para que no se achique demasiado */
-    height: 390px; /* Altura fija para acomodar más texto */
+    max-width: 340px;
+    /* Mantengo este tamaño mayor */
+    min-height: 260px;
+    /* Para que no se achique demasiado */
+    height: 390px;
+    /* Altura fija para acomodar más texto */
     margin: 0 auto;
-    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    box-sizing: border-box;
+    /* Incluye padding en el tamaño total */
     padding: 1.5rem;
-    background-color: var(--background-color, #f4f4f9); /* Fondo consistente */
-    border-radius: 0.75rem; /* rounded-xl */
-    border-left: 4px solid var(--accent-color); /* border-l-4 border-accent */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    background-color: var(--background-color, #f4f4f9);
+    /* Fondo consistente */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    border-left: 4px solid var(--accent-color);
+    /* border-l-4 border-accent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transiciones suaves */
 }
 
 /* Compatibilidad con line-clamp */
@@ -1557,6 +1577,7 @@ button#next-slide:hover {
         opacity: 0;
     }
 }
+
 /* ========================================================= */
 /* SECCIÓN DE TESTIMONIOS RESPONSIVA */
 /* ========================================================= */
@@ -1565,9 +1586,9 @@ button#next-slide:hover {
     padding: 60px 20px;
     text-align: center;
     box-sizing: border-box;
-  }
-  
-  .testimonios-intro {
+}
+
+.testimonios-intro {
     font-size: 20px;
     color: #555;
     max-width: 800px;
@@ -1576,72 +1597,88 @@ button#next-slide:hover {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-  }
-  
-  .testimonios-grid {
+}
+
+.testimonios-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
     align-items: start;
-  }
-  
-  /* TARJETAS TESTIMONIO */
-  .testimonial-card {
+}
+
+/* TARJETAS TESTIMONIO */
+.testimonial-card {
     background: #fff;
     padding: 25px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 270px;  /*Altura fija para que todas las cartas tengan el mismo tamaño */
+    height: 270px;
+    /*Altura fija para que todas las cartas tengan el mismo tamaño */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-  }
-  .testimonial-card:hover {
+}
+
+.testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-  }
-  
-  .testimonial-text {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
     font-size: 16px;
     line-height: 1.5;
     color: #444;
     margin-bottom: 15px;
-  }
-  
-  .testimonial-details,
-  .testimonial-name,
-  .testimonial-location,
-  .testimonial-rating i {
+}
+
+.testimonial-details,
+.testimonial-name,
+.testimonial-location,
+.testimonial-rating i {
     font-size: 0.975rem;
-  }
-  .testimonial-name { font-weight: bold; color: #222; }
-  .testimonial-location { color: #555; margin-top: 4px; }
-  .testimonial-rating i { color: #f1c40f; margin: 0 2px; }
-  
-  /* MODELOS RESPONSIVOS GRID: 3 → 2 → 1 columnas basados en ancho */
-  @media (max-width: 992px) {
+}
+
+.testimonial-name {
+    font-weight: bold;
+    color: #222;
+}
+
+.testimonial-location {
+    color: #555;
+    margin-top: 4px;
+}
+
+.testimonial-rating i {
+    color: #f1c40f;
+    margin: 0 2px;
+}
+
+/* MODELOS RESPONSIVOS GRID: 3 → 2 → 1 columnas basados en ancho */
+@media (max-width: 992px) {
     .testimonios-grid {
-      grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-  }
-  
-  @media (max-width: 576px) {
+}
+
+@media (max-width: 576px) {
     .testimonios-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
+
     .testimonios-intro {
-      font-size: 1rem;
-      margin-bottom: 40px;
+        font-size: 1rem;
+        margin-bottom: 40px;
     }
+
     .testimonial-card {
-      padding: 1rem;
+        padding: 1rem;
     }
-  }
+}
 
 
 /* ========================================================= */
@@ -1649,18 +1686,22 @@ button#next-slide:hover {
 /* ========================================================= */
 .fixed-banner {
     position: fixed;
-    top: 17px; /* Altura del navbar */
+    top: 17px;
+    /* Altura del navbar */
     left: 0;
     width: 100%;
-    z-index: 49; /* Debajo del navbar */
+    z-index: 49;
+    /* Debajo del navbar */
     display: flex;
     justify-content: center;
-    background: transparent; /* O color de fondo si lo deseas */
+    background: transparent;
+    /* O color de fondo si lo deseas */
     padding-top: 8px;
-  }
-  #banner.fixed-style {
+}
+
+#banner.fixed-style {
     margin: 0 auto;
-  }
+}
 
 
 /* ========================================================= */
@@ -1673,7 +1714,8 @@ button#next-slide:hover {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 4rem 1.5rem; /* Padding más amplio */
+    padding: 4rem 1.5rem;
+    /* Padding más amplio */
     background: none;
     border-radius: 1rem;
     box-shadow: none;
@@ -1682,7 +1724,8 @@ button#next-slide:hover {
 .sponsor-slider {
     position: relative;
     width: 100%;
-    height: 140px; /* Más espacio para imágenes grandes */
+    height: 140px;
+    /* Más espacio para imágenes grandes */
     overflow: hidden;
 }
 
@@ -1694,7 +1737,8 @@ button#next-slide:hover {
     gap: 3rem;
     white-space: nowrap;
     transition: none;
-    will-change: transform; /* Mejora rendimiento */
+    will-change: transform;
+    /* Mejora rendimiento */
 }
 
 
@@ -1704,12 +1748,15 @@ button#next-slide:hover {
     justify-content: center;
     height: auto;
     min-width: auto;
-    padding: 1rem; /* Espacio adicional para cada imagen */
+    padding: 1rem;
+    /* Espacio adicional para cada imagen */
 }
 
 .sponsor-logo {
-    max-height: 130px; /* Antes era 150px, ahora aún más grande */
-    max-width: 250px; /* Expansión en ancho */
+    max-height: 130px;
+    /* Antes era 150px, ahora aún más grande */
+    max-width: 250px;
+    /* Expansión en ancho */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1728,6 +1775,7 @@ button#next-slide:hover {
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -1743,16 +1791,16 @@ button#next-slide:hover {
     .sponsor-slider-container {
         padding: 2.5rem 1rem;
     }
-    
+
     .sponsor-slider {
         height: 120px;
     }
-    
+
     .sponsor-logo {
         max-height: 140px;
         max-width: 220px;
     }
-    
+
     .sponsor-track {
         gap: 3rem;
         animation-duration: 22s;
@@ -1763,12 +1811,12 @@ button#next-slide:hover {
     .sponsor-slider {
         height: 100px;
     }
-    
+
     .sponsor-logo {
         max-height: 110px;
         max-width: 200px;
     }
-    
+
     .sponsor-track {
         gap: 2rem;
         animation-duration: 20s;
@@ -1780,10 +1828,9 @@ button#next-slide:hover {
         opacity: 0.2;
         transform: scale(1);
     }
+
     100% {
         opacity: 0.4;
         transform: scale(1.01);
     }
 }
-
-  

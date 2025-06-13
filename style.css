@@ -256,7 +256,7 @@ footer,
 .fechas-y-ubicaciones,
 .countdown-wrapper,
 #avales-patrocinadores,
-#patrocinadores {
+#patrocinadores, #institucional {
     display: block;
     /* Evita flex si no es necesario */
     width: 100vw;
@@ -1905,4 +1905,48 @@ button#next-slide:hover {
         transform: scale(1.01);
     }
 }
+
+
+/* =============================== */
+/* TÍTULO DESTACADO - AVALAN EL CONGRESO */
+/* =============================== */
+.titulo-avales {
+  position: relative;
+  display: inline-block;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  z-index: 1;
+  padding: 0.2rem 0.5rem;
+}
+
+/* Subrayado detrás animado */
+.titulo-avales::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: 5px;
+  height: 20px;
+  background: linear-gradient(270deg, var(--accent-color), var(--secondary-color), var(--accent-color));
+  z-index: -1;
+  border-radius: 8px;
+  animation: ondaSubrayado 3s ease-in-out infinite;
+  background-size: 400% 100%;
+  opacity: 0.6;
+}
+
+@keyframes ondaSubrayado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 

@@ -751,7 +751,7 @@ class SponsorSlider {
         this.track = document.getElementById(trackId);
         this.originalItems = [];
         this.scrollAmount = 0;
-        this.speed = 0.9; // Ajusta la velocidad más lenta
+        this.speed = 2.3; // Ajusta la velocidad más lenta
         this.isInitialized = false;
         
         if (this.track) {
@@ -805,7 +805,7 @@ class SponsorSlider {
             });
 
             slider.addEventListener('mouseleave', () => {
-                this.speed = 0.3; // Restaurar velocidad al salir del hover
+                this.speed = 2.3; // Restaurar velocidad al salir del hover
             });
         }
     }

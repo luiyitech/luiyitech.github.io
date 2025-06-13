@@ -1690,19 +1690,29 @@ button#next-slide:hover {
     width: 100%;
     z-index: 49;
     display: flex;
-    justify-content: flex-end; /* <-- Esto alinea a la derecha */
+    justify-content: flex-end;
     background: transparent !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
     box-shadow: none !important;
-    pointer-events: none; /* Opcional: evita que el contenedor intercepte eventos */
-  }
-  
-  #banner.fixed-style {
-    margin-right: 32px; /* Espacio desde el borde derecho, ajusta según tu diseño */
+    pointer-events: none;
+}
+
+#banner {
+    transition: 
+        transform 0.3s cubic-bezier(.4,0,.2,1), 
+        margin 0.3s cubic-bezier(.4,0,.2,1);
+    /* Mantiene el tamaño original cuando no está fijo */
+}
+
+#banner.fixed-style {
+    margin-right: 32px;
     margin-left: 0;
+    transform: scale(0.7); /* Ajusta el valor para el tamaño reducido deseado */
     pointer-events: auto;
-  }
+}
+
+
   
 
 /* ========================================================= */

@@ -1691,10 +1691,12 @@ button#next-slide:hover {
     align-items: center;
     width: max-content;
     height: 100%;
-    gap: 4rem; /* Más separación entre elementos */
+    gap: 3rem;
     white-space: nowrap;
     transition: none;
+    will-change: transform; /* Mejora rendimiento */
 }
+
 
 .sponsor-item {
     display: flex;

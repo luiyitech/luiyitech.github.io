@@ -746,73 +746,40 @@ document.addEventListener('DOMContentLoaded', function () {
   // ===============================
 // SLIDER DE AVALES Y PATROCINADORES
 // ===============================
-class SponsorSlider {
-    constructor(trackId) {
-        this.track = document.getElementById(trackId);
-        this.originalItems = [];
-        this.scrollAmount = 0;
-        this.speed = 2.3; // Ajusta la velocidad más lenta
-        this.isInitialized = false;
-        
-        if (this.track) {
-            this.init();
-        }
-    }
-    
-    init() {
-        this.originalItems = Array.from(this.track.children);
-        this.createInfiniteLoop();
-        this.bindEvents();
-        this.isInitialized = true;
-        this.startInfiniteScroll();
-    }
-    
-    createInfiniteLoop() {
-        const itemsToClone = this.originalItems.length;
+document.addEventListener("DOMContentLoaded", function () {
+    const sliders = [
+        document.getElementById('patrocinadores-track'),
+        document.getElementById('avales-track')
+    ];
 
-        // Clonar elementos y agregarlos al final
-        for (let i = 0; i < itemsToClone; i++) {
-            const clone = this.originalItems[i].cloneNode(true);
+    sliders.forEach(track => {
+        if (!track) return;
+
+        // Duplicamos contenido para un flujo infinito
+        const items = Array.from(track.children);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
             clone.classList.add('cloned');
-            this.track.appendChild(clone);
-        }
-    }
-    
-    startInfiniteScroll() {
-        const firstItemWidth = this.originalItems[0].offsetWidth + 30;
-        const totalWidth = firstItemWidth * this.originalItems.length;
+            track.appendChild(clone);
+        });
 
-        const moveTrack = () => {
-            this.scrollAmount -= this.speed;
-            this.track.style.transform = `translateX(${this.scrollAmount}px)`;
+        let scrollAmount = 0;
+        const speed = 1.2; // Velocidad ajustada para suavidad
 
-            if (Math.abs(this.scrollAmount) >= totalWidth) {
-                this.scrollAmount = 0;
+        function moveTrack() {
+            scrollAmount -= speed;
+            track.style.transform = `translateX(${scrollAmount}px)`;
+
+            const firstItemWidth = items[0].offsetWidth + 20;
+
+            // Flujo sin cortes ni reinicios bruscos
+            if (Math.abs(scrollAmount) >= firstItemWidth * items.length) {
+                scrollAmount = 0;
             }
 
             requestAnimationFrame(moveTrack);
-        };
+        }
 
         moveTrack();
-    }
-
-    bindEvents() {
-        const slider = this.track.closest('.sponsor-slider');
-
-        if (slider) {
-            slider.addEventListener('mouseenter', () => {
-                this.speed = 0; // Detener movimiento en hover
-            });
-
-            slider.addEventListener('mouseleave', () => {
-                this.speed = 2.3; // Restaurar velocidad al salir del hover
-            });
-        }
-    }
-}
-
-// Inicializar los sliders de patrocinadores y avales
-document.addEventListener('DOMContentLoaded', function() {
-    new SponsorSlider('patrocinadores-track');
-    new SponsorSlider('avales-track');
+    });
 });

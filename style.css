@@ -1708,7 +1708,7 @@ button#next-slide:hover {
 #banner.fixed-style {
     margin-right: 32px;
     margin-left: 0;
-    transform: scale(0.7); /* Ajusta el valor para el tamaño reducido deseado */
+    transform: scale(0.6); /* Ajusta el valor para el tamaño reducido deseado */
     pointer-events: auto;
 }
 
@@ -1723,11 +1723,7 @@ button#next-slide:hover {
   
   #banner.glow-effect {
     animation: banner-glow 2s infinite;
-  }
-  
-
-
-  
+  }  
 
 /* ========================================================= */
 /* SLIDER DE AVALES Y PATROCINADORES */

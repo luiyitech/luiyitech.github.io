@@ -1680,29 +1680,30 @@ button#next-slide:hover {
     }
 }
 
-
 /* ========================================================= */
-/* SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) */
+/* SECCIÓN BANNER 247 */
 /* ========================================================= */
 .fixed-banner {
     position: fixed;
-    top: 17px;
-    /* Altura del navbar */
+    top: 80px; /* ajusta según la altura real del navbar */
     left: 0;
     width: 100%;
     z-index: 49;
-    /* Debajo del navbar */
     display: flex;
-    justify-content: center;
-    background: transparent;
-    /* O color de fondo si lo deseas */
-    padding-top: 8px;
-}
-
-#banner.fixed-style {
-    margin: 0 auto;
-}
-
+    justify-content: flex-end; /* <-- Esto alinea a la derecha */
+    background: transparent !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    box-shadow: none !important;
+    pointer-events: none; /* Opcional: evita que el contenedor intercepte eventos */
+  }
+  
+  #banner.fixed-style {
+    margin-right: 32px; /* Espacio desde el borde derecho, ajusta según tu diseño */
+    margin-left: 0;
+    pointer-events: auto;
+  }
+  
 
 /* ========================================================= */
 /* SLIDER DE AVALES Y PATROCINADORES */

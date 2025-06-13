@@ -710,37 +710,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const banner = document.getElementById('banner');
     const bannerContainer = document.getElementById('banner-container');
     const navbar = document.getElementById('navbar');
+    const logo = document.getElementById('logo-247'); // Asegúrate de que el logo tenga este ID
+
     // Guarda la posición original del banner
     const bannerRect = bannerContainer.getBoundingClientRect();
-    const bannerTop = bannerRect.top + window.pageYOffset;
+    let bannerTop = bannerRect.top + window.pageYOffset;
 
     function handleScroll() {
-        // Altura del navbar (ajusta si cambia)
         const navbarHeight = navbar.offsetHeight;
-        // Cuando el scroll pasa la posición original del banner menos la altura del navbar
+
         if (window.pageYOffset > bannerTop - navbarHeight) {
             if (!banner.classList.contains('fixed-style')) {
                 banner.classList.add('fixed-style');
                 bannerContainer.classList.add('fixed-banner');
-                bannerContainer.style.height = banner.offsetHeight + 'px'; // Reserva el espacio
+                bannerContainer.style.height = banner.offsetHeight + 'px';
+
+                // Mover el logo a la derecha cuando el banner se fija
+                logo.classList.add('move-right');
             }
         } else {
             if (banner.classList.contains('fixed-style')) {
                 banner.classList.remove('fixed-style');
                 bannerContainer.classList.remove('fixed-banner');
                 bannerContainer.style.height = '';
+
+                // Devolver el logo a su posición original
+                logo.classList.remove('move-right');
             }
         }
     }
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', function () {
-        // Recalcula la posición por si cambia el tamaño de la ventana
         const newRect = bannerContainer.getBoundingClientRect();
         bannerTop = newRect.top + window.pageYOffset;
         handleScroll();
     });
 });
+
 
 
 // ===============================

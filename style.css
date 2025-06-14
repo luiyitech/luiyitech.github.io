@@ -2075,6 +2075,15 @@ button#next-slide:hover {
         inset 4px 4px 8px rgba(39, 196, 223, 0.2);
 }
 
+  /* Por defecto: solo se muestra el largo */
+  .titulo-mobile {
+    display: none;
+  }
+  .titulo-desktop {
+    display: block;
+  }
+  
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -2090,4 +2099,30 @@ button#next-slide:hover {
     .titulo-avales-patrocinadores-neo .titulo-corto::after {
         content: "Nos avalan";
     }
-}
+    .titulo-desktop {
+        display: block;
+      }
+      .titulo-mobile {
+        display: none;
+      }
+    }
+  /* Mostrar solo en pantallas pequeñas */
+  @media (max-width: 767px) {
+    .titulo-desktop {
+      display: none;
+    }
+    .titulo-mobile {
+      display: block;
+    }
+  }
+
+  /* En pantallas menores a 768px: ocultar largo y mostrar corto */
+  @media (max-width: 768px) {
+    .titulo-desktop {
+      display: none;
+    }
+    .titulo-mobile {
+      display: block;
+    }
+  }
+  

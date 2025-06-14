@@ -790,3 +790,12 @@ document.addEventListener("DOMContentLoaded", function () {
         moveTrack();
     });
 });
+
+// Inicialización de AOS
+AOS.init({
+    offset: 120, // Distancia desde el viewport para activar la animación
+    duration: 600, // Duración de las animaciones
+    easing: 'ease-in-out', // Tipo de animación
+    once: true, // Si la animación debe ejecutarse solo una vez
+    mirror: false, // Si debe animarse al hacer scroll hacia arriba
+  });

@@ -2084,3 +2084,10 @@ button#next-slide:hover {
         transform: rotate(360deg);
     }
 }
+
+/* Cambiar el texto en pantallas pequeñas */
+@media (max-width: 768px) {
+    .titulo-avales-patrocinadores-neo .titulo-corto::after {
+        content: "Nos avalan";
+    }
+}

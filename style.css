@@ -256,7 +256,7 @@ footer,
 .fechas-y-ubicaciones,
 .countdown-wrapper,
 #avales-patrocinadores,
-#patrocinadores, #institucional {
+#patrocinadores, #institucional{
     display: block;
     /* Evita flex si no es necesario */
     width: 100vw;

@@ -404,15 +404,13 @@ function toggleAccordion(id) {
 
 
 
-
-
 // ===============================
 // GALERÍA DEL CONGRESO - CARRUSEL
 // ===============================
 class GalleryCarousel {
     constructor() {
         this.currentIndex = 0;
-        this.totalImages = 20;
+        this.totalImages = 23;
         this.autoPlayInterval = null;
         this.autoPlayDelay = 4000;
         this.isModalOpen = false;
@@ -762,28 +760,34 @@ document.addEventListener("DOMContentLoaded", function () {
     sliders.forEach(track => {
         if (!track) return;
 
-        // Duplicamos contenido para un flujo infinito
         const items = Array.from(track.children);
+
+        // Duplicar contenido para loop infinito
         items.forEach(item => {
             const clone = item.cloneNode(true);
             clone.classList.add('cloned');
             track.appendChild(clone);
         });
 
+        // Calcular ancho total incluyendo margin-right
+        let totalWidth = 0;
+        items.forEach(item => {
+            const style = getComputedStyle(item);
+            const marginRight = parseFloat(style.marginRight) || 0;
+            totalWidth += item.offsetWidth + marginRight;
+        });
+
         let scrollAmount = 0;
-        const speed = 1.2; // Velocidad ajustada para suavidad
+        const speed = 0.8; // Prueba con velocidad más baja para suavizar
 
         function moveTrack() {
             scrollAmount -= speed;
-            track.style.transform = `translateX(${scrollAmount}px)`;
 
-            const firstItemWidth = items[0].offsetWidth + 20;
-
-            // Flujo sin cortes ni reinicios bruscos
-            if (Math.abs(scrollAmount) >= firstItemWidth * items.length) {
+            if (Math.abs(scrollAmount) >= totalWidth) {
                 scrollAmount = 0;
             }
 
+            track.style.transform = `translateX(${scrollAmount}px)`;
             requestAnimationFrame(moveTrack);
         }
 
@@ -791,11 +795,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Inicialización de AOS
-AOS.init({
-    offset: 120, // Distancia desde el viewport para activar la animación
-    duration: 600, // Duración de las animaciones
-    easing: 'ease-in-out', // Tipo de animación
-    once: true, // Si la animación debe ejecutarse solo una vez
-    mirror: false, // Si debe animarse al hacer scroll hacia arriba
-  });

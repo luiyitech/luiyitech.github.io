@@ -1882,42 +1882,33 @@ button#next-slide:hover {
 .sponsor-slider {
     position: relative;
     width: 100%;
-    height: 140px;
-    /* Más espacio para imágenes grandes */
+    height: 140px; /* Altura fija para controlar el centrado */
     overflow: hidden;
 }
 
 .sponsor-track {
     display: flex;
-    align-items: center;
-    width: max-content;
-    height: 100%;
-    gap: 3rem;
-    white-space: nowrap;
-    transition: none;
-    will-change: transform;
-    /* Mejora rendimiento */
+    align-items: center; /* CENTRADO VERTICAL */
+    height: 140px; /* Igual que el contenedor padre */
+    /* Elimina gap para usar margin-right en sponsor-item */
+    white-space: nowrap; /* Opcional, puedes eliminar si no afecta */
 }
-
 
 .sponsor-item {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centra la imagen dentro del item */
     justify-content: center;
-    height: auto;
-    min-width: auto;
-    padding: 1rem;
-    /* Espacio adicional para cada imagen */
+    margin-right: 48px; /* Espacio entre logos */
+    /* Elimina height: 100% para evitar conflictos */
 }
 
 .sponsor-logo {
     max-height: 130px;
-    /* Antes era 150px, ahora aún más grande */
     max-width: 250px;
-    /* Expansión en ancho */
     width: auto;
     height: auto;
     object-fit: contain;
+    display: block; /* Elimina espacio extra debajo de la imagen */
     transition: transform 0.4s ease, filter 0.4s ease;
     filter: grayscale(0.3) opacity(0.85);
 }
@@ -1929,20 +1920,22 @@ button#next-slide:hover {
 }
 
 /* Animación infinita */
+/* (Si usas JS para animar, puedes eliminar esta animación CSS) */
 @keyframes slideInfinite {
     0% {
         transform: translateX(0%);
     }
-
     100% {
         transform: translateX(-100%);
     }
 }
 
 /* Pausar animación en hover */
+/*
 .sponsor-slider:hover .sponsor-track {
     animation-play-state: paused;
 }
+*/
 
 /* Estilos responsive */
 @media (max-width: 768px) {
@@ -1954,14 +1947,15 @@ button#next-slide:hover {
         height: 120px;
     }
 
+    .sponsor-track {
+        height: 120px;
+        /* Si usas gap en responsive, elimina margin-right en .sponsor-item */
+        /* gap: 3rem; */
+    }
+
     .sponsor-logo {
         max-height: 140px;
         max-width: 220px;
-    }
-
-    .sponsor-track {
-        gap: 3rem;
-        animation-duration: 22s;
     }
 }
 
@@ -1970,14 +1964,14 @@ button#next-slide:hover {
         height: 100px;
     }
 
+    .sponsor-track {
+        height: 100px;
+        /* gap: 2rem; */
+    }
+
     .sponsor-logo {
         max-height: 110px;
         max-width: 200px;
-    }
-
-    .sponsor-track {
-        gap: 2rem;
-        animation-duration: 20s;
     }
 }
 
@@ -1992,6 +1986,7 @@ button#next-slide:hover {
         transform: scale(1.01);
     }
 }
+
 
 
 /* ============================= */

@@ -1229,7 +1229,7 @@ a.border-2:hover i {
     }
 }
 
-@nedia (max-width: 360px) {
+@media (max-width: 360px) {
     #quienes-somos {
         padding-top: 0 !important;
       }      

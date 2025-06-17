@@ -2121,3 +2121,71 @@ button#next-slide:hover {
     }
   }
   
+
+/* SECCIÓN INSTITUCIONALES */
+:root {
+    --background-dark: #23213a;
+  }
+  
+  .logos-institucionales {
+    background: var(--background-dark);
+    padding: 48px 0 32px 0;
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+  
+  .logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .logo-item {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+  }
+  
+  .logo-item img.bw-logo {
+    max-width: 260px;
+    max-height: 110px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1) brightness(1.1) contrast(1.1);
+    background: transparent;
+    transition: none;
+    /* Sin efecto hover */
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .logos-container {
+      gap: 50px;
+    }
+    .logo-item img.bw-logo {
+      max-width: 150px;
+      max-height: 60px;
+    }
+  }
+  @media (max-width: 600px) {
+    .logos-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .logos-institucionales {
+      padding: 24px 0 12px 0;
+    }
+  }
+  
+  

@@ -2158,7 +2158,7 @@ button#next-slide:hover {
   
   .logo-item img.bw-logo {
     width: 18vw;       /* Tamaño proporcional al viewport */
-    max-width: 110px;  /* Tamaño máximo */
+    max-width: 100px;  /* Tamaño máximo */
     min-width: 80px;   /* Tamaño mínimo */
     height: auto;
     object-fit: contain;

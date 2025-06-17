@@ -2133,21 +2133,21 @@ button#next-slide:hover {
     width: 100vw;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border: none;
+    align-items: center;
   }
   
   .logos-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
-    width: 100%;
+    gap: 5vw;          /* Espaciado proporcional */
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto;
+    flex-wrap: nowrap;  /* Evita que los logos se pongan en columna */
   }
-  
+
   .logo-item {
     flex: 1 1 0;
     display: flex;
@@ -2157,44 +2157,37 @@ button#next-slide:hover {
   }
   
   .logo-item img.bw-logo {
-    max-width: 260px;
-    max-height: 110px;
-    width: 100%;
+    width: 18vw;       /* Tamaño proporcional al viewport */
+    max-width: 110px;  /* Tamaño máximo */
+    min-width: 80px;   /* Tamaño mínimo */
     height: auto;
     object-fit: contain;
     filter: grayscale(1) brightness(1.1) contrast(1.1);
     background: transparent;
-    transition: none;
-    /* Sin efecto hover */
+    transition: width 0.3s ease;
   }
   
-  /* Responsive */
+  /* Ajustes para pantallas medianas */
   @media (max-width: 900px) {
     .logos-container {
-      gap: 50px;
+      gap: 4vw;
     }
     .logo-item img.bw-logo {
-      max-width: 150px;
-      max-height: 60px;
-    }
-  }
-  @media (max-width: 600px) {
-    .logos-container {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .logos-institucionales {
-      padding: 24px 0 12px 0;
+      width: 22vw;
+      max-width: 90px;
+      min-width: 70px;
     }
   }
   
-  .logo-congreso {
-    display: block;
-    margin: 0 auto;
-    max-width: 450px; /* o el tamaño que prefieras */
-    width: 100%;
-    height: auto;
-    /* Sombra suave y moderna */
-    filter: drop-shadow(0 4px 24px #27c4df66) drop-shadow(0 2px 8px #0008);
-    box-shadow: #0008 0px 20px 0px;
-}
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .logos-container {
+      gap: 3vw;
+    }
+    .logo-item img.bw-logo {
+      width: 28vw;
+      max-width: 70px;
+      min-width: 60px;
+    }
+  }
+  

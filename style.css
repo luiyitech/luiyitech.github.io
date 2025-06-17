@@ -2188,4 +2188,13 @@ button#next-slide:hover {
     }
   }
   
-  
+  .logo-congreso {
+    display: block;
+    margin: 0 auto;
+    max-width: 450px; /* o el tamaño que prefieras */
+    width: 100%;
+    height: auto;
+    /* Sombra suave y moderna */
+    filter: drop-shadow(0 4px 24px #27c4df66) drop-shadow(0 2px 8px #0008);
+    box-shadow: #0008 0px 20px 0px;
+}

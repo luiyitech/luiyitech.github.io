@@ -2141,31 +2141,39 @@ button#next-slide:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw;          /* Espaciado proporcional */
+    gap: 4vw;          /* Espaciado proporcional */
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     flex-wrap: nowrap;  /* Evita que los logos se pongan en columna */
   }
+  
 
   .logo-item {
     flex: 1 1 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 0;
   }
   
   .logo-item img.bw-logo {
     width: 18vw;       /* Tamaño proporcional al viewport */
-    max-width: 100px;  /* Tamaño máximo */
+    max-width: 110px;  /* Tamaño máximo */
     min-width: 80px;   /* Tamaño mínimo */
     height: auto;
     object-fit: contain;
-    filter: grayscale(1) brightness(1.1) contrast(1.1);
+    /* filter: grayscale(1) brightness(1.1) contrast(1.1); */
     background: transparent;
     transition: width 0.3s ease;
   }
+
+  .logo-gobierno {
+    width: 25vw !important;     /* Más ancho proporcional */
+    max-width: 160px !important; /* Mayor tamaño máximo */
+    min-width: 100px !important; /* Mayor tamaño mínimo */
+    transition: width 0.3s ease; /* Para que el cambio sea suave */
+  }
+  
   
   /* Ajustes para pantallas medianas */
   @media (max-width: 900px) {

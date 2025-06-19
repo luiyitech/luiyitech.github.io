@@ -1987,7 +1987,9 @@ button#next-slide:hover {
     }
 }
 
-
+#patrocinadores, #avales-patrocinadores{
+    background-color: white;
+}
 
 /* ============================= */
 /* TÍTULOS AVALES Y PATROCINADORES - ESTILO NEOMORFISMO */

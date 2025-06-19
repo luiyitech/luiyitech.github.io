@@ -1869,15 +1869,15 @@ button#next-slide:hover {
 .sponsor-slider-container {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-    /* Padding más amplio */
+    width: 100vw; /* Asegura que ocupe el 100% del ancho del viewport */
+    margin-left: calc(50% - 50vw); /* Empuja a la izquierda para cubrir todo el ancho */
+    margin-right: calc(50% - 50vw); /* Empuja a la derecha */
+    padding: 4rem 0; /* Mantiene el padding vertical, quita el horizontal */
     background: none;
     border-radius: 1rem;
     box-shadow: none;
-}
+    /* Se eliminaron: max-width: 1000px; y margin: 0 auto; */
+  }
 
 .sponsor-slider {
     position: relative;

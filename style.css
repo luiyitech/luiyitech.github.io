@@ -85,6 +85,40 @@ body {
     height: 40px;
 }
 
+/* ========================================================= */
+/* EFECTO DE SUBRAYADO ANIMADO PARA ENLACES DE NAVEGACIÓN */
+/* ========================================================= */
+
+#navbar .hidden.md\:flex.items-center.space-x-4 a {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden; /* Asegura que el subrayado no se vea fuera del enlace al iniciar */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    text-decoration: none; /* Asegura que no haya subrayado predeterminado */
+}
+
+#navbar .hidden.md\:flex.items-center.space-x-4 a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Grosor del subrayado */
+    background-color: var(--accent-color); /* Color del subrayado */
+    transform: translateX(-100%); /* Inicialmente fuera de la vista a la izquierda */
+    transition: transform 0.3s ease-out; /* Animación de 0.3 segundos */
+}
+
+#navbar .hidden.md\:flex.items-center.space-x-4 a:hover::after {
+    transform: translateX(0); /* Se desliza para cubrir el enlace al hacer hover */
+}
+
+/* Para el botón "Inscríbete Ahora", no queremos este efecto de subrayado,
+   ya que ya tiene sus propios estilos de hover.
+   Vamos a excluirlo específicamente. */
+#navbar .hidden.md\:flex.items-center.space-x-4 a.cta-button::after {
+    display: none; /* Oculta el pseudo-elemento para el botón CTA */
+}
+
 /* SLIDER BANDERAS INFINITO*/
 .flags-slider-section {
     width: 100vw;

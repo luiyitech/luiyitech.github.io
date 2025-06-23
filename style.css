@@ -2229,7 +2229,7 @@ button#next-slide:hover {
 /* ========================================================= */
 
 .sponsors-oficiales-section {
-    background-color: white; /* Fondo blanco (o tu color de fondo principal)  */
+    background-color: w; /* Fondo blanco (o tu color de fondo principal)  */
     padding: 3rem 0;
     color: var(--text-color-dark); /* Color de texto oscuro para contraste  */
 }

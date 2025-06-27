@@ -795,3 +795,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/* ================================================= */
+/* POP-UP FLOTANTE (ESTRUCTURA FINAL Y DEFINITIVA)   */
+/* ================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- FUNCIÓN PARA CREAR EL POP-UP ---
+    function crearPopupConcurso() {
+        if (document.querySelector('.contest-popup-float')) {
+            return document.querySelector('.contest-popup-float');
+        }
+        const popup = document.createElement('div');
+        popup.className = 'contest-popup-float';
+        const imagenSrc = "img/concurso-congreso.jpg";
+        
+        // ✅ ESTRUCTURA CLAVE: Fíjate cómo el botón <a> está FUERA y después del <div> del texto.
+        // Esto es lo que permite ocultar el texto sin ocultar el botón.
+        popup.innerHTML = `
+            <img src="${imagenSrc}" alt="Anuncio del Concurso de Imágenes Forenses">
+            
+            <div class="contest-popup-text">
+                <p><strong>¡Tenemos un concurso!</strong></p>
+                <p>Demuestra tu talento en nuestro concurso de fotografía forense y gana premios increíbles.</p>
+            </div>
+
+            <a href="URL_DE_TU_PAGINA_DEL_CONCURSO" target="_blank" class="contest-popup-button">¡Quiero participar!</a>
+            
+            <button class="contest-popup-close">&times;</button>
+        `;
+
+        document.body.appendChild(popup);
+        
+        popup.classList.add('hidden');
+        setTimeout(() => {
+            popup.classList.add('show');
+        }, 100);
+
+        popup.querySelector('.contest-popup-close').addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+        return popup;
+    }
+
+    // --- LÓGICA DEL OBSERVADOR DE SCROLL ---
+    const popup = crearPopupConcurso();
+    const seccionTrigger = document.querySelector('.hero-bg');
+
+    if (!seccionTrigger || !popup) return;
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                popup.classList.remove('hidden');
+            } else {
+                popup.classList.add('hidden');
+            }
+        });
+    }, options);
+    observer.observe(seccionTrigger);
+});

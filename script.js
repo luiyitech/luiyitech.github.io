@@ -819,7 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Demuestra tu talento en nuestro concurso de fotografía forense y gana premios increíbles.</p>
             </div>
 
-            <a href="URL_DE_TU_PAGINA_DEL_CONCURSO" target="_blank" class="contest-popup-button">¡Quiero participar!</a>
+            <a href="concurso.html" target="_blank" class="contest-popup-button">¡Quiero participar!</a>
             
             <button class="contest-popup-close">&times;</button>
         `;

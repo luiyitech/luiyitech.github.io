@@ -1,6 +1,6 @@
-/* ======================================= */
-/* ESTILOS PARA LANDING PAGE DEL CONCURSO  */
-/* ======================================= */
+/* ========================================================== */
+/* ESTILOS MODERNOS PARA LANDING DEL CONCURSO (VERSIÓN FINAL) */
+/* ========================================================== */
 
 :root {
     --primary-color: #003366;
@@ -9,208 +9,99 @@
     --background-color: #f4f4f9;
     --text-color-light: #ffffff;
     --text-color-dark: #333333;
+    --glow-color: rgba(39, 196, 223, 0.7);
 }
 
-body {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--text-color-dark);
-}
+body { font-family: 'Ubuntu', sans-serif; color: var(--text-color-dark); overflow-x: hidden; }
+.font-heading { font-family: 'Montserrat', sans-serif; }
+.text-primary { color: var(--primary-color); }
+.text-accent { color: var(--accent-color); }
+.bg-primary { background-color: var(--primary-color); }
+.bg-secondary { background-color: var(--secondary-color); }
 
-.font-heading {
-    font-family: 'Montserrat', sans-serif;
-}
+.cta-button { background: linear-gradient(135deg, var(--accent-color), #3557f0); transition: all 0.3s ease; transform: perspective(1px) translateZ(0); }
+.cta-button:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); }
 
-.text-primary {
-    color: var(--primary-color);
-}
-
-.text-accent {
-    color: var(--accent-color);
-}
-
-.bg-primary {
-    background-color: var(--primary-color);
-}
-
-.bg-secondary {
-    background-color: var(--secondary-color);
-}
-
-/* --- Estilo Botón CTA (reutilizado) --- */
-.cta-button {
-    background: linear-gradient(135deg, var(--accent-color), #3557f0);
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Sección Hero --- */
-.hero-concurso {
-    padding: 10rem 1rem;
-    background-color: var(--primary-color);
-    position: relative;
-    overflow: hidden;
-}
-/* Fondo animado (reutilizado) */
-.animated-blue-bg, .hero-concurso {
-    position: relative;
-    overflow: hidden;
-}
-.animated-blue-bg::before, .hero-concurso::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"><defs><linearGradient id="bg"><stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.08)"></stop><stop offset="50%" style="stop-color:rgba(24, 86, 122, 0.3)"></stop><stop offset="100%" style="stop-color:rgba(74, 72, 209, 0.15)"></stop></linearGradient><path id="wave" fill="url(%23bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" /></defs><g><use xlink:href="%23wave" opacity="0.4"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" /></use><use xlink:href="%23wave" opacity="0.6"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" /></use></g></svg>');
-    background-size: cover;
-    z-index: 1;
-}
+.hero-concurso { padding: 10rem 1rem; background-color: var(--primary-color); position: relative; overflow: hidden; }
+.animated-blue-bg, .hero-concurso { position: relative; overflow: hidden; }
+.animated-blue-bg::before, .hero-concurso::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"><defs><linearGradient id="bg"><stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.08)"></stop><stop offset="50%" style="stop-color:rgba(24, 86, 122, 0.3)"></stop><stop offset="100%" style="stop-color:rgba(74, 72, 209, 0.15)"></stop></linearGradient><path id="wave" fill="url(%23bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" /></defs><g><use xlink:href="%23wave" opacity="0.4"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" /></use><use xlink:href="%23wave" opacity="0.6"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" /></use></g></svg>'); background-size: cover; z-index: 1; animation: fadeInBg 2s ease-out; }
+@keyframes fadeInBg { from { opacity: 0; } to { opacity: 1; } }
 .hero-concurso > div { z-index: 2; }
 
+/* --- ESTILO ÉPICO PARA TÍTULOS (FONDO OSCURO) --- */
+.epic-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--text-color-light); display: inline-block; position: relative; padding-bottom: 0.75rem; margin-bottom: 1rem; text-shadow: 0 0 15px rgba(39, 196, 223, 0.3); }
+.epic-title::after { content: ''; position: absolute; bottom: 0; left: 0; height: 4px; width: 0; background: linear-gradient(90deg, var(--accent-color), #8a2be2, #ff2079); border-radius: 2px; transform: skewX(-20deg); animation: draw-underline 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards; }
+.epic-subtitle { font-family: 'Ubuntu', sans-serif; font-size: 1.25rem; color: rgba(255, 255, 255, 0.85); max-width: 600px; margin: 0 auto; font-weight: 300; letter-spacing: 1px; opacity: 0; animation: fade-in-up 1s ease-out 1s forwards; }
 
-/* --- Tarjetas de Categoría y Temática --- */
-.category-card, .theme-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 450px;
-    border-top: 4px solid var(--accent-color);
-}
-.category-card:hover, .theme-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
-.theme-note {
+/* --- VARIACIÓN DE TÍTULO ÉPICO PARA FONDOS CLAROS --- */
+.epic-title-light { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--primary-color); display: inline-block; position: relative; padding-bottom: 0.75rem; margin-bottom: 1rem; }
+.epic-title-light::after { content: ''; position: absolute; bottom: 0; left: 0; height: 4px; width: 0; background: linear-gradient(90deg, var(--accent-color), #8a2be2, #ff2079); border-radius: 2px; transform: skewX(-20deg); animation: draw-underline 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards; }
+.epic-subtitle-light { font-family: 'Ubuntu', sans-serif; font-size: 1.25rem; color: var(--text-color-dark); max-width: 600px; margin: 0 auto; font-weight: 400; opacity: 0.8; animation: fade-in-up 1s ease-out 1s forwards; }
+
+@keyframes draw-underline { from { width: 0%; } to { width: 100%; } }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ✅ NUEVO: ESTILOS PARA LA IMAGEN Y SU MARCO */
+.fotografo-marco-container {
     display: inline-block;
-    background-color: #e0f7fa;
-    color: #00796b;
-    padding: 0.25rem 0.75rem;
-    border-radius: 99px;
-    font-size: 0.875rem;
-    font-weight: 500;
+    max-width: 90%;
+    width: 500px;
+    margin: 0 auto 3rem;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.fotografo-marco-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 51, 102, 0.3);
+}
+.fotografo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 3px solid white;
 }
 
-/* --- Línea de Tiempo --- */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: var(--accent-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-}
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-}
+.interactive-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.interactive-card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 20px 40px rgba(0, 80, 158, 0.15); }
+.category-card { background-color: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); border-bottom: 5px solid var(--accent-color); width: 100%; max-width: 450px; }
+.card-icon-wrapper { margin-bottom: 1.5rem; }
+.animated-icon { transition: transform 0.4s ease; }
+.interactive-card:hover .animated-icon { transform: rotateY(360deg) scale(1.2); }
+.theme-card { background-color: #f8fafc; padding: 2rem; border-radius: 12px; border-left: 5px solid var(--primary-color); width: 100%; max-width: 480px; text-align: left; }
+.animated-badge { animation: pulse-badge 2s infinite; }
+@keyframes pulse-badge { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(39, 196, 223, 0.7); } 50% { transform: scale(1.05); box-shadow: 0 0 10px 5px rgba(39, 196, 223, 0); } }
+.theme-note { display: inline-block; background-color: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.875rem; font-weight: 500; }
+
+.timeline { position: relative; max-width: 800px; margin: 0 auto; }
+.timeline::after { content: ''; position: absolute; width: 3px; background: linear-gradient(to bottom, var(--accent-color), rgba(39, 196, 223, 0)); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; border-radius: 3px; z-index: 1; }
+.timeline-item { padding: 10px 40px; position: relative; width: 50%; z-index: 2; }
+.timeline-icon { position: absolute; width: 40px; height: 40px; right: -20px; background-color: white; border: 3px solid var(--accent-color); top: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--primary-color); font-size: 1.2rem; transition: transform 0.3s ease; }
+.timeline-item:hover .timeline-icon { transform: scale(1.25); }
 .timeline-item:nth-child(odd) { left: 0; }
 .timeline-item:nth-child(even) { left: 50%; }
-.timeline-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    right: -20px;
-    background-color: white;
-    border: 3px solid var(--accent-color);
-    top: 20px;
-    border-radius: 50%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-color);
-    font-size: 1.2rem;
-}
-.timeline-item:nth-child(even) .timeline-icon {
-    left: -20px;
-}
-.timeline-content {
-    padding: 20px 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    position: relative;
-    border-radius: 8px;
-}
-@media (max-width: 768px) {
-    .timeline::after { left: 20px; }
-    .timeline-item { width: 100%; padding-left: 60px; padding-right: 15px; }
-    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
-    .timeline-icon { left: 0; }
-}
+.timeline-item:nth-child(even) .timeline-icon { left: -20px; }
+.timeline-content { padding: 20px 30px; background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); position: relative; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+@media (max-width: 768px) { .timeline::after { left: 20px; } .timeline-item { width: 100%; padding-left: 60px; padding-right: 15px; } .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; } .timeline-icon { left: 0; } }
 
-/* --- Tarjetas de Premios --- */
-.prize-card {
-    background: #f8fafc;
-    border-left: 5px solid var(--primary-color);
-    padding: 2rem;
-    border-radius: 8px;
-}
-.prize-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e2e8f0;
-}
-.prize-list li:last-child { border-bottom: none; }
+.prize-category-heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--accent-color); display: inline-block; }
+.prize-card-new { background: linear-gradient(145deg, #f9fafb, #eef2f5); border-radius: 16px; padding: 2rem; text-align: left; box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff; border: 1px solid rgba(255,255,255,0.8); transition: all 0.3s ease-in-out; position: relative; overflow: hidden; }
+.prize-card-new:hover { transform: translateY(-5px) scale(1.02); box-shadow: 12px 12px 24px #c5cde0, -12px -12px 24px #ffffff; }
+.prize-card-new h4 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 1rem; border-bottom: 1px solid #d1d9e6; padding-bottom: 0.75rem; }
+.prize-card-new ul { list-style: none; padding: 0; margin: 0; }
+.prize-card-new li { font-weight: 500; color: var(--text-color-dark); display: flex; align-items: center; margin-bottom: 0.5rem; }
+.prize-card-new li span { font-size: 1.5rem; margin-right: 1rem; display: inline-block; width: 30px; text-align: center; transition: transform 0.3s ease; }
+.prize-card-new li:hover span { transform: scale(1.3); }
 
-/* --- Pasos de Inscripción --- */
-.step-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    font-weight: bold;
-    margin-right: 15px;
-}
+.step-number { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; background-color: var(--primary-color); color: white; border-radius: 50%; font-weight: bold; margin-right: 15px; transition: transform 0.3s ease; }
+.step-number:hover { transform: scale(1.2); }
 
-/* --- Acordeón para Bases y Condiciones --- */
-.accordion-item-concurso {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.accordion-header-concurso {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 1rem 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s ease;
-}
-.accordion-header-concurso:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-.accordion-header-concurso::after {
-    content: '\f078'; /* Icono flecha abajo de Font Awesome */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    right: 10px;
-    transition: transform 0.3s ease;
-}
-.accordion-header-concurso.active::after {
-    transform: rotate(180deg);
-}
-.accordion-content-concurso {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    background-color: rgba(0, 0, 0, 0.2);
-}
+.accordion-item-concurso { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+.accordion-header-concurso { width: 100%; background: none; border: none; text-align: left; padding: 1rem 0.5rem; font-size: 1.25rem; font-weight: 600; color: white; cursor: pointer; position: relative; transition: background-color 0.3s ease; }
+.accordion-header-concurso:hover { background-color: rgba(255, 255, 255, 0.1); }
+.accordion-header-concurso::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 10px; transition: transform 0.3s ease; }
+.accordion-header-concurso.active::after { transform: rotate(180deg); }
+.accordion-content-concurso { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background-color: rgba(0, 0, 0, 0.2); }

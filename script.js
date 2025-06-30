@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             <div class="contest-popup-text">
                 <p><strong>¡Tenemos un concurso!</strong></p>
-                <p>Demuestra tu talento en nuestro concurso de fotografía forense y gana premios increíbles.</p>
+                <p>Demuestra tu talento en nuestro concurso de imagenes forenses y gana premios increíbles.</p>
             </div>
 
             <a href="concurso.html" target="_blank" class="contest-popup-button">¡Quiero participar!</a>

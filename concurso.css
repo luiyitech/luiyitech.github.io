@@ -12,6 +12,10 @@
     --glow-color: rgba(39, 196, 223, 0.7);
 }
 
+html {
+    scroll-behavior: smooth;
+  }  
+
 body { font-family: 'Ubuntu', sans-serif; color: var(--text-color-dark); overflow-x: hidden; }
 .font-heading { font-family: 'Montserrat', sans-serif; }
 .text-primary { color: var(--primary-color); }

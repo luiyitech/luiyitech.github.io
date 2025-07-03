@@ -748,52 +748,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// ===============================
-// SLIDER DE AVALES Y PATROCINADORES
-// ===============================
+// ===================================================
+// SLIDER DE AVALES Y PATROCINADORES (CÓDIGO FINAL)
+// ===================================================
 document.addEventListener("DOMContentLoaded", function () {
-    const sliders = [
-        document.getElementById('patrocinadores-track'),
-        document.getElementById('avales-track')
-    ];
+    const setupInfiniteSlider = (trackId) => {
+        const trackElement = document.getElementById(trackId);
+        if (!trackElement) return; // Si no encuentra el elemento, no hace nada
 
-    sliders.forEach(track => {
-        if (!track) return;
+        const originalLogos = Array.from(trackElement.children);
+        if (originalLogos.length === 0) return; // No hacer nada si no hay logos
 
-        const items = Array.from(track.children);
-
-        // Duplicar contenido para loop infinito
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.classList.add('cloned');
-            track.appendChild(clone);
+        // 1. Duplicamos los logos para asegurar que el bucle sea fluido
+        originalLogos.forEach(logo => {
+            const clone = logo.cloneNode(true);
+            clone.ariaHidden = true; // Buena práctica para accesibilidad
+            trackElement.appendChild(clone);
         });
 
-        // Calcular ancho total incluyendo margin-right
+        // 2. Calculamos el ancho exacto de la primera mitad del carrusel (los logos originales)
         let totalWidth = 0;
-        items.forEach(item => {
+        originalLogos.forEach(item => {
             const style = getComputedStyle(item);
             const marginRight = parseFloat(style.marginRight) || 0;
             totalWidth += item.offsetWidth + marginRight;
         });
 
-        let scrollAmount = 0;
-        const speed = 0.8; // Prueba con velocidad más baja para suavizar
-
-        function moveTrack() {
-            scrollAmount -= speed;
-
-            if (Math.abs(scrollAmount) >= totalWidth) {
-                scrollAmount = 0;
-            }
-
-            track.style.transform = `translateX(${scrollAmount}px)`;
-            requestAnimationFrame(moveTrack);
-        }
-
-        moveTrack();
-    });
+        // 3. Aplicamos el ancho calculado como una variable CSS al propio track
+        //    Esto permite que la animación CSS sepa exactamente cuánto debe desplazarse.
+        trackElement.style.setProperty('--track-width', totalWidth);
+    };
+    
+    // Inicializamos el carrusel de avales
+    setupInfiniteSlider('avales-track');
 });
+
 
 /* ================================================= */
 /* POP-UP FLOTANTE (ESTRUCTURA FINAL Y DEFINITIVA)   */

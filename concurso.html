@@ -18,6 +18,28 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <style>
+        @media (max-width: 767px) {
+            .timeline {
+                position: relative;
+                padding-left: 0;
+                margin-top: 2rem;
+            }
+            .timeline::before {
+                display: none;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+                margin-bottom: 2rem;
+                transform: none !important; /* Override AOS transform */
+            }
+            .timeline-icon { left: 0; }
+        }
+    </style>
+
     <link rel="stylesheet" href="concurso.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JHSS2YKED"></script>
     <script>

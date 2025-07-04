@@ -158,6 +158,70 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* Custom Styles for Mobile Responsiveness */
+        @media (max-width: 767px) {
+            .logo-congreso {
+                max-width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-bg p {
+                font-size: 1.1rem;
+            }
+
+            h2.font-heading {
+                font-size: 2.25rem;
+                line-height: 1.2;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            #ponentes .slider-container {
+                padding-bottom: 60px;
+                position: relative;
+            }
+            #prev-slide, #next-slide {
+                top: auto;
+                bottom: 0px;
+                transform: translateY(0);
+            }
+            #prev-slide { left: 30%; }
+            #next-slide { right: 30%; }
+
+            .testimonios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sponsor-oficial-logos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            footer .grid > div {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h2.font-heading {
+                font-size: 1.875rem;
+            }
+            .countdown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .slider-container, .gallery-carousel-container, .sponsor-slider-container, .flags-slider-section .slider {
+            overflow: hidden;
+        }
     </style>
 
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style"
@@ -198,10 +262,10 @@
 
     <!-- Header/Navigation -->
     <nav id="navbar" class="bg-primary shadow-lg fixed w-full z-50 top-0 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div id="nav-container" class="flex justify-between items-center h-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            <div id="nav-container" class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-20 transition-all duration-300">
+                    <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-16 transition-all duration-300">
                     <h1 class="text-white font-heading font-bold text-lg ml-3">II Congreso Ciencias Forenses</h1>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
@@ -215,9 +279,28 @@
                         Inscríbete Ahora
                     </a>
                 </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-primary bg-opacity-95 z-40 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#institucional" class="mobile-menu-link text-white text-2xl font-semibold">Quienes Somos</a>
+            <a href="#ponentes" class="mobile-menu-link text-white text-2xl font-semibold">Ponentes</a>
+            <a href="#programa" class="mobile-menu-link text-white text-2xl font-semibold">Programa</a>
+            <a href="#certificado" class="mobile-menu-link text-white text-2xl font-semibold">Certificación</a>
+            <a href="#programa" class="mobile-menu-link cta-button text-white px-6 py-3 rounded-lg font-semibold text-xl mt-4">
+                Inscríbete Ahora
+            </a>
+        </div>
+    </div>
 
     <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
@@ -282,40 +365,40 @@
         </div>
     </section>
 
-    <section class="py-20 bg-primary text-white animated-blue-bg">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <section class="relative overflow-hidden py-20 bg-primary text-white animated-blue-bg">
+        <svg class="absolute inset-0 w-full h-full" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" style="z-index: 0;">
             <defs>
-                <linearGradient id="bg">
+                <linearGradient id="bg-contador">
                     <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.08)"></stop>
                     <stop offset="50%" style="stop-color:rgba(24, 86, 122, 0.3)"></stop>
                     <stop offset="100%" style="stop-color:rgba(74, 72, 209, 0.15)"></stop>
                 </linearGradient>
-                <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+                <path id="wave-contador" fill="url(#bg-contador)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
     s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
             </defs>
             <g>
                 <use xlink:href='#wave' opacity="2.0">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="12s"
                         calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity="2.0">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="9s"
                         calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
                 <use xlink:href='#wave' opacity="2.0">
-                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="7s"
                         calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
             </g>
         </svg>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div class="mb-12">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl mb-6">
-                    ¡Asegura Tu <span class="text-accent">Lugar Ahora!</span>
+                    ¡Asegura Tu <span class="text-accent">Lugar Ahora</span>!
                 </h2>
 
                 <div class="countdown-wrapper">
@@ -387,7 +470,7 @@
             <div class="mt-8" data-aos="fade-up">
 
                 <a id="inscripcion-button" href="#programa"
-                    class="cta-button inline-flex items-center text-white px-10 py-4 rounded-lg font-bold text-xl">
+                    class="cta-button inline-flex items-center text-white px-10 py-4 rounded-lg font-bold text-lg">
                     ¡Inscríbete Ahora!
                     <i class="fas fa-arrow-right ml-3"></i>
                 </a>
@@ -408,17 +491,17 @@
                 <h1 class="font-heading font-bold text-4xl md:text-5xl text-primary mb-6 text-center">
                     Quiénes Somos: <span class="text-accent">Trayectoria y Excelencia</span>
                 </h1>
-                <div class="flex flex-col lg:flex-row lg:items-center" data-aos="fade-left">
+                <div class="flex flex-col lg:flex-row lg:items-start" data-aos="fade-up">
                     <!-- Imagen -->
-                    <div class="lg:w-1/2 flex justify-center lg:justify-center image-frame">
+                    <div class="lg:w-1/2 flex justify-center lg:justify-center image-frame mb-8 lg:mb-0">
                         <img src="img/jefatura.jpg"
                             alt="Fachada de la Dirección General de Policía Científica de Entre Ríos"
                             class="rounded-lg shadow-lg object-cover w-full max-w-md lg:max-w-full lg:h-auto abstract-border-image">
                     </div>
                     <!-- Texto -->
-                    <div class="lg:w-1/2 lg:pl-6">
-                        <p class="text-gray-700 text-lg leading-relaxed mb-6 max-w-lg text-left">
-                            <br><b>Policía de Entre Ríos</b><br>
+                    <div class="lg:w-1/2 lg:pl-12">
+                        <p class="text-gray-700 text-lg leading-relaxed mb-6 text-justify">
+                            <b>Policía de Entre Ríos</b><br>
                             La Policía de Entre Ríos es una institución civil armada, dependiente del Ministerio de
                             Seguridad y Justicia de la Provincia. Actualmente, se encuentra bajo la dirección del Crio.
                             General Licenciado González Claudio Omar como Jefe y el Crio. General Licenciado Claucich
@@ -435,12 +518,12 @@
             </div>
 
             <!-- Bloque 2: Policía Científica -->
-            <div id="quienes-somos" data-aos="fade-left">
-                <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-12">
+            <div id="quienes-somos" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row lg:items-start">
                     <!-- Texto -->
-                    <div class="lg:w-1/2">
-                        <p class="text-gray-700 text-lg leading-relaxed">
-                            <br><b>Dirección General de Policía Científica de Entre Ríos</b><br>
+                    <div class="lg:w-1/2 order-2 lg:order-1 lg:pr-12">
+                        <p class="text-gray-700 text-lg leading-relaxed text-justify">
+                            <b>Dirección General de Policía Científica de Entre Ríos</b><br>
                             Dentro de esta estructura organizativa, la Dirección General de Policía Científica juega un
                             papel fundamental en la administración de justicia de la provincia. Desde sus inicios, ha
                             mantenido un compromiso inquebrantable con la verdad y la transparencia, consolidándose como
@@ -473,7 +556,7 @@
                         </p>
                     </div>
                     <!-- Imagen -->
-                    <div class="lg:w-1/2 mb-10 lg:mb-0 flex justify-center lg:justify-start image-frame">
+                    <div class="lg:w-1/2 mb-8 lg:mb-0 flex justify-center image-frame order-1 lg:order-2">
                         <img src="img/Policia Cientifia PER.jpg"
                             alt="Fachada de la Dirección General de Policía Científica de Entre Ríos"
                             class="rounded-lg shadow-lg object-cover w-full max-w-md lg:max-w-full lg:h-auto abstract-border-image">
@@ -485,38 +568,38 @@
     </section>
 
     <!-- Fechas, ubicacion, participantes -->
-    <section class="py-20 bg-primary text-white animated-blue-bg">
+    <section class="relative overflow-hidden py-20 bg-primary text-white animated-blue-bg">
 
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <svg class="absolute inset-0 w-full h-full" style="z-index: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
             <defs>
-                <linearGradient id="bg">
+                <linearGradient id="bg-fechas">
                     <stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.08)"></stop>
                     <stop offset="50%" style="stop-color:rgba(24, 86, 122, 0.3)"></stop>
                     <stop offset="100%" style="stop-color:rgba(25, 219, 57, 0.15)"></stop>
                 </linearGradient>
-                <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+                <path id="wave-fechas" fill="url(#bg-fechas)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
     s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
             </defs>
             <g>
-                <use xlink:href='#wave' opacity="1.0">
+                <use xlink:href='#wave-fechas' opacity="1.0">
                     <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
                         calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
-                <use xlink:href='#wave' opacity="1.0">
+                <use xlink:href='#wave-fechas' opacity="1.0">
                     <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
                         calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
-                <use xlink:href='#wave' opacity="1.0">
+                <use xlink:href='#wave-fechas' opacity="1.0">
                     <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
                         calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
                         keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
                 </use>
             </g>
         </svg>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <div class="card-hover bg-white bg-opacity-10 p-8 rounded-xl">
                     <i class="fas fa-calendar-alt text-4xl text-accent mb-4"></i>
@@ -1476,8 +1559,10 @@
     </section>
 
     <!-- Programa de Actividades -->
-    <section id="programa" class="py-20 bg-primary text-white animated-blue-bg relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up">
+    <section id="programa" class="relative overflow-hidden py-20 bg-primary text-white animated-blue-bg">
+        <svg class="absolute inset-0 w-full h-full" style="z-index: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        </svg>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
             <div
                 class="bg-blue-800 bg-opacity-40 p-8 rounded-lg shadow-xl text-center mx-auto max-w-5xl relative overflow-hidden">
                 <div class="mb-12 relative z-10" data-aos="fade-up">
@@ -1856,36 +1941,6 @@
                 </p>
             </div>
         </div>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
-            height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
-            <defs>
-                <linearGradient id="bg">
-                    <stop offset="0%" style="stop-color:rgba(100, 149, 237, 0.3)"></stop>
-                    <stop offset="50%" style="stop-color:rgba(30, 144, 255, 0.7)"></stop>
-                    <stop offset="100%" style="stop-color:rgba(0, 0, 128, 0.5)"></stop>
-                </linearGradient>
-                <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-200,505.475,0
-s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-363.852V502.589z" />
-
-            </defs>
-            <g>
-                <use xlink:href="#wave" opacity="1.0" transform="translate(0,0)">
-                    <animateTransform attributeNameF="transform" attributeType="auto" type="translate" dur="12s"
-                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-                <use xlink:href="#wave" opacity="1.0" transform="translate(0,0)">
-                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="9s"
-                        calcMode="spline" values="-270 230; 243 220; -270 230" keyTimes="0; .6; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-                <use xlink:href="#wave" opacity="0.8" transform="translate(0,0)">
-                    <animateTransform attributeName="transform" attributeType="auto" type="translate" dur="7s"
-                        calcMode="spline" values="0 230; -140 200; 0 230" keyTimes="0; .4; 1"
-                        keySplines="0.42, 0, 0.58, 1.0; 0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-                </use>
-            </g>
-        </svg>
     </section>
 
     <!-- Sección de Patrocinadores -->
@@ -2093,6 +2148,21 @@ s371.981,180,575.971,0s293.985-190,505.474,50s493.475,220,716.963-40v560.106H-36
                 loading.classList.add('hide');
                 setTimeout(() => { loading.style.display = 'none'; }, 500);
             }, 1000);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     </script>
 </body>

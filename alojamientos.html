@@ -14,9 +14,13 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+
+    <!--=============== LOADING SCREEN ===============-->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
 
     <!-- Header/Navigation -->
     <nav id="navbar" class="bg-primary shadow-lg fixed w-full z-50 top-0 transition-all duration-300">
@@ -42,7 +46,7 @@
     <main class="pt-32 pb-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-16">
                 <h1 class="font-heading font-bold text-5xl text-primary mb-4">Alojamientos en Paraná</h1>
                 <p class="text-lg text-gray-600">Opciones recomendadas para tu comodidad durante el congreso.</p>
             </div>
@@ -50,8 +54,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Hotel Card: Maran Suites & Towers -->
-                <div class="hotel-card" data-aos="fade-up">
-                    <img src="img/hoteles/maran-suites.jpg" alt="Maran Suites & Towers" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/maran-suites.jpg" alt="Maran Suites & Towers" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Maran Suites & Towers</h3>
@@ -66,8 +70,8 @@
                 </div>
 
                 <!-- Hotel Card: Howard Johnson -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/hoteles/howard-johnson.jpg" alt="Howard Johnson by Wyndham" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/howard-johnson.jpg" alt="Howard Johnson by Wyndham" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Howard Johnson by Wyndham</h3>
@@ -80,8 +84,8 @@
                 </div>
 
                 <!-- Hotel Card: Coe Verá -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/hoteles/coe-vera.jpg" alt="Hotel Coe Vera" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/coe-vera.jpg" alt="Hotel Coe Vera" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel Coe Verá</h3>
@@ -103,8 +107,8 @@
                 </div>
 
                 <!-- Hotel Card: Gran Hotel Paraná -->
-                <div class="hotel-card" data-aos="fade-up">
-                    <img src="img/hoteles/gran-hotel-parana.jpg" alt="Gran Hotel Paraná" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/gran-hotel-parana.jpg" alt="Gran Hotel Paraná" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Gran Hotel Paraná</h3>
@@ -117,8 +121,8 @@
                 </div>
                 
                 <!-- Hotel Card: Hotel apart PH 236 -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/hoteles/ph236.jpg" alt="Hotel apart PH 236" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/ph236.jpg" alt="Hotel apart PH 236" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel apart PH 236</h3>
@@ -140,8 +144,8 @@
                 </div>
 
                 <!-- Hotel Card: Hotel Suboficiales de Fuerza Aérea -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/hoteles/fuerza-aerea.jpg" alt="Hotel Suboficiales de Fuerza Aérea" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/fuerza-aerea.jpg" alt="Hotel Suboficiales de Fuerza Aérea" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel Suboficiales de Fuerza Aérea</h3>
@@ -154,8 +158,8 @@
                 </div>
                 
                 <!-- Hotel Card: Hotel San Jorge -->
-                <div class="hotel-card" data-aos="fade-up">
-                    <img src="img/hoteles/san-jorge.jpg" alt="Hotel San Jorge" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/san-jorge.jpg" alt="Hotel San Jorge" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel San Jorge</h3>
@@ -175,8 +179,8 @@
                 </div>
 
                 <!-- Hotel Card: Hostel Las Magnolias -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/hoteles/las-magnolias.jpg" alt="Hostel Las Magnolias" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/las-magnolias.jpg" alt="Hostel Las Magnolias" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hostel Las Magnolias</h3>
@@ -196,8 +200,8 @@
                 </div>
 
                 <!-- Hotel Card: Hotel Suboficiales del Ejército - CIRSE -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/hoteles/cirse.jpg" alt="Hotel Suboficiales del Ejército - CIRSE" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/cirse.jpg" alt="Hotel Suboficiales del Ejército - CIRSE" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel Suboficiales del Ejército - CIRSE</h3>
@@ -216,8 +220,8 @@
                 </div>
 
                 <!-- Hotel Card: Hotel Agustín 1 Apart -->
-                <div class="hotel-card" data-aos="fade-up">
-                    <img src="img/hoteles/agustin-apart.jpg" alt="Hotel Agustín 1 Apart" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/agustin-apart.jpg" alt="Hotel Agustín 1 Apart" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel Agustín 1 Apart</h3>
@@ -237,8 +241,8 @@
                 </div>
 
                 <!-- Hotel Card: Hotel Las Mañanitas -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/hoteles/las-mananitas.jpg" alt="Hotel Las Mañanitas" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/las-mananitas.jpg" alt="Hotel Las Mañanitas" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hotel Las Mañanitas</h3>
@@ -260,8 +264,8 @@
                 </div>
 
                  <!-- Hotel Card: Hostel Parador 862 -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/hoteles/parador-862.jpg" alt="Hostel Parador 862" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/parador-862.jpg" alt="Hostel Parador 862" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hostel Parador 862</h3>
@@ -280,8 +284,8 @@
                 </div>
                 
                  <!-- Hotel Card: Hostel Bristol -->
-                <div class="hotel-card" data-aos="fade-up">
-                    <img src="img/hoteles/bristol.jpg" alt="Hostel Bristol" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/bristol.jpg" alt="Hostel Bristol" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Hostel Bristol</h3>
@@ -301,8 +305,8 @@
                 </div>
 
                 <!-- Hotel Card: Bungalow Los Eucaliptus -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/hoteles/los-eucaliptus.jpg" alt="Bungalow Los Eucaliptus" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/los-eucaliptus.jpg" alt="Bungalow Los Eucaliptus" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Bungalow Los Eucaliptus</h3>
@@ -318,8 +322,8 @@
                 </div>
 
                 <!-- Hotel Card: Cabañas Parador del Paraná -->
-                <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/hoteles/parador-parana.jpg" alt="Cabañas Parador del Paraná" class="hotel-image">
+                <div class="hotel-card">
+                    <img src="img/hoteles/parador-parana.jpg" alt="Cabañas Parador del Paraná" class="hotel-image" loading="lazy">
                     <div class="hotel-info">
                         <div>
                             <h3 class="hotel-name">Cabañas Parador del Paraná</h3>
@@ -343,7 +347,7 @@
         </div>
     </main>
 
-    <!-- FOOTER (el mismo que index.html) -->
+    <!-- FOOTER -->
     <footer class="bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
              <div class="border-t border-gray-700 pt-8">
@@ -355,12 +359,16 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50
+        // --- Lógica para el Loading Screen ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            if (loadingOverlay) {
+                loadingOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 700);
+            }
         });
     </script>
 </body>

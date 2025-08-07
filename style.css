@@ -2447,3 +2447,146 @@ button#next-slide:hover {
 .contest-popup-float.show:not(.hidden) > *:not(button) { animation: float-effect-enhanced 3s ease-in-out infinite; }
 .contest-popup-float.show:not(.hidden) .contest-popup-text { animation-delay: 0.1s; }
 .contest-popup-float.show:not(.hidden) .contest-popup-button { animation-delay: 0.2s; }
+
+/* ======================================================= */
+/* ESTILOS PARA LA PÁGINA DE ALOJAMIENTOS (V. FINAL)       */
+/* ======================================================= */
+
+.hotel-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 80, 158, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 80, 158, 0.15);
+}
+
+.hotel-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.hotel-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que la sección de info ocupe todo el espacio sobrante */
+    justify-content: space-between; /* ¡LA CLAVE! Ancla el contenido arriba y abajo */
+}
+
+.hotel-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hotel-address, .hotel-phone {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.hotel-address::before {
+    content: '\f3c5';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+.hotel-phone::before {
+    content: '\f095';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+.hotel-gps-button {
+    display: block;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hotel-gps-button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.hotel-gps-button::before {
+    content: '\f124';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.hotel-details {
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.hotel-details:empty {
+    display: none; /* Oculta la sección de detalles si no tiene contenido */
+}
+
+.hotel-discount, .hotel-note {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.hotel-details > *:last-child {
+    margin-bottom: 0;
+}
+
+.hotel-discount {
+    background-color: #e0fdf4;
+    color: #0d9488;
+}
+
+.hotel-note {
+    background-color: #fef9c3;
+    color: #a16207;
+}
+
+.hotel-prices {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.hotel-prices li {
+    color: #333;
+    font-weight: 500;
+    padding: 0.25rem 0;
+}
+
+.hotel-prices li::before {
+    content: '•';
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-weight: bold;
+}

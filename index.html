@@ -2195,6 +2195,124 @@
             });
         });
     </script>
+<!-- Modal: Inscripciones Cerradas -->
+<div id="modal-inscripciones-cerradas" class="modal-overlay">
+    <div class="modal-box">
+        <button class="modal-close">&times;</button>
+        <div class="modal-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h3 id="modal-inscripciones-title">¡Inscripciones Cerradas!</h3>
+        <p id="modal-inscripciones-desc">
+            Lamentamos informarte que el plazo para inscribirte a nuestro congreso ha finalizado. Agradecemos tu interés y te recordamos que el cierre de inscripciones fue comunicado previamente.
+            ¡Te esperamos en nuestra próxima edición para que no te quedes fuera!
+        </p>
+        <button class="modal-accept cta-button">Entendido</button>
+    </div>
+</div>
+
+    <script>
+      // Intercepta clics en el botón de "completar formulario de inscripción" del congreso
+      document.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById('modal-inscripciones-cerradas');
+        if (!modal) return;
+        var btnClose = modal.querySelector('.modal-close');
+        var btnAccept = modal.querySelector('.modal-accept');
+
+        function abrirModal(e) {
+          if (e) e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function cerrarModal() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Selecciona específicamente los enlaces para completar el formulario dentro de la sección de inscripción
+        // Recolecta enlaces del formulario y todos los botones "Inscríbete Ahora"
+        var openersSet = new Set();
+        Array.from(document.querySelectorAll('#formulario-inscripcion a'))
+          .forEach(function(a){ openersSet.add(a); });
+        Array.from(document.querySelectorAll('a.cta-button'))
+          .filter(function(a){ return /inscr[ií]bete/i.test((a.textContent || '').trim()); })
+          .forEach(function(a){ openersSet.add(a); });
+        openersSet.forEach(function (a) { a.addEventListener('click', abrirModal); });
+
+        // Cierre por botones y fondo
+        if (btnClose) btnClose.addEventListener('click', cerrarModal);
+        if (btnAccept) btnAccept.addEventListener('click', cerrarModal);
+        modal.addEventListener('click', function (e) { if (e.target === modal) { cerrarModal(); } });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('active')) { cerrarModal(); } });
+      });
+    </script>
+<script>
+      (function(){
+        function ensureModal() {
+          var existing = document.getElementById('modal-inscripciones-cerradas');
+          if (existing) return existing;
+          var wrapper = document.createElement('div');
+          wrapper.innerHTML = ''
+            + '<div id="modal-inscripciones-cerradas" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-inscripciones-title" aria-describedby="modal-inscripciones-desc">'
+            + '  <div class="modal-box" tabindex="-1">'
+            + '    <button class="modal-close" aria-label="Cerrar ventana">&times;</button>'
+            + '    <div class="modal-icon"><i class="fas fa-ban" aria-hidden="true"></i></div>'
+            + '    <h3 id="modal-inscripciones-title">Se cerraron las inscripciones</h3>'
+            + '    <p id="modal-inscripciones-desc">Las inscripciones al congreso se encuentran cerradas.</p>'
+            + '    <button class="modal-accept cta-button" type="button">Entendido</button>'
+            + '  </div>'
+            + '</div>';
+          var node = wrapper.firstChild;
+          document.body.appendChild(node);
+          return node;
+        }
+        function openModal(e) {
+          var modal = ensureModal();
+          if (e && e.preventDefault) e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+          var modal = document.getElementById('modal-inscripciones-cerradas');
+          if (!modal) return;
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Delegación para cualquier CTA que contenga "Inscríbete"
+        document.addEventListener('click', function(ev){
+          var target = ev.target;
+          if (!target) return;
+          var a = target.closest ? target.closest('a.cta-button') : null;
+          if (!a) return;
+          var text = (a.textContent || '').toLowerCase();
+          if (text.indexOf('inscr') !== -1) {
+            ev.preventDefault();
+            openModal();
+          }
+        }, true);
+
+        // Manejo de cierre (botones y clic fuera)
+        document.addEventListener('click', function(ev){
+          var target = ev.target;
+          if (!target) return;
+          if (target.classList && (target.classList.contains('modal-close') || target.classList.contains('modal-accept'))) {
+            ev.preventDefault();
+            closeModal();
+          }
+          var modal = document.getElementById('modal-inscripciones-cerradas');
+          if (modal && ev.target === modal) {
+            closeModal();
+          }
+        });
+        document.addEventListener('keydown', function(e){
+          var modal = document.getElementById('modal-inscripciones-cerradas');
+          if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
 </body>
 
 </html>

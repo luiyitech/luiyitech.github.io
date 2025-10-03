@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres - II Congreso Internacional de Ciencias Forenses</title>
+  
+  <!-- Dependencias (igual que en index.html) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Estilos específicos para esta página para mejorar la presentación */
+    .workshop-card {
+      border-left-width: 4px;
+      transition: all 0.3s ease-in-out;
+    }
+    .workshop-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <header class="bg-white shadow-md py-6">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="font-heading font-bold text-4xl text-primary">Cronograma de Talleres</h1>
+      <p class="text-xl text-gray-600 mt-2">II Congreso Internacional de Ciencias Forenses</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- ================== MIÉRCOLES ================== -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-center text-gray-700 mb-8 border-b-2 pb-2">Miércoles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- SALÓN 1 -->
+        <div>
+          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 1</h3>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-green-500">
+              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Del proyecto a la Prueba: Claves para crear un laboratorio forense eficiente"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">IAFIS</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-green-500">
+              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Portfolio de soluciones para el ámbito forense- Escáner láser y drones”</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">RUNCO</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SALÓN 2 -->
+        <div>
+          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 2</h3>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-blue-500">
+              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Nuevas técnicas y tecnologías de revelado de rastros"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">ADN</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-blue-500">
+              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Fuentes de Luz para Aplicaciones Forenses”</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">RESAICARD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== JUEVES =================== -->
+    <div>
+      <h2 class="text-3xl font-bold text-center text-gray-700 mb-8 border-b-2 pb-2">Jueves</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- SALÓN 1 -->
+        <div>
+          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 1</h3>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-yellow-500">
+              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Luces forenses: aplicaciones y alcance"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">NARCOTTI G.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-yellow-500">
+              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"La Criminalística y los criptoactivos"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">ROMERO M.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SALÓN 2 -->
+        <div>
+          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 2</h3>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-red-500">
+              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Identificación vehicular y tecnología criminal. Nuevas herramientas para la investigación forense"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">CAMARA G.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-red-500">
+              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
+              <h4 class="text-xl font-bold text-gray-800 mt-1">"Detección automatizada de espermatozoides en muestras forenses con Inteligencia Artificial"</h4>
+              <p class="text-lg text-gray-600 mt-2 font-medium">J.M. SYSTEM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-16">
+        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">
+            &larr; Volver a la página principal
+        </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-4 mt-12">
+    <p>&copy; 2025 II Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>```

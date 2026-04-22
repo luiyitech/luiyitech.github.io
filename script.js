@@ -1,34 +1,133 @@
-
 // ===============================
-// CONTADOR REGRESIVO
+// NUEVO CONTADOR INDEPENDIENTE
 // ===============================
-function updateCountdown() {
-    const targetDate = new Date('2025-10-15T08:00:00-03:00').getTime();
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+document.addEventListener("DOMContentLoaded", () => {
+    const dEl = document.getElementById('t-days');
+    const hEl = document.getElementById('t-hours');
+    const mEl = document.getElementById('t-mins');
+    const sEl = document.getElementById('t-secs');
+    
+    if (!dEl || !hEl || !mEl || !sEl) return;
+    
+    const countDownDate = new Date('2026-10-14T08:00:00-03:00').getTime();
 
-    if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    function update() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
 
-        document.getElementById('days').textContent = days.toString().padStart(3, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    } else {
-        document.getElementById('days').textContent = '000';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+        if (distance < 0) {
+            dEl.innerText = "000";
+            hEl.innerText = "00";
+            mEl.innerText = "00";
+            sEl.innerText = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        dEl.innerText = String(days).padStart(3, '0');
+        hEl.innerText = String(hours).padStart(2, '0');
+        mEl.innerText = String(minutes).padStart(2, '0');
+        sEl.innerText = String(seconds).padStart(2, '0');
     }
-}
+    
+    update();
+    setInterval(update, 1000);
+});
 
-// Actualizar contador cada segundo
-setInterval(updateCountdown, 1000);
-updateCountdown();
+// ===============================
+// CANVAS CONSTELACIONES - FECHAS
+// ===============================
+(function() {
+    const canvas = document.getElementById('fechas-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const STAR_COUNT = 60;
+    const CONNECT_DIST = 120;
+    let w, h;
 
+    function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = rect.width;
+        h = canvas.height = rect.height;
+    }
+
+    function initStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.3,
+                r: Math.random() * 1.8 + 0.5,
+                alpha: Math.random() * 0.5 + 0.3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        
+        // Draw connections
+        for (let i = 0; i < stars.length; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+                const dx = stars[i].x - stars[j].x;
+                const dy = stars[i].y - stars[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECT_DIST) {
+                    const opacity = (1 - dist / CONNECT_DIST) * 0.15;
+                    ctx.strokeStyle = `rgba(212, 175, 55, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(stars[i].x, stars[i].y);
+                    ctx.lineTo(stars[j].x, stars[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Draw & update stars
+        for (const s of stars) {
+            s.pulse += 0.02;
+            const flicker = 0.5 + 0.5 * Math.sin(s.pulse);
+            const a = s.alpha * flicker;
+
+            // Glow
+            ctx.beginPath();
+            const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4);
+            grd.addColorStop(0, `rgba(212, 175, 55, ${a * 0.6})`);
+            grd.addColorStop(1, 'rgba(212, 175, 55, 0)');
+            ctx.fillStyle = grd;
+            ctx.arc(s.x, s.y, s.r * 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Core
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 240, 200, ${a})`;
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Move
+            s.x += s.vx;
+            s.y += s.vy;
+            if (s.x < 0 || s.x > w) s.vx *= -1;
+            if (s.y < 0 || s.y > h) s.vy *= -1;
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', () => { resize(); initStars(); });
+    resize();
+    initStars();
+    draw();
+})();
 // ===============================
 // SMOOTH SCROLL PARA NAVEGACIÓN
 // ===============================
@@ -90,149 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//Arreglo de personas con nombre y provincia (actualizado desde Excel)
-const personas = [
-    { nombre: "Perez Martina", provincia: "Entre Ríos" },
-    { nombre: "Weiss Brenda Gianella", provincia: "Entre Ríos" },
-    { nombre: "Lucchesi Andrés Ernesto Ricardo", provincia: "Entre Ríos" },
-    { nombre: "Marelli Lucia", provincia: "Santa Fe" },
-    { nombre: "Rau Cynthia Gabriela", provincia: "Entre Ríos" },
-    { nombre: "Claudia Soraya Castelli", provincia: "Entre Ríos" },
-    { nombre: "Correa Ariadna Micaela", provincia: "Santa Fe" },
-    { nombre: "Villanueva Maria Del Rosario", provincia: "Entre Ríos" },
-    { nombre: "Bernard Sol", provincia: "Santa Fe" },
-    { nombre: "Rodríguez Nicolás", provincia: "Santa Fe" },
-    { nombre: "Diaz Denise", provincia: "Entre Ríos" },
-    { nombre: "Manasseri Brenda Cruz", provincia: "Entre Ríos" },
-    { nombre: "Thefs Sergio José", provincia: "Río Negro" },
-    { nombre: "Fanega Carla Daniela", provincia: "Santa Fe" },
-    { nombre: "Forziati Grinovero Cristian Exequiel", provincia: "Entre Ríos" },
-    { nombre: "Rossi Osvaldo Victor", provincia: "Santa Fe" },
-    { nombre: "Gómez Ríos Victoria", provincia: "Entre Ríos" },
-    { nombre: "Weigandt Barbara Agustina", provincia: "Entre Ríos" },
-    { nombre: "Ferreira Narella Martina", provincia: "Entre Ríos" },
-    { nombre: "Musso Giannina", provincia: "Entre Ríos" },
-    { nombre: "Martinez Flavio Emmanuel", provincia: "Entre Ríos" },
-    { nombre: "Zuber Camila", provincia: "Entre Ríos" },
-    { nombre: "Aranguiz Rodriguez Yolanda", provincia: "Bs As" },
-    { nombre: "Nani Constanza", provincia: "Entre Ríos" },
-    { nombre: "María Gimena Muñoz", provincia: "San Luis" },
-    { nombre: "Bendz Martina", provincia: "Entre Ríos" },
-    { nombre: "Leguizamón Ana Paula", provincia: "Entre Ríos" },
-    { nombre: "Garcia Victoria Abril", provincia: "Entre Ríos" },
-    { nombre: "Machado Melina Abril", provincia: "Entre Ríos" },
-    { nombre: "Aguiar María Lorena", provincia: "Buenos Aires" },
-    { nombre: "Alcántara Luisina", provincia: "Buenos Aires" },
-    { nombre: "Martínez Ariadna", provincia: "Entre Ríos" },
-    { nombre: "Krohling Ailén", provincia: "Santa Fe" },
-    { nombre: "Cañete Cornacchione Agostina", provincia: "Entre Ríos" },
-    { nombre: "Aguirre Florencia", provincia: "Santa Fe" },
-    { nombre: "Rojas Ascaino Natalia Belén", provincia: "Entre Ríos" },
-    { nombre: "Tamagno Carla Luján", provincia: "Entre Ríos" },
-    { nombre: "Raim Rocio Daiana", provincia: "Entre Ríos" },
-    { nombre: "Galli Iara", provincia: "Entre Ríos" },
-    { nombre: "Correa Lihuen", provincia: "Entre Ríos" },
-    { nombre: "Masetto Valentina", provincia: "Entre Ríos" },
-    { nombre: "Solis Carmela", provincia: "Entre Ríos" },
-    { nombre: "Vergara Nadine Naiara", provincia: "Entre Ríos" },
-    { nombre: "Frias Juan Pablo Nicolás", provincia: "Entre Ríos" },
-    { nombre: "Basaldúa Oriana", provincia: "Entre Ríos" },
-    { nombre: "González Melina", provincia: "Buenos Aires" },
-    { nombre: "Yamila Somaschini", provincia: "Buenos Aires" },
-    { nombre: "Sánchez Agostina Noemi", provincia: "San Luis" },
-    { nombre: "Alicia Isabel Copes", provincia: "Santa Fe" },
-    { nombre: "Pereyra Daniela Katherine", provincia: "Córdoba" },
-    { nombre: "Lara Acosta", provincia: "Santa Fe" },
-    { nombre: "Elgart Joaquín Francisco", provincia: "Entre Ríos" },
-    { nombre: "Ingeme Chaves Carlos Eduardo", provincia: "Caba" },
-    { nombre: "Gomez María Ailen", provincia: "Buenos Aires" },
-    { nombre: "Fessia Candela", provincia: "Santa Fe" },
-    { nombre: "Valenzuela Anabella Milagros", provincia: "Entre Ríos" },
-    { nombre: "Busi Camila", provincia: "Entre Ríos" },
-    { nombre: "Nuñez Micaela", provincia: "Buenos Aires" },
-    { nombre: "Lourdes Antonio", provincia: "Buenos Aires" },
-    { nombre: "Fernández Walter", provincia: "Entre Ríos" },
-    { nombre: "Monroy Ana Victoria", provincia: "Entre Ríos" },
-    { nombre: "Villarreal Fermín", provincia: "Córdoba" },
-    { nombre: "Foglino Marco Gonzalo", provincia: "Córdoba" },
-    { nombre: "Acuña Sandro Fabian", provincia: "Entre Ríos" },
-    { nombre: "Fernández Campón Manuela", provincia: "Santa Fe" },
-    { nombre: "Andrea Silvina Strocen Schelske", provincia: "Misiones" }
-];
-
-
-// Función para obtener una persona aleatoria
-function getPersonaAleatoria() {
-    return personas[Math.floor(Math.random() * personas.length)];
-}
-
-// Función principal para mostrar el pop-up
-function mostrarPopup() {
-    const persona = getPersonaAleatoria();
-
-    // Creación de elementos del pop-up
-    const popup = document.createElement("div");
-    popup.classList.add("popup");
-
-    const img = document.createElement("img");
-    img.src = "https://img.freepik.com/vetores-premium/mapa-da-cidade-com-planta-de-localizacao-com-pino-para-cartografia-de-rota-gps-backround-ponteiros-de-navegacao-vermelhos_152104-165.jpg";
-    img.alt = persona.nombre;
-
-    const textContainer = document.createElement("div");
-    textContainer.classList.add("popup-text");
-
-    // Primera línea de texto con el nombre en negrita
-    const line1 = document.createElement("p");
-    const nameStrong = document.createElement("strong"); // Nuevo elemento para el nombre en negrita
-    nameStrong.textContent = persona.nombre; // Asigna el nombre al elemento strong
-
-    line1.appendChild(nameStrong); // Añade el nombre en negrita
-    // Solo provincia, sin ciudad
-    line1.appendChild(document.createTextNode(` de ${persona.provincia}.`));
-
-    // Segunda línea de texto (mensaje de registro)
-    const line2 = document.createElement("p");
-    line2.classList.add("popup-line2");
-
-    const highlightSpan = document.createElement("span");
-    highlightSpan.classList.add("highlight-register");
-    highlightSpan.textContent = "Se acaba de registrar";
-
-    line2.appendChild(document.createTextNode("✨ "));
-    line2.appendChild(highlightSpan);
-    line2.appendChild(document.createTextNode(" ✨"));
-
-    // Ensamblaje del pop-up
-    textContainer.appendChild(line1);
-    textContainer.appendChild(line2);
-
-    popup.appendChild(img);
-    popup.appendChild(textContainer);
-    document.body.appendChild(popup);
-
-    // Lógica de aparición y desaparición del pop-up
-    setTimeout(() => {
-        popup.classList.add("show");
-    }, 500);
-
-    setTimeout(() => {
-        popup.classList.remove("show");
-        popup.style.visibility = "hidden";
-
-        setTimeout(() => {
-            document.body.removeChild(popup);
-
-            // Temporización aleatoria para el siguiente pop-up
-            const nextDelay = Math.random() * (18000 - 7000) + 5000;
-            setTimeout(mostrarPopup, nextDelay);
-
-        }, 500);
-
-    }, 8000);
-}
-
-// Inicio de la cadena de pop-ups
-setTimeout(mostrarPopup, 2000);
 
 
 // ===============================
@@ -573,12 +529,38 @@ class GalleryCarousel {
 
     updateView() {
         const track = document.getElementById('gallery-track');
+        const items = document.querySelectorAll('.gallery-item');
         const dots = document.querySelectorAll('.gallery-dot');
 
-        if (track) {
-            const offset = -this.currentIndex * 100;
-            track.style.transform = `translateX(${offset}%)`;
-        }
+        if (!track) return;
+
+        items.forEach((item, index) => {
+            const diff = index - this.currentIndex;
+            const absDiff = Math.abs(diff);
+
+            // Base z-index (center is highest)
+            item.style.zIndex = this.totalImages - absDiff;
+
+            if (diff === 0) {
+                // Activo / Centro
+                item.style.transform = `translateX(0) scale(1) translateZ(0)`;
+                item.style.opacity = '1';
+                item.style.filter = 'brightness(1) contrast(1.1) blur(0px)';
+                item.classList.add('active');
+            } else {
+                // Inactivos (Lados)
+                const direction = diff < 0 ? -1 : 1;
+                // Movemos lateralmente un 60%, escalamos hacia abajo un 20% por posición, alejamos en Z
+                const xOffset = direction * 60 * Math.max(0.5, 1 - (absDiff - 1) * 0.5); 
+                const scale = Math.max(0.6, 1 - absDiff * 0.15);
+                const zOffset = -absDiff * 100;
+                
+                item.style.transform = `translateX(${xOffset}%) scale(${scale}) translateZ(${zOffset}px)`;
+                item.style.opacity = absDiff > 2 ? '0' : (absDiff === 1 ? '0.7' : '0.3');
+                item.style.filter = `brightness(${0.6 - absDiff * 0.1}) blur(${absDiff * 1.5}px)`;
+                item.classList.remove('active');
+            }
+        });
 
         // Actualizar dots
         dots.forEach((dot, index) => {
@@ -783,68 +765,113 @@ document.addEventListener("DOMContentLoaded", function () {
     setupInfiniteSlider('avales-track');
 });
 
+// ===================================================
+// ANIMACIÓN GEOMÉTRICA (NODOS) - FONDO CONTADOR
+// ===================================================
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById('network-canvas');
+    if (!canvas) return;
 
-/* ================================================= */
-/* POP-UP FLOTANTE (ESTRUCTURA FINAL Y DEFINITIVA)   */
-/* ================================================= */
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- FUNCIÓN PARA CREAR EL POP-UP ---
-    function crearPopupConcurso() {
-        if (document.querySelector('.contest-popup-float')) {
-            return document.querySelector('.contest-popup-float');
-        }
-        const popup = document.createElement('div');
-        popup.className = 'contest-popup-float';
-        const imagenSrc = "img/concurso-congreso.jpg";
-        
-        // ✅ ESTRUCTURA CLAVE: Fíjate cómo el botón <a> está FUERA y después del <div> del texto.
-        // Esto es lo que permite ocultar el texto sin ocultar el botón.
-        popup.innerHTML = `
-            <img src="${imagenSrc}" alt="Anuncio del Concurso de Imágenes Forenses">
-            
-            <div class="contest-popup-text">
-                <p><strong>¡Tenemos un concurso!</strong></p>
-                <p>Demuestra tu talento en nuestro concurso de imagenes forenses y gana premios increíbles.</p>
-            </div>
-
-            <a href="concurso.html" target="_blank" class="contest-popup-button">¡Quiero participar!</a>
-            
-            <button class="contest-popup-close">&times;</button>
-        `;
-
-        document.body.appendChild(popup);
-        
-        popup.classList.add('hidden');
-        setTimeout(() => {
-            popup.classList.add('show');
-        }, 100);
-
-        popup.querySelector('.contest-popup-close').addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
-        return popup;
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    
+    function resizeCanvas() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+        initParticles();
     }
 
-    // --- LÓGICA DEL OBSERVADOR DE SCROLL ---
-    const popup = crearPopupConcurso();
-    const seccionTrigger = document.querySelector('.hero-bg');
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5; // Size 0.5 to 2.5
+            this.speedX = (Math.random() * 0.8) - 0.4; // Very slow movement
+            this.speedY = (Math.random() * 0.8) - 0.4;
+        }
 
-    if (!seccionTrigger || !popup) return;
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
 
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                popup.classList.remove('hidden');
-            } else {
-                popup.classList.add('hidden');
+            // Bounce on edges
+            if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+            if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+        }
+
+        draw() {
+            ctx.fillStyle = 'rgba(212, 175, 55, 0.8)'; // Gold color
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        particlesArray = [];
+        // Map particle density to screen surface. Less particles on smaller screens. Minimum 40.
+        let numberOfParticles = Math.max(40, Math.floor((canvas.width * canvas.height) / 12000));
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    function connectParticles() {
+        let maxDistance = 150;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let dx = particlesArray[a].x - particlesArray[b].x;
+                let dy = particlesArray[a].y - particlesArray[b].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < maxDistance) {
+                    let opacity = 1 - (distance / maxDistance);
+                    ctx.strokeStyle = `rgba(212, 175, 55, ${opacity * 0.4})`; // Gold fading lines
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
             }
-        });
-    }, options);
-    observer.observe(seccionTrigger);
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+        
+        connectParticles();
+        requestAnimationFrame(animateParticles);
+    }
+
+    // Initialize
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateParticles();
 });
+// ==================== PROGRAMA DE ACTIVIDADES - TABS ====================
+function switchProgramaTab(tabId) {
+    // Deactivate all tabs
+    document.querySelectorAll('.programa-tab').forEach(tab => tab.classList.remove('active'));
+    // Deactivate all panels
+    document.querySelectorAll('.programa-panel').forEach(panel => panel.classList.remove('active'));
+    
+    // Activate the clicked tab
+    const tabs = document.querySelectorAll('.programa-tab');
+    const panels = ['dia1', 'dia2', 'dia3', 'extras'];
+    const idx = panels.indexOf(tabId);
+    if (idx !== -1 && tabs[idx]) {
+        tabs[idx].classList.add('active');
+    }
+    
+    // Activate the corresponding panel
+    const panel = document.getElementById('panel-' + tabId);
+    if (panel) {
+        panel.classList.add('active');
+    }
+}

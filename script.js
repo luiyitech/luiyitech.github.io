@@ -366,7 +366,7 @@ function toggleAccordion(id) {
 class GalleryCarousel {
     constructor() {
         this.currentIndex = 0;
-        this.totalImages = 23;
+        this.totalImages = 59;
         this.autoPlayInterval = null;
         this.autoPlayDelay = 4000;
         this.isModalOpen = false;
@@ -415,7 +415,7 @@ class GalleryCarousel {
         const dotsContainer = document.getElementById('gallery-dots');
         if (!dotsContainer) return;
 
-        const totalDots = Math.ceil(this.totalImages / 3);
+        const totalDots = this.totalImages;
 
         for (let i = 0; i < totalDots; i++) {
             const dot = document.createElement('div');
@@ -508,14 +508,14 @@ class GalleryCarousel {
     }
 
     nextSlide() {
-        const maxIndex = Math.ceil(this.totalImages / 3) - 1;
+        const maxIndex = this.totalImages - 1;
         this.currentIndex = (this.currentIndex + 1) > maxIndex ? 0 : this.currentIndex + 1;
         this.updateView();
         this.resetAutoPlay();
     }
 
     prevSlide() {
-        const maxIndex = Math.ceil(this.totalImages / 3) - 1;
+        const maxIndex = this.totalImages - 1;
         this.currentIndex = (this.currentIndex - 1) < 0 ? maxIndex : this.currentIndex - 1;
         this.updateView();
         this.resetAutoPlay();

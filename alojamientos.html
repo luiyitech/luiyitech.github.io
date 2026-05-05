@@ -1,344 +1,519 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alojamientos Recomendados | Congreso Internacional Forense 2025</title>
+    <title>Alojamientos Recomendados | Congreso Internacional Forense 2026</title>
     <meta name="description" content="Encuentra hoteles y alojamientos recomendados en Paraná con convenios especiales para los asistentes al III Congreso de Ciencias Forenses.">
 
-    <!-- Estilos -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"></noscript>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body class="bg-gray-100">
+    <!-- Tailwind CSS (via script for advanced config matching index.html) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--=============== LOADING SCREEN ===============-->
-    <div id="loading-overlay">
-        <div class="spinner"></div>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Ubuntu & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Ubuntu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS para Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Tailwind Script Config (Matching index.html) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        accent: '#CDA434',    /* Oro Premium */
+                        secondary: '#1C1C1E', /* Gris Intenso */
+                        bordeaux: '#800020'   /* Detalles Institucionales */
+                    },
+                    fontFamily: {
+                        sans: ['Ubuntu', 'sans-serif'],
+                        heading: ['Montserrat', 'serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-primary text-gray-300 font-sans relative overflow-x-hidden min-h-screen custom-scrollbar">
+
+    <!-- Loading Screen -->
+    <div id="loading-overlay" class="fixed inset-0 bg-primary z-[9999] flex items-center justify-center transition-opacity duration-700">
+        <div class="loader-container">
+            <div class="spinner border-t-2 border-accent w-12 h-12 rounded-full animate-spin"></div>
+        </div>
     </div>
 
-    <!-- Header/Navigation -->
-    <nav id="navbar" class="bg-primary shadow-lg fixed w-full z-50 top-0 transition-all duration-300">
+    <!-- Patrón de Fondo Global -->
+    <div class="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')] opacity-10 pointer-events-none" style="z-index:-1;"></div>
+
+    <!-- Background Gradient Orbs -->
+    <div class="fixed top-0 left-0 w-96 h-96 bg-accent opacity-5 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="fixed bottom-0 right-0 w-96 h-96 bg-bordeaux opacity-10 blur-[150px] rounded-full pointer-events-none"></div>
+
+    <!-- Header/Navigation (Transparente y Fijo) -->
+    <nav id="navbar" class="bg-black/80 backdrop-blur-md border-b border-gray-800 fixed w-full z-50 top-0 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div id="nav-container" class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <a href="index.html">
-                        <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-16 transition-all duration-300">
+                    <a href="index.html" class="flex items-center group">
+                        <img id="logo" src="img/logo menu.png" alt="Logo Congreso" class="h-16 transition-all duration-300 group-hover:scale-105">
+                        <h1 class="text-white font-heading font-bold text-lg md:text-xl ml-3 hidden sm:block">III Congreso Ciencias Forenses</h1>
                     </a>
-                    <h1 class="text-white font-heading font-bold text-lg ml-3">III Congreso Ciencias Forenses</h1>
                 </div>
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="index.html#institucional" class="text-white hover:text-gray-300 transition duration-300">Quienes Somos</a>
-                    <a href="index.html#ponentes" class="text-white hover:text-gray-300 transition duration-300">Ponentes</a>
-                    <a href="index.html#programa" class="text-white hover:text-gray-300 transition duration-300">Programa</a>
-                    <a href="index.html#programa" class="cta-button text-white px-4 py-2 rounded-lg font-semibold">Inscríbete Ahora</a>
+                <!-- Menú Desktop -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html#institucional" class="text-gray-300 hover:text-accent transition duration-300 font-medium">Quienes Somos</a>
+                    <a href="index.html#ponentes" class="text-gray-300 hover:text-accent transition duration-300 font-medium">Ponentes</a>
+                    <a href="index.html#programa" class="text-gray-300 hover:text-accent transition duration-300 font-medium">Programa</a>
+                    <a href="index.html#programa" class="cta-button text-black px-6 py-2 rounded-lg font-semibold shadow-gold transition-all duration-300 inline-block text-center border overflow-hidden relative group" style="background: linear-gradient(135deg, #FFDF73 0%, #CDA434 50%, #997A27 100%); border-color: #CDA434;">
+                        <span class="relative z-10">Inscríbete Ahora</span>
+                    </a>
                 </div>
+                
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-gray-800 absolute w-full shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html#institucional" class="block px-3 py-3 text-white font-medium hover:bg-gray-800 hover:text-accent rounded-md transition-colors duration-200">Quienes Somos</a>
+                <a href="index.html#ponentes" class="block px-3 py-3 text-white font-medium hover:bg-gray-800 hover:text-accent rounded-md transition-colors duration-200">Ponentes</a>
+                <a href="index.html#programa" class="block px-3 py-3 text-white font-medium hover:bg-gray-800 hover:text-accent rounded-md transition-colors duration-200">Programa</a>
+                <a href="index.html#programa" class="block px-3 py-3 mt-4 text-center text-black font-bold rounded-md bg-accent glow-effect transition-colors duration-200">Inscríbete Ahora</a>
             </div>
         </div>
     </nav>
 
-    <!-- Contenido Principal de la Página de Alojamientos -->
-    <main class="pt-32 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center mb-16">
-                <h1 class="font-heading font-bold text-5xl text-primary mb-4">Alojamientos en Paraná</h1>
-                <p class="text-lg text-gray-600">Opciones recomendadas para tu comodidad durante el congreso.</p>
+    <!-- Contenido Principal: Cabecera -->
+    <header class="pt-32 pb-12 relative animate-fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Etiqueta decorativa superior -->
+            <div class="inline-flex items-center justify-center space-x-2 border border-accent/30 rounded-full px-4 py-1 mb-6 bg-secondary/50 backdrop-blur-sm" data-aos="fade-down">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse-slow"></span>
+                <span class="text-accent text-xs font-semibold uppercase tracking-wider">Hospedaje Oficial</span>
             </div>
+            
+            <h1 class="font-heading font-bold text-5xl md:text-6xl text-white mb-6" data-aos="fade-up" data-aos-delay="100">
+                Alojamientos en <span class="text-accent underline decoration-accent decoration-2 underline-offset-8">Paraná</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Opciones recomendadas con beneficios y tarifas especiales para los asistentes al III Congreso de Ciencias Forenses.
+            </p>
+        </div>
+    </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Listado de Alojamientos -->
+    <main class="pb-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
 
-                <!-- Hotel Card: Maran Suites & Towers -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/maran-suites.jpg" alt="Maran Suites & Towers" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Maran Suites & Towers</h3>
-                            <p class="hotel-address">Alameda de la Federación 698, Paraná</p>
-                            <p class="hotel-phone">Tel: 0343-4235444</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Maran+Suites+%26+Towers%2C+Alameda+de+la+Federaci%C3%B3n+698%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
+                <!-- 1. Maran Suites & Towers -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/maran-suites.jpg" alt="Maran Suites & Towers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur border border-accent/30 text-accent text-xs px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-tag mr-2"></i>15% OFF
                         </div>
-                        <div class="hotel-details">
-                            <p class="hotel-discount">15% de descuento anunciando el congreso.</p>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Maran Suites & Towers</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Alameda de la Federación 698</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4235444</p>
+                        <div class="mt-auto">
+                            <p class="text-sm text-gray-300 font-medium mb-4">Mencionando el congreso obtendrás este beneficio exclusivo.</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Maran+Suites+%26+Towers%2C+Alameda+de+la+Federaci%C3%B3n+698%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300 mt-2">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Howard Johnson -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/howard-johnson.jpg" alt="Howard Johnson by Wyndham" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Howard Johnson by Wyndham</h3>
-                            <p class="hotel-address">Etchevehere, Francisco de Miranda Y, E3100, Paraná</p>
-                            <p class="hotel-phone">Tel: 0343-4206800</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Howard+Johnson+by+Wyndham+Plaza+Hotel+Mayorazgo%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
+                <!-- 2. Howard Johnson by Wyndham -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/howard-johnson.jpg" alt="Howard Johnson by Wyndham" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Howard Johnson by Wyndham</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Etchevehere, F. de Miranda Y.</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4206800</p>
+                        <div class="mt-auto pt-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Howard+Johnson+by+Wyndham+Plaza+Hotel+Mayorazgo%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300 mt-2">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
-                        <div class="hotel-details"></div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Coe Verá -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/coe-vera.jpg" alt="Hotel Coe Vera" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel Coe Verá</h3>
-                            <p class="hotel-address">Almafuerte 890, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4523647</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Coe+Vera%2C+Almafuerte+890%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
+                <!-- 3. Hotel Coe Verá -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/coe-vera.jpg" alt="Hotel Coe Verá" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur border border-accent/30 text-accent text-xs px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-tag mr-2"></i>10% OFF
                         </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">Capacidad para 90 personas.</p>
-                            <p class="hotel-discount">10% de descuento anunciando el congreso.</p>
-                            <ul class="hotel-prices">
-                                <li>Habitación Simple: $45.500</li>
-                                <li>Habitación Doble: $64.500</li>
-                                <li>Habitación Triple: $87.000</li>
-                                <li>Habitación Cuádruple: $102.000</li>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel Coe Verá</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Almafuerte 890</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4523647</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold"><i class="fas fa-users mr-1"></i> Capacidad: 90 personas</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Simple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$45.500</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$64.500</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$87.000</span></li>
+                                <li class="flex justify-between"><span>Cuádruple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$102.000</span></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Hotel Card: Gran Hotel Paraná -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/gran-hotel-parana.jpg" alt="Gran Hotel Paraná" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Gran Hotel Paraná</h3>
-                            <p class="hotel-address">Gral. Justo José de Urquiza 976, Paraná</p>
-                            <p class="hotel-phone">Tel: 0343-4223900</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Gran+Hotel+Paran%C3%A1%2C+Gral.+Justo+Jos%C3%A9+de+Urquiza+976%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details"></div>
-                    </div>
-                </div>
-                
-                <!-- Hotel Card: Hotel apart PH 236 -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/ph236.jpg" alt="Hotel apart PH 236" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel apart PH 236</h3>
-                            <p class="hotel-address">Villaguay 236, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4050059</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+apart+PH+236%2C+Villaguay+236%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">No ofrece descuento, pero mantiene costos. Capacidad para 15-20 personas.</p>
-                            <ul class="hotel-prices">
-                                <li>Habitación Doble: $64.000</li>
-                                <li>Habitación Triple: $75.000</li>
-                                <li>Habitación Cuádruple: $90.000</li>
-                                <li>Habitación Quíntuple: $96.000</li>
-                                <li>Habitación Séxtuple: $106.000</li>
-                            </ul>
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Coe+Vera%2C+Almafuerte+890%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Hotel Suboficiales de Fuerza Aérea -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/fuerza-aerea.jpg" alt="Hotel Suboficiales de Fuerza Aérea" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel Suboficiales de Fuerza Aérea</h3>
-                            <p class="hotel-address">Belgrano 157, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4310411</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=C%C3%ADrculo+de+Suboficiales+de+la+Fuerza+A%C3%A9rea+Delegaci%C3%B3n+Paran%C3%A1%2C+Belgrano+157%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details"></div>
+                <!-- 4. Gran Hotel Paraná -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/gran-hotel-parana.jpg" alt="Gran Hotel Paraná" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
                     </div>
-                </div>
-                
-                <!-- Hotel Card: Hotel San Jorge -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/san-jorge.jpg" alt="Hotel San Jorge" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel San Jorge</h3>
-                            <p class="hotel-address">Belgrano 368, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-5024854</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+San+Jorge%2C+Belgrano+368%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">No ofrece descuento, mantiene costos. Capacidad aprox. 80 personas.</p>
-                            <ul class="hotel-prices">
-                                <li>Habitación Single: $45.000</li>
-                                <li>Habitación Doble: $68.000</li>
-                                <li>Habitación Triple: $85.000</li>
-                            </ul>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Gran Hotel Paraná</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Gral. Justo José de Urquiza 976</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4223900</p>
+                        <div class="mt-auto pt-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Gran+Hotel+Paran%C3%A1%2C+Gral.+Justo+Jos%C3%A9+de+Urquiza+976%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300 mt-2">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Hostel Las Magnolias -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/las-magnolias.jpg" alt="Hostel Las Magnolias" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hostel Las Magnolias</h3>
-                            <p class="hotel-address">Ferre 236, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-5126350</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Hostel+Las+Magnolias%2C+Ferre+236%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">Sede Ferre: Capacidad para 25 personas.</p>
-                            <ul class="hotel-prices">
-                                <li><strong>Contratación individual:</strong> $20.000 p/p.</li>
-                                <li><strong>Contratación grupal:</strong> $15.000 p/p (plazas completas).</li>
+                <!-- 5. Hotel apart PH 236 -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/ph236.jpg" alt="Hotel apart PH 236" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel apart PH 236</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Villaguay 236</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4050059</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold flex items-center"><i class="fas fa-info-circle mr-1"></i> Mantiene costos. (15-20 pers.)</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$64.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$75.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Cuádruple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$90.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Quíntuple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$96.000</span></li>
+                                <li class="flex justify-between"><span>Séxtuple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$106.000</span></li>
                             </ul>
-                            <p class="hotel-note"><strong>Sucursal Corrientes y Moreno:</strong> Capacidad para 15 personas, mismas condiciones.</p>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+apart+PH+236%2C+Villaguay+236%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Hotel Suboficiales del Ejército - CIRSE -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/cirse.jpg" alt="Hotel Suboficiales del Ejército - CIRSE" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel Suboficiales del Ejército - CIRSE</h3>
-                            <p class="hotel-address">Andrés Pasos 403, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4234283</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=CIRSE+Paran%C3%A1%2C+Andr%C3%A9s+Pasos+403%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">Capacidad para 20 personas.</p>
-                            <ul class="hotel-prices">
-                               <li><strong>Grupal (plazas completas):</strong> $22.000 p/p (con cochera).</li>
-                               <li><strong>Reserva particular:</strong> $35.000 (+ $4.000 de cochera).</li>
-                            </ul>
+                <!-- 6. Hotel Suboficiales de Fuerza Aérea -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/fuerza-aerea.jpg" alt="Hotel Suboficiales de Fuerza Aérea" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel Suboficiales F.A.</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Belgrano 157</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4310411</p>
+                        <div class="mt-auto pt-4">
+                            <a href="https://www.google.com/maps/search/?api=1&query=C%C3%ADrculo+de+Suboficiales+de+la+Fuerza+A%C3%A9rea+Delegaci%C3%B3n+Paran%C3%A1%2C+Belgrano+157%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300 mt-2">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Hotel Agustín 1 Apart -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/agustin-apart.jpg" alt="Hotel Agustín 1 Apart" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel Agustín 1 Apart</h3>
-                            <p class="hotel-address">Ferre 130, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4162314</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Agust%C3%ADn+I+Apart+Hotel%2C+Ferre+130%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-discount">15% de descuento anunciando el congreso.</p>
-                            <ul class="hotel-prices">
-                                <li>Habitación Doble: $85.000</li>
-                                <li>Habitación Triple: $110.000</li>
-                                <li>Habitación Cuádruple: $150.000</li>
+                <!-- 7. Hotel San Jorge -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/san-jorge.jpg" alt="Hotel San Jorge" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel San Jorge</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Belgrano 368</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-5024854</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold flex items-center"><i class="fas fa-info-circle mr-1"></i> Mantiene costos. (80 pers.)</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Single</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$45.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$68.000</span></li>
+                                <li class="flex justify-between"><span>Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$85.000</span></li>
                             </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+San+Jorge%2C+Belgrano+368%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Hotel Las Mañanitas -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/las-mananitas.jpg" alt="Hotel Las Mañanitas" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hotel Las Mañanitas</h3>
-                            <p class="hotel-address">Enrique Carbó 62, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-5223485</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Las+Ma%C3%B1anitas+Casa+Hotel%2C+Enrique+Carb%C3%B3+62%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-discount">10% de descuento anunciando el congreso.</p>
-                             <ul class="hotel-prices">
-                                <li>Habitación Simple: $40.000</li>
-                                <li>Habitación Doble: $60.000</li>
-                                <li>Habitación Triple: $70.000</li>
-                                <li>Habitación Cuádruple: $80.000</li>
-                                <li>Habitación Quíntuple: $90.000</li>
+                <!-- 8. Hostel Las Magnolias -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/las-magnolias.jpg" alt="Hostel Las Magnolias" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hostel Las Magnolias</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Ferre 236</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-5126350</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold"><i class="fas fa-home mr-1"></i> Sucursales (Ferre / Corrientes)</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Individual p/p</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$20.000</span></li>
+                                <li class="flex justify-between"><span>Grupal p/p</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$15.000</span></li>
                             </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hostel+Las+Magnolias%2C+Ferre+236%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                 <!-- Hotel Card: Hostel Parador 862 -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/parador-862.jpg" alt="Hostel Parador 862" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hostel Parador 862</h3>
-                            <p class="hotel-address">Gualeguaychú 862, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4311763 / 343-5165545</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Parador+862%2C+Gualeguaych%C3%BA+862%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                             <p class="hotel-note">Capacidad para 25 personas. Habitaciones con baño.</p>
-                             <ul class="hotel-prices">
-                                <li><strong>Por persona:</strong> $18.000</li>
-                                <li><strong>Depto. (10 personas):</strong> $45.000 por día</li>
-                            </ul>
-                        </div>
+                <!-- 9. Hotel Suboficiales del Ejército - CIRSE -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/cirse.jpg" alt="Hotel Suboficiales del Ejército - CIRSE" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
                     </div>
-                </div>
-                
-                 <!-- Hotel Card: Hostel Bristol -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/bristol.jpg" alt="Hostel Bristol" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Hostel Bristol</h3>
-                            <p class="hotel-address">Alsina 221, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-4313961 / 343-4753175</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Bristol%2C+Alsina+221%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
-                        </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">15 habitaciones de distintas plazas.</p>
-                            <ul class="hotel-prices">
-                                <li>Habitación Doble: $55.000</li>
-                                <li>Habitación Triple: $70.000</li>
-                                <li>Habitación Cuádruple: $80.000</li>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel CIRSE del Ejército</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Andrés Pasos 403</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4234283</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold"><i class="fas fa-car mr-1"></i> Precios con cochera</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Grupal p/p</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$22.000</span></li>
+                                <li class="flex justify-between"><span>Particular</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$39.000</span></li>
                             </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=CIRSE+Paran%C3%A1%2C+Andr%C3%A9s+Pasos+403%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Bungalow Los Eucaliptus -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/los-eucaliptus.jpg" alt="Bungalow Los Eucaliptus" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Bungalow Los Eucaliptus</h3>
-                            <p class="hotel-address">Complejo Thompson, Paraná</p>
-                            <p class="hotel-phone">Tel: 343-5111438</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as+Los+Eucaliptus%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
+                <!-- 10. Hotel Agustín 1 Apart -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/agustin-apart.jpg" alt="Hotel Agustín 1 Apart" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur border border-accent/30 text-accent text-xs px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-tag mr-2"></i>15% OFF
                         </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">Capacidad total para 40 personas. Cabañas de distintas plazas.</p>
-                            <p class="hotel-discount">Mencionando el congreso: $14.000 por persona.</p>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel Agustín 1 Apart</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Ferre 130</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4162314</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Habitación Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$85.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Habitación Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$110.000</span></li>
+                                <li class="flex justify-between"><span>Habitación Cuádruple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$150.000</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Agust%C3%ADn+I+Apart+Hotel%2C+Ferre+130%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hotel Card: Cabañas Parador del Paraná -->
-                <div class="hotel-card">
-                    <img src="img/hoteles/parador-parana.jpg" alt="Cabañas Parador del Paraná" class="hotel-image" loading="lazy">
-                    <div class="hotel-info">
-                        <div>
-                            <h3 class="hotel-name">Cabañas Parador del Paraná</h3>
-                            <p class="hotel-address">República de Entre Ríos 3005, Acceso Norte</p>
-                            <p class="hotel-phone">Tel: 343-4612826</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Parador+del+Paran%C3%A1%2C+Av.+Rep.+de+Entre+R%C3%ADos+3005%2C+Paran%C3%A1" target="_blank" class="hotel-gps-button">Cómo llegar (GPS)</a>
+                <!-- 11. Hotel Las Mañanitas -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/las-mananitas.jpg" alt="Hotel Las Mañanitas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur border border-accent/30 text-accent text-xs px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-tag mr-2"></i>10% OFF
                         </div>
-                        <div class="hotel-details">
-                            <p class="hotel-note">Capacidad total para 198 personas.</p>
-                            <ul class="hotel-prices">
-                                <li><strong>2 a 4 personas:</strong> $90.000 la noche</li>
-                                <li><strong>6 a 8 personas:</strong> $158.000 la noche</li>
-                                <li><strong>10 personas:</strong> $170.000 la noche</li>
-                                <li><strong>12 personas:</strong> $204.000 la noche</li>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hotel Las Mañanitas</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Enrique Carbó 62</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-5223485</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Simple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$40.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$60.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$70.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Cuádruple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$80.000</span></li>
+                                <li class="flex justify-between"><span>Quíntuple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$90.000</span></li>
                             </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Las+Ma%C3%B1anitas+Casa+Hotel%2C+Enrique+Carb%C3%B3+62%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Hostel Parador 862 -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/parador-862.jpg" alt="Hostel Parador 862" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hostel Parador 862</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Gualeguaychú 862</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4311763</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold"><i class="fas fa-door-open mr-1"></i> Baño privado incluido</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Por Persona</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$18.000</span></li>
+                                <li class="flex justify-between"><span>Depto (10 pers.)</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$45.000 /día</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Parador+862%2C+Gualeguaych%C3%BA+862%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. Hostel Bristol -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/bristol.jpg" alt="Hostel Bristol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Hostel Bristol</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Alsina 221</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4313961 / 343-4753175</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Doble</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$55.000</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>Triple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$70.000</span></li>
+                                <li class="flex justify-between"><span>Cuádruple</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$80.000</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Bristol%2C+Alsina+221%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. Bungalow Los Eucaliptus -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/los-eucaliptus.jpg" alt="Bungalow Los Eucaliptus" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur border border-accent/30 text-accent text-xs px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-star mr-2"></i>Tarifa Preferencial
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Bungalow Los Eucaliptus</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Complejo Thompson, Paraná</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-5111438</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="text-xs text-center border border-accent/50 py-2 rounded bg-black/50">Mencionando el congreso: <br><strong class="text-accent text-base">$14.000</strong> por persona.</p>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as+Los+Eucaliptus%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. Cabañas Parador del Paraná -->
+                <div class="bg-secondary/60 backdrop-blur-md rounded-xl overflow-hidden border border-gray-800 hover:border-accent transition-all duration-500 group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="img/hoteles/parador-parana.jpg" alt="Cabañas Parador del Paraná" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">Cabañas Parador del Paraná</h3>
+                        <p class="text-sm text-gray-400 mb-2 flex items-center"><i class="fas fa-map-marker-alt w-5 text-accent"></i> Av. República de Entre Ríos 3005</p>
+                        <p class="text-sm text-gray-400 mb-4 flex items-center"><i class="fas fa-phone w-5 text-accent"></i> 0343-4612826</p>
+                        
+                        <div class="mt-4 mb-4 text-sm text-gray-300 bg-black/30 p-3 rounded-lg border border-gray-800">
+                            <p class="mb-1 text-accent font-semibold flex items-center"><i class="fas fa-users mr-1"></i> Complejo Turístico (198 pers.)</p>
+                            <ul class="space-y-1 mt-2 text-xs">
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>2 a 4 personas</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$90.000 /noche</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>6 a 8 personas</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$158.000 /noche</span></li>
+                                <li class="flex justify-between border-b border-gray-700 pb-1"><span>10 personas</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$170.000 /noche</span></li>
+                                <li class="flex justify-between"><span>12 personas</span> <span class="font-bold border border-accent/30 px-1 rounded bg-black/50">$204.000 /noche</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-auto">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Parador+del+Paran%C3%A1%2C+Av.+Rep.+de+Entre+R%C3%ADos+3005%2C+Paran%C3%A1" target="_blank" class="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-black py-2 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-map-marked-alt mr-2"></i>Cómo llegar
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -348,28 +523,54 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-black text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             <div class="border-t border-gray-700 pt-8">
-                <p class="text-gray-400">
-                    © 2025 2do Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.
-                </p>
-                <a href="index.html" class="text-accent hover:underline mt-2 inline-block">Volver a la página principal</a>
-            </div>
+    <footer class="bg-black text-white py-12 relative border-t border-gray-800">
+        <!-- Overlay sutil -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')] opacity-[0.05] pointer-events-none"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <img src="img/logo menu.png" alt="Logo Criminalística" class="h-20 mb-6 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+            <p class="text-accent max-w-2xl text-sm font-medium uppercase tracking-widest mb-6">Ciencia y Justicia en la Era Digital</p>
+            <div class="w-full border-t border-gray-800 pt-8 flex items-center justify-between flex-wrap gap-4">
+               <p class="text-gray-500 text-sm">
+                   &copy; 2026 III Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.
+               </p>
+               <a href="index.html" class="text-gray-400 hover:text-accent transition-colors duration-300 text-sm font-medium flex items-center">
+                   <i class="fas fa-arrow-left mr-2"></i>Volver a Inicio
+               </a>
+           </div>
         </div>
     </footer>
 
+    <!-- AOS JS + Script Custom (para el menÃº mÃ³vil) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // --- Lógica para el Loading Screen ---
-        document.addEventListener('DOMContentLoaded', function() {
+        // Init Animate On Scroll
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Hide Loading Screen
+        window.addEventListener('load', () => {
             const loadingOverlay = document.getElementById('loading-overlay');
-            if (loadingOverlay) {
-                loadingOverlay.classList.add('hidden');
+            if(loadingOverlay) {
+                loadingOverlay.classList.add('opacity-0');
                 setTimeout(() => {
                     loadingOverlay.style.display = 'none';
                 }, 700);
             }
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if(mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 </body>
 </html>

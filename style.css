@@ -3469,6 +3469,7 @@ button#next-slide {
     transition: all 0.5s ease;
     flex-shrink: 0;
     z-index: 1;
+    animation: rotate 8s linear infinite;
 }
 
 .speaker-img-premium {
@@ -3479,6 +3480,12 @@ button#next-slide {
     border: 3px solid #1a1a2e;
     transition: all 0.4s ease;
     display: block;
+    animation: rotate 8s linear infinite reverse;
+}
+
+.speaker-card-premium:hover .speaker-img-wrapper,
+.speaker-card-premium:hover .speaker-img-premium {
+    animation-duration: 4s;
 }
 
 /* ---- País — Pill vibrante ---- */
@@ -4477,3 +4484,4 @@ button#next-slide {
         align-items: center;
     }
 }
+

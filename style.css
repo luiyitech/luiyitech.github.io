@@ -130,44 +130,31 @@ body {
 /* EFECTO DE SUBRAYADO ANIMADO PARA ENLACES DE NAVEGACIÓN */
 /* ========================================================= */
 
-#navbar .hidden.md\:flex.items-center.space-x-4 a {
+.nav-link {
     position: relative;
-    /* Necesario para posicionar el pseudo-elemento */
     overflow: hidden;
-    /* Asegura que el subrayado no se vea fuera del enlace al iniciar */
     padding-bottom: 5px;
-    /* Espacio para el subrayado */
     text-decoration: none;
-    /* Asegura que no haya subrayado predeterminado */
 }
 
-#navbar .hidden.md\:flex.items-center.space-x-4 a::after {
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 2px;
-    /* Grosor del subrayado */
     background-color: var(--accent-color);
-    /* Color del subrayado */
     transform: translateX(-100%);
-    /* Inicialmente fuera de la vista a la izquierda */
     transition: transform 0.3s ease-out;
-    /* Animación de 0.3 segundos */
 }
 
-#navbar .hidden.md\:flex.items-center.space-x-4 a:hover::after {
+.nav-link:hover::after {
     transform: translateX(0);
-    /* Se desliza para cubrir el enlace al hacer hover */
 }
 
-/* Para el botón "Inscríbete Ahora", no queremos este efecto de subrayado,
-   ya que ya tiene sus propios estilos de hover.
-   Vamos a excluirlo específicamente. */
-#navbar .hidden.md\:flex.items-center.space-x-4 a.cta-button::after {
+.nav-link.cta-button::after {
     display: none;
-    /* Oculta el pseudo-elemento para el botón CTA */
 }
 
 /* SLIDER BANDERAS INFINITO*/
@@ -507,37 +494,15 @@ footer,
     z-index: 1;
 }
 
-/* Animación de fondo ÉPICA para las tarjetas */
+/* Animación de fondo simplificada para las tarjetas */
 @keyframes epicBackground {
-    0% {
-        background-position: 0% 0%, 50% 50%, 100% 100%;
-    }
-
-    33% {
-        background-position: 50% 100%, 0% 50%, 100% 0%;
-    }
-
-    66% {
-        background-position: 100% 50%, 100% 100%, 0% 0%;
-    }
-
-    100% {
-        background-position: 0% 0%, 50% 50%, 100% 100%;
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 @keyframes pulseEpic {
-    0% {
-        transform: scale(1) rotateY(180deg);
-    }
-
-    50% {
-        transform: scale(1.02) rotateY(180deg);
-    }
-
-    100% {
-        transform: scale(1) rotateY(180deg);
-    }
+    0%, 100% { transform: scale(1) rotateY(180deg); }
+    50% { transform: scale(1.02) rotateY(180deg); }
 }
 
 /* Card Glow Effects */
@@ -1477,54 +1442,7 @@ a.border-2:hover i {
 /* RESPONSIVE QUIENES SOMOS Y JEFATURA */
 /* ============================= */
 
-@media (max-width: 1080px) {
-
-    #quienes-somos {
-        padding-top: 0 !important;
-    }
-
-    #quienes-somos .flex,
-    #jefatura .flex {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 2rem;
-    }
-
-    #quienes-somos .lg\:w-1\/2,
-    #jefatura .lg\:w-1\/2 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    #quienes-somos .image-frame,
-    #jefatura .image-frame {
-        justify-content: center !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    #quienes-somos .abstract-border-image,
-    #jefatura .abstract-border-image {
-        max-width: 95vw !important;
-        width: 100% !important;
-        height: auto !important;
-        margin-bottom: 1rem;
-    }
-
-    #quienes-somos p,
-    #jefatura p {
-        max-width: 100% !important;
-        font-size: 1rem !important;
-        margin: 0 0 1.5rem 0 !important;
-        padding: 0 !important;
-        align-items: center;
-    }
-}
-
-
-@media (max-width: 768px) {
+@media (max-width: 1080px), (max-width: 768px) {
 
     #quienes-somos {
         padding-top: 0 !important;
@@ -3492,7 +3410,7 @@ button#next-slide {
         url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
         linear-gradient(160deg, #111827 0%, #0c1220 40%, #10131a 100%);
     border-radius: 1.25rem;
-    padding: 2rem 1.25rem 1.75rem;
+    padding: 2.5rem 1.5rem 2.25rem;
     text-align: center;
     border: 1px solid rgba(212, 175, 55, 0.12);
     transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3559,8 +3477,8 @@ button#next-slide {
 
 /* ---- Foto con anillo animado épico ---- */
 .speaker-img-wrapper {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 1.25rem auto;
     position: relative;
     padding: 4px;
@@ -3621,7 +3539,7 @@ button#next-slide {
 .speaker-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     color: #f0f0f0;
     margin-bottom: 0.4rem;
     line-height: 1.3;
@@ -3700,11 +3618,11 @@ button#next-slide {
 }
 
 .speaker-nav-prev {
-    left: 0px;
+    left: 0;
 }
 
 .speaker-nav-next {
-    right: 0px;
+    right: 0;
 }
 
 @media (max-width: 640px) {
@@ -3720,6 +3638,20 @@ button#next-slide {
 
     .speaker-nav-next {
         right: -10px;
+    }
+
+    .speaker-img-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .speaker-card-premium {
+        padding: 1.5rem 1rem;
+        min-width: 260px;
+    }
+
+    .speaker-name {
+        font-size: 1.05rem;
     }
 
     .speakers-title-gold {

@@ -203,7 +203,7 @@ function initPonentesSlider() {
 
     let currentIndex = 0;
     const slidesPerView = window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
-    const advanceStep = 3;
+    const advanceStep = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
     const totalSlides = slides.length;
 
     // Clonar últimos N slides y agregarlos al principio
@@ -366,7 +366,7 @@ function toggleAccordion(id) {
 class GalleryCarousel {
     constructor() {
         this.currentIndex = 0;
-        this.totalImages = 59;
+        this.totalImages = 57;
         this.autoPlayInterval = null;
         this.autoPlayDelay = 4000;
         this.isModalOpen = false;

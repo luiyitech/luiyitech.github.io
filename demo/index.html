@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripciones Próximamente | III Congreso Internacional de Ciencias Forenses</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #080c14;
+            --accent-gold: #d4af37;
+            --accent-bordeaux: #550f1e;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        /* Ambient Background with Moving Orbs */
+        .background-ambient {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #0d121d 0%, #080c14 100%);
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: moveOrb 20s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-bordeaux);
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-gold);
+            bottom: -100px;
+            right: -100px;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        @keyframes moveOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 100px) scale(1.2); }
+        }
+
+        /* Grid Pattern */
+        .background-ambient::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 10;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 2.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+        }
+
+        .content {
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .status-pill {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.9rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+        }
+
+        .divider {
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 0 auto 2.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            color: var(--text-light);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .live-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .time-box span:first-child {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+        }
+
+        .btn-inscripcion {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #aa8c2c 100%);
+            color: var(--primary-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-inscripcion:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1.1rem; }
+            .countdown-wrapper { gap: 1rem; }
+            .countdown-value { font-size: 1.8rem; }
+            .live-countdown { gap: 0.5rem; }
+            .time-box { min-width: 65px; padding: 0.8rem; }
+            .time-box span:first-child { font-size: 1.5rem; }
+            .time-label { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-ambient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo-wrapper">
+            <img src="img/logo menu.png" alt="III Congreso Internacional de Ciencias Forenses" class="logo">
+        </div>
+
+        <div class="content">
+            <div class="status-pill">Inscripciones próximamente</div>
+            <h1>Evidencia, ciencia y tecnología: <br>desbloqueamos la verdad</h1>
+            <p id="main-text">Falta muy poco para que asegures tu lugar. Estamos preparando una experiencia única para esta nueva edición. <br><strong>Las inscripciones oficiales se habilitan en:</strong></p>
+            
+            <div id="live-countdown" class="live-countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span class="time-label">Días</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span class="time-label">Horas</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span class="time-label">Min</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span class="time-label">Seg</span>
+                </div>
+            </div>
+
+            <div id="open-message" class="open-message" style="display: none;">
+                <a href="#" class="btn-inscripcion">¡Inscripciones Abiertas!</a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="countdown-wrapper">
+                <div class="countdown-item">
+                    <span class="countdown-value">14, 15 y 16</span>
+                    <span class="countdown-label">Octubre</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value">2026</span>
+                    <span class="countdown-label">Paraná</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/policiacientificaper" class="social-link" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/people/Direcci%C3%B3n-General-de-Polic%C3%ADa-Cient%C3%ADfica/100091792284133" class="social-link" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/5493435011168" class="social-link" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:congresocienciasforensesparana@gmail.com" class="social-link" title="Email"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fecha objetivo: 1 de Junio de 2026 a las 00:00:00
+        const countDownDate = new Date("Jun 1, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                const countdownEl = document.getElementById("live-countdown");
+                if(countdownEl) countdownEl.style.display = "none";
+                
+                const textEl = document.getElementById("main-text");
+                if(textEl) textEl.innerHTML = "<strong>¡Las inscripciones ya están abiertas!</strong>";
+                
+                const openMsgEl = document.getElementById("open-message");
+                if(openMsgEl) openMsgEl.style.display = "block";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>

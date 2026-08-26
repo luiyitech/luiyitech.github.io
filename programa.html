@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Oficial Completo - III Congreso Internacional de Ciencias Forenses 2026</title>
+    <meta name="description"
+        content="Cronograma y programa oficial detallado del III Congreso Internacional de Ciencias Forenses 2026 en Paraná, Entre Ríos. Acceso exclusivo vía código QR.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo menu.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <!-- Estilos generales del proyecto -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --gold-primary: #d4af37;
+            --gold-light: #f7e7a9;
+            --gold-dark: #aa8214;
+            --crimson: #550f1e;
+            --crimson-light: #7a1830;
+            --bg-dark: #07090e;
+            --bg-card: #0e1320;
+            --bg-card-alt: #131929;
+            --border-gold: rgba(212, 175, 55, 0.25);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e2e8f0;
+            font-family: 'Ubuntu', sans-serif;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Fondo con textura sutil y luces */
+        .page-bg-ambient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(85, 15, 30, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(13, 20, 38, 0.8) 0%, transparent 100%);
+        }
+
+        .pattern-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* Encabezado QR */
+        .qr-header-card {
+            background: linear-gradient(145deg, rgba(14, 19, 32, 0.95), rgba(7, 9, 14, 0.95));
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+        }
+
+        .qr-badge {
+            background: linear-gradient(135deg, #550f1e, #881630);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 15px rgba(85, 15, 30, 0.5);
+        }
+
+        /* Tarjetas de eventos del cronograma */
+        .schedule-card {
+            background: linear-gradient(160deg, #111726 0%, #0c101c 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold-primary), transparent);
+            opacity: 0.6;
+            transition: opacity 0.3s ease, width 0.3s ease;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-gold);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.12);
+        }
+
+        .schedule-card:hover::before {
+            opacity: 1;
+            width: 6px;
+        }
+
+        /* Variantes de tarjetas por tipo */
+        .schedule-card.type-keynote::before {
+            background: linear-gradient(180deg, #d4af37, #aa8214);
+        }
+
+        .schedule-card.type-workshop::before {
+            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+        }
+
+        .schedule-card.type-ceremony::before {
+            background: linear-gradient(180deg, #ec4899, #be185d);
+        }
+
+        .schedule-card.type-break::before {
+            background: linear-gradient(180deg, #10b981, #059669);
+        }
+
+        /* Badges */
+        .tag-pill {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .tag-gold {
+            background: rgba(212, 175, 55, 0.15);
+            color: #fce79a;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .tag-workshop-1 {
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .tag-workshop-2 {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .tag-break {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .tag-ceremony {
+            background: rgba(236, 72, 153, 0.15);
+            color: #fbcfe8;
+            border: 1px solid rgba(236, 72, 153, 0.4);
+        }
+
+        .speaker-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+
+        .speaker-thumb-placeholder {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1f293d, #0f172a);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Botones de navegación / filtros */
+        .filter-btn {
+            background: rgba(17, 23, 38, 0.85);
+            border: 1px solid var(--border-subtle);
+            color: #94a3b8;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+            color: #f1f5f9;
+            border-color: rgba(212, 175, 55, 0.4);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #550f1e, #881630);
+            color: #ffffff;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+        }
+
+        /* Barra de búsqueda */
+        .search-container {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            border-radius: 9999px;
+        }
+
+        .search-input {
+            background: transparent;
+            color: #f8fafc;
+            outline: none;
+            width: 100%;
+        }
+
+        .search-input::placeholder {
+            color: #64748b;
+        }
+
+        /* Pestañas de Días */
+        .day-tab-card {
+            background: rgba(14, 19, 32, 0.9);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 0.85rem 1.25rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .day-tab-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .day-tab-card.active {
+            background: linear-gradient(145deg, #1a2236, #0e1424);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .day-tab-card.active .tab-day-title {
+            color: var(--gold-primary);
+        }
+
+        /* Botón Flotante Volver Arriba */
+        .floating-top-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #550f1e, #881630);
+            border: 1px solid var(--gold-primary);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            cursor: pointer;
+        }
+
+        .floating-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .floating-top-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilos de Impresión */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+
+            .page-bg-ambient,
+            .pattern-overlay,
+            .no-print,
+            .floating-top-btn {
+                display: none !important;
+            }
+
+            .schedule-card {
+                background: #ffffff !important;
+                border: 1px solid #ccc !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                break-inside: avoid;
+                margin-bottom: 1rem;
+            }
+
+            .text-gray-300,
+            .text-gray-400,
+            .text-gray-200 {
+                color: #333333 !important;
+            }
+
+            .tag-pill {
+                border: 1px solid #666 !important;
+                color: #000 !important;
+                background: #eee !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Fondos de ambientación -->
+    <div class="page-bg-ambient"></div>
+    <div class="pattern-overlay"></div>
+
+    <!-- Contenido principal -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <!-- HEADER DEL PROGRAMA DIGITAL QR -->
+        <header class="qr-header-card p-6 sm:p-8 mb-8 text-center" data-aos="fade-down">
+            <!-- Badge QR -->
+            <div class="inline-flex items-center gap-2 qr-badge px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white mb-4">
+                <i class="fas fa-qrcode text-yellow-300 animate-pulse"></i>
+                <span>Acceso Oficial Digital • Escaneo QR</span>
+            </div>
+
+            <!-- Logo & Título Principal -->
+            <div class="flex flex-col items-center justify-center mb-4">
+                <img src="img/logo menu.png" alt="Policía Científica de Entre Ríos" class="h-16 sm:h-20 w-auto mb-3 filter drop-shadow-md">
+                <h1 class="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
+                    III Congreso Internacional de <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600">
+                        Ciencias Forenses 2026
+                    </span>
+                </h1>
+                <p class="text-yellow-400 text-sm sm:text-base font-semibold mt-1">Paraná, Entre Ríos — 14, 15 y 16 de Octubre</p>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-6">
+                Cronograma completo e interactivo de conferencias magistrales, talleres especializados y actividades protocolares.
+            </p>
+
+            <!-- Accesos rápidos / Barra de acciones -->
+            <div class="no-print flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-gray-800">
+                <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gray-800 hover:bg-gray-700 text-yellow-300 border border-yellow-500/30 transition">
+                    <i class="fas fa-print"></i> Imprimir / Guardar PDF
+                </button>
+                <button onclick="shareSchedule()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gray-800 hover:bg-gray-700 text-white border border-gray-700 transition">
+                    <i class="fas fa-share-alt"></i> Compartir Programa
+                </button>
+                <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-red-950/60 hover:bg-red-900/80 text-gray-200 border border-red-800/50 transition">
+                    <i class="fas fa-external-link-alt"></i> Ir al Sitio Web
+                </a>
+            </div>
+        </header>
+
+        <!-- BARRA DE BÚSQUEDA Y FILTRADO EN VIVO -->
+        <section class="no-print mb-8 space-y-4">
+            <!-- Input de búsqueda -->
+            <div class="search-container flex items-center px-5 py-3.5">
+                <i class="fas fa-search text-yellow-400 mr-3 text-lg"></i>
+                <input type="text" id="schedule-search" placeholder="Buscar por tema, ponente, especialidad, salón u horario..."
+                    class="search-input text-sm sm:text-base" autocomplete="off">
+                <button id="clear-search-btn" class="hidden text-gray-400 hover:text-white ml-2 text-sm" onclick="clearSearch()">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+            </div>
+
+            <!-- Botones de Días (Navegación Rápida) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div class="day-tab-card active" onclick="filterByDay('all', this)">
+                    <div class="text-xs uppercase font-bold text-gray-400">Ver Todo</div>
+                    <div class="tab-day-title font-heading font-extrabold text-sm sm:text-base text-white">Cronograma Completo</div>
+                </div>
+                <div class="day-tab-card" onclick="filterByDay('dia1', this)">
+                    <div class="text-xs uppercase font-bold text-gray-400">Día 1</div>
+                    <div class="tab-day-title font-heading font-extrabold text-sm sm:text-base text-white">Miércoles 14</div>
+                </div>
+                <div class="day-tab-card" onclick="filterByDay('dia2', this)">
+                    <div class="text-xs uppercase font-bold text-gray-400">Día 2</div>
+                    <div class="tab-day-title font-heading font-extrabold text-sm sm:text-base text-white">Jueves 15</div>
+                </div>
+                <div class="day-tab-card" onclick="filterByDay('dia3', this)">
+                    <div class="text-xs uppercase font-bold text-gray-400">Día 3</div>
+                    <div class="tab-day-title font-heading font-extrabold text-sm sm:text-base text-white">Viernes 16</div>
+                </div>
+            </div>
+
+            <!-- Filtros por tipo de actividad -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs sm:text-sm">
+                <span class="text-gray-400 font-bold uppercase text-[11px] whitespace-nowrap mr-1">Filtrar por:</span>
+                <button class="filter-btn active" onclick="filterByType('all', this)">Todos</button>
+                <button class="filter-btn" onclick="filterByType('keynote', this)">Conferencias</button>
+                <button class="filter-btn" onclick="filterByType('workshop', this)">Talleres Simultáneos</button>
+                <button class="filter-btn" onclick="filterByType('ceremony', this)">Actos & Acreditaciones</button>
+            </div>
+        </section>
+
+        <!-- CONTENEDOR DE EVENTOS -->
+        <main id="schedule-container" class="space-y-12">
+
+            <!-- ========================================== -->
+            <!-- DÍA 1: MIÉRCOLES 14 DE OCTUBRE             -->
+            <!-- ========================================== -->
+            <section class="day-section" data-day="dia1" id="section-dia1">
+                <!-- Header del Día -->
+                <div class="flex items-center gap-3 mb-6 pb-3 border-b border-yellow-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-900 to-red-950 border border-yellow-500/40 flex items-center justify-center text-yellow-300 font-bold font-heading text-lg shadow-lg">
+                        14
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                            Miércoles 14 de Octubre <span class="text-yellow-400 text-sm font-normal sm:inline block">— Jornada de Apertura</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Acreditaciones, Apertura Oficial, Ponencias Magistrales y Talleres en Salones</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+
+                    <!-- Evento: Acreditaciones -->
+                    <div class="schedule-card type-ceremony p-5 sm:p-6" data-type="ceremony" data-day="dia1" data-search="acreditaciones recepcion registro">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-ceremony"><i class="fas fa-id-card"></i> Acreditaciones</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-red-400"></i> Hall Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 08:00 a 08:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">Recepción y Acreditación de Asistentes</h3>
+                        <p class="text-gray-300 text-sm mt-1">Entrega de credenciales oficiales y material del congreso.</p>
+                    </div>
+
+                    <!-- Evento: Acto de Apertura -->
+                    <div class="schedule-card type-ceremony p-5 sm:p-6" data-type="ceremony" data-day="dia1" data-search="acto formal de apertura autoridades inauguracion">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-ceremony"><i class="fas fa-bullhorn"></i> Protocolar</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-red-400"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 09:00 a 10:00 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white">Acto Formal de Apertura</h3>
+                        <p class="text-gray-300 text-sm mt-1">Palabras de bienvenida de autoridades gubernamentales, policiales y académicas de la región.</p>
+                    </div>
+
+                    <!-- Evento: Break -->
+                    <div class="schedule-card type-break p-4 sm:p-5" data-type="ceremony" data-day="dia1" data-search="break cafe coffee descanso">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-break"><i class="fas fa-mug-hot"></i> Coffee Break</span>
+                                <span class="text-sm font-bold text-gray-200">Pausa & Networking</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm"><i class="far fa-clock"></i> 10:00 a 10:30 HS</div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia 1: Ruth Alison Benítez -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia1" data-search="ruth alison benitez arqueologia forense paraguay hallazgo prueba momento cero evidencia investigacion criminal">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 10:30 a 11:20 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Del Hallazgo a la Prueba: El momento cero en la construcción de la evidencia forense. Modelo operativo transferible de intervención arqueológico forense en la Investigación Criminal"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Ruth Alison.jpg" alt="Ruth Alison Benítez" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Arqueóloga Forense Ruth Alison Benítez</h4>
+                                <p class="text-xs text-gray-300">Especialista en Arqueología Forense • <span class="text-red-300 font-semibold">Paraguay 🇵🇾</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia 2: Berón, Azcue y Ocampo -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia1" data-search="byrnas armas letalidad reducida plataformas intermedias ivan beron lazaro azcue sergio ocampo entre rios policia cientifica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 11:30 a 12:20 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Byrnas: El uso de armas de letalidad reducida como plataformas intermedias"
+                        </h3>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3 pt-3 border-t border-gray-800">
+                            <div class="flex -space-x-2 overflow-hidden">
+                                <img src="img/Ponentes/Ivan-beron.jpg" alt="Iván Berón" class="speaker-thumb">
+                                <img src="img/Ponentes/azcue lazaro.jpg" alt="Lázaro Azcue" class="speaker-thumb">
+                                <img src="img/Ponentes/Of. Ppal. Lic. Sergio Ocampo.jpg" alt="Sergio Ocampo" class="speaker-thumb">
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Crio. Insp. Iván Berón, Crio. Lázaro Azcue & Of. Ppal. Lic. Sergio Ocampo</h4>
+                                <p class="text-xs text-gray-300">Dirección General de Policía Científica • <span class="text-red-300 font-semibold">Policía de Entre Ríos 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento: Cierre Turno Mañana -->
+                    <div class="schedule-card type-break p-4 sm:p-5" data-type="ceremony" data-day="dia1" data-search="cierre almuerzo receso mediodia">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-break"><i class="fas fa-utensils"></i> Receso Mediodía</span>
+                                <span class="text-sm font-bold text-gray-200">Cierre turno mañana & Almuerzo</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm"><i class="far fa-clock"></i> 12:30 HS</div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN ESPECIAL: TALLERES SIMULTÁNEOS MIÉRCOLES -->
+                    <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-900 to-black border border-blue-500/30" data-type="workshop" data-day="dia1" data-search="talleres simultaneos miercoles salon 1 salon 2 iafis runco adn resaicard laboratorio escaner laser drones rastros luces forenses">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag-pill tag-workshop-1"><i class="fas fa-laptop-code"></i> Talleres Prácticos Simultáneos</span>
+                            <span class="text-xs text-gray-400">Miércoles 14 • 13:00 a 14:50 HS</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-4">Talleres Especializados en Paralelo</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Salón 1 -->
+                            <div class="p-4 rounded-xl bg-gray-950/80 border border-green-500/40">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-green-400 bg-green-950/80 px-2.5 py-1 rounded-md border border-green-500/30">Salón N° 1</span>
+                                    <span class="text-xs text-gray-400">Cupos Limitados</span>
+                                </div>
+                                <div class="space-y-3 mt-3">
+                                    <div class="border-l-2 border-green-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">13:00 a 13:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Del proyecto a la Prueba: Claves para crear un laboratorio forense eficiente"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: IAFIS</p>
+                                    </div>
+                                    <div class="border-l-2 border-green-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">14:00 a 14:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Portfolio de soluciones para el ámbito forense - Escáner láser y drones"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: RUNCO</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Salón 2 -->
+                            <div class="p-4 rounded-xl bg-gray-950/80 border border-blue-500/40">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded-md border border-blue-500/30">Salón N° 2</span>
+                                    <span class="text-xs text-gray-400">Cupos Limitados</span>
+                                </div>
+                                <div class="space-y-3 mt-3">
+                                    <div class="border-l-2 border-blue-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">13:00 a 13:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Nuevas técnicas y tecnologías de revelado de rastros"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: ADN</p>
+                                    </div>
+                                    <div class="border-l-2 border-blue-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">14:00 a 14:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Fuentes de Luz para Aplicaciones Forenses"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: RESAICARD</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia 3: Oriana Núñez -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia1" data-search="oriana nuñez microscopia actividad forense corrientes argentina criminalistica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 16:00 a 16:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Aporte de la microscopía a la actividad forense"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Oriana-nunez.jpg" alt="Lic. Oriana Núñez" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Lic. en Criminalística Oriana Núñez</h4>
+                                <p class="text-xs text-gray-300">Licenciada en Criminalística • <span class="text-red-300 font-semibold">Corrientes, Argentina 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia 4: Ana Julia Pereira -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia1" data-search="ana julia pereira entomologia forense estudios morfologicos ecologicos moleculares ipm neuquen argentina biologia">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 17:00 a 17:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Avances en entomología forense: estudios morfológicos, ecológicos y moleculares para optimizar la estimación del IPM"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Pereira Ana Julia.jpg" alt="Dra. Ana Julia Pereira" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Dra. en Biología Ana Julia Pereira</h4>
+                                <p class="text-xs text-gray-300">Entomóloga Forense • <span class="text-red-300 font-semibold">Neuquén, Argentina 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia 5: Accidentología Vial -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia1" data-search="accidentologia vial siniestros transito reconstruccion">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 18:00 a 18:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-2">
+                            "Accidentología Vial Aplicada a la Investigación Forense"
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300">Análisis técnico de reconstrucción de siniestros viales y dinamometría forense.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- DÍA 2: JUEVES 15 DE OCTUBRE                -->
+            <!-- ========================================== -->
+            <section class="day-section" data-day="dia2" id="section-dia2">
+                <!-- Header del Día -->
+                <div class="flex items-center gap-3 mb-6 pb-3 border-b border-yellow-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-900 to-red-950 border border-yellow-500/40 flex items-center justify-center text-yellow-300 font-bold font-heading text-lg shadow-lg">
+                        15
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                            Jueves 15 de Octubre <span class="text-yellow-400 text-sm font-normal sm:inline block">— Segunda Jornada</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Toxicología, Balística, Química Forense, Polarimetría, Tanatología y Documentología</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+
+                    <!-- Ponencia: Arismendi & Herrera -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="mariela arismendi juliana herrera intoxicaciones nitritos toxicologia bioquimica criminalistica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 08:30 a 09:20 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Abordaje Pericial de intoxicaciones por nitritos: presentación de casos"
+                        </h3>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3 pt-3 border-t border-gray-800">
+                            <div class="flex -space-x-2 overflow-hidden">
+                                <img src="img/Ponentes/Mariela Alejandra Arismendi.jpg" alt="Mariela Arismendi" class="speaker-thumb">
+                                <img src="img/Ponentes/Juliana Herrera.jpg" alt="Juliana Herrera" class="speaker-thumb">
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Bioq. Lic. Mariela Arismendi & Bioq. Juliana Herrera</h4>
+                                <p class="text-xs text-gray-300">Bioquímica Forense y Toxicología • <span class="text-red-300 font-semibold">Argentina 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: Henry Giraldo Jiménez -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="henry alberto giraldo jimenez colombia heridas proyectil arma de fuego silenciador balistica forense">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 09:30 a 10:20 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Heridas ocasionadas por proyectil de arma de fuego con silenciador"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Henry Giraldo Jimenez.jpg" alt="Henry Alberto Giraldo Jiménez" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Téc. Henry Alberto Giraldo Jiménez</h4>
+                                <p class="text-xs text-gray-300">Técnico Balístico Forense • <span class="text-red-300 font-semibold">Colombia 🇨🇴</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Break -->
+                    <div class="schedule-card type-break p-4 sm:p-5" data-type="ceremony" data-day="dia2" data-search="break cafe coffee descanso">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-break"><i class="fas fa-mug-hot"></i> Coffee Break</span>
+                                <span class="text-sm font-bold text-gray-200">Pausa & Encuentro Comercial</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm"><i class="far fa-clock"></i> 10:30 a 11:00 HS</div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: Luis Bartolomé Moro -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="luis bartolome moro espana innovacion analitica criminalistica quimiometria datacion forense analisis drogas quimica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 11:00 a 11:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Innovación analítica en criminalística: el papel de la quimiometría en la datación forense y el análisis de drogas"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Ing Lic Bartolome Moro.jpg" alt="Dr. Luis Bartolomé Moro" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Dr. Luis Bartolomé Moro</h4>
+                                <p class="text-xs text-gray-300">Doctor en Química • <span class="text-red-300 font-semibold">España 🇪🇸</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: Gamaliel Zar -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="gamaliel zar evidencia quimica criminalistica intervencion laboratorio estudio caso buenos aires argentina bioquimico">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 12:00 a 12:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "La evidencia química en criminalística: intervención del laboratorio en un estudio de caso"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Gamaliel Zar.jpeg" alt="Bioq. Gamaliel Zar" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Bioq. Gamaliel Zar</h4>
+                                <p class="text-xs text-gray-300">Bioquímico Forense • <span class="text-red-300 font-semibold">Buenos Aires, Argentina 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Receso Mediodía -->
+                    <div class="schedule-card type-break p-4 sm:p-5" data-type="ceremony" data-day="dia2" data-search="cierre mediodia almuerzo">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-break"><i class="fas fa-utensils"></i> Receso Mediodía</span>
+                                <span class="text-sm font-bold text-gray-200">Cierre turno mañana & Almuerzo</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm"><i class="far fa-clock"></i> 12:50 HS</div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN ESPECIAL: TALLERES SIMULTÁNEOS JUEVES -->
+                    <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-900 to-black border border-yellow-500/30" data-type="workshop" data-day="dia2" data-search="talleres simultaneos jueves salon 1 salon 2 narcotti romero camara jm system luces forenses criptoactivos identificacion vehicular ia inteligencia artificial espermatozoides">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag-pill tag-workshop-1"><i class="fas fa-laptop-code"></i> Talleres Prácticos Simultáneos</span>
+                            <span class="text-xs text-gray-400">Jueves 15 • 13:00 a 14:50 HS</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-4">Talleres Especializados en Paralelo</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Salón 1 -->
+                            <div class="p-4 rounded-xl bg-gray-950/80 border border-yellow-500/40">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-yellow-400 bg-yellow-950/80 px-2.5 py-1 rounded-md border border-yellow-500/30">Salón N° 1</span>
+                                    <span class="text-xs text-gray-400">Cupos Limitados</span>
+                                </div>
+                                <div class="space-y-3 mt-3">
+                                    <div class="border-l-2 border-yellow-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">13:00 a 13:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Luces forenses: aplicaciones y alcance"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: NARCOTTI G.</p>
+                                    </div>
+                                    <div class="border-l-2 border-yellow-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">14:00 a 14:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"La Criminalística y los criptoactivos"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: ROMERO M.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Salón 2 -->
+                            <div class="p-4 rounded-xl bg-gray-950/80 border border-red-500/40">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-red-400 bg-red-950/80 px-2.5 py-1 rounded-md border border-red-500/30">Salón N° 2</span>
+                                    <span class="text-xs text-gray-400">Cupos Limitados</span>
+                                </div>
+                                <div class="space-y-3 mt-3">
+                                    <div class="border-l-2 border-red-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">13:00 a 13:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Identificación vehicular y tecnología criminal. Nuevas herramientas para la investigación forense"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: CAMARA G.</p>
+                                    </div>
+                                    <div class="border-l-2 border-red-500 pl-3">
+                                        <div class="text-xs font-bold text-yellow-400">14:00 a 14:50 HS</div>
+                                        <h5 class="text-sm font-bold text-white">"Detección automatizada de espermatozoides en muestras forenses con Inteligencia Artificial"</h5>
+                                        <p class="text-xs text-gray-400 font-semibold mt-0.5">Disertante: J.M. SYSTEM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: Emanuel Chironi -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="emanuel chironi rio negro revelado huellas latentes polarimetria muller fisica criminalistica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 16:00 a 16:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Revelado no destructivo de huellas latentes y eliminación de fondo mediante polarimetría de Müller"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Emanuel Chironi.jpeg" alt="Dr. Lic. Emanuel Chironi" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Dr. Lic. Emanuel Chironi</h4>
+                                <p class="text-xs text-gray-300">Doctor en Ciencias Físicas, Lic. en Criminalística • <span class="text-red-300 font-semibold">Río Negro, Argentina 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: Gustavo Breglia -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="gustavo breglia autopsia innovacion tecnologica futuro tanatologia forense medico rio negro">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 17:00 a 17:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Más allá de la autopsia: Innovación tecnológica y el futuro de la Tanatología Forense"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Gustavo Breglia.jpg" alt="Dr. Gustavo Breglia" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Dr. Gustavo Breglia</h4>
+                                <p class="text-xs text-gray-300">Médico Forense del Cuerpo de Investigación Forense • <span class="text-red-300 font-semibold">Poder Judicial de Río Negro 🇦🇷</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: José Manuel Duarte Ulloa -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia2" data-search="jose manuel duarte ulloa chile falsificacion documentos identidad emulacion documentologia">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 18:00 a 18:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Evolución de la falsificación en documentos de identidad chilenos: de la simulación a la emulación, abordaje técnico y casos especiales"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/duarte.jpeg" alt="Mg. José Manuel Duarte Ulloa" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Mg. José Manuel Duarte Ulloa</h4>
+                                <p class="text-xs text-gray-300">Magíster, Perito en Documentología y Asesor Criminalístico • <span class="text-red-300 font-semibold">Chile 🇨🇱</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- DÍA 3: VIERNES 16 DE OCTUBRE               -->
+            <!-- ========================================== -->
+            <section class="day-section" data-day="dia3" id="section-dia3">
+                <!-- Header del Día -->
+                <div class="flex items-center gap-3 mb-6 pb-3 border-b border-yellow-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-900 to-red-950 border border-yellow-500/40 flex items-center justify-center text-yellow-300 font-bold font-heading text-lg shadow-lg">
+                        16
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-white">
+                            Viernes 16 de Octubre <span class="text-yellow-400 text-sm font-normal sm:inline block">— Jornada de Clausura</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Criminología, Inteligencia Artificial, Simulación Vial, Cierre y Certificaciones</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+
+                    <!-- Ponencia: Vinicio Altamirano -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia3" data-search="vinicio altamirano ecuador insfor valoracion peligrosidad adolescentes infractoras criminologia criminalistica">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 09:00 a 09:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Hacia un Método Multiaxial de Valoración de Peligrosidad en Adolescentes Infractoras: Integración Criminológica-Criminalística en el Contexto Ecuatoriano"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <img src="img/Ponentes/Vinicio Altamirano.jpeg" alt="Dr. Vinicio Altamirano" class="speaker-thumb">
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">Dr. Vinicio Altamirano</h4>
+                                <p class="text-xs text-gray-300">Doctor y Director de INSFOR Ecuador • <span class="text-red-300 font-semibold">Ecuador 🇪🇨</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponencia: José Augusto Bustamante Benítez -->
+                    <div class="schedule-card type-keynote p-5 sm:p-6" data-type="keynote" data-day="dia3" data-search="jose augusto bustamante benitez algoritmo reconstruccion virtual simulacion siniestros viales vehiculos inteligentes">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-gold"><i class="fas fa-microphone"></i> Conferencia Magistral</span>
+                                <span class="text-xs text-gray-400"><i class="fas fa-map-marker-alt text-yellow-500"></i> Auditorio Principal</span>
+                            </div>
+                            <div class="font-heading font-bold text-yellow-300 text-sm sm:text-base flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 10:00 a 10:50 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-3">
+                            "Los Ojos del Algoritmo: Reconstrucción Virtual y Simulación de Siniestros Viales en la Era de los Vehículos Inteligentes"
+                        </h3>
+                        <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+                            <div class="speaker-thumb-placeholder">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-bold text-sm text-yellow-400">José Augusto Bustamante Benítez</h4>
+                                <p class="text-xs text-gray-300">Especialista en Reconstrucción y Simulación Vial Computarizada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acto de Cierre y Entrega de Certificados -->
+                    <div class="schedule-card type-ceremony p-6 sm:p-7 bg-gradient-to-r from-red-950/80 via-gray-900 to-black border border-yellow-500/50" data-type="ceremony" data-day="dia3" data-search="cierre formal clausura entrega certificados diplomas fin">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="tag-pill tag-ceremony"><i class="fas fa-award"></i> Acto Solemne</span>
+                                <span class="text-xs text-yellow-400 font-bold"><i class="fas fa-star"></i> Culminación del Evento</span>
+                            </div>
+                            <div class="font-heading font-extrabold text-yellow-300 text-base sm:text-lg flex items-center gap-1.5">
+                                <i class="far fa-clock"></i> 11:00 HS
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-white mb-2">
+                            Acto de Cierre Formal y Entrega de Certificados
+                        </h3>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Palabras de clausura, reconocimiento a ponentes internacionales y entrega oficial de certificados de asistencia con validez académica.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- MENSAJE DE RESULTADOS VACÍOS EN BÚSQUEDA -->
+        <div id="no-results" class="hidden text-center py-16 px-4 bg-gray-900/60 rounded-2xl border border-gray-800">
+            <i class="fas fa-search-minus text-4xl text-gray-500 mb-3"></i>
+            <h4 class="font-heading font-bold text-lg text-white">No se encontraron actividades</h4>
+            <p class="text-sm text-gray-400 mt-1 max-w-md mx-auto">No hay resultados que coincidan con los filtros o término de búsqueda ingresado.</p>
+            <button onclick="resetFilters()" class="mt-4 px-4 py-2 text-xs font-bold uppercase tracking-wider bg-yellow-500 hover:bg-yellow-400 text-black rounded-lg transition">
+                Restablecer Filtros
+            </button>
+        </div>
+
+        <!-- FOOTER DISCRETO -->
+        <footer class="mt-16 text-center text-xs text-gray-500 border-t border-gray-800/80 pt-8 pb-4">
+            <p class="font-semibold text-gray-400">III Congreso Internacional de Ciencias Forenses 2026</p>
+            <p class="mt-1">Policía de Entre Ríos — Dirección General de Policía Científica</p>
+            <div class="mt-4">
+                <a href="index.html" class="text-yellow-500/80 hover:text-yellow-400 underline">&larr; Volver al Portal Principal</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BOTÓN FLOTANTE SUBIR -->
+    <button id="backToTop" class="floating-top-btn" onclick="scrollToTop()" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- TOAST DE NOTIFICACIÓN -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 border border-yellow-500 text-yellow-300 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-2xl z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <i class="fas fa-check-circle"></i> <span id="toast-msg">Enlace copiado al portapapeles</span>
+    </div>
+
+    <!-- JAVASCRIPT DE INTERACCIÓN, FILTRADO Y BÚSQUEDA -->
+    <script>
+        let currentDayFilter = 'all';
+        let currentTypeFilter = 'all';
+
+        const searchInput = document.getElementById('schedule-search');
+        const clearBtn = document.getElementById('clear-search-btn');
+        const noResults = document.getElementById('no-results');
+        const scheduleCards = document.querySelectorAll('.schedule-card, [data-type="workshop"]');
+        const daySections = document.querySelectorAll('.day-section');
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // Búsqueda en vivo
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                const term = e.target.value.toLowerCase().trim();
+                if (term.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+                applyFilters();
+            });
+        }
+
+        function clearSearch() {
+            searchInput.value = '';
+            clearBtn.classList.add('hidden');
+            applyFilters();
+            searchInput.focus();
+        }
+
+        // Filtro por Día
+        function filterByDay(day, element) {
+            currentDayFilter = day;
+            document.querySelectorAll('.day-tab-card').forEach(tab => tab.classList.remove('active'));
+            if (element) element.classList.add('active');
+            applyFilters();
+        }
+
+        // Filtro por Tipo
+        function filterByType(type, element) {
+            currentTypeFilter = type;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (element) element.classList.add('active');
+            applyFilters();
+        }
+
+        // Aplicar todos los filtros activos
+        function applyFilters() {
+            const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            let totalVisible = 0;
+
+            daySections.forEach(section => {
+                const sectionDay = section.getAttribute('data-day');
+                const cardsInSection = section.querySelectorAll('.schedule-card, [data-type="workshop"]');
+                let visibleCardsInSection = 0;
+
+                const matchesDay = (currentDayFilter === 'all' || currentDayFilter === sectionDay);
+
+                cardsInSection.forEach(card => {
+                    const cardType = card.getAttribute('data-type') || '';
+                    const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+                    const cardText = card.innerText.toLowerCase();
+
+                    const matchesType = (currentTypeFilter === 'all' || currentTypeFilter === cardType);
+                    const matchesSearch = !searchTerm || searchData.includes(searchTerm) || cardText.includes(searchTerm);
+
+                    if (matchesDay && matchesType && matchesSearch) {
+                        card.style.display = 'block';
+                        visibleCardsInSection++;
+                        totalVisible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (visibleCardsInSection > 0 && matchesDay) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            if (totalVisible === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function resetFilters() {
+            if (searchInput) searchInput.value = '';
+            if (clearBtn) clearBtn.classList.add('hidden');
+            currentDayFilter = 'all';
+            currentTypeFilter = 'all';
+
+            document.querySelectorAll('.day-tab-card').forEach((tab, idx) => {
+                if (idx === 0) tab.classList.add('active');
+                else tab.classList.remove('active');
+            });
+
+            document.querySelectorAll('.filter-btn').forEach((btn, idx) => {
+                if (idx === 0) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            applyFilters();
+        }
+
+        // Compartir Programa (Web Share API o Portapapeles)
+        function shareSchedule() {
+            const shareData = {
+                title: 'Programa Oficial - III Congreso Internacional de Ciencias Forenses 2026',
+                text: 'Accedé al cronograma completo de conferencias y talleres del III Congreso Internacional de Ciencias Forenses.',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast('¡Enlace del programa copiado al portapapeles!');
+                }).catch(() => {
+                    showToast('URL: ' + window.location.href);
+                });
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            if (toast && toastMsg) {
+                toastMsg.innerText = message;
+                toast.classList.remove('opacity-0', 'pointer-events-none');
+                toast.classList.add('opacity-100');
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100');
+                    toast.classList.add('opacity-0', 'pointer-events-none');
+                }, 3000);
+            }
+        }
+
+        // Scroll to top
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

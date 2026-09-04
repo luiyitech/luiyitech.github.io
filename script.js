@@ -392,22 +392,44 @@ class GalleryCarousel {
             item.className = 'gallery-item';
 
             const img = document.createElement('img');
-            img.src = `img/galeria/${i}.jpg`;
             img.alt = `Foto del congreso ${i}`;
             img.className = 'gallery-image';
             img.dataset.index = i - 1;
+            img.loading = 'lazy';
+            img.decoding = 'async';
+
+            // Solo asignamos src inmediatamente a las primeras imágenes visibles
+            // El resto se carga progresivamente bajo demanda al navegar
+            if (i <= 5) {
+                img.src = `img/galeria/${i}.jpg`;
+            } else {
+                img.dataset.src = `img/galeria/${i}.jpg`;
+            }
 
             // Efecto de carga progresiva
             img.style.opacity = '0';
             img.onload = () => {
-                setTimeout(() => {
-                    img.style.transition = 'opacity 0.5s ease';
-                    img.style.opacity = '1';
-                }, i * 100);
+                img.style.transition = 'opacity 0.5s ease';
+                img.style.opacity = '1';
             };
 
             item.appendChild(img);
             track.appendChild(item);
+        }
+    }
+
+    loadImage(index) {
+        const img = document.querySelector(`.gallery-image[data-index="${index}"]`);
+        if (img && img.dataset.src) {
+            img.src = img.dataset.src;
+            delete img.dataset.src;
+        }
+    }
+
+    preloadNearbyImages() {
+        for (let offset = -2; offset <= 4; offset++) {
+            const idx = (this.currentIndex + offset + this.totalImages) % this.totalImages;
+            this.loadImage(idx);
         }
     }
 
@@ -533,6 +555,8 @@ class GalleryCarousel {
         const dots = document.querySelectorAll('.gallery-dot');
 
         if (!track) return;
+
+        this.preloadNearbyImages();
 
         items.forEach((item, index) => {
             const diff = index - this.currentIndex;
@@ -744,21 +768,33 @@ document.addEventListener("DOMContentLoaded", function () {
         // 1. Duplicamos los logos para asegurar que el bucle sea fluido
         originalLogos.forEach(logo => {
             const clone = logo.cloneNode(true);
-            clone.ariaHidden = true; // Buena práctica para accesibilidad
+            clone.setAttribute('aria-hidden', 'true');
             trackElement.appendChild(clone);
         });
 
-        // 2. Calculamos el ancho exacto de la primera mitad del carrusel (los logos originales)
-        let totalWidth = 0;
-        originalLogos.forEach(item => {
-            const style = getComputedStyle(item);
-            const marginRight = parseFloat(style.marginRight) || 0;
-            totalWidth += item.offsetWidth + marginRight;
-        });
+        // 2. Función para calcular y aplicar el ancho exacto
+        const updateWidth = () => {
+            let totalWidth = 0;
+            originalLogos.forEach(item => {
+                const style = getComputedStyle(item);
+                const marginRight = parseFloat(style.marginRight) || 0;
+                totalWidth += item.offsetWidth + marginRight;
+            });
+            if (totalWidth > 0) {
+                trackElement.style.setProperty('--track-width', totalWidth);
+            }
+        };
 
-        // 3. Aplicamos el ancho calculado como una variable CSS al propio track
-        //    Esto permite que la animación CSS sepa exactamente cuánto debe desplazarse.
-        trackElement.style.setProperty('--track-width', totalWidth);
+        updateWidth();
+        window.addEventListener('load', updateWidth);
+        window.addEventListener('resize', updateWidth);
+
+        originalLogos.forEach(item => {
+            const img = item.querySelector('img');
+            if (img && !img.complete) {
+                img.addEventListener('load', updateWidth);
+            }
+        });
     };
     
     // Inicializamos el carrusel de avales

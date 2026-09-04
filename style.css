@@ -2873,6 +2873,10 @@ button#next-slide {
     height: 100px;
 }
 
+.sponsor-oficial-logo-item img.logo-perkinelmer {
+    transform: scale(1.35);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .sponsors-oficiales-title {

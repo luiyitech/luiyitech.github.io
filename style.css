@@ -4631,6 +4631,15 @@ button#next-slide {
     padding: 0 1rem;
 }
 
+.talleres-badges-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+
 .talleres-badge {
     display: inline-flex;
     align-items: center;
@@ -4645,7 +4654,31 @@ button#next-slide {
     letter-spacing: 2px;
     padding: 0.4rem 1.2rem;
     border-radius: 50px;
-    margin-bottom: 1.2rem;
+}
+
+.talleres-date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(241, 196, 15, 0.15);
+    border: 1px solid rgba(241, 196, 15, 0.45);
+    color: #f1c40f;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.15);
+}
+
+.talleres-date-notice {
+    display: block;
+    margin-top: 0.65rem;
+    color: #f1c40f;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .talleres-title {
@@ -4886,6 +4919,78 @@ button#next-slide {
 
 .dual-speaker-item .taller-speaker-role {
     font-size: 0.7rem;
+}
+
+/* Dual speaker layout with individual talk titles (Soluciones Analíticas Bloque 1) */
+.taller-speakers-dual-talks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 0.8rem 0.9rem;
+    min-height: 135px;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 1.25rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dual-speaker-talk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.dual-speaker-talk-item:not(:last-child) {
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.dual-speaker-talk-item .taller-avatar {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 2px solid #27c4df;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.dual-speaker-talk-item .taller-speaker-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dual-speaker-talk-item .taller-speaker-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 0.15rem;
+}
+
+.dual-speaker-talk-item .taller-speaker-role {
+    font-size: 0.72rem;
+    color: #27c4df;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+}
+
+.dual-speaker-talk-item .taller-speaker-title {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.dual-speaker-talk-item .taller-speaker-bio {
+    font-size: 0.68rem;
+    color: #94a3b8;
+    margin-top: 0.3rem;
+    line-height: 1.3;
 }
 
 /* Corporate tech block (Soluciones Analíticas) */

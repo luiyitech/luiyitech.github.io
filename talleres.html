@@ -1,132 +1,522 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talleres - III Congreso Internacional de Ciencias Forenses</title>
-  
-  <!-- Dependencias (igual que en index.html) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Talleres Técnicos y Workshops • III Congreso Internacional de Ciencias Forenses 2026</title>
+    <meta name="description"
+        content="Cronograma de Talleres Técnicos y Workshops del III Congreso Internacional de Ciencias Forenses 2026. Actividad exclusiva del día Miércoles 14. Paraná, Entre Ríos.">
+    <link rel="icon" type="image/png" href="img/logo menu.png">
 
-  <style>
-    /* Estilos específicos para esta página para mejorar la presentación */
-    .workshop-card {
-      border-left-width: 4px;
-      transition: all 0.3s ease-in-out;
-    }
-    .workshop-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    }
-  </style>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #071224;
+            color: #ffffff;
+            font-family: 'Ubuntu', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .talleres-page-main {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+            flex: 1;
+        }
+
+        .talleres-back-bar {
+            max-width: 1320px;
+            margin: 0 auto 1.5rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #27c4df;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background: rgba(39, 196, 223, 0.1);
+            border: 1px solid rgba(39, 196, 223, 0.3);
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+        }
+
+        .btn-back-home:hover {
+            background: rgba(39, 196, 223, 0.2);
+            color: #ffffff;
+            transform: translateX(-3px);
+        }
+
+        .talleres-bottom-cta {
+            max-width: 900px;
+            margin: 4rem auto 0 auto;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.5), rgba(15, 29, 53, 0.8));
+            border: 1px solid rgba(39, 196, 223, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
 
-  <header class="bg-white shadow-md py-6">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="font-heading font-bold text-4xl text-primary">Cronograma de Talleres</h1>
-      <p class="text-xl text-gray-600 mt-2">III Congreso Internacional de Ciencias Forenses</p>
-    </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- ================== MIÉRCOLES ================== -->
-    <div class="mb-16">
-      <h2 class="text-3xl font-bold text-center text-gray-700 mb-8 border-b-2 pb-2">Miércoles</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-        <!-- SALÓN 1 -->
-        <div>
-          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 1</h3>
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-green-500">
-              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Del proyecto a la Prueba: Claves para crear un laboratorio forense eficiente"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">IAFIS</p>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-primary shadow-lg fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20" id="nav-container">
+                <a href="index.html" class="flex items-center">
+                    <img alt="Logo Congreso" class="h-16 transition-all duration-300" id="logo" src="img/logo menu.png">
+                    <h1 class="text-white font-heading font-bold text-lg ml-3">III Congreso Ciencias Forenses</h1>
+                </a>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a class="text-white hover:text-gray-300 transition duration-300"
+                        href="index.html#institucional">Quienes Somos</a>
+                    <a class="text-white hover:text-gray-300 transition duration-300"
+                        href="index.html#ponentes">Ponentes</a>
+                    <a class="text-white hover:text-gray-300 transition duration-300" href="programa.html">Programa</a>
+                    <a class="text-white hover:text-gray-300 transition duration-300 font-bold text-accent"
+                        href="talleres.html">Talleres</a>
+                    <a class="text-white hover:text-gray-300 transition duration-300"
+                        href="index.html#certificado">Certificación</a>
+                    <a class="cta-button text-white px-4 py-2 rounded-lg font-semibold" href="index.html#programa">
+                        Inscríbete Ahora
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none" id="mobile-menu-button">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-green-500">
-              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Portfolio de soluciones para el ámbito forense- Escáner láser y drones”</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">RUNCO</p>
-            </div>
-          </div>
         </div>
+    </nav>
 
-        <!-- SALÓN 2 -->
-        <div>
-          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 2</h3>
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-blue-500">
-              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Nuevas técnicas y tecnologías de revelado de rastros"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">ADN</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-blue-500">
-              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Fuentes de Luz para Aplicaciones Forenses”</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">RESAICARD</p>
-            </div>
-          </div>
+    <!-- Mobile Menu -->
+    <div class="hidden fixed inset-0 bg-primary bg-opacity-95 z-40 md:hidden" id="mobile-menu">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a class="mobile-menu-link text-white text-2xl font-semibold" href="index.html#institucional">Quienes
+                Somos</a>
+            <a class="mobile-menu-link text-white text-2xl font-semibold" href="index.html#ponentes">Ponentes</a>
+            <a class="mobile-menu-link text-white text-2xl font-semibold" href="programa.html">Programa</a>
+            <a class="mobile-menu-link text-white text-2xl font-semibold text-accent" href="talleres.html">Talleres</a>
+            <a class="mobile-menu-link text-white text-2xl font-semibold"
+                href="index.html#certificado">Certificación</a>
+            <a class="cta-button text-white px-6 py-3 rounded-lg font-semibold text-xl"
+                href="index.html#programa">Inscríbete Ahora</a>
         </div>
-      </div>
     </div>
 
-    <!-- =================== JUEVES =================== -->
-    <div>
-      <h2 class="text-3xl font-bold text-center text-gray-700 mb-8 border-b-2 pb-2">Jueves</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-        <!-- SALÓN 1 -->
-        <div>
-          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 1</h3>
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-yellow-500">
-              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Luces forenses: aplicaciones y alcance"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">NARCOTTI G.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-yellow-500">
-              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"La Criminalística y los criptoactivos"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">ROMERO M.</p>
-            </div>
-          </div>
+    <!-- Main Content -->
+    <main class="talleres-page-main">
+        <div class="talleres-back-bar">
+            <a href="index.html#talleres" class="btn-back-home">
+                <i class="fas fa-arrow-left"></i> Volver a la página principal
+            </a>
+            <a href="programa.html" class="btn-back-home"
+                style="color: #f1c40f; border-color: rgba(241, 196, 15, 0.4); background: rgba(241, 196, 15, 0.1);">
+                <i class="far fa-calendar-alt"></i> Ver Programa General
+            </a>
         </div>
 
-        <!-- SALÓN 2 -->
-        <div>
-          <h3 class="text-2xl font-semibold text-center mb-6 bg-gray-200 py-2 rounded">Salón N° 2</h3>
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-red-500">
-              <p class="text-sm text-gray-500 font-semibold">13:00 a 13:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Identificación vehicular y tecnología criminal. Nuevas herramientas para la investigación forense"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">CAMARA G.</p>
+        <section class="talleres-section" id="talleres" style="padding: 1rem 0 3rem 0;">
+            <div class="talleres-header" data-aos="fade-up">
+                <div class="talleres-badges-row">
+                    <span class="talleres-badge">
+                        <i class="fas fa-microchip"></i>
+                        Capacitación Avanzada
+                    </span>
+                    <span class="talleres-date-badge">
+                        <i class="fas fa-calendar-day"></i>
+                        Únicamente Miércoles 14
+                    </span>
+                </div>
+                <h2 class="talleres-title">
+                    Talleres Técnicos y <span>Workshops</span>
+                </h2>
+                <p class="talleres-subtitle">
+                    Espacios exclusivos de formación práctica junto a las empresas líderes del sector forense y
+                    tecnológico.
+                    Conoce las últimas innovaciones en análisis criminal, equipamiento e investigación científica.
+                    <span class="talleres-date-notice">
+                        <i class="fas fa-info-circle"></i> Los talleres se dictarán <strong>únicamente el día Miércoles
+                            14</strong>.
+                    </span>
+                </p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md workshop-card border-red-500">
-              <p class="text-sm text-gray-500 font-semibold">14:00 a 14:50 HS</p>
-              <h4 class="text-xl font-bold text-gray-800 mt-1">"Detección automatizada de espermatozoides en muestras forenses con Inteligencia Artificial"</h4>
-              <p class="text-lg text-gray-600 mt-2 font-medium">J.M. SYSTEM</p>
+
+            <div class="talleres-grid">
+                <!-- ==================== SALÓN A ==================== -->
+                <div class="taller-salon-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="salon-col-header">
+                        <i class="fas fa-landmark"></i>
+                        <h3 class="salon-col-title">SALÓN A</h3>
+                    </div>
+
+                    <!-- Taller 1: IAFIS / LeadsOnline -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 13:00 a 14:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <img src="img/patrocinadores/1- Main Sponsor/leadsOnline.png" alt="Logo LeadsOnline"
+                                    loading="lazy">
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            "Modernizando el análisis criminal con microscopia digital 3D y análisis cuantitativo"
+                        </h4>
+
+                        <div class="taller-speakers">
+                            <img src="img/talleres/petar-zencovich.jpg" alt="Petar Zencovich" class="taller-avatar"
+                                loading="lazy">
+                            <div class="taller-speaker-info">
+                                <div class="taller-speaker-name">Petar Zencovich</div>
+                                <div class="taller-speaker-role">Especialista Forense • LeadsOnline</div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGTqSiF8-2s5QKb13TSr6Zl9bcjAE22668IEp4ZL12mSPA8g/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Taller 2: ADNC -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 14:00 a 15:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <img src="img/patrocinadores/3- Sponsor/ADNC.png" alt="Logo ADNC" loading="lazy">
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            "Mo-Sho y nuevas tecnologías multiespectrales aplicadas al análisis forense"
+                        </h4>
+
+                        <div class="taller-speakers-dual">
+                            <div class="dual-speaker-item">
+                                <img src="img/talleres/carlos-diribarne.jpg" alt="Carlos M. Diribarne"
+                                    class="taller-avatar" loading="lazy">
+                                <div class="taller-speaker-info">
+                                    <div class="taller-speaker-name">Carlos M. Diribarne</div>
+                                    <div class="taller-speaker-role">Magíster en Criminalística</div>
+                                </div>
+                            </div>
+                            <div class="dual-speaker-item">
+                                <img src="img/talleres/diego-alvarez.jpg" alt="Diego A. Alvarez" class="taller-avatar"
+                                    loading="lazy">
+                                <div class="taller-speaker-info">
+                                    <div class="taller-speaker-name">Diego A. Alvarez</div>
+                                    <div class="taller-speaker-role">Magíster en Criminalística</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJ_0Q5KD6If8KVLNaVfbsNekc2JmnnRGbxWsOSg5Wjzu6TAA/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ==================== SALÓN B ==================== -->
+                <div class="taller-salon-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="salon-col-header">
+                        <i class="fas fa-landmark"></i>
+                        <h3 class="salon-col-title">SALÓN B</h3>
+                    </div>
+
+                    <!-- Taller 3: RUNCO -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 13:00 a 14:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <img src="img/patrocinadores/1- Main Sponsor/RUNCO.png" alt="Logo RUNCO" loading="lazy">
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            "Escena del Hecho 4.0: Innovación para la Investigación Criminal"
+                        </h4>
+
+                        <div class="taller-speakers">
+                            <img src="img/talleres/abril-fernandez.jpg" alt="Abril Fernández" class="taller-avatar"
+                                loading="lazy">
+                            <div class="taller-speaker-info">
+                                <div class="taller-speaker-name">Abril Fernández</div>
+                                <div class="taller-speaker-role">Asesora Comercial Especializada • División Geoespacial
+                                    RUNCO</div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScLbiabhCaBQusgQizmBXwR_pU9UdU52W_5NXoh7Qi6a3vlPg/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Taller 4: ULLOA -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 14:00 a 15:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <span
+                                    style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.35rem; letter-spacing: 2px; color: #003366;">ULLOA</span>
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            "Validación forense de documentos de identidad-viaje: estándares internacionales y métodos de
+                            verificación"
+                        </h4>
+
+                        <div class="taller-speakers">
+                            <img src="img/talleres/ulloa-disertante.jpg" alt="Disertante Taller Ulloa"
+                                class="taller-avatar" loading="lazy">
+                            <div class="taller-speaker-info">
+                                <div class="taller-speaker-name">Especialista Forense Ulloa</div>
+                                <div class="taller-speaker-role">Validación de Documentos de Identidad y Viaje</div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP_mL7M63TPfKdjVn8NXeVW3F6ope0FIA8ZTES65w-P5x9sQ/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ==================== SALÓN C ==================== -->
+                <div class="taller-salon-col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="salon-col-header">
+                        <i class="fas fa-landmark"></i>
+                        <h3 class="salon-col-title">SALÓN C</h3>
+                    </div>
+
+                    <!-- Taller 5: Soluciones Analíticas - Bloque 1 -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 13:00 a 14:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <img src="img/talleres/soluciones-thermo.jpeg"
+                                    alt="Logo Soluciones Analíticas - Thermo Scientific" loading="lazy">
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            Soluciones Analíticas: Bloque 1 — Tecnologías Forenses Avanzadas
+                        </h4>
+
+                        <div class="taller-speakers-dual-talks">
+                            <div class="dual-speaker-talk-item">
+                                <img src="img/talleres/sergio-polo.jpg" alt="Sergio Polo" class="taller-avatar"
+                                    loading="lazy">
+                                <div class="taller-speaker-info">
+                                    <div class="taller-speaker-name">Sergio Polo</div>
+                                    <div class="taller-speaker-role">Soluciones Analíticas S.A.</div>
+                                    <div class="taller-speaker-title">"Nuevos Horizontes e Innovaciones en Técnicas
+                                        Espectroscópicas y Elementales para el Análisis de Evidencia Criminal"</div>
+                                </div>
+                            </div>
+                            <div class="dual-speaker-talk-item">
+                                <img src="img/talleres/citlalli-aguilar.jpg" alt="Dra. Citlalli Aguilar"
+                                    class="taller-avatar" loading="lazy">
+                                <div class="taller-speaker-info">
+                                    <div class="taller-speaker-name">Dra. Citlalli Aguilar</div>
+                                    <div class="taller-speaker-role">Thermo Fisher Scientific</div>
+                                    <div class="taller-speaker-title">"Aplicaciones de espectrometría de masas Thermo
+                                        Scientific en los campos toxicológico y forense"</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScYGBgCTfq8MGfb7UiKmhzUvh9TN5PHWmBU5JVegpJQxzsMNA/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Taller 6: Soluciones Analíticas - Bloque 2 -->
+                    <div class="taller-card">
+                        <div class="taller-card-top">
+                            <span class="taller-time-badge">
+                                <i class="far fa-clock"></i> Miércoles 14 • 14:00 a 15:00 HS
+                            </span>
+                            <div class="taller-sponsor-capsule">
+                                <img src="img/talleres/soluciones-auziker.jpeg"
+                                    alt="Logo Soluciones Analíticas - AUZIKER" loading="lazy">
+                            </div>
+                        </div>
+
+                        <h4 class="taller-title">
+                            Soluciones Analíticas: Bloque 2 — Soluciones Integrales Forenses
+                        </h4>
+
+                        <div class="taller-speakers-dual-talks">
+                            <div class="dual-speaker-talk-item">
+                                <img src="img/talleres/luis-bartolome.jpg" alt="Dr. Luis Bartolomé"
+                                    class="taller-avatar" loading="lazy">
+                                <div class="taller-speaker-info">
+                                    <div class="taller-speaker-name">Dr. Luis Bartolomé</div>
+                                    <div class="taller-speaker-role">Responsable de Desarrollo Técnico • AUZIKER</div>
+                                    <div class="taller-speaker-title">"Avances significativos en el desarrollo de
+                                        dispositivos para el entrenamiento de unidades caninas de detección"</div>
+                                    <div class="taller-speaker-bio">Dr. en Química – Universidad del País Vasco •
+                                        Técnico SGIker</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXd0DXX6gfScJk_N0DS9UGhxy-yYrBKKyZygF-TRIQ7L3n6Q/viewform?usp=header"
+                            target="_blank" rel="noopener noreferrer" class="taller-btn-register">
+                            <span>Inscribirme al Taller</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Bottom Contact / Info Box -->
+            <div class="talleres-bottom-cta" data-aos="fade-up">
+                <h3 class="font-heading font-bold text-2xl md:text-3xl text-white mb-3">
+                    ¿Tienes consultas sobre las inscripciones a los talleres?
+                </h3>
+                <p class="text-gray-300 mb-6 max-w-xl mx-auto">
+                    Los cupos son estrictamente limitados por la capacidad de cada salón. Asegura tu lugar registrándote
+                    directamente en cada taller.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://wa.me/5493435011168" target="_blank" rel="noopener noreferrer"
+                        class="cta-button text-white px-6 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-xl"></i> Consultar por WhatsApp
+                    </a>
+                    <a href="index.html" class="btn-back-home text-base px-6 py-3">
+                        <i class="fas fa-home"></i> Ir a Inicio
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col footer-about-col">
+                <div class="footer-brand">
+                    <img loading="lazy" decoding="async" alt="Logo Congreso" src="img/logo menu.png"
+                        class="footer-logo">
+                    <span class="footer-brand-title">III Congreso Internacional</span>
+                </div>
+                <p class="footer-desc">Ciencias Forenses — Paraná, Entre Ríos</p>
+                <p class="footer-tagline">“Evidencia, ciencia y tecnología: desbloqueamos la verdad”</p>
+            </div>
+            <div class="footer-col footer-contact-col">
+                <h4 class="footer-heading">Contacto</h4>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a
+                        href="mailto:congresocienciasforensesparana@gmail.com">congresocienciasforensesparana@gmail.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/5493435011168" target="_blank" rel="noopener noreferrer">+54 9 343
+                        5011168</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Córdoba 351, Paraná, Entre Ríos</span>
+                </div>
+            </div>
+            <div class="footer-col footer-social-col">
+                <h4 class="footer-heading">Síguenos</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/people/Direcci%C3%B3n-General-de-Polic%C3%ADa-Cient%C3%ADfica/100091792284133"
+                        target="_blank" class="footer-social-btn" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/policiacientificaper" target="_blank" class="footer-social-btn"
+                        title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5493435011168" target="_blank" class="footer-social-btn" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <a href="https://policiadeentrerios.site/portal" target="_blank" rel="noopener noreferrer"
+                    class="footer-partner-link">
+                    <img loading="lazy" decoding="async" alt="Logo Policía de Entre Ríos"
+                        src="img/baner 247 seguridad.png" class="footer-partner-img">
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="text-center mt-16">
-        <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">
-            &larr; Volver a la página principal
-        </a>
-    </div>
+        <div class="footer-bottom">
+            <p>© 2026 III Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-  </main>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
 
-  <footer class="bg-gray-800 text-white text-center py-4 mt-12">
-    <p>&copy; 2026 III Congreso Internacional de Ciencias Forenses. Todos los derechos reservados.</p>
-  </footer>
-
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <a class="whatsapp-float" href="https://wa.me/5493435011168" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-text">Contáctanos</span>
+    </a>
 </body>
-</html>```
+
+</html>
